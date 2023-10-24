@@ -6,7 +6,7 @@ setup:
         body: { 'foo': 'bar' }
   - do:
       transform.put_transform:
-        transform_id: soundwave,
+        transform_id: transform_id,
         body: {
           source: {index: test_cat_transforms },
           dest: { index: transformed_index },
@@ -22,9 +22,9 @@ teardown:
         index: 'test_cat_transforms'
   - do:
       transform.delete_transform:
-        transform_id: 'soundwave'
+        transform_id: 'transform_id'
 ---
 "cat.transforms":
   - do:
       cat.transforms
-  - match: { $body: transform_id }
+  - match: { $body: 'transform_id' }
