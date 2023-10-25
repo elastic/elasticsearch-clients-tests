@@ -1,0 +1,13 @@
+---
+teardown:
+  - do:
+      indices.delete:
+        index: 'test_indices_create'
+---
+'indices.create':
+- do:
+    indices.create:
+      index: 'test_indices_create'
+
+- match: { acknowledged: true }
+- match: { index: 'test_indices_create' }

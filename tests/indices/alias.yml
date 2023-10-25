@@ -1,0 +1,49 @@
+---
+setup:
+  - do:
+      indices.create:
+        index: 'indices_alias_test'
+  - do:
+      indices.create:
+        index: 'indices_alias_test2'
+---
+teardown:
+  - do:
+      indices.delete:
+        index: 'indices_alias_test'
+  - do:
+      indices.delete:
+        index: 'indices_alias_test2'
+---
+"indices.alias basic tests":
+- do:
+    indices.put_alias:
+      index: 'indices_alias_test'
+      name: 'testing_alias'
+
+- match: { acknowledged: true }
+
+- do:
+    indices.get_alias:
+      name: 'testing_alias'
+
+- match: { indices_alias_test.aliases.testing_alias: {} }
+
+- do:
+    indices.exists_alias:
+      name: 'testing_alias'
+
+- do:
+    indices.update_aliases:
+      body:
+        actions:
+          - add: { index: 'indices_alias_test2', alias: 'testing_alias' }
+
+- match: { acknowledged: true }
+
+- do:
+    indices.delete_alias:
+      index: '*'
+      name: 'testing_alias'
+
+- match: { acknowledged: true }

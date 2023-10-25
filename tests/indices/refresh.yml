@@ -1,0 +1,18 @@
+---
+setup:
+  - do:
+      indices.create:
+        index: 'indices_refresh_get'
+---
+teardown:
+  - do:
+      indices.delete:
+        index: 'indices_refresh_get'
+
+---
+"indices.refresh":
+- do:
+    indices.refresh:
+      index: 'indices_refresh_get'
+
+- match: { _shards.successful: 1 }

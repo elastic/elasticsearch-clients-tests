@@ -1,0 +1,29 @@
+---
+setup:
+  - do:
+      indices.create:
+        index: 'test_indices_analyze'
+
+---
+teardown:
+  - do:
+      indices.delete:
+        index: 'test_indices_analyze'
+---
+'indices.analyze':
+- do:
+    indices.analyze:
+      index: 'test_indices_analyze'
+      body:
+        analyzer: 'whitespace'
+        text: 'this is only a test'
+
+- length: { tokens: 5 }
+
+- do:
+    indices.analyze:
+      body:
+        analyzer: 'whitespace'
+        text: 'this is only a test'
+
+- length: { tokens: 5 }

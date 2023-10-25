@@ -1,0 +1,19 @@
+---
+setup:
+  - do:
+      indices.create:
+        index: 'indices_get_test'
+---
+teardown:
+  - do:
+      indices.delete:
+        index: 'indices_get_test'
+
+---
+"indices.get":
+- do:
+    indices.get:
+      index: 'indices_get_test'
+
+- match: { indices_get_test.aliases: {} }
+- match: { indices_get_test.mappings: {} }

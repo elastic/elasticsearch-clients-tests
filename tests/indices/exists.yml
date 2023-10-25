@@ -1,0 +1,23 @@
+---
+setup:
+  - do:
+      indices.create:
+        index: 'test_index_exists'
+---
+teardown:
+  - do:
+      indices.delete:
+        index: 'test_index_exists'
+---
+'indices.exists':
+- do:
+    indices.exists:
+      index: 'test_index_exists'
+
+- is_true: ''
+
+- do:
+    indices.exists:
+      index: 'index_that_shouldnt_exist'
+
+- is_false: ''
