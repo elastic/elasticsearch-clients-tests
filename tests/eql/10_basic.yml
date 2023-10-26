@@ -1,0 +1,120 @@
+---
+setup:
+  - do:
+      indices.create:
+          index:  eql_test
+          body:
+            mappings:
+              properties:
+                some_keyword:
+                  type: keyword
+                  ignore_above: 5 # see https://github.com/elastic/elasticsearch/issues/77152
+              runtime:
+                day_of_week:
+                  type: keyword
+                  script:
+                    source: "emit(doc['@timestamp'].value.dayOfWeekEnum.getDisplayName(TextStyle.FULL, Locale.ROOT))"
+  - do:
+      bulk:
+        refresh: true
+        body:
+          - index:
+              _index: eql_test
+              _id:    "1"
+          - event:
+              - category: process
+            "@timestamp": 2020-02-03T12:34:56Z
+            user: SYSTEM
+            id: 123
+            valid: false
+            some_keyword: longer than normal
+          - index:
+              _index: eql_test
+              _id:    "2"
+          - event:
+              - category: process
+            "@timestamp": 2020-02-04T12:34:56Z
+            user: SYSTEM
+            id: 123
+            valid: true
+          - index:
+              _index: eql_test
+              _id:    "3"
+          - event:
+              - category: process
+            "@timestamp": 2020-02-05T12:34:56Z
+            user: SYSTEM
+            id: 123
+            valid: true
+          - index:
+              _index: eql_test
+              _id:    "4"
+          - event:
+              - category: network
+            "@timestamp": 2020-02-06T12:34:56Z
+            user: ADMIN
+            id: 123
+            valid: true
+          - index:
+              _index: eql_test
+              _id:    "5"
+          - event:
+              - category: network
+            "@timestamp": 2020-02-07T12:34:56Z
+            user: SYSTEM
+            id: 123
+            valid: true
+          - index:
+              _index: eql_test
+              _id:    "6"
+          - event:
+              - category: network
+            "@timestamp": 2020-02-08T12:34:56Z
+            user: ADMIN
+            id: 123
+            valid: true
+          - index:
+              _index: eql_test
+              _id:    "7"
+          - event:
+              - category: network
+            "@timestamp": 2020-02-09T12:34:56Z
+            user: SYSTEM
+            id: 123
+            valid: true
+
+---
+teardown:
+  - do:
+      indices.delete:
+        index: eql_test
+
+---
+'eql basic tests':
+  - do:
+      eql.search:
+        index: eql_test
+        keep_on_completion: true
+        wait_for_completion_timeout: '0ms'
+        body:
+          query: 'process where user == "SYSTEM"'
+  - set: { id: id }
+  - match: {timed_out: false}
+
+  - do:
+      eql.get_status:
+        id: $id
+  - match: { id: $id }
+
+  - do:
+      eql.get:
+        id: $id
+        wait_for_completion_timeout: "10s"
+  - match: { timed_out: false }
+  - match: { hits.total.value: 3 }
+  - match: { hits.total.relation: 'eq' }
+
+  - do:
+      eql.delete:
+        id: $id
+  - match: { acknowledged: true }
