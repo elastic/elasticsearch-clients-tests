@@ -15,4 +15,4 @@ teardown:
       indices.refresh:
         index: 'indices_refresh_get'
 
-  - match: { _shards.successful: 1 }
+  - match: { _shards.successful: 3 }
