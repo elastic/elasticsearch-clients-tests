@@ -1,0 +1,19 @@
+---
+setup:
+  - do:
+      indices.create:
+        index: 'create_test_index'
+---
+teardown:
+  - do:
+      indices.delete:
+        index: 'create_test_index'
+---
+'count':
+  - do:
+      create:
+        index: 'create_test_index'
+        id: 42
+        body: { name: 'testing create' }
+  - match: { _index: 'create_test_index' }
+  - match: { result: 'created' }

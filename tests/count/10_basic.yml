@@ -1,0 +1,21 @@
+---
+setup:
+  - do:
+      indices.create:
+        index: 'count_test_index'
+  - do:
+      index:
+        index: 'count_test_index'
+        body: { name: 'test' }
+        refresh: true
+---
+teardown:
+  - do:
+      indices.delete:
+        index: 'count_test_index'
+---
+'count':
+  - do:
+      count:
+        index: 'count_test_index'
+  - match: { count: 1 }

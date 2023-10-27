@@ -1,0 +1,30 @@
+---
+setup:
+  - do:
+      indices.create:
+        index: 'explain_index'
+---
+teardown:
+  - do:
+      indices.delete:
+        index: 'explain_index'
+---
+'count':
+  - do:
+      index:
+        index: 'explain_index'
+        body: { name: 'test' }
+        refresh: true
+  - set: { _id: id }
+  - do:
+      explain:
+        index: 'explain_index'
+        id: $id
+        body: {
+          query: {
+            match: {
+              name: 'test'
+            }
+          }
+        }
+  - match: { matched: true }

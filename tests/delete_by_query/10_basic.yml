@@ -1,0 +1,28 @@
+---
+setup:
+  - do:
+      indices.create:
+        index: 'delete_by_query_test_index'
+  - do:
+      index:
+        index: 'delete_by_query_test_index'
+        body: { name: 'user', age: 30 }
+        refresh: true
+---
+teardown:
+  - do:
+      indices.delete:
+        index: 'delete_by_query_test_index'
+---
+'count':
+  - do:
+      delete_by_query:
+        index: 'delete_by_query_test_index'
+        body: {
+          query: {
+            term: {
+              name: 'user'
+            }
+          }
+        }
+  - match: { deleted: 1 }

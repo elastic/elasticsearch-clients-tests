@@ -1,0 +1,18 @@
+---
+teardown:
+  - do:
+      indices.delete:
+        index: 'exists_index'
+---
+'count':
+  - do:
+      index:
+        index: 'exists_index'
+        body: { name: 'test' }
+        refresh: true
+  - set: { _id: id }
+  - do:
+      exists:
+        index: 'exists_index'
+        id: $id
+  - is_true: ''
