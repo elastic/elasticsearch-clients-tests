@@ -1,0 +1,27 @@
+---
+'logstash pipeline':
+  - do:
+      logstash.put_pipeline:
+        id: 'logstash_test_pipeline'
+        body:
+          description: 'Sample pipeline'
+          last_modified: '2021-01-02T02:50:51.250Z'
+          pipeline_metadata: { type: 'logstash_pipeline', version: '1' }
+          username: 'elastic'
+          pipeline: 'input {}\n filter { grok {} }\n output {}'
+          pipeline_settings:
+            pipeline.workers: 1
+            pipeline.batch.size: 125
+            pipeline.batch.delay: 50
+            queue.type: 'memory'
+            queue.max_bytes: '1gb'
+            queue.checkpoint.writes: 1024
+  - is_true: ''
+
+  - do:
+      logstash.get_pipeline: { id: 'logstash_test_pipeline' }
+  - match: { logstash_test_pipeline.description: 'Sample pipeline' }
+
+  - do:
+      logstash.delete_pipeline: { id: 'logstash_test_pipeline' }
+  - is_true: ''
