@@ -1,0 +1,46 @@
+---
+setup:
+  - do:
+      indices.create:
+        index: 'enrich_tests'
+        body:
+          mappings:
+            properties:
+              baz: { type: 'keyword' }
+              a: { type: 'keyword' }
+              b: { type: 'keyword' }
+---
+teardown:
+  - do:
+      indices.delete:
+        index: 'enrich_tests'
+---
+'enrich':
+  - do:
+      enrich.put_policy:
+        name: 'policy_test'
+        body:
+          match:
+            indices: ['enrich_tests*']
+            match_field: 'baz'
+            enrich_fields: ['a', 'b']
+  - match: { acknowledged: true }
+
+  - do:
+      enrich.execute_policy:
+        name: 'policy_test'
+  - match: { status.phase: 'COMPLETE' }
+
+  - do:
+      enrich.get_policy:
+        name: 'policy_test'
+  - match: { policies.0.config.match.name: 'policy_test' }
+
+  - do:
+      enrich.stats
+  - is_true: 'executing_policies'
+
+  - do:
+      enrich.delete_policy:
+        name: 'policy_test'
+  - match: { acknowledged: true }
