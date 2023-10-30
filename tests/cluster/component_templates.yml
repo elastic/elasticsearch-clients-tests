@@ -1,0 +1,29 @@
+---
+'cluster.component_templates':
+  - do:
+      cluster.put_component_template:
+        name: 'test_component_template'
+        body:
+          template:
+            mappings:
+              _source:
+                enabled: false
+              properties:
+                host_name: { type: 'keyword' }
+                created_at: { type: "date", format: "EEE MMM dd HH:mm:ss Z yyyy" }
+  - match: { acknowledged: true }
+
+  - do:
+      cluster.exists_component_template:
+        name: 'test_component_template'
+  - is_true: ''
+
+  - do:
+      cluster.get_component_template:
+        name: 'test_component_template'
+  - match: { component_templates.0.name: 'test_component_template' }
+
+  - do:
+      cluster.delete_component_template:
+        name: 'test_component_template'
+  - match: { acknowledged: true }

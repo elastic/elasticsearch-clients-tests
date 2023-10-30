@@ -1,0 +1,7 @@
+---
+'cluster.info':
+  - do:
+      cluster.info:
+        target: 'ingest'
+
+  - is_true: 'cluster_name'
