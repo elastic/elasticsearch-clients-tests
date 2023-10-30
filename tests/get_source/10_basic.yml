@@ -1,0 +1,19 @@
+---
+teardown:
+  - do:
+      indices.delete:
+        index: 'get_source_test'
+---
+'get_source':
+  - do:
+      index:
+        index: 'get_source_test'
+        body:
+          name: 'testing'
+        refresh: true
+  - set: { _id: id }
+  - do:
+      get_source:
+        index: 'get_source_test'
+        id: $id
+  - match: { name: 'testing' }
