@@ -1,0 +1,5 @@
+---
+'info':
+  - do:
+      info
+  - match: { name: 'serverless' }
