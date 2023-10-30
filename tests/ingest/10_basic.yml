@@ -1,0 +1,26 @@
+---
+'ingest':
+  - do:
+      ingest.put_pipeline:
+        id: 'test_pipeline'
+        body:
+          description: '_description'
+          processors: []
+  - match: { acknowledged: true }
+
+  - do:
+      ingest.get_pipeline: { id: 'test_pipeline' }
+  - match: { test_pipeline.description: '_description' }
+
+  - do:
+      ingest.simulate:
+        id: 'test_pipeline'
+        body:
+          docs:
+            - { _index: 'index', _id: 'id', _source: { foo: 'bar' } }
+            - { _index: 'index', _id: 'id', _source: { foo: 'rab' } }
+  - is_true: 'docs'
+
+  - do:
+      ingest.delete_pipeline: { id: 'test_pipeline' }
+  - match: { acknowledged: true }
