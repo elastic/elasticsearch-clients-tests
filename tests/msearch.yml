@@ -27,4 +27,3 @@ teardown:
           - {}
           - { query: { match: { author: 'cortazar' } } }
   - match: { responses.0.hits.hits.0._source.name: 'Bestiario' }
-
