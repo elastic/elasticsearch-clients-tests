@@ -1,0 +1,20 @@
+---
+setup:
+  - do:
+      indices.create:
+        index: 'field_caps_test'
+        body:
+          mappings:
+            properties:
+              text: { type: 'text' }
+---
+teardown:
+  - do:
+      indices.delete: { index: 'field_caps_test' }
+---
+'field_caps':
+  - do:
+      field_caps:
+        index: 'field_caps_test'
+        fields: 'text'
+  - match: { fields.text.text.searchable: true }
