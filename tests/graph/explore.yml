@@ -1,0 +1,35 @@
+---
+setup:
+  - do:
+      indices.create:
+        index: 'graph_explore_test'
+        body:
+          mappings:
+            properties: { keys: { type: 'integer' } }
+  - do:
+      index:
+        index: 'graph_explore_test'
+        id: '1'
+        body: { keys: [1,2,3] }
+  - do:
+      index:
+        index: 'graph_explore_test'
+        id: '2'
+        body: { keys: [4,5,6] }
+  - do:
+      indices.refresh
+
+---
+teardown:
+  - do:
+      indices.delete: { index: 'graph_explore_test' }
+---
+'graph.explore':
+  - do:
+      graph.explore:
+        index: 'graph_explore_test'
+        body:
+          query: { match: { keys: 1 } }
+          controls: { use_significance: false }
+          vertices: [{ field: 'keys', min_doc_count: 1 }]
+  - match: { failures: [] }
