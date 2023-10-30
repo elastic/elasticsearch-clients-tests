@@ -1,0 +1,30 @@
+---
+setup:
+  - do:
+      indices.create: { index: 'msearch_test' }
+  - do:
+      bulk:
+        body:
+          - { index: { _index: 'msearch_test', _id: '42' } }
+          - { name: 'Las lenguas de diamante', author: 'Juana de Ibarbourou', release_date: '1918-12-01', page_count: 108}
+          - { index: { _index: 'msearch_test', _id: '44' } }
+          - { name: 'Bestiario', author: 'Julio Cortazar', release_date: '1952-10-12', page_count: 133}
+          - { index: { _index: 'msearch_test', _id: '43' } }
+          - { name: 'Tales of love, madness and death', author: 'Horacio Quiroga', release_date: '1917-12-01', page_count: 188 }
+        refresh: true
+---
+teardown:
+  - do:
+      indices.delete: { index: 'msearch_test' }
+---
+'msearch':
+  - do:
+      msearch:
+        index: 'msearch_test'
+        body:
+          - {}
+          - { query: { match: { name: 'Bestiario' } } }
+          - {}
+          - { query: { match: { author: 'cortazar' } } }
+  - match: { responses.0.hits.hits.0._source.name: 'Bestiario' }
+
