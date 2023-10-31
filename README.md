@@ -10,7 +10,8 @@ All the tests for serverless are located in the [tests](tests) folder. Each API 
 containing the tests to be executer. All the files must be executed in order, they are enumerated with
 a digit prefix.
 
-To speed up the tests, we used a naming convention to use a different index name for each test.
-This means we do not need to execute a cleanup phase after each test. You can remove all the indexes
-at the end of execution of all the tests, using the [DELETE index](https://www.elastic.co/guide/en/elasticsearch/reference/current/indices-delete-index.html)
-API with the `*` wildcard.
+### `setup` and `teardown`
+
+Pre-requisites to run a test (e.g. creating an index, populating an index with data) are declared in a `setup` section. The list of commands in the `setup` section has to run before the test section.
+
+Cleanup is declared in a `teardown` section. This list of commands will run after the tests. **Please add a `teardown` section to your test to remove any created artifacts and data**. This will keep our test clusters clean and our test suite sane.
