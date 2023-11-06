@@ -23,7 +23,7 @@ teardown:
 'msearch_template':
   - do:
       msearch_template:
-        index: index,
+        index: 'msearch_template_test'
         body:
           - {}
           - id: 'my-search-template'
