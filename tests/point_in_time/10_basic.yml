@@ -1,0 +1,28 @@
+---
+setup:
+  - do:
+      indices.create: { index: 'pit_test' }
+---
+teardown:
+  - do:
+      indices.delete: { index: 'pit_test' }
+---
+'point_in_time':
+  - do:
+      open_point_in_time:
+        index: 'pit_test'
+        keep_alive: '1m'
+  - set: { id: id }
+  - do:
+      search:
+        body:
+          query:
+            match_all: {}
+          pit:
+            id: $id
+            keep_alive: '1m'
+  - match: { pit_id: $id }
+  - do:
+      close_point_in_time:
+        body: { id: $id }
+  - match: { succeeded: true }
