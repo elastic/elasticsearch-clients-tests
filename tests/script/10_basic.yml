@@ -1,0 +1,39 @@
+---
+setup:
+  - do:
+      indices.create: { index: 'script_test' }
+  - do:
+      index:
+        index: 'script_test'
+        body: { name: 'test' }
+        refresh: true
+---
+teardown:
+  - do:
+      indices.delete: { index: 'script_test' }
+---
+'scripts':
+  - do:
+      put_script:
+        id: 'my_script'
+        body:
+          script:
+            lang: 'painless'
+            source: "Math.log(_score * 2)"
+  - match: { acknowledged: true }
+  - do:
+      get_script: { id: 'my_script' }
+  - match: { _id: 'my_script' }
+  - match: { found: true }
+  - do:
+      delete_script: { id: 'my_script' }
+  - match: { acknowledged: true }
+  - do:
+      scripts_painless_execute:
+        body:
+          script:
+            source: "params.count / params.total"
+            params:
+              count: 100.0
+              total: 1000.0
+  - match: { result: '0.1' }
