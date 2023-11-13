@@ -1,0 +1,27 @@
+---
+setup:
+  - do:
+      indices.create:
+        index: 'mtermvectors_test'
+        body: { mappings: { properties: { text: { type: 'text', term_vector: 'with_positions_offsets' } } } }
+  - do:
+      index:
+        index: 'mtermvectors_test'
+        id: 'testing_document'
+        body: { text: 'The quick brown fox is brown.' }
+  - do:
+      indices.refresh
+---
+teardown:
+  - do:
+      indices.delete: { index: 'mtermvectors_test' }
+---
+'mtermvectors':
+  - do:
+      mtermvectors:
+        term_statistics: true
+        body:
+          docs:
+            - { _index: 'mtermvectors_test', _id: 'testing_document' }
+  - match: { docs.0.term_vectors.text.terms.brown.term_freq: 2 }
+  - match: { docs.0.term_vectors.text.terms.brown.ttf: 2 }
