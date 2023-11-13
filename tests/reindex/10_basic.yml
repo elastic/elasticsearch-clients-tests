@@ -1,0 +1,23 @@
+---
+setup:
+  - do:
+      indices.create: { index: 'reindex_test' }
+  - do:
+      index:
+        index: 'reindex_test'
+        body: { name: 'garbanzo' }
+        refresh: true
+---
+teardown:
+  - do:
+      indices.delete: { index: 'reindex_test' }
+  - do:
+      indices.delete: { index: 'reindex_index_reindexed', ignore: 404 }
+---
+'reindex':
+  - do:
+      reindex:
+        body:
+          source: { index: 'reindex_test' }
+          dest: { index: 'reindex_test_reindexed' }
+  - match: { created: 1 }
