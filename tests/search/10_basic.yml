@@ -1,0 +1,19 @@
+---
+teardown:
+  - do:
+      indices.delete: { index: 'search_test' }
+---
+'search':
+  - do:
+      bulk:
+        body:
+          - { index: { _index: 'search_test', _id: '42' } }
+          - { name: "The Hitchhiker's Guide to the Galaxy", author: 'Douglas Adams', release_date: '1979-10-12' }
+          - { index: { _index: 'search_test', _id: '43' } }
+          - { name: 'Snow Crash', author: 'Neal Stephenson', release_date: '1992-06-01' }
+          - { index: { _index: 'search_test', _id: '44' } }
+          - { name: 'Starship Troopers', author: 'Robert A. Heinlein', release_date: '1959-12-01' }
+        refresh: true
+  - do:
+      search: { index: 'search_test', q: 'snow' }
+  - match: { hits.hits.0._source.name: 'Snow Crash' }
