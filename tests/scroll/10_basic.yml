@@ -1,0 +1,26 @@
+---
+setup:
+  - do:
+      indices.create:
+        index: 'scroll_test'
+---
+teardown:
+  - do:
+      indices.delete:
+        index: 'scroll_test'
+---
+'scroll':
+  - do:
+      search:
+        index: 'scroll_test'
+        scroll: '1m'
+  - set: { _scroll_id: id }
+  - do:
+      scroll:
+        scroll_id: $id
+        scroll: '1m'
+  - match: { _scroll_id: $id }
+  - do:
+      clear_scroll:
+        scroll_id: $id
+  - match { succeeded: true }
