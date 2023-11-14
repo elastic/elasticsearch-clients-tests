@@ -1,0 +1,30 @@
+---
+'API Key':
+  - do:
+      security.create_api_key:
+        body:
+          name: 'test_api_key'
+          role_descriptors:
+            test_role:
+              cluster: []
+              indices: []
+  - set: { id: id }
+  - match: { name: 'test_api_key' }
+
+  - do:
+      security.get_api_key:
+        id: $id
+  - match: { api_keys.0.name: 'test_api_key' }
+
+  - do:
+      security.query_api_keys:
+        body:
+          query:
+            ids:
+              values:
+                - $id
+  - match: { api_keys.0.name: 'test_api_key' }
+
+  - do:
+      security.invalidate_api_key: { body: { ids: [$id] } }
+  - match: { invalidated_api_keys: $id }
