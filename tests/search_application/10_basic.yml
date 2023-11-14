@@ -1,0 +1,53 @@
+---
+setup:
+  - do:
+      indices.create:
+        index: 'my_app_1'
+  - do:
+      indices.create:
+        index: 'my_app_2'
+---
+teardown:
+  - do:
+      indices.delete:
+        index: 'my_app_1'
+  - do:
+      indices.delete:
+        index: 'my_app_2'
+---
+'search_application':
+  - do:
+      search_application.put:
+        name: 'search_app'
+        body:
+          indices: ['my_app_1', 'my_app_2']
+          template:
+            script:
+              source:
+                query:
+                  query_string:
+                    query: '{{query_string}}'
+                    default_field: '{{default_field}}'
+              params:
+                query_string: '*'
+                default_field: '*'
+            dictionary:
+              properties:
+                query_string: { type: 'string' }
+                default_field:
+                  type: 'string'
+                  enum: ['title', 'description']
+                additionalProperties: false
+              required: ['query_string']
+  - match: { result: 'created' }
+  - do:
+      search_application.get:
+        name: 'search_app'
+  - match: { name: 'search_app' }
+  - do:
+      search_application.list
+  - gt: { count: 0 }
+  - do:
+      search_application.delete:
+        name: 'search_app'
+  - match: { acknowledged: true }
