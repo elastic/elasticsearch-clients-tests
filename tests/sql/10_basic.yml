@@ -1,0 +1,56 @@
+---
+setup:
+  - do:
+      indices.create: { index: 'sql_test' }
+  - do:
+      bulk:
+        body:
+          - { index: { _index: 'sql_test', _id: '42' } }
+          - { name: "The Hitchhiker's Guide to the Galaxy", author: 'Douglas Adams', release_date: '1979-10-12' }
+          - { index: { _index: 'sql_test', _id: '43' } }
+          - { name: 'Snow Crash', author: 'Neal Stephenson', release_date: '1992-06-01' }
+          - { index: { _index: 'sql_test', _id: '44' } }
+          - { name: 'Starship Troopers', author: 'Robert A. Heinlein', release_date: '1959-12-01' }
+        refresh: true
+---
+teardown:
+  - do:
+      indices.delete: { index: 'sql_test' }
+---
+'sql':
+  - do:
+      sql.query:
+        format: 'json'
+        body:
+          query: 'SELECT * FROM sql_test ORDER BY name'
+          fetch_size: 2
+  - set: { cursor: cursor }
+  - do:
+      sql.translate:
+        body: { query: 'SELECT * FROM sql_test ORDER BY name' }
+  - is_true: 'size'
+  - do:
+      sql.clear_cursor:
+        body: { cursor: $cursor }
+  - is_true: 'succeeded'
+---
+'async_sql':
+  - do:
+      sql.query:
+        format: 'json'
+        body:
+          keep_alive: '1d'
+          wait_for_completion_timeout: '0s'
+          query: 'SELECT * FROM sql_test ORDER BY name'
+          fetch_size: 1
+  - set: { id: id }
+  - do:
+      sql.get_async_status:
+        id: $id
+  - match: { id: $id }
+  - do:
+      sql.get_async: { id: $id }
+  - match: { id: $id }
+  - do:
+      sql.delete_async: { id: $id }
+  - is_true: 'acknowledged'
