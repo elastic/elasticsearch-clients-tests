@@ -29,6 +29,6 @@ teardown:
           - id: 'my-search-template'
             params:
               query_string: 'hello world'
-              from: 0,
+              from: 0
               size: 10
   - match: { responses.0.status: 200 }
