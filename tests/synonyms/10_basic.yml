@@ -1,0 +1,38 @@
+---
+setup:
+  - do:
+      indices.create: { index: 'synonyms_test' }
+---
+teardown:
+  - do:
+      indices.delete: { index: 'synonyms_test' }
+---
+'puts, gets, delete synonyms and rules':
+  - do:
+      synonyms.put_synonym:
+        id: 'synonym_id'
+        body: { synonyms_set: [ synonyms: 'house, home' ] }
+  - match: { result: 'created' }
+  - do:
+      synonyms.get_synonym:
+        id: 'synonym_id'
+  - match: { synonyms_set.0.synonyms: 'house, home' }
+  - do:
+      synonyms.put_synonym_rule:
+        set_id: 'synonym_id'
+        rule_id: 'rule_id'
+        body: { synonyms: 'bye,goodbye' }
+  - match: { result: 'created' }
+  - do:
+      synonyms.get_synonym_rule:
+        set_id: 'synonym_id'
+        rule_id: 'rule_id'
+  - match: { synonyms: 'bye,goodbye' }
+  - do:
+      synonyms.delete_synonym_rule:
+        set_id: 'synonym_id'
+        rule_id: 'rule_id'
+  - match: { result: 'deleted' }
+  - do:
+      synonyms.delete_synonym: { id: 'synonym_id' }
+  - is_true: 'acknowledged'
