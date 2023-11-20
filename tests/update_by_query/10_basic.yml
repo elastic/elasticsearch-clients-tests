@@ -1,0 +1,24 @@
+---
+setup:
+  - do:
+      indices.create: { index: 'update_by_query' }
+  - do:
+      index:
+        index: 'update_by_query'
+        body: { name: 'user', age: 29 }
+        refresh: true
+---
+teardown:
+  - do:
+      indices.delete: { index: 'update_by_query' }
+---
+'update_by_query':
+  - do:
+      update_by_query:
+        index: 'update_by_query'
+        body:
+          query: { term: { name: 'user' } }
+          script:
+            source: 'ctx._source.age++'
+            lang: 'painless'
+  - match: { updated: 1 }
