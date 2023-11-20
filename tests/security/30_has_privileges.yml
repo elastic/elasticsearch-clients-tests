@@ -1,0 +1,9 @@
+---
+'security.has_privileges':
+  - do:
+      security.has_privileges:
+        body:
+          cluster: [ "monitor", "manage" ]
+  - is_true: 'has_all_requested'
+  - match: { cluster.monitor: true }
+  - match: { cluster.manage: true }
