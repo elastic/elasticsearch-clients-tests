@@ -1,0 +1,20 @@
+---
+setup:
+  - do:
+      indices.create: { index: 'terms_enum_test' }
+  - do:
+      index:
+        index: 'terms_enum_test'
+        body: { name: 'garbanzo' }
+        refresh: true
+---
+teardown:
+  - do:
+      indices.delete: { index: 'terms_enum_test' }
+---
+'terms_enum':
+  - do:
+      terms_enum:
+        index: 'terms_enum_test'
+        body: { field: 'name' }
+  - is_true: 'complete'
