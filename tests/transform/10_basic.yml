@@ -1,0 +1,58 @@
+---
+setup:
+  - do:
+      indices.create: { index: 'transforms_test' }
+  - do:
+      bulk:
+        body:
+          - { index: { _index: 'transforms_test', _id: '1', data: { name: 'Africa', pop: 17.6} } }
+          - { index: { _index: 'transforms_test', _id: '2', data: { name: 'America', pop: 13 } } }
+          - { index: { _index: 'transforms_test', _id: '3', data: { name: 'Antarctica', pop: 0} } }
+          - { index: { _index: 'transforms_test', _id: '4', data: { name: 'Asia', pop: 59.4} } }
+          - { index: { _index: 'transforms_test', _id: '5', data: { name: 'Oceania', pop: 0.6} } }
+          - { index: { _index: 'transforms_test', _id: '6', data: { name: 'Europe', pop: 9.4} } }
+---
+teardown:
+  - do:
+      indices.delete: { index: 'transforms_test' }
+---
+'transform':
+  - do:
+      transform.put_transform:
+        transform_id: 'population'
+        body:
+          source: { index: 'transforms_test' }
+          dest: { index: 'transformed' }
+          pivot:
+            group_by: { pop: { terms: { field: 'pop' } } }
+            aggregations: { max_pop: { max: { field: 'pop' } } }
+  - is_true: 'acknowledged'
+  - do:
+      transform.update_transform:
+        transform_id: 'population'
+        body: { description: 'Continents approximate population' }
+  - match: { id: 'population' }
+  - do:
+      transform.get_transform: { transform_id: 'population' }
+  - match: { transforms.0.id: 'population' }
+  - do:
+      transform.get_transform_stats: { transform_id: 'population' }
+  - match: { transforms.0.id: 'population' }
+  - do:
+      transform.preview_transform: { transform_id: 'population' }
+  - is_true: 'preview'
+  - do:
+      transform.start_transform: { transform_id: 'population' }
+  - is_true: 'acknowledged'
+  - do:
+      transform.schedule_now_transform: { transform_id: 'population' }
+  - is_true: 'acknowledged'
+  - do:
+      transform.stop_transform: { transform_id: 'population' }
+  - is_true: 'acknowledged'
+  - do:
+      transform.reset_transform: { transform_id: 'population' }
+  - is_true: 'acknowledged'
+  - do:
+      transform.delete_transform: { transform_id: 'population' }
+  - is_true: 'acknowledged'
