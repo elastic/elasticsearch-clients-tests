@@ -1,0 +1,15 @@
+---
+setup:
+  - do:
+      indices.create: { index: 'validate_query_test' }
+---
+teardown:
+  - do:
+      indices.delete: { index: 'validate_query_test' }
+---
+'validate_query':
+  - do:
+      indices.validate_query:
+        index: 'validate_query_test'
+        body: { query: { term: { name: 'user' } } }
+  - is_true: 'valid'
