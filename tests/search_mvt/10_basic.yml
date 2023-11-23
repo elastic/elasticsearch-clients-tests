@@ -1,0 +1,36 @@
+---
+setup:
+  - do:
+      indices.create:
+        index: 'searchmvt_test'
+        body:
+          mappings:
+            properties:
+              location:
+                type: 'geo_point'
+
+  - do:
+      index:
+        index: 'searchmvt_test'
+        body:
+          location: 'POINT(34.25 -21.76)'
+          value: 1
+
+  - do:
+      indices.refresh: {}
+---
+teardown:
+  - do:
+      indices.delete:
+        index: 'searchmvt_test'
+---
+"searchmvt":
+  - do:
+      search_mvt:
+        index: 'searchmvt_test'
+        field: 'location'
+        x: 0
+        y: 0
+        zoom: 0
+        body:
+  - is_true: ''
