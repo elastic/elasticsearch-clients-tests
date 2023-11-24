@@ -1,0 +1,34 @@
+---
+'put ruleset':
+  - do:
+      query_ruleset.put:
+        body:
+          rules:
+            - rule_id: "my-rule1"
+              type: "pinned"
+              criteria:
+                - {type: "contains", metadata: "user_query", values: [ "pugs", "puggles" ] }
+                - {type: "exact", metadata: "user_country", values: [ "us" ] }
+              actions:
+                ids: ["id1", "id2"]
+            - rule_id: "my-rule2"
+              type: "pinned"
+              criteria:
+                - { type: "fuzzy", metadata: "user_query", values: [ "rescue dogs" ] }
+              actions:
+                docs:
+                  - {_index: "index1", _id: "id3" }
+                  - {_index: "index2", _id: "id4" }
+        ruleset_id: 'query_ruleset_testing'
+  - match: { result: 'created' }
+  - do:
+      query_ruleset.get:
+        ruleset_id: 'query_ruleset_testing'
+  - match: { ruleset_id: 'query_ruleset_testing' }
+  - do:
+      query_ruleset.list
+  - match: { results.0.ruleset_id: 'query_ruleset_testing' }
+  - do:
+      query_ruleset.delete:
+        ruleset_id: 'query_ruleset_testing'
+  - is_true: 'acknowledged'
