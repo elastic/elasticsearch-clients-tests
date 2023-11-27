@@ -1,0 +1,15 @@
+---
+'behavioral_analytics':
+  - do:
+      search_application.put_behavioral_analytics:
+        name: 'behavioral_analytics'
+  - is_true: 'acknowledged'
+  - match: { name: 'behavioral_analytics' }
+  - do:
+      search_application.get_behavioral_analytics:
+        name: 'behavioral_analytics'
+  - is_true: 'behavioral_analytics'
+  - do:
+      search_application.delete_behavioral_analytics:
+        name: 'behavioral_analytics'
+  - is_true: 'acknowledged'
