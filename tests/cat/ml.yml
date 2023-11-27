@@ -1,0 +1,14 @@
+---
+"cat.ml":
+  - do:
+      cat.ml_data_frame_analytics
+  - is_true: ""
+  - do:
+      cat.ml_datafeeds
+  - is_true: ""
+  - do:
+      cat.ml_jobs
+  - is_true: ""
+  - do:
+      cat.ml_trained_models
+  - is_true: ""
