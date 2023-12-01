@@ -1,0 +1,15 @@
+---
+setup:
+  - do:
+      indices.create: { index: block_test_index }
+---
+teardown:
+  - do:
+      indices.delete: { index: block_test_index }
+---
+"indices.block":
+  - do:
+      indices.add_block:
+        index: block_test_index
+        block: write
+  - is_true: acknowledged
