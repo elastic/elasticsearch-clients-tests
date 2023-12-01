@@ -1,0 +1,38 @@
+---
+setup:
+  - do:
+      indices.put_index_template:
+        name: my-template
+        body:
+          index_patterns: [logs-*]
+          template:
+            mappings:
+              properties:
+                '@timestamp':
+                  type: date
+          data_stream: {}
+---
+teardown:
+  - do:
+      indices.delete_index_template:
+        name: my-template
+---
+'indices.data_streams':
+  - do:
+      indices.create_data_stream:
+        name: logs-test
+  - is_true: acknowledged
+
+  - do:
+      indices.get_data_stream:
+        name: logs-test
+  - match: { data_streams.0.name: logs-test }
+
+  - do:
+      indices.data_streams_stats
+  - is_true: data_streams
+
+  - do:
+      indices.delete_data_stream:
+        name: logs-test
+  - is_true: acknowledged
