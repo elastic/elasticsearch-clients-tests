@@ -1,4 +1,8 @@
 ---
+teardown:
+  - do:
+      indices.delete: { index: 'pipeline_index' }
+---
 'ingest':
   - do:
       ingest.put_pipeline:
@@ -17,8 +21,8 @@
         id: 'test_pipeline'
         body:
           docs:
-            - { _index: 'index', _id: 'id', _source: { foo: 'bar' } }
-            - { _index: 'index', _id: 'id', _source: { foo: 'rab' } }
+            - { _index: 'pipeline_index', _id: 'id', _source: { foo: 'bar' } }
+            - { _index: 'pipeline_index', _id: 'id', _source: { foo: 'rab' } }
   - is_true: 'docs'
 
   - do:

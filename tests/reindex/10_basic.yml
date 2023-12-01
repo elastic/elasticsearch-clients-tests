@@ -12,7 +12,7 @@ teardown:
   - do:
       indices.delete: { index: 'reindex_test' }
   - do:
-      indices.delete: { index: 'reindex_index_reindexed', ignore: 404 }
+      indices.delete: { index: 'reindex_test_reindexed', ignore: 404 }
 ---
 'reindex':
   - do:
