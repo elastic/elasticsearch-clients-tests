@@ -1,8 +1,4 @@
 ---
-teardown:
-  - do:
-      indices.delete: { index: 'pipeline_index' }
----
 'ingest':
   - do:
       ingest.put_pipeline:
