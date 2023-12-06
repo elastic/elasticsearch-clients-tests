@@ -1,0 +1,27 @@
+---
+setup:
+  - do:
+      indices.create: { index: 'my-data-stream' }
+---
+teardown:
+  - do:
+      indices.delete: { index: 'my-data-stream' }
+---
+'data_lifecycle':
+  - do:
+      indices.put_data_lifecycle:
+        name: 'my-data-stream'
+        body:
+          data_retention: '7d'
+  - is_true: 'acknowledged'
+  - do:
+      indices.get_data_lifecycle:
+        name: 'my-data-stream'
+        include_defaults: true
+  - is_true: 'data_streams'
+  - do:
+      - indices.explain_data_lifecycle: { index: 'my-data-stream' }
+  - is_true: indices.my-data-stream.index.my-data-stream
+  - do:
+      indices.delete_data_lifecycle: { name: 'my-data-stream' }
+  - is_true: 'acknowledged'
