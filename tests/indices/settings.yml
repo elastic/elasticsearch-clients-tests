@@ -1,0 +1,27 @@
+---
+setup:
+  - do:
+      indices.create:
+        index: indices_settings_test
+        body:
+          settings:
+            index.blocks.write: false
+
+---
+teardown:
+  - do:
+      indices.delete: { index: indices_settings_test }
+---
+"indices.settings":
+  - do:
+      indices.get_settings:
+        index: indices_settings_test
+        flat_settings: false
+  - is_false: indices_settings_test.settings.index.blocks.write
+
+  - do:
+      indices.put_settings:
+        body:
+          settings:
+            index.blocks.write: true
+  - is_true: 'acknowledged'
