@@ -1,0 +1,49 @@
+---
+teardown:
+  - do:
+      indices.delete_index_template:
+        name: existing_test
+  - do:
+      cluster.delete_component_template:
+        name: ct
+---
+"Simulate index template":
+  - do:
+      indices.put_index_template:
+        name: existing_test
+        body:
+          index_patterns: te*
+          priority: 10
+          template:
+            mappings:
+              properties:
+                field:
+                  type: keyword
+
+  - do:
+      cluster.put_component_template:
+        name: ct
+        body:
+          template:
+            mappings:
+              properties:
+                ct_field:
+                  type: keyword
+
+  - do:
+      indices.simulate_template:
+        body:
+          index_patterns: te*
+          priority: 15
+          template:
+            settings:
+              index.blocks.write: true
+            aliases:
+              test_alias: {}
+          composed_of: ["ct"]
+
+  - match: {template.settings.index.blocks.write: "true"}
+  - match: {template.mappings.properties.ct_field.type: "keyword"}
+  - match: {overlapping.0.name: existing_test}
+  - match: {overlapping.0.index_patterns: ["te*"]}
+  - is_true: template.aliases.test_alias
