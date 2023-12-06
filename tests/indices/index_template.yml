@@ -1,0 +1,29 @@
+---
+teardown:
+  - do:
+      indices.delete_index_template:
+        name: test
+        ignore: [404]
+---
+'index_template':
+  - do:
+      indices.put_index_template:
+        name: test
+        body:
+          index_patterns: test-*
+          template:
+            mappings:
+              properties:
+                field:
+                  type: keyword
+  - do:
+      indices.get_index_template:
+        name: test
+
+  - match: {index_templates.0.name: test}
+  - match: {index_templates.0.index_template.index_patterns: ["test-*"]}
+  - match: {index_templates.0.index_template.template.mappings: {properties: {field: {type: keyword}}}}
+  - do:
+      indices.exists_index_template:
+        name: test
+  - is_true: ''
