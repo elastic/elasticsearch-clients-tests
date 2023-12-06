@@ -1,0 +1,25 @@
+---
+setup:
+  - do:
+      indices.create:
+        index: test_resolve_index1
+        body:
+          aliases:
+            test_alias: {}
+            test_blias: {}
+            test_clias: {}
+---
+teardown:
+  - do:
+      indices.delete: { index: test_resolve_index1 }
+---
+"Resolve index with indices and aliases":
+  - do:
+      indices.resolve_index:
+        name: '*'
+
+  - match: {indices.0.name: test_resolve_index1}
+  - match: {indices.0.aliases.0: test_alias}
+  - match: {indices.0.aliases.1: test_blias}
+  - match: {indices.0.aliases.2: test_clias}
+  - length: {data_streams: 0}
