@@ -1,0 +1,103 @@
+---
+teardown:
+  - do:
+      machine_learning.delete_calendar:
+        calendar_id: "advent"
+  - do:
+      machine_learning.delete_calendar:
+        calendar_id: "weeks_of_the_year"
+  - do:
+      machine_learning.delete_job:
+        job_id: 'cal'
+        wait_for_completion: true
+  - do:
+      machine_learning.delete_job:
+        job_id: 'cal2'
+        wait_for_completion: true
+
+---
+"Test calendar CRUD":
+  - do:
+      ml.get_calendars:
+        calendar_id: _all
+  - match: { count: 0 }
+
+  - do:
+      ml.put_job:
+        job_id: cal
+        body:  >
+          {
+            "analysis_config" : {
+                "detectors" :[{"function":"metric","field_name":"responsetime","by_field_name":"airline"}]
+            },
+            "data_description" : {
+            }
+          }
+  - match: { job_id: "cal" }
+
+  - do:
+      ml.put_job:
+        job_id: cal2
+        body:  >
+          {
+            "analysis_config" : {
+                "detectors" :[{"function":"metric","field_name":"responsetime","by_field_name":"airline"}]
+            },
+            "data_description" : {
+            }
+          }
+  - match: { job_id: "cal2" }
+
+
+  - do:
+      ml.put_calendar:
+        calendar_id: "advent"
+        body:  >
+          {
+            "job_ids": ["cal", "cal2"],
+            "description": "This is a calendar about..."
+          }
+  - match: { calendar_id: advent }
+  - match: { job_ids.0: cal }
+  - match: { job_ids.1: cal2 }
+  - match: { description: "This is a calendar about..."}
+
+  - do:
+      ml.get_calendars:
+        calendar_id: "advent"
+  - match: { count: 1 }
+  - match:
+      calendars.0:
+        calendar_id: "advent"
+        job_ids: ["cal", "cal2"]
+        description: "This is a calendar about..."
+  - is_false: type
+
+  - do:
+      ml.put_calendar:
+        calendar_id: "tides_of_the_year"
+        body:  >
+          {
+            "job_ids": ["cal"]
+          }
+
+  - do:
+      ml.put_calendar:
+        calendar_id: "weeks_of_the_year"
+
+  - do:
+      ml.get_calendars: {}
+  - match: { count: 3 }
+
+  - do:
+      ml.delete_calendar:
+        calendar_id: "tides_of_the_year"
+
+  - do:
+      ml.get_calendars: {}
+  - match: { count: 2 }
+
+  - do:
+      ml.get_calendars:
+        calendar_id: _all
+  - match: { count: 2 }
