@@ -5,9 +5,9 @@ setup:
         body:
           - { index: { _index: 'mget_test', _id: '42' } }
           - { name: 'Las lenguas de diamante', author: 'Juana de Ibarbourou', release_date: '1918-12-01', page_count: 108}
-          - { index: { _index: index, _id: '44' } }
+          - { index: { _index: 'mget_test', _id: '44' } }
           - { name: 'Bestiario', author: 'Julio Cortazar', release_date: '1952-10-12', page_count: 133}
-          - { index: { _index: index, _id: '43' } }
+          - { index: { _index: 'mget_test', _id: '43' } }
           - { name: 'Tales of love, madness and death', author: 'Horacio Quiroga', release_date: '1917-12-01', page_count: 188 }
         refresh: true
 ---
