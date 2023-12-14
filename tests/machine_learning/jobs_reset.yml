@@ -1,0 +1,28 @@
+---
+setup:
+  - do:
+      ml.put_job:
+        job_id: reset-job
+        body:  >
+          {
+            "job_id":"reset-job",
+            "analysis_config" : {
+                "bucket_span": "1h",
+                "detectors" :[{"function":"count"}]
+            },
+            "data_description" : {
+                "time_field":"time",
+                "time_format":"yyyy-MM-dd HH:mm:ssX"
+            }
+          }
+---
+teardown:
+  - do:
+      ml.delete_job: { job_id: reset-job }
+---
+"Test reset":
+  - do:
+      ml.reset_job:
+        job_id: reset-job
+        delete_user_annotations: true
+  - match: { acknowledged: true }

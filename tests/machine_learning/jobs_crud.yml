@@ -40,6 +40,17 @@
   - match: { jobs.0.analysis_limits.model_memory_limit: "1024mb" }
 
   - do:
+      ml.update_job:
+        job_id: "job-crud-test-apis"
+        body:  >
+          {
+            "analysis_limits": {
+              "model_memory_limit": "20mb"
+            }
+          }
+  - match: { analysis_limits.model_memory_limit: "20mb" }
+
+  - do:
       ml.delete_job:
         job_id: "job-crud-test-apis"
   - match: { acknowledged: true }

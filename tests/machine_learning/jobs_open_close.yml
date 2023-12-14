@@ -1,0 +1,41 @@
+---
+teardown:
+  - do:
+      ml.delete_job: { job_id: job-open-close, force: true }
+---
+'Open/Close jobs':
+  - do:
+      ml.put_job:
+        job_id: job-open-close
+        body:  >
+          {
+            "analysis_config" : {
+                "detectors" :[{"function":"count"}]
+            },
+            "data_description" : {
+            },
+            "analysis_limits": {
+                "model_memory_limit": "10g"
+            },
+            "allow_lazy_open": true
+          }
+  - match: { job_id: "job-open-close" }
+  - match: { analysis_limits.model_memory_limit: "10240mb" }
+  - is_true: create_time
+
+  - do:
+      ml.open_job:
+        job_id: job-open-close
+  - match: { opened: true }
+  - match: { node: "" }
+
+  - do:
+      ml.get_job_stats:
+        job_id: job-open-close
+  - match: {"jobs.0.state": opening}
+
+  # Despite never being assigned to a node the job should close gracefully
+  - do:
+      ml.close_job:
+        job_id: job-open-close
+  - match: { closed: true }
