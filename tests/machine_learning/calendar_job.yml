@@ -1,0 +1,37 @@
+---
+setup:
+  - do:
+      ml.put_calendar:
+        calendar_id: "wildlife"
+  - do:
+      ml.put_job:
+        job_id: tiger
+        body:  >
+          {
+            "analysis_config" : {
+                "detectors" :[{"function":"metric","field_name":"responsetime","by_field_name":"airline"}]
+            },
+            "data_description" : {
+            }
+          }
+---
+teardown:
+  - do:
+      ml.delete_calendar: { calendar_id: "wildlife" }
+  - do:
+      ml.delete_job: { job_id: "tiger" }
+---
+'Calendar jobs':
+  - do:
+      ml.put_calendar_job:
+        calendar_id: "wildlife"
+        job_id: "tiger"
+  - match: { calendar_id: "wildlife" }
+  - match: { job_ids.0: "tiger" }
+
+  - do:
+      ml.delete_calendar_job:
+        calendar_id: "wildlife"
+        job_id: "tiger"
+  - match: { calendar_id: "wildlife" }
+  - length: { job_ids: 0 }
