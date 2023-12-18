@@ -1,0 +1,34 @@
+---
+"Trained models":
+  - do:
+      ml.put_trained_model:
+        model_id: model-1
+        body: >
+          {
+            "description": "empty model for tests",
+            "tags": ["regression", "tag1"],
+            "input": {"field_names": ["field1", "field2"]},
+            "inference_config": {"regression": {}},
+            "definition": {
+              "preprocessors": [],
+              "trained_model": {
+                "tree": {
+                  "feature_names": ["field1", "field2"],
+                  "tree_structure": [
+                  {"node_index": 0, "leaf_value": 1}
+                  ],
+                  "target_type": "regression"
+                }
+              }
+            }
+          }
+  - match: { model_id: model-1 }
+  - do:
+      ml.get_trained_models:
+        model_id: "*"
+        size: 10
+  - gt: { count: 0 }
+  - do:
+      ml.delete_trained_model:
+        model_id: "model-1"
+  - match: { acknowledged: true }
