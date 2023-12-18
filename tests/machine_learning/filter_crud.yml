@@ -1,0 +1,34 @@
+---
+setup:
+  - do:
+      ml.put_filter:
+        filter_id: filter-foo
+        body:  >
+          {
+            "items": ["xyz", "abc"]
+          }
+---
+"Filters crud":
+  - do:
+      ml.get_filters:
+        filter_id: "filter-foo"
+  - match: { count:   1 }
+  - match:
+      filters.0:
+        filter_id: "filter-foo"
+        items: ["abc", "xyz"]
+  - do:
+      ml.update_filter:
+        filter_id: "filter-foo"
+        body:  >
+          {
+            "description": "new description",
+            "add_items": ["c", "d"],
+            "remove_items": ["abc"]
+          }
+  - match: { filter_id: filter-foo }
+  - match: { description: "new description" }
+  - match: { items: ["c", "d", "xyz"] }
+  - do:
+      ml.delete_filter:
+        filter_id: filter-foo
