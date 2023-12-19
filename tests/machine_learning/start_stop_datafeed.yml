@@ -1,0 +1,71 @@
+---
+setup:
+  - do:
+      indices.create:
+        index: airline-data
+        body:
+          mappings:
+            properties:
+              time:
+                type: date
+              airline:
+                type: keyword
+              airport:
+                type: text
+              responsetime:
+                type: float
+  - do:
+      ml.put_job:
+        job_id: start-stop-datafeed-job
+        body:  >
+          {
+            "job_id":"start-stop-datafeed-job",
+            "description":"Analysis of response time by airline",
+            "analysis_config" : {
+                "bucket_span": "1h",
+                "detectors" :[{"function":"metric","field_name":"responsetime","by_field_name":"airline"}],
+                "influencers": ["airport"]
+            },
+            "analysis_limits" : {
+                "model_memory_limit": "30mb"
+            },
+            "data_description" : {
+                "format":"xcontent",
+                "time_field":"time",
+                "time_format":"epoch"
+            }
+          }
+  - do:
+      ml.put_datafeed:
+        datafeed_id: start-stop-datafeed-datafeed-1
+        body:  >
+          {
+            "job_id":"start-stop-datafeed-job",
+            "indexes":"airline-data"
+          }
+---
+teardown:
+  - do:
+      indices.delete: { index: airline-data }
+  - do:
+      ml.delete_job: { job_id: start-stop-datafeed-job, force: true }
+---
+'start stop datafeed':
+  - do:
+      ml.open_job:
+        job_id: "start-stop-datafeed-job"
+  - do:
+      ml.start_datafeed:
+        datafeed_id: "start-stop-datafeed-datafeed-1"
+        start: 0
+  - do:
+      ml.get_datafeed_stats:
+        datafeed_id: "start-stop-datafeed-datafeed-1"
+  - match: { datafeeds.0.state: started }
+  - do:
+      ml.stop_datafeed:
+        datafeed_id: "start-stop-datafeed-datafeed-1"
+  - do:
+      ml.get_datafeed_stats:
+        datafeed_id: "start-stop-datafeed-datafeed-1"
+  - match: { datafeeds.0.state: stopped }

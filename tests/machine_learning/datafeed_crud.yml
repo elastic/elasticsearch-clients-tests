@@ -1,0 +1,87 @@
+---
+setup:
+  - do:
+      ml.put_job:
+        job_id: datafeeds-crud-1
+        body:  >
+          {
+            "job_id":"datafeeds-crud-1",
+            "analysis_config" : {
+                "bucket_span": "1h",
+                "detectors" :[{"function":"count"}],
+                "summary_count_field_name": "doc_count"
+            },
+            "data_description" : {
+                "format":"xcontent",
+                "time_field":"time",
+                "time_format":"epoch"
+            }
+          }
+
+  - do:
+      ml.put_job:
+        job_id: datafeeds-crud-2
+        body:  >
+          {
+            "analysis_config" : {
+                "bucket_span": "1h",
+                "detectors" :[{"function":"count"}]
+            },
+            "data_description" : {
+                "time_field":"time"
+            }
+          }
+---
+teardown:
+  - do:
+      ml.delete_job: { job_id: datafeeds-crud-1, force: true }
+  - do:
+      ml.delete_job: { job_id: datafeeds-crud-2, force: true }
+---
+"datafeeds cruds":
+  - do:
+      ml.get_datafeeds:
+        datafeed_id: "_all"
+  - match: { count: 0 }
+  - match: { datafeeds: [] }
+
+  - do:
+      ml.get_datafeed_stats:
+        datafeed_id: "_all"
+  - match: { count: 0 }
+  - match: { datafeeds: [] }
+  - do:
+      ml.put_datafeed:
+        datafeed_id: test-datafeed-1
+        body:  >
+          {
+            "job_id":"datafeeds-crud-1",
+            "indexes":["index-foo"]
+          }
+  - match: { datafeed_id: "test-datafeed-1" }
+  - match: { job_id: "datafeeds-crud-1" }
+  - match: { indices: ["index-foo"] }
+  - match: { scroll_size: 1000 }
+  - is_true: query.match_all
+  - match: { chunking_config: { mode: "auto" }}
+  - do:
+      ml.update_datafeed:
+        datafeed_id: test-datafeed-1
+        body:  >
+          {
+            "indexes":["index-*"],
+            "scroll_size": 10000,
+            "frequency": "2m",
+            "query_delay": "0s",
+            "max_empty_searches": -1
+          }
+  - match: { datafeed_id: "test-datafeed-1" }
+  - match: { job_id: "datafeeds-crud-1" }
+  - match: { indices: ["index-*"] }
+  - match: { scroll_size: 10000 }
+  - match: { frequency: "2m" }
+  - match: { query_delay: "0s" }
+  - is_false: max_empty_searches
+  - do:
+      ml.delete_datafeed: { datafeed_id: "test-datafeed-1" }
+  - is_true: acknowledged
