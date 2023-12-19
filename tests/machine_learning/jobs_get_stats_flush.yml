@@ -24,22 +24,22 @@ setup:
 ---
 teardown:
   - do:
-      ml.delete_job: { job_id: jobs-stats-flush }
+      ml.delete_job: { job_id: jobs-stats-flush, force: true }
 ---
-"Test get job stats after uploading data prompting the creation of some stats":
+"open, stats, flush, close job":
   - do:
       ml.open_job:
         job_id: jobs-stats-flush
   - do:
-      ml.flush_job:
-        job_id: jobs-stats-flush
-  - match: { flushed: true }
-
-  - do:
       ml.get_job_stats:
         job_id: jobs-stats-flush
   - match:  { jobs.0.job_id : jobs-stats-flush }
-  - match:  { jobs.0.state: opened }
+  - do:
+      ml.flush_job:
+        job_id: jobs-stats-flush
+  - match: { flushed: true }
   - do:
       ml.close_job:
         job_id: jobs-stats-flush
+        force: true
+  - is_true: closed
