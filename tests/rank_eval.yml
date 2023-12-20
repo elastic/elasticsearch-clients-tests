@@ -1,0 +1,29 @@
+---
+setup:
+  - do:
+      index:
+        index: "my-index-000001"
+        id: "doc1"
+        refresh: true
+        body: { text: 'travelling to Amsterdam' }
+---
+teardown:
+  - do:
+      indices.delete: { index: "my-index-000001" }
+---
+"rank eval":
+  - do:
+      rank_eval:
+        index: "my-index-000001"
+        body:
+          requests:
+            - id: "amsterdam_query"
+              request: { query: { match: { text: "amsterdam" } } }
+              ratings:
+                - { "_index": "my-index-000001", "_id": "doc1", "rating": 0 }
+                - { "_index": "my-index-000001", "_id": "doc2", "rating": 3 }
+                - { "_index": "my-index-000001", "_id": "doc3", "rating": 1 }
+          metric:
+            precision:
+              k: 5
+  - match: { details.amsterdam_query.hits.0.hit._index: 'my-index-000001' }
