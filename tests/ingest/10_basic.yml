@@ -24,3 +24,6 @@
   - do:
       ingest.delete_pipeline: { id: 'test_pipeline' }
   - match: { acknowledged: true }
+  - do:
+      ingest.processor_grok
+  - is_true: patterns
