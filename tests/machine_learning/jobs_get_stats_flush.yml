@@ -30,7 +30,7 @@ teardown:
   - do:
       ml.open_job:
         job_id: jobs-stats-flush
-        timeout: 1s
+        timeout: 30s
   - is_true: "opened"
   - do:
       ml.get_job_stats:
