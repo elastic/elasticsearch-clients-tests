@@ -1,0 +1,72 @@
+---
+setup:
+  - do:
+      indices.create:
+        index: data-frame-analytics
+        body:
+          mappings:
+            properties:
+              my_dep_var: { type: "long" }
+              name: { type: "keyword" }
+  - do:
+      index:
+        index: data-frame-analytics
+        body: { my_dep_var: 42, name: 'test' }
+  - do:
+      index:
+        index: data-frame-analytics
+        body: { my_dep_var: 43, name: 'test2' }
+  - do:
+      indices.refresh
+---
+teardown:
+  - do:
+      indices.delete: { index: data-frame-analytics }
+---
+"Data frame analytics":
+  - do:
+      ml.get_data_frame_analytics:
+        id: "_all"
+  - match: { count: 0 }
+  - match: { data_frame_analytics: [] }
+  - do:
+      ml.put_data_frame_analytics:
+        id: "my-test-data-frame"
+        body: >
+          {
+            "source": {
+              "index": "data-frame-analytics"
+            },
+            "dest": {
+              "index": "index-dest"
+              },
+            "analysis": { "classification": { "dependent_variable": "name" } }
+          }
+  - match: { id: "my-test-data-frame" }
+  - do:
+      ml.get_data_frame_analytics:
+        id: "my-test-data-frame"
+  - match: { count: 1 }
+  - match: { data_frame_analytics.0.id: "my-test-data-frame" }
+  - do:
+      ml.get_data_frame_analytics_stats:
+        id: "my-test-data-frame"
+  - match: { data_frame_analytics.0.id: "my-test-data-frame" }
+  - do:
+      ml.preview_data_frame_analytics: { id: "my-test-data-frame" }
+  - length: { feature_values: 2 }
+  - do:
+      ml.start_data_frame_analytics: { id: "my-test-data-frame" }
+  - is_true: 'acknowledged'
+  - do:
+      ml.stop_data_frame_analytics: { id: "my-test-data-frame", force: true }
+  - is_true: 'stopped'
+  - do:
+      ml.update_data_frame_analytics:
+        id: "my-test-data-frame"
+        body: { description: "after update" }
+  - match: { id: "my-test-data-frame" }
+  - match: { description: "after update" }
+  - do:
+      ml.delete_data_frame_analytics: { id: "my-test-data-frame", force: true }
+  - is_true: acknowledged
