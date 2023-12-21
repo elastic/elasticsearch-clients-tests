@@ -1,0 +1,6 @@
+---
+"Test overall buckets given non-matching expression and allow_no_match":
+  - do:
+      ml.get_overall_buckets:
+        job_id: "none-matching-*"
+  - match: { count: 0 }
