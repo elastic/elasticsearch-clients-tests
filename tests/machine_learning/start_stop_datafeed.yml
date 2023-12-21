@@ -61,7 +61,7 @@ teardown:
   - do:
       ml.get_datafeed_stats:
         datafeed_id: "start-stop-datafeed-datafeed-1"
-  - match: { datafeeds.0.state: started }
+  - match: { datafeeds.0.datafeed_id: "start-stop-datafeed-datafeed-1" }
   - do:
       ml.stop_datafeed:
         datafeed_id: "start-stop-datafeed-datafeed-1"

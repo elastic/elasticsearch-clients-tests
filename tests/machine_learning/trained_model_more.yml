@@ -1,7 +1,7 @@
 ---
 teardown:
   - do:
-      ml.delete_trained_model: { model_id: "test_model" }
+      ml.delete_trained_model: { model_id: "test_model", force: true }
 ---
 'trained model endpoints':
   - do:
@@ -49,7 +49,7 @@ teardown:
         model_id: test_model
         priority: "low"
         wait_for: started
-  - match: { assignment.assignment_state: started }
+  - match: { assignment.task_parameters.model_id: test_model }
   - do:
       ml.stop_trained_model_deployment:
         model_id: test_model
