@@ -1,0 +1,15 @@
+---
+"Test by field":
+  - do:
+      ml.estimate_model_memory:
+        body: >
+          {
+            "analysis_config": {
+              "bucket_span": "15m",
+              "detectors": [{"function": "max", "field_name": "responsetime", "by_field_name": "airline"}]
+            },
+            "overall_cardinality": {
+              "airline": 50000
+            }
+          }
+  - match: { model_memory_estimate: "1573mb" }
