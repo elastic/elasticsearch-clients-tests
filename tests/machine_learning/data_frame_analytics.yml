@@ -21,7 +21,12 @@ setup:
 ---
 teardown:
   - do:
-      indices.delete: { index: data-frame-analytics }
+      indices.delete:
+        index: data-frame-analytics
+  - do:
+      indices.delete:
+        index: index-dest
+        ignore: 404
 ---
 "Data frame analytics":
   - do:
