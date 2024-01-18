@@ -1,13 +1,13 @@
-# Serverless Clients Tests
+# Elasticsearch Clients Tests
 
-This repository holds common tests for Elasticsearch Serverless Clients.
+This repository holds common tests for Elasticsearch Clients.
 
 ## Yaml tests
 
 The tests are specified using the Elasticsearch YAML format reported [here](https://github.com/elastic/elasticsearch/blob/main/rest-api-spec/src/yamlRestTest/resources/rest-api-spec/test/README.asciidoc).
 
 All the tests for serverless are located in the [tests](tests) folder. Each API endpoint has a folder
-containing the tests to be executer. All the files must be executed in order, they are enumerated with
+containing the tests to be executed. All the files must be executed in order, they are enumerated with
 a digit prefix.
 
 ### `setup` and `teardown`
