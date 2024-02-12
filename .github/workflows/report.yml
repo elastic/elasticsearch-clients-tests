@@ -1,0 +1,33 @@
+name: report
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+jobs:
+  generate_report:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: 3.3
+        env:
+            STACK_VERSION: 8.13.0-SNAPSHOT
+      - name: Build
+        run: |
+          cd report && bundle install
+      - name: Download Artifacts
+        run: cd report && bundle exec rake download_all
+      - name: Generate report
+        run: cd report && bundle exec rake report
+      - uses: gr2m/create-or-update-pull-request-action@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          commit-message: "Updates report `date '+%Y-%m-%d|%H:%M:%S'`"
