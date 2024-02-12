@@ -1,0 +1,17 @@
+# Tests report
+
+Endpoints: <%= @reporter.apis.count %>
+[Tested](#tested): <%= @reporter.tested.count %>
+[Untested](#untested): <%= @reporter.untested.count %>
+
+## Tested
+
+<% @reporter.tested.each do |test| %>
+- [x] <%= test %>
+<% end %>
+
+## Untested
+
+<% @reporter.untested.each do |test| %>
+- [ ] <%= test %>
+<% end %>
