@@ -10,401 +10,401 @@
 ## Tested
 
 
-- [x] async_search.delete
+- [x] [async_search.delete](./tests/async_search/10_basic.yml)
 
-- [x] async_search.get
+- [x] [async_search.get](./tests/async_search/10_basic.yml)
 
-- [x] async_search.status
+- [x] [async_search.status](./tests/async_search/10_basic.yml)
 
-- [x] async_search.submit
+- [x] [async_search.submit](./tests/async_search/10_basic.yml)
 
-- [x] bulk
+- [x] [bulk](./tests/bulk/10_basic.yml)
 
-- [x] cat.aliases
+- [x] [cat.aliases](./tests/cat/aliases.yml)
 
-- [x] cat.component_templates
+- [x] [cat.component_templates](./tests/cat/component_templates.yml)
 
-- [x] cat.count
+- [x] [cat.count](./tests/cat/count.yml)
 
-- [x] cat.help
+- [x] [cat.help](./tests/cat/help.yml)
 
-- [x] cat.indices
+- [x] [cat.indices](./tests/cat/indices.yml)
 
-- [x] cat.ml_data_frame_analytics
+- [x] [cat.ml_data_frame_analytics](./tests/cat/ml.yml)
 
-- [x] cat.ml_datafeeds
+- [x] [cat.ml_datafeeds](./tests/cat/ml.yml)
 
-- [x] cat.ml_jobs
+- [x] [cat.ml_jobs](./tests/cat/ml.yml)
 
-- [x] cat.ml_trained_models
+- [x] [cat.ml_trained_models](./tests/cat/ml.yml)
 
-- [x] cat.transforms
+- [x] [cat.transforms](./tests/cat/transform.yml)
 
-- [x] clear_scroll
+- [x] [clear_scroll](./tests/scroll/10_basic.yml)
 
-- [x] close_point_in_time
+- [x] [close_point_in_time](./tests/point_in_time/10_basic.yml)
 
-- [x] cluster.delete_component_template
+- [x] [cluster.delete_component_template](./tests/cluster/component_templates.yml)
 
-- [x] cluster.exists_component_template
+- [x] [cluster.exists_component_template](./tests/cluster/component_templates.yml)
 
-- [x] cluster.get_component_template
+- [x] [cluster.get_component_template](./tests/cluster/component_templates.yml)
 
-- [x] cluster.info
+- [x] [cluster.info](./tests/cluster/cluster_info.yml)
 
-- [x] cluster.put_component_template
+- [x] [cluster.put_component_template](./tests/cluster/component_templates.yml)
 
-- [x] count
+- [x] [count](./tests/async_search/10_basic.yml)
 
-- [x] create
+- [x] [create](./tests/cat/aliases.yml)
 
-- [x] delete
+- [x] [delete](./tests/async_search/10_basic.yml)
 
-- [x] delete_by_query
+- [x] [delete_by_query](./tests/delete_by_query/10_basic.yml)
 
-- [x] delete_script
+- [x] [delete_script](./tests/script/10_basic.yml)
 
-- [x] enrich.delete_policy
+- [x] [enrich.delete_policy](./tests/enrich/10_basic.yml)
 
-- [x] enrich.execute_policy
+- [x] [enrich.execute_policy](./tests/enrich/10_basic.yml)
 
-- [x] enrich.get_policy
+- [x] [enrich.get_policy](./tests/enrich/10_basic.yml)
 
-- [x] enrich.put_policy
+- [x] [enrich.put_policy](./tests/enrich/10_basic.yml)
 
-- [x] enrich.stats
+- [x] [enrich.stats](./tests/enrich/10_basic.yml)
 
-- [x] eql.delete
+- [x] [eql.delete](./tests/eql/10_basic.yml)
 
-- [x] eql.get
+- [x] [eql.get](./tests/eql/10_basic.yml)
 
-- [x] eql.get_status
+- [x] [eql.get_status](./tests/eql/10_basic.yml)
 
-- [x] eql.search
+- [x] [eql.search](./tests/eql/10_basic.yml)
 
-- [x] exists
+- [x] [exists](./tests/cluster/component_templates.yml)
 
-- [x] exists_source
+- [x] [exists_source](./tests/exists_source/10_basic.yml)
 
-- [x] explain
+- [x] [explain](./tests/explain/10_basic.yml)
 
-- [x] field_caps
+- [x] [field_caps](./tests/field_caps/10_basic.yml)
 
-- [x] get
+- [x] [get](./tests/async_search/10_basic.yml)
 
-- [x] get_script
+- [x] [get_script](./tests/script/10_basic.yml)
 
-- [x] get_source
+- [x] [get_source](./tests/get_source/10_basic.yml)
 
-- [x] graph.explore
+- [x] [graph.explore](./tests/graph/explore.yml)
 
-- [x] index
+- [x] [index](./tests/async_search/10_basic.yml)
 
-- [x] indices.add_block
+- [x] [indices.add_block](./tests/indices/block.yml)
 
-- [x] indices.analyze
+- [x] [indices.analyze](./tests/indices/analyze.yml)
 
-- [x] indices.create
+- [x] [indices.create](./tests/cat/aliases.yml)
 
-- [x] indices.create_data_stream
+- [x] [indices.create_data_stream](./tests/indices/data_streams.yml)
 
-- [x] indices.data_streams_stats
+- [x] [indices.data_streams_stats](./tests/indices/data_streams.yml)
 
-- [x] indices.delete
+- [x] [indices.delete](./tests/async_search/10_basic.yml)
 
-- [x] indices.delete_alias
+- [x] [indices.delete_alias](./tests/indices/alias.yml)
 
-- [x] indices.delete_data_lifecycle
+- [x] [indices.delete_data_lifecycle](./tests/indices/data_lifecycle.yml)
 
-- [x] indices.delete_data_stream
+- [x] [indices.delete_data_stream](./tests/indices/data_streams.yml)
 
-- [x] indices.delete_index_template
+- [x] [indices.delete_index_template](./tests/indices/data_streams.yml)
 
-- [x] indices.exists
+- [x] [indices.exists](./tests/indices/alias.yml)
 
-- [x] indices.exists_alias
+- [x] [indices.exists_alias](./tests/indices/alias.yml)
 
-- [x] indices.exists_index_template
+- [x] [indices.exists_index_template](./tests/indices/index_template.yml)
 
-- [x] indices.explain_data_lifecycle
+- [x] [indices.explain_data_lifecycle](./tests/indices/data_lifecycle.yml)
 
-- [x] indices.get
+- [x] [indices.get](./tests/indices/alias.yml)
 
-- [x] indices.get_alias
+- [x] [indices.get_alias](./tests/indices/alias.yml)
 
-- [x] indices.get_data_lifecycle
+- [x] [indices.get_data_lifecycle](./tests/indices/data_lifecycle.yml)
 
-- [x] indices.get_data_stream
+- [x] [indices.get_data_stream](./tests/indices/data_streams.yml)
 
-- [x] indices.get_index_template
+- [x] [indices.get_index_template](./tests/indices/index_template.yml)
 
-- [x] indices.get_mapping
+- [x] [indices.get_mapping](./tests/indices/mapping.yml)
 
-- [x] indices.get_settings
+- [x] [indices.get_settings](./tests/indices/settings.yml)
 
-- [x] indices.migrate_to_data_stream
+- [x] [indices.migrate_to_data_stream](./tests/indices/migrate_modify_data_stream.yml)
 
-- [x] indices.modify_data_stream
+- [x] [indices.modify_data_stream](./tests/indices/migrate_modify_data_stream.yml)
 
-- [x] indices.put_alias
+- [x] [indices.put_alias](./tests/cat/aliases.yml)
 
-- [x] indices.put_data_lifecycle
+- [x] [indices.put_data_lifecycle](./tests/indices/data_lifecycle.yml)
 
-- [x] indices.put_index_template
+- [x] [indices.put_index_template](./tests/indices/data_streams.yml)
 
-- [x] indices.put_mapping
+- [x] [indices.put_mapping](./tests/indices/mapping.yml)
 
-- [x] indices.put_settings
+- [x] [indices.put_settings](./tests/indices/settings.yml)
 
-- [x] indices.refresh
+- [x] [indices.refresh](./tests/graph/explore.yml)
 
-- [x] indices.resolve_index
+- [x] [indices.resolve_index](./tests/indices/resolve.yml)
 
-- [x] indices.rollover
+- [x] [indices.rollover](./tests/indices/rollover.yml)
 
-- [x] indices.simulate_index_template
+- [x] [indices.simulate_index_template](./tests/indices/simulate_template.yml)
 
-- [x] indices.simulate_template
+- [x] [indices.simulate_template](./tests/indices/simulate_index_template.yml)
 
-- [x] indices.update_aliases
+- [x] [indices.update_aliases](./tests/indices/alias.yml)
 
-- [x] indices.validate_query
+- [x] [indices.validate_query](./tests/validate_query/10_basic.yml)
 
-- [x] info
+- [x] [info](./tests/cluster/cluster_info.yml)
 
-- [x] ingest.delete_pipeline
+- [x] [ingest.delete_pipeline](./tests/ingest/10_basic.yml)
 
-- [x] ingest.get_pipeline
+- [x] [ingest.get_pipeline](./tests/ingest/10_basic.yml)
 
-- [x] ingest.processor_grok
+- [x] [ingest.processor_grok](./tests/ingest/10_basic.yml)
 
-- [x] ingest.put_pipeline
+- [x] [ingest.put_pipeline](./tests/ingest/10_basic.yml)
 
-- [x] ingest.simulate
+- [x] [ingest.simulate](./tests/ingest/10_basic.yml)
 
-- [x] license.get
+- [x] [license.get](./tests/license.yml)
 
-- [x] logstash.delete_pipeline
+- [x] [logstash.delete_pipeline](./tests/logstash/10_basic.yml)
 
-- [x] logstash.get_pipeline
+- [x] [logstash.get_pipeline](./tests/logstash/10_basic.yml)
 
-- [x] logstash.put_pipeline
+- [x] [logstash.put_pipeline](./tests/logstash/10_basic.yml)
 
-- [x] mget
+- [x] [mget](./tests/mget.yml)
 
-- [x] ml.close_job
+- [x] [ml.close_job](./tests/machine_learning/jobs_crud.yml)
 
-- [x] ml.delete_calendar
+- [x] [ml.delete_calendar](./tests/machine_learning/calendar_crud.yml)
 
-- [x] ml.delete_calendar_event
+- [x] [ml.delete_calendar_event](./tests/machine_learning/calendar_events_crud.yml)
 
-- [x] ml.delete_calendar_job
+- [x] [ml.delete_calendar_job](./tests/machine_learning/calendar_job.yml)
 
-- [x] ml.delete_data_frame_analytics
+- [x] [ml.delete_data_frame_analytics](./tests/machine_learning/data_frame_analytics.yml)
 
-- [x] ml.delete_datafeed
+- [x] [ml.delete_datafeed](./tests/machine_learning/datafeed_crud.yml)
 
-- [x] ml.delete_filter
+- [x] [ml.delete_filter](./tests/machine_learning/filter_crud.yml)
 
-- [x] ml.delete_job
+- [x] [ml.delete_job](./tests/machine_learning/calendar_crud.yml)
 
-- [x] ml.delete_trained_model
+- [x] [ml.delete_trained_model](./tests/machine_learning/trained_model.yml)
 
-- [x] ml.delete_trained_model_alias
+- [x] [ml.delete_trained_model_alias](./tests/machine_learning/trained_model_aliases.yml)
 
-- [x] ml.estimate_model_memory
+- [x] [ml.estimate_model_memory](./tests/machine_learning/estimate_model_memory.yml)
 
-- [x] ml.evaluate_data_frame
+- [x] [ml.evaluate_data_frame](./tests/machine_learning/data_frame_evaluate.yml)
 
-- [x] ml.flush_job
+- [x] [ml.flush_job](./tests/machine_learning/jobs_crud.yml)
 
-- [x] ml.get_calendar_events
+- [x] [ml.get_calendar_events](./tests/machine_learning/calendar_events_crud.yml)
 
-- [x] ml.get_calendars
+- [x] [ml.get_calendars](./tests/machine_learning/calendar_crud.yml)
 
-- [x] ml.get_data_frame_analytics
+- [x] [ml.get_data_frame_analytics](./tests/machine_learning/data_frame_analytics.yml)
 
-- [x] ml.get_data_frame_analytics_stats
+- [x] [ml.get_data_frame_analytics_stats](./tests/machine_learning/data_frame_analytics.yml)
 
-- [x] ml.get_datafeed_stats
+- [x] [ml.get_datafeed_stats](./tests/machine_learning/datafeed_crud.yml)
 
-- [x] ml.get_datafeeds
+- [x] [ml.get_datafeeds](./tests/machine_learning/datafeed_crud.yml)
 
-- [x] ml.get_filters
+- [x] [ml.get_filters](./tests/machine_learning/filter_crud.yml)
 
-- [x] ml.get_job_stats
+- [x] [ml.get_job_stats](./tests/machine_learning/jobs_crud.yml)
 
-- [x] ml.get_jobs
+- [x] [ml.get_jobs](./tests/machine_learning/jobs_crud.yml)
 
-- [x] ml.get_overall_buckets
+- [x] [ml.get_overall_buckets](./tests/machine_learning/get_overall_buckets.yml)
 
-- [x] ml.get_trained_models
+- [x] [ml.get_trained_models](./tests/machine_learning/trained_model.yml)
 
-- [x] ml.get_trained_models_stats
+- [x] [ml.get_trained_models_stats](./tests/machine_learning/trained_model_more.yml)
 
-- [x] ml.open_job
+- [x] [ml.open_job](./tests/machine_learning/jobs_crud.yml)
 
-- [x] ml.post_calendar_events
+- [x] [ml.post_calendar_events](./tests/machine_learning/calendar_events_crud.yml)
 
-- [x] ml.preview_data_frame_analytics
+- [x] [ml.preview_data_frame_analytics](./tests/machine_learning/data_frame_analytics.yml)
 
-- [x] ml.preview_datafeed
+- [x] [ml.preview_datafeed](./tests/machine_learning/preview_datafeed.yml)
 
-- [x] ml.put_calendar
+- [x] [ml.put_calendar](./tests/machine_learning/calendar_crud.yml)
 
-- [x] ml.put_calendar_job
+- [x] [ml.put_calendar_job](./tests/machine_learning/calendar_job.yml)
 
-- [x] ml.put_data_frame_analytics
+- [x] [ml.put_data_frame_analytics](./tests/machine_learning/data_frame_analytics.yml)
 
-- [x] ml.put_datafeed
+- [x] [ml.put_datafeed](./tests/machine_learning/datafeed_crud.yml)
 
-- [x] ml.put_filter
+- [x] [ml.put_filter](./tests/machine_learning/filter_crud.yml)
 
-- [x] ml.put_job
+- [x] [ml.put_job](./tests/machine_learning/calendar_crud.yml)
 
-- [x] ml.put_trained_model
+- [x] [ml.put_trained_model](./tests/machine_learning/trained_model.yml)
 
-- [x] ml.put_trained_model_alias
+- [x] [ml.put_trained_model_alias](./tests/machine_learning/trained_model_aliases.yml)
 
-- [x] ml.put_trained_model_definition_part
+- [x] [ml.put_trained_model_definition_part](./tests/machine_learning/trained_model_more.yml)
 
-- [x] ml.put_trained_model_vocabulary
+- [x] [ml.put_trained_model_vocabulary](./tests/machine_learning/trained_model_more.yml)
 
-- [x] ml.reset_job
+- [x] [ml.reset_job](./tests/machine_learning/jobs_reset.yml)
 
-- [x] ml.start_data_frame_analytics
+- [x] [ml.start_data_frame_analytics](./tests/machine_learning/data_frame_analytics.yml)
 
-- [x] ml.start_datafeed
+- [x] [ml.start_datafeed](./tests/machine_learning/start_stop_datafeed.yml)
 
-- [x] ml.start_trained_model_deployment
+- [x] [ml.start_trained_model_deployment](./tests/machine_learning/trained_model_more.yml)
 
-- [x] ml.stop_data_frame_analytics
+- [x] [ml.stop_data_frame_analytics](./tests/machine_learning/data_frame_analytics.yml)
 
-- [x] ml.stop_datafeed
+- [x] [ml.stop_datafeed](./tests/machine_learning/start_stop_datafeed.yml)
 
-- [x] ml.stop_trained_model_deployment
+- [x] [ml.stop_trained_model_deployment](./tests/machine_learning/trained_model_more.yml)
 
-- [x] ml.update_data_frame_analytics
+- [x] [ml.update_data_frame_analytics](./tests/machine_learning/data_frame_analytics.yml)
 
-- [x] ml.update_datafeed
+- [x] [ml.update_datafeed](./tests/machine_learning/datafeed_crud.yml)
 
-- [x] ml.update_filter
+- [x] [ml.update_filter](./tests/machine_learning/filter_crud.yml)
 
-- [x] ml.update_job
+- [x] [ml.update_job](./tests/machine_learning/jobs_crud.yml)
 
-- [x] msearch
+- [x] [msearch](./tests/msearch.yml)
 
-- [x] msearch_template
+- [x] [msearch_template](./tests/msearch_template.yml)
 
-- [x] mtermvectors
+- [x] [mtermvectors](./tests/mtermvectors/10_basic.yml)
 
-- [x] open_point_in_time
+- [x] [open_point_in_time](./tests/point_in_time/10_basic.yml)
 
-- [x] ping
+- [x] [ping](./tests/cluster/component_templates.yml)
 
-- [x] put_script
+- [x] [put_script](./tests/msearch_template.yml)
 
-- [x] query_ruleset.delete
+- [x] [query_ruleset.delete](./tests/query_ruleset/10_basic.yml)
 
-- [x] query_ruleset.get
+- [x] [query_ruleset.get](./tests/query_ruleset/10_basic.yml)
 
-- [x] query_ruleset.list
+- [x] [query_ruleset.list](./tests/query_ruleset/10_basic.yml)
 
-- [x] query_ruleset.put
+- [x] [query_ruleset.put](./tests/query_ruleset/10_basic.yml)
 
-- [x] rank_eval
+- [x] [rank_eval](./tests/rank_eval.yml)
 
-- [x] reindex
+- [x] [reindex](./tests/reindex/10_basic.yml)
 
-- [x] render_search_template
+- [x] [render_search_template](./tests/search_template/10_basic.yml)
 
-- [x] scripts_painless_execute
+- [x] [scripts_painless_execute](./tests/script/10_basic.yml)
 
-- [x] scroll
+- [x] [scroll](./tests/machine_learning/datafeed_crud.yml)
 
-- [x] search
+- [x] [search](./tests/async_search/10_basic.yml)
 
-- [x] search_application.delete
+- [x] [search_application.delete](./tests/search_application/10_basic.yml)
 
-- [x] search_application.delete_behavioral_analytics
+- [x] [search_application.delete_behavioral_analytics](./tests/search_application/20_behavioral_analytics.yml)
 
-- [x] search_application.get
+- [x] [search_application.get](./tests/search_application/10_basic.yml)
 
-- [x] search_application.get_behavioral_analytics
+- [x] [search_application.get_behavioral_analytics](./tests/search_application/20_behavioral_analytics.yml)
 
-- [x] search_application.list
+- [x] [search_application.list](./tests/search_application/10_basic.yml)
 
-- [x] search_application.put
+- [x] [search_application.put](./tests/search_application/10_basic.yml)
 
-- [x] search_application.put_behavioral_analytics
+- [x] [search_application.put_behavioral_analytics](./tests/search_application/20_behavioral_analytics.yml)
 
-- [x] search_mvt
+- [x] [search_mvt](./tests/search_mvt/10_basic.yml)
 
-- [x] search_template
+- [x] [search_template](./tests/msearch_template.yml)
 
-- [x] security.authenticate
+- [x] [security.authenticate](./tests/security/20_authenticate.yml)
 
-- [x] security.create_api_key
+- [x] [security.create_api_key](./tests/security/10_api_key_basic.yml)
 
-- [x] security.get_api_key
+- [x] [security.get_api_key](./tests/security/10_api_key_basic.yml)
 
-- [x] security.has_privileges
+- [x] [security.has_privileges](./tests/security/30_has_privileges.yml)
 
-- [x] security.invalidate_api_key
+- [x] [security.invalidate_api_key](./tests/security/10_api_key_basic.yml)
 
-- [x] security.query_api_keys
+- [x] [security.query_api_keys](./tests/security/10_api_key_basic.yml)
 
-- [x] sql.clear_cursor
+- [x] [sql.clear_cursor](./tests/sql/10_basic.yml)
 
-- [x] sql.delete_async
+- [x] [sql.delete_async](./tests/sql/10_basic.yml)
 
-- [x] sql.get_async
+- [x] [sql.get_async](./tests/sql/10_basic.yml)
 
-- [x] sql.get_async_status
+- [x] [sql.get_async_status](./tests/sql/10_basic.yml)
 
-- [x] sql.query
+- [x] [sql.query](./tests/sql/10_basic.yml)
 
-- [x] sql.translate
+- [x] [sql.translate](./tests/sql/10_basic.yml)
 
-- [x] synonyms.delete_synonym
+- [x] [synonyms.delete_synonym](./tests/synonyms/10_basic.yml)
 
-- [x] synonyms.delete_synonym_rule
+- [x] [synonyms.delete_synonym_rule](./tests/synonyms/10_basic.yml)
 
-- [x] synonyms.get_synonym
+- [x] [synonyms.get_synonym](./tests/synonyms/10_basic.yml)
 
-- [x] synonyms.get_synonym_rule
+- [x] [synonyms.get_synonym_rule](./tests/synonyms/10_basic.yml)
 
-- [x] synonyms.put_synonym
+- [x] [synonyms.put_synonym](./tests/synonyms/10_basic.yml)
 
-- [x] synonyms.put_synonym_rule
+- [x] [synonyms.put_synonym_rule](./tests/synonyms/10_basic.yml)
 
-- [x] terms_enum
+- [x] [terms_enum](./tests/terms_enum/10_basic.yml)
 
-- [x] termvectors
+- [x] [termvectors](./tests/mtermvectors/10_basic.yml)
 
-- [x] transform.delete_transform
+- [x] [transform.delete_transform](./tests/cat/transform.yml)
 
-- [x] transform.get_transform
+- [x] [transform.get_transform](./tests/transform/10_basic.yml)
 
-- [x] transform.get_transform_stats
+- [x] [transform.get_transform_stats](./tests/transform/10_basic.yml)
 
-- [x] transform.preview_transform
+- [x] [transform.preview_transform](./tests/transform/10_basic.yml)
 
-- [x] transform.put_transform
+- [x] [transform.put_transform](./tests/cat/transform.yml)
 
-- [x] transform.reset_transform
+- [x] [transform.reset_transform](./tests/transform/10_basic.yml)
 
-- [x] transform.schedule_now_transform
+- [x] [transform.schedule_now_transform](./tests/transform/10_basic.yml)
 
-- [x] transform.start_transform
+- [x] [transform.start_transform](./tests/transform/10_basic.yml)
 
-- [x] transform.stop_transform
+- [x] [transform.stop_transform](./tests/transform/10_basic.yml)
 
-- [x] transform.update_transform
+- [x] [transform.update_transform](./tests/transform/10_basic.yml)
 
-- [x] update
+- [x] [update](./tests/indices/alias.yml)
 
-- [x] update_by_query
+- [x] [update_by_query](./tests/update_by_query/10_basic.yml)
 
 
 ## Untested

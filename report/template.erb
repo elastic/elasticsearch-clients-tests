@@ -7,7 +7,7 @@ Endpoints: <%= @reporter.apis.count %>
 ## Tested
 
 <% @reporter.tested.each do |test| %>
-- [x] <%= test %>
+- [x] [<%= test[:endpoint] %>](<%= test[:file] %>)
 <% end %>
 
 ## Untested

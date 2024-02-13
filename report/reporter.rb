@@ -20,17 +20,18 @@ module Elastic
 
     def report!
       @apis.each do |api|
-        if find_in_tests(api)
-          @tested << api
+        if (test = find_test(api))
+          @tested << test
         else
           @untested << api
         end
       end
     end
 
-    def find_in_tests(endpoint)
+    def find_test(endpoint)
       Dir[TESTS_PATH].map do |path|
-        return true if File.readlines(path).grep(/#{endpoint}/).any?
+        relative_path = path[path.index('/tests')..-1]
+        return { endpoint: endpoint, file: ".#{relative_path}" } if File.readlines(path).grep(/#{endpoint}/).any?
       end
       false
     end
