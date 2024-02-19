@@ -1,25 +1,50 @@
 module Elastic
   class Reporter
-    JSON_FILES = "#{File.expand_path('./tmp/rest-api-spec/api')}/*.json".freeze
+    STACK_FILES = "#{File.expand_path('./tmp/rest-api-spec/api')}/*.json".freeze
     TESTS_PATH = File.expand_path('../tests/**/*.yml')
 
     attr_reader :apis, :tested, :untested
 
     def initialize
-      @apis = gather_apis
+      @apis = {}
+      @apis[:specification] = specification_apis
+      @apis[:json] = json_apis
       @tested = []
       @untested = []
       report!
     end
 
-    def gather_apis
-      endpoints = Dir[JSON_FILES].map do |path|
-        path.split('/').last.gsub('.json','')
-      end.reject { |a| a.split('/').last.gsub('.json','').start_with?('_') }
+    # Stack APIs are obtained from the Elasticsearch Rest JSON specification.
+    # Use `rake download_stack` to download the spec files to ../tmp.
+    #
+    def json_apis
+      apis = Dir[STACK_FILES].map { |path| path.split('/').last.gsub('.json','') }
+      reject_internal(apis)
+    end
+
+    # Serverless APIs are obtained from elastic/elasticsearch-specification.
+    # Use `rake download_serverless` to download the files to ../tmp.
+    def specification_apis
+      apis = JSON.parse(File.read('./tmp/schema.json'))['endpoints'].map do |s|
+        { 'name' => s['name'], 'availability' => s['availability'] }
+      end
+      reject_internal(apis)
+    end
+
+    def serverless_apis
+      # The absence of an 'availability' field on a property implies that the property is
+      # available in all flavors.
+      @apis[:specification].select do |api|
+        api.dig('availability').nil? ||
+          (
+            !!api.dig('availability', 'serverless') &&
+            api.dig('availability', 'serverless', 'visibility') == 'public'
+          )
+      end
     end
 
     def report!
-      @apis.each do |api|
+      @apis[:json].each do |api|
         if (test = find_test(api))
           @tested << test
         else
@@ -28,12 +53,32 @@ module Elastic
       end
     end
 
+    def coverage
+      percentage = @tested.count * 100 / @apis[:json].count
+      "![](https://geps.dev/progress/#{percentage})"
+    end
+
+    private
+
     def find_test(endpoint)
       Dir[TESTS_PATH].map do |path|
         relative_path = path[path.index('/tests')..-1]
-        return { endpoint: endpoint, file: ".#{relative_path}" } if File.readlines(path).grep(/#{endpoint}/).any?
+
+        if File.readlines(path).grep(/#{endpoint}/).any?
+          return { endpoint: endpoint, file: ".#{relative_path}" }
+        end
       end
       false
+    end
+
+    def reject_internal(apis)
+      apis.reject! do |api|
+        if api.is_a?(Hash)
+          api.dig('name').start_with?('_')
+        elsif api.is_a?(String)
+          api.start_with?('_')
+        end
+      end
     end
   end
 end

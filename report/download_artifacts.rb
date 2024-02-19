@@ -5,7 +5,7 @@ require 'json'
 module Elastic
   CURRENT_PATH = Pathname(File.expand_path(__dir__))
   class << self
-    def download_artifacts(version)
+    def download_json_spec(version)
       json_filename = CURRENT_PATH.join('tmp/artifacts.json')
 
       # Create ./tmp if it doesn't exist
@@ -43,6 +43,12 @@ module Elastic
       `rm #{filename}`
       puts "Artifacts downloaded in ./tmp, build hash #{@build_hash}"
       File.write(CURRENT_PATH.join('tmp/rest-api-spec/build_hash'), @build_hash)
+    end
+
+    def download_es_specification(branch = 'main')
+      filename = CURRENT_PATH.join('tmp/schema.json')
+      url = "https://github.com/elastic/elasticsearch-specification/raw/#{branch}/output/schema/schema.json"
+      download_file!(url, filename)
     end
 
     def download_file!(url, filename)
