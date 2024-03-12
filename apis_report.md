@@ -1,7 +1,7 @@
 # Tests report
 
 * Endpoints in JSON spec: 494
-* Endpoints in elasticsearch-specification: 456
+* Endpoints in elasticsearch-specification: 457
 * Endpoints in Serverless: 208
 * [Tested](#tested): 198
 * [Untested](#untested): 296
