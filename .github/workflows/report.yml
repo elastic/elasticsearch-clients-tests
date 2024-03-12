@@ -22,6 +22,7 @@ jobs:
       - name: Build
         run: |
           cd report && bundle install
+          echo "REPORT_DATE=`date "+%Y-%m-%d|%H:%M:%S"`" >> $GITHUB_ENV
       - name: Download Artifacts
         run: cd report && bundle exec rake download_all
       - name: Generate report
@@ -30,4 +31,6 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          commit-message: Updates report `date`
+          commit-message: Updates API report ${{env.REPORT_DATE}}
+          title: Updates API report
+          author: 'Elastic Machine <elasticmachine@users.noreply.github.com>'
