@@ -30,4 +30,4 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          commit-message: "Updates report `date '+%Y-%m-%d|%H:%M:%S'`"
+          commit-message: Updates report `date`
