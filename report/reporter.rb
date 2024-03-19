@@ -53,9 +53,12 @@ module Elastic
       end
     end
 
-    def coverage
-      percentage = @tested.count * 100 / @apis[:json].count
-      "![](https://geps.dev/progress/#{percentage})"
+    def coverage_serverless
+      @tested.count * 100 / serverless_apis.count
+    end
+
+    def coverage_stack
+      @tested.count * 100 / @apis[:json].count
     end
 
     private
