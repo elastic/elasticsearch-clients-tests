@@ -5,7 +5,8 @@
 * Endpoints in Serverless: 208
 * [Tested](#tested): 198
 * [Untested](#untested): 296
-* Coverage: ![](https://geps.dev/progress/40)
+* Coverage Stack: ![](https://geps.dev/progress/40)
+* Coverage Serverless: ![](https://geps.dev/progress/95)
 
 ## Tested
 
