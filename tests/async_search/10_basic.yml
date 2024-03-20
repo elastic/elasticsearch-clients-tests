@@ -1,23 +1,23 @@
 ---
 setup:
   - do:
-      - index:
-          index: async_search_test_10
-          refresh: true
-          id: 42
-          body: { "name": 'Las lenguas de diamante', "author": 'Juana de Ibarbourou', "release_date": '1918-12-01', "page_count": 108}
+      index:
+        index: async_search_test_10
+        refresh: true
+        id: 42
+        body: { "name": 'Las lenguas de diamante', "author": 'Juana de Ibarbourou', "release_date": '1918-12-01', "page_count": 108}
   - do:
-      - index:
-          index: async_search_test_10
-          id: 43
-          refresh: true
-          body: { "name": 'Bestiario', "author": 'Julio Cortazar', "release_date": '1952-10-12', "page_count": 133}
+      index:
+        index: async_search_test_10
+        id: 43
+        refresh: true
+        body: { "name": 'Bestiario', "author": 'Julio Cortazar', "release_date": '1952-10-12', "page_count": 133}
   - do:
-      - index:
-          index: async_search_test_10
-          id: 44
-          refresh: true
-          body: { "name": 'Tales of love, madness and death', 'author': 'Horacio Quiroga', 'release_date': '1917-12-01', 'page_count': 188 }
+      index:
+        index: async_search_test_10
+        id: 44
+        refresh: true
+        body: { "name": 'Tales of love, madness and death', 'author': 'Horacio Quiroga', 'release_date': '1917-12-01', 'page_count': 188 }
 
 ---
 teardown:
