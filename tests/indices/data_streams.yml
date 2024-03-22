@@ -29,7 +29,7 @@ teardown:
   - match: { data_streams.0.name: logs-test }
 
   - do:
-      indices.data_streams_stats
+      indices.data_streams_stats:
   - is_true: data_streams
 
   - do:

@@ -37,7 +37,7 @@ teardown:
   - match: { policies.0.config.match.name: 'policy_test' }
 
   - do:
-      enrich.stats
+      enrich.stats:
   - is_true: 'executing_policies'
 
   - do:

@@ -1,5 +1,5 @@
 ---
 'ping':
   - do:
-      ping
+      ping:
   - is_true: ''

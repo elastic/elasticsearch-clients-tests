@@ -1,17 +1,17 @@
 ---
 setup:
   - do:
-      - indices.create:
-          index: 'test_cat_aliases'
+      indices.create:
+        index: 'test_cat_aliases'
   - do:
-      - indices.put_alias:
-          index: 'test_cat_aliases'
-          name: 'my_alias'
+      indices.put_alias:
+        index: 'test_cat_aliases'
+        name: 'my_alias'
 ---
 teardown:
   - do:
-      - indices.delete:
-          index: 'test_cat_aliases'
+      indices.delete:
+        index: 'test_cat_aliases'
 ---
 "cat.aliases":
   - do:

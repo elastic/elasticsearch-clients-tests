@@ -17,7 +17,7 @@ setup:
         index: data-frame-analytics
         body: { my_dep_var: 43, name: 'test2' }
   - do:
-      indices.refresh
+      indices.refresh:
 ---
 teardown:
   - do:

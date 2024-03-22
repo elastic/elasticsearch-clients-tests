@@ -1,14 +1,14 @@
 ---
 setup:
   - do:
-      - indices.create:
-          index: 'test_sl_cat_indices'
+      indices.create:
+        index: 'test_sl_cat_indices'
 
 ---
 teardown:
   - do:
-      - indices.delete:
-          index: 'test_sl_cat_indices'
+      indices.delete:
+        index: 'test_sl_cat_indices'
 ---
 "cat.indices":
   - do:
