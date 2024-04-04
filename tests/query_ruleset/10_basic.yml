@@ -26,7 +26,7 @@
         ruleset_id: 'query_ruleset_testing'
   - match: { ruleset_id: 'query_ruleset_testing' }
   - do:
-      query_ruleset.list:
+      query_ruleset.list: {}
   - match: { results.0.ruleset_id: 'query_ruleset_testing' }
   - do:
       query_ruleset.delete:
