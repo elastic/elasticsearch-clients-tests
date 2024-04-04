@@ -31,6 +31,13 @@ module Elastic
       reject_internal(apis)
     end
 
+    def stack_apis
+      @apis[:specification].select do |api|
+        api.dig('availability').nil? ||
+          api.dig('availability', 'stack', 'visibility') != 'private'
+      end
+    end
+
     def serverless_apis
       # The absence of an 'availability' field on a property implies that the property is
       # available in all flavors.
@@ -59,6 +66,14 @@ module Elastic
 
     def coverage_stack
       @tested.count * 100 / @apis[:json].count
+    end
+
+    def display_endpoint(api)
+      if (test = find_test(api))
+        "- [x] <span title='tested'> [#{api}](#{test[:file]})</span>"
+      else
+        "- [ ] <span title='not tested'> #{api}</span>"
+      end
     end
 
     private
