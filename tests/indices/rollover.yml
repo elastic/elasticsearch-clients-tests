@@ -1,4 +1,8 @@
 ---
+requires:
+  serverless: true
+  stack: true
+---
 teardown:
   - do:
       indices.delete: { index: logs-1 }

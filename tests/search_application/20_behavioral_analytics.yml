@@ -1,4 +1,8 @@
 ---
+requires:
+  serverless: true
+  stack: true
+---
 'behavioral_analytics':
   - do:
       search_application.put_behavioral_analytics:

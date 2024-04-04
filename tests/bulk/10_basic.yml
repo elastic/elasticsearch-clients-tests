@@ -1,4 +1,8 @@
 ---
+requires:
+  serverless: true
+  stack: true
+---
 "Basic bulk operation":
 
   - do:

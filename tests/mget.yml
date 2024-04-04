@@ -1,4 +1,8 @@
 ---
+requires:
+  serverless: true
+  stack: true
+---
 setup:
   - do:
       bulk:

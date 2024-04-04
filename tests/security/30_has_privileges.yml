@@ -1,4 +1,8 @@
 ---
+requires:
+  serverless: true
+  stack: true
+---
 'security.has_privileges':
   - do:
       security.has_privileges:

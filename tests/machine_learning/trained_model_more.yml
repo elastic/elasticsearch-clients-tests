@@ -1,4 +1,8 @@
 ---
+requires:
+  serverless: true
+  stack: true
+---
 teardown:
   - do:
       ml.delete_trained_model: { model_id: "test_model", force: true }

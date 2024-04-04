@@ -1,4 +1,8 @@
 ---
+requires:
+  serverless: true
+  stack: true
+---
 "cat.ml":
   - do:
       cat.ml_data_frame_analytics

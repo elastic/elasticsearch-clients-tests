@@ -1,4 +1,8 @@
 ---
+requires:
+  serverless: true
+  stack: true
+---
 "Trained models":
   - do:
       ml.put_trained_model:

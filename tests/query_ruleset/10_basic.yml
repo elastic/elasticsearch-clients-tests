@@ -1,4 +1,8 @@
 ---
+requires:
+  serverless: true
+  stack: true
+---
 'put ruleset':
   - do:
       query_ruleset.put:

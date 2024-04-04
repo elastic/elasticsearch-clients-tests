@@ -1,4 +1,8 @@
 ---
+requires:
+  serverless: true
+  stack: true
+---
 setup:
   - do:
       indices.create: { index: 'validate_query_test' }

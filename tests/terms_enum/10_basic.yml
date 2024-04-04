@@ -1,4 +1,8 @@
 ---
+requires:
+  serverless: true
+  stack: true
+---
 setup:
   - do:
       indices.create: { index: 'terms_enum_test' }

@@ -1,4 +1,8 @@
 ---
+requires:
+  serverless: true
+  stack: true
+---
 'logstash pipeline':
   - do:
       logstash.put_pipeline:

@@ -1,4 +1,8 @@
 ---
+requires:
+  serverless: true
+  stack: true
+---
 'API Key':
   - do:
       security.create_api_key:

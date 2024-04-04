@@ -1,4 +1,8 @@
 ---
+requires:
+  serverless: true
+  stack: true
+---
 teardown:
   - do:
       ml.delete_job:
