@@ -5,7 +5,7 @@ require './reporter'
 desc "Generate report"
 task :report do
   @reporter = Elastic::Reporter.new
-  template = ERB.new(File.read('./template.erb'), trim_mode = true)
+  template = ERB.new(File.read('./template.erb'), trim_mode: '-')
   File.write('../apis_report.md', template.result(binding))
 end
 
