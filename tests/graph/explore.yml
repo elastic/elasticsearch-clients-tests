@@ -17,7 +17,7 @@ setup:
         id: '2'
         body: { keys: [4, 5, 6] }
   - do:
-      indices.refresh:
+      indices.refresh: {}
 
 ---
 teardown:
