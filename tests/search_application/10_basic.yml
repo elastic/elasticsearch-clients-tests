@@ -45,7 +45,7 @@ teardown:
         name: 'search_app'
   - match: { name: 'search_app' }
   - do:
-      search_application.list:
+      search_application.list: {}
   - gt: { count: 0 }
   - do:
       search_application.delete:
