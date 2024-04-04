@@ -1,1005 +1,1225 @@
 # Tests report
 
-* Endpoints in JSON spec: 494
-* Endpoints in elasticsearch-specification: 457
-* Endpoints in Serverless: 208
+Endpoints that are currently being tested are marked as done and link to the test where they're being used.
+
+* [Endpoints in stack JSON spec](#endpoints-in-stack-json-spec): 494
+* [Endpoints in elasticsearch-specification](#stack): 457
+* [Endpoints in Serverless](#serverless): 208
 * [Tested](#tested): 198
 * [Untested](#untested): 296
 * Coverage Stack: ![](https://geps.dev/progress/40)
 * Coverage Serverless: ![](https://geps.dev/progress/95)
-
-## Tested
-
-
-- [x] [async_search.delete](./tests/async_search/10_basic.yml)
-
-- [x] [async_search.get](./tests/async_search/10_basic.yml)
-
-- [x] [async_search.status](./tests/async_search/10_basic.yml)
-
-- [x] [async_search.submit](./tests/async_search/10_basic.yml)
-
-- [x] [bulk](./tests/bulk/10_basic.yml)
-
-- [x] [cat.aliases](./tests/cat/aliases.yml)
-
-- [x] [cat.component_templates](./tests/cat/component_templates.yml)
-
-- [x] [cat.count](./tests/cat/count.yml)
-
-- [x] [cat.help](./tests/cat/help.yml)
-
-- [x] [cat.indices](./tests/cat/indices.yml)
-
-- [x] [cat.ml_data_frame_analytics](./tests/cat/ml.yml)
-
-- [x] [cat.ml_datafeeds](./tests/cat/ml.yml)
-
-- [x] [cat.ml_jobs](./tests/cat/ml.yml)
-
-- [x] [cat.ml_trained_models](./tests/cat/ml.yml)
-
-- [x] [cat.transforms](./tests/cat/transform.yml)
-
-- [x] [clear_scroll](./tests/scroll/10_basic.yml)
-
-- [x] [close_point_in_time](./tests/point_in_time/10_basic.yml)
-
-- [x] [cluster.delete_component_template](./tests/cluster/component_templates.yml)
-
-- [x] [cluster.exists_component_template](./tests/cluster/component_templates.yml)
-
-- [x] [cluster.get_component_template](./tests/cluster/component_templates.yml)
-
-- [x] [cluster.info](./tests/cluster/cluster_info.yml)
-
-- [x] [cluster.put_component_template](./tests/cluster/component_templates.yml)
-
-- [x] [count](./tests/async_search/10_basic.yml)
-
-- [x] [create](./tests/cat/aliases.yml)
-
-- [x] [delete](./tests/async_search/10_basic.yml)
-
-- [x] [delete_by_query](./tests/delete_by_query/10_basic.yml)
-
-- [x] [delete_script](./tests/script/10_basic.yml)
-
-- [x] [enrich.delete_policy](./tests/enrich/10_basic.yml)
-
-- [x] [enrich.execute_policy](./tests/enrich/10_basic.yml)
-
-- [x] [enrich.get_policy](./tests/enrich/10_basic.yml)
-
-- [x] [enrich.put_policy](./tests/enrich/10_basic.yml)
-
-- [x] [enrich.stats](./tests/enrich/10_basic.yml)
-
-- [x] [eql.delete](./tests/eql/10_basic.yml)
-
-- [x] [eql.get](./tests/eql/10_basic.yml)
-
-- [x] [eql.get_status](./tests/eql/10_basic.yml)
-
-- [x] [eql.search](./tests/eql/10_basic.yml)
-
-- [x] [exists](./tests/cluster/component_templates.yml)
-
-- [x] [exists_source](./tests/exists_source/10_basic.yml)
-
-- [x] [explain](./tests/explain/10_basic.yml)
-
-- [x] [field_caps](./tests/field_caps/10_basic.yml)
-
-- [x] [get](./tests/async_search/10_basic.yml)
-
-- [x] [get_script](./tests/script/10_basic.yml)
-
-- [x] [get_source](./tests/get_source/10_basic.yml)
-
-- [x] [graph.explore](./tests/graph/explore.yml)
-
-- [x] [index](./tests/async_search/10_basic.yml)
-
-- [x] [indices.add_block](./tests/indices/block.yml)
-
-- [x] [indices.analyze](./tests/indices/analyze.yml)
-
-- [x] [indices.create](./tests/cat/aliases.yml)
-
-- [x] [indices.create_data_stream](./tests/indices/data_streams.yml)
-
-- [x] [indices.data_streams_stats](./tests/indices/data_streams.yml)
-
-- [x] [indices.delete](./tests/async_search/10_basic.yml)
-
-- [x] [indices.delete_alias](./tests/indices/alias.yml)
-
-- [x] [indices.delete_data_lifecycle](./tests/indices/data_lifecycle.yml)
-
-- [x] [indices.delete_data_stream](./tests/indices/data_streams.yml)
-
-- [x] [indices.delete_index_template](./tests/indices/data_streams.yml)
-
-- [x] [indices.exists](./tests/indices/alias.yml)
-
-- [x] [indices.exists_alias](./tests/indices/alias.yml)
-
-- [x] [indices.exists_index_template](./tests/indices/index_template.yml)
-
-- [x] [indices.explain_data_lifecycle](./tests/indices/data_lifecycle.yml)
-
-- [x] [indices.get](./tests/indices/alias.yml)
-
-- [x] [indices.get_alias](./tests/indices/alias.yml)
-
-- [x] [indices.get_data_lifecycle](./tests/indices/data_lifecycle.yml)
-
-- [x] [indices.get_data_stream](./tests/indices/data_streams.yml)
-
-- [x] [indices.get_index_template](./tests/indices/index_template.yml)
-
-- [x] [indices.get_mapping](./tests/indices/mapping.yml)
-
-- [x] [indices.get_settings](./tests/indices/settings.yml)
-
-- [x] [indices.migrate_to_data_stream](./tests/indices/migrate_modify_data_stream.yml)
-
-- [x] [indices.modify_data_stream](./tests/indices/migrate_modify_data_stream.yml)
-
-- [x] [indices.put_alias](./tests/cat/aliases.yml)
-
-- [x] [indices.put_data_lifecycle](./tests/indices/data_lifecycle.yml)
-
-- [x] [indices.put_index_template](./tests/indices/data_streams.yml)
-
-- [x] [indices.put_mapping](./tests/indices/mapping.yml)
-
-- [x] [indices.put_settings](./tests/indices/settings.yml)
-
-- [x] [indices.refresh](./tests/graph/explore.yml)
-
-- [x] [indices.resolve_index](./tests/indices/resolve.yml)
-
-- [x] [indices.rollover](./tests/indices/rollover.yml)
-
-- [x] [indices.simulate_index_template](./tests/indices/simulate_template.yml)
-
-- [x] [indices.simulate_template](./tests/indices/simulate_index_template.yml)
-
-- [x] [indices.update_aliases](./tests/indices/alias.yml)
-
-- [x] [indices.validate_query](./tests/validate_query/10_basic.yml)
-
-- [x] [info](./tests/cluster/cluster_info.yml)
-
-- [x] [ingest.delete_pipeline](./tests/ingest/10_basic.yml)
-
-- [x] [ingest.get_pipeline](./tests/ingest/10_basic.yml)
-
-- [x] [ingest.processor_grok](./tests/ingest/10_basic.yml)
-
-- [x] [ingest.put_pipeline](./tests/ingest/10_basic.yml)
-
-- [x] [ingest.simulate](./tests/ingest/10_basic.yml)
-
-- [x] [license.get](./tests/license.yml)
-
-- [x] [logstash.delete_pipeline](./tests/logstash/10_basic.yml)
-
-- [x] [logstash.get_pipeline](./tests/logstash/10_basic.yml)
-
-- [x] [logstash.put_pipeline](./tests/logstash/10_basic.yml)
-
-- [x] [mget](./tests/mget.yml)
-
-- [x] [ml.close_job](./tests/machine_learning/jobs_crud.yml)
-
-- [x] [ml.delete_calendar](./tests/machine_learning/calendar_crud.yml)
-
-- [x] [ml.delete_calendar_event](./tests/machine_learning/calendar_events_crud.yml)
-
-- [x] [ml.delete_calendar_job](./tests/machine_learning/calendar_job.yml)
-
-- [x] [ml.delete_data_frame_analytics](./tests/machine_learning/data_frame_analytics.yml)
-
-- [x] [ml.delete_datafeed](./tests/machine_learning/datafeed_crud.yml)
-
-- [x] [ml.delete_filter](./tests/machine_learning/filter_crud.yml)
-
-- [x] [ml.delete_job](./tests/machine_learning/calendar_crud.yml)
-
-- [x] [ml.delete_trained_model](./tests/machine_learning/trained_model.yml)
-
-- [x] [ml.delete_trained_model_alias](./tests/machine_learning/trained_model_aliases.yml)
-
-- [x] [ml.estimate_model_memory](./tests/machine_learning/estimate_model_memory.yml)
-
-- [x] [ml.evaluate_data_frame](./tests/machine_learning/data_frame_evaluate.yml)
-
-- [x] [ml.flush_job](./tests/machine_learning/jobs_crud.yml)
-
-- [x] [ml.get_calendar_events](./tests/machine_learning/calendar_events_crud.yml)
-
-- [x] [ml.get_calendars](./tests/machine_learning/calendar_crud.yml)
-
-- [x] [ml.get_data_frame_analytics](./tests/machine_learning/data_frame_analytics.yml)
-
-- [x] [ml.get_data_frame_analytics_stats](./tests/machine_learning/data_frame_analytics.yml)
-
-- [x] [ml.get_datafeed_stats](./tests/machine_learning/datafeed_crud.yml)
-
-- [x] [ml.get_datafeeds](./tests/machine_learning/datafeed_crud.yml)
-
-- [x] [ml.get_filters](./tests/machine_learning/filter_crud.yml)
-
-- [x] [ml.get_job_stats](./tests/machine_learning/jobs_crud.yml)
-
-- [x] [ml.get_jobs](./tests/machine_learning/jobs_crud.yml)
-
-- [x] [ml.get_overall_buckets](./tests/machine_learning/get_overall_buckets.yml)
-
-- [x] [ml.get_trained_models](./tests/machine_learning/trained_model.yml)
-
-- [x] [ml.get_trained_models_stats](./tests/machine_learning/trained_model_more.yml)
-
-- [x] [ml.open_job](./tests/machine_learning/jobs_crud.yml)
-
-- [x] [ml.post_calendar_events](./tests/machine_learning/calendar_events_crud.yml)
-
-- [x] [ml.preview_data_frame_analytics](./tests/machine_learning/data_frame_analytics.yml)
-
-- [x] [ml.preview_datafeed](./tests/machine_learning/preview_datafeed.yml)
-
-- [x] [ml.put_calendar](./tests/machine_learning/calendar_crud.yml)
-
-- [x] [ml.put_calendar_job](./tests/machine_learning/calendar_job.yml)
-
-- [x] [ml.put_data_frame_analytics](./tests/machine_learning/data_frame_analytics.yml)
-
-- [x] [ml.put_datafeed](./tests/machine_learning/datafeed_crud.yml)
-
-- [x] [ml.put_filter](./tests/machine_learning/filter_crud.yml)
-
-- [x] [ml.put_job](./tests/machine_learning/calendar_crud.yml)
-
-- [x] [ml.put_trained_model](./tests/machine_learning/trained_model.yml)
-
-- [x] [ml.put_trained_model_alias](./tests/machine_learning/trained_model_aliases.yml)
-
-- [x] [ml.put_trained_model_definition_part](./tests/machine_learning/trained_model_more.yml)
-
-- [x] [ml.put_trained_model_vocabulary](./tests/machine_learning/trained_model_more.yml)
-
-- [x] [ml.reset_job](./tests/machine_learning/jobs_reset.yml)
-
-- [x] [ml.start_data_frame_analytics](./tests/machine_learning/data_frame_analytics.yml)
-
-- [x] [ml.start_datafeed](./tests/machine_learning/start_stop_datafeed.yml)
-
-- [x] [ml.start_trained_model_deployment](./tests/machine_learning/trained_model_more.yml)
-
-- [x] [ml.stop_data_frame_analytics](./tests/machine_learning/data_frame_analytics.yml)
-
-- [x] [ml.stop_datafeed](./tests/machine_learning/start_stop_datafeed.yml)
-
-- [x] [ml.stop_trained_model_deployment](./tests/machine_learning/trained_model_more.yml)
-
-- [x] [ml.update_data_frame_analytics](./tests/machine_learning/data_frame_analytics.yml)
-
-- [x] [ml.update_datafeed](./tests/machine_learning/datafeed_crud.yml)
-
-- [x] [ml.update_filter](./tests/machine_learning/filter_crud.yml)
-
-- [x] [ml.update_job](./tests/machine_learning/jobs_crud.yml)
-
-- [x] [msearch](./tests/msearch.yml)
-
-- [x] [msearch_template](./tests/msearch_template.yml)
-
-- [x] [mtermvectors](./tests/mtermvectors/10_basic.yml)
-
-- [x] [open_point_in_time](./tests/point_in_time/10_basic.yml)
-
-- [x] [ping](./tests/cluster/component_templates.yml)
-
-- [x] [put_script](./tests/msearch_template.yml)
-
-- [x] [query_ruleset.delete](./tests/query_ruleset/10_basic.yml)
-
-- [x] [query_ruleset.get](./tests/query_ruleset/10_basic.yml)
-
-- [x] [query_ruleset.list](./tests/query_ruleset/10_basic.yml)
-
-- [x] [query_ruleset.put](./tests/query_ruleset/10_basic.yml)
-
-- [x] [rank_eval](./tests/rank_eval.yml)
-
-- [x] [reindex](./tests/reindex/10_basic.yml)
-
-- [x] [render_search_template](./tests/search_template/10_basic.yml)
-
-- [x] [scripts_painless_execute](./tests/script/10_basic.yml)
-
-- [x] [scroll](./tests/machine_learning/datafeed_crud.yml)
-
-- [x] [search](./tests/async_search/10_basic.yml)
-
-- [x] [search_application.delete](./tests/search_application/10_basic.yml)
-
-- [x] [search_application.delete_behavioral_analytics](./tests/search_application/20_behavioral_analytics.yml)
-
-- [x] [search_application.get](./tests/search_application/10_basic.yml)
-
-- [x] [search_application.get_behavioral_analytics](./tests/search_application/20_behavioral_analytics.yml)
-
-- [x] [search_application.list](./tests/search_application/10_basic.yml)
-
-- [x] [search_application.put](./tests/search_application/10_basic.yml)
-
-- [x] [search_application.put_behavioral_analytics](./tests/search_application/20_behavioral_analytics.yml)
-
-- [x] [search_mvt](./tests/search_mvt/10_basic.yml)
-
-- [x] [search_template](./tests/msearch_template.yml)
-
-- [x] [security.authenticate](./tests/security/20_authenticate.yml)
-
-- [x] [security.create_api_key](./tests/security/10_api_key_basic.yml)
-
-- [x] [security.get_api_key](./tests/security/10_api_key_basic.yml)
-
-- [x] [security.has_privileges](./tests/security/30_has_privileges.yml)
-
-- [x] [security.invalidate_api_key](./tests/security/10_api_key_basic.yml)
-
-- [x] [security.query_api_keys](./tests/security/10_api_key_basic.yml)
-
-- [x] [sql.clear_cursor](./tests/sql/10_basic.yml)
-
-- [x] [sql.delete_async](./tests/sql/10_basic.yml)
-
-- [x] [sql.get_async](./tests/sql/10_basic.yml)
-
-- [x] [sql.get_async_status](./tests/sql/10_basic.yml)
-
-- [x] [sql.query](./tests/sql/10_basic.yml)
-
-- [x] [sql.translate](./tests/sql/10_basic.yml)
-
-- [x] [synonyms.delete_synonym](./tests/synonyms/10_basic.yml)
-
-- [x] [synonyms.delete_synonym_rule](./tests/synonyms/10_basic.yml)
-
-- [x] [synonyms.get_synonym](./tests/synonyms/10_basic.yml)
-
-- [x] [synonyms.get_synonym_rule](./tests/synonyms/10_basic.yml)
-
-- [x] [synonyms.put_synonym](./tests/synonyms/10_basic.yml)
-
-- [x] [synonyms.put_synonym_rule](./tests/synonyms/10_basic.yml)
-
-- [x] [terms_enum](./tests/terms_enum/10_basic.yml)
-
-- [x] [termvectors](./tests/mtermvectors/10_basic.yml)
-
-- [x] [transform.delete_transform](./tests/cat/transform.yml)
-
-- [x] [transform.get_transform](./tests/transform/10_basic.yml)
-
-- [x] [transform.get_transform_stats](./tests/transform/10_basic.yml)
-
-- [x] [transform.preview_transform](./tests/transform/10_basic.yml)
-
-- [x] [transform.put_transform](./tests/cat/transform.yml)
-
-- [x] [transform.reset_transform](./tests/transform/10_basic.yml)
-
-- [x] [transform.schedule_now_transform](./tests/transform/10_basic.yml)
-
-- [x] [transform.start_transform](./tests/transform/10_basic.yml)
-
-- [x] [transform.stop_transform](./tests/transform/10_basic.yml)
-
-- [x] [transform.update_transform](./tests/transform/10_basic.yml)
-
-- [x] [update](./tests/indices/alias.yml)
-
-- [x] [update_by_query](./tests/update_by_query/10_basic.yml)
-
-
-## Untested
-
-
-- [ ] autoscaling.delete_autoscaling_policy
-
-- [ ] autoscaling.get_autoscaling_capacity
-
-- [ ] autoscaling.get_autoscaling_policy
-
-- [ ] autoscaling.put_autoscaling_policy
-
-- [ ] cat.allocation
-
-- [ ] cat.fielddata
-
-- [ ] cat.health
-
-- [ ] cat.master
-
-- [ ] cat.nodeattrs
-
-- [ ] cat.nodes
-
-- [ ] cat.pending_tasks
-
-- [ ] cat.plugins
-
-- [ ] cat.recovery
-
-- [ ] cat.repositories
-
-- [ ] cat.segments
-
-- [ ] cat.shards
-
-- [ ] cat.snapshots
-
-- [ ] cat.tasks
-
-- [ ] cat.templates
-
-- [ ] cat.thread_pool
-
-- [ ] ccr.delete_auto_follow_pattern
-
-- [ ] ccr.follow
-
-- [ ] ccr.follow_info
-
-- [ ] ccr.follow_stats
-
-- [ ] ccr.forget_follower
-
-- [ ] ccr.get_auto_follow_pattern
-
-- [ ] ccr.pause_auto_follow_pattern
-
-- [ ] ccr.pause_follow
-
-- [ ] ccr.put_auto_follow_pattern
-
-- [ ] ccr.resume_auto_follow_pattern
-
-- [ ] ccr.resume_follow
-
-- [ ] ccr.stats
-
-- [ ] ccr.unfollow
-
-- [ ] cluster.allocation_explain
-
-- [ ] cluster.delete_voting_config_exclusions
-
-- [ ] cluster.get_settings
-
-- [ ] cluster.health
-
-- [ ] cluster.pending_tasks
-
-- [ ] cluster.post_voting_config_exclusions
-
-- [ ] cluster.put_settings
-
-- [ ] cluster.remote_info
-
-- [ ] cluster.reroute
-
-- [ ] cluster.state
-
-- [ ] cluster.stats
-
-- [ ] connector.check_in
-
-- [ ] connector.delete
-
-- [ ] connector.get
-
-- [ ] connector.last_sync
-
-- [ ] connector.list
-
-- [ ] connector.post
-
-- [ ] connector.put
-
-- [ ] connector.update_api_key_id
-
-- [ ] connector.update_configuration
-
-- [ ] connector.update_error
-
-- [ ] connector.update_filtering
-
-- [ ] connector.update_index_name
-
-- [ ] connector.update_name
-
-- [ ] connector.update_native
-
-- [ ] connector.update_pipeline
-
-- [ ] connector.update_scheduling
-
-- [ ] connector.update_service_type
-
-- [ ] connector.update_status
-
-- [ ] connector_secret.delete
-
-- [ ] connector_secret.get
-
-- [ ] connector_secret.post
-
-- [ ] connector_secret.put
-
-- [ ] connector_sync_job.cancel
-
-- [ ] connector_sync_job.check_in
-
-- [ ] connector_sync_job.delete
-
-- [ ] connector_sync_job.error
-
-- [ ] connector_sync_job.get
-
-- [ ] connector_sync_job.list
-
-- [ ] connector_sync_job.post
-
-- [ ] connector_sync_job.update_stats
-
-- [ ] dangling_indices.delete_dangling_index
-
-- [ ] dangling_indices.import_dangling_index
-
-- [ ] dangling_indices.list_dangling_indices
-
-- [ ] delete_by_query_rethrottle
-
-- [ ] esql.async_query
-
-- [ ] esql.async_query_get
-
-- [ ] esql.query
-
-- [ ] features.get_features
-
-- [ ] features.reset_features
-
-- [ ] fleet.delete_secret
-
-- [ ] fleet.get_secret
-
-- [ ] fleet.global_checkpoints
-
-- [ ] fleet.msearch
-
-- [ ] fleet.post_secret
-
-- [ ] fleet.search
-
-- [ ] get_script_context
-
-- [ ] get_script_languages
-
-- [ ] health_report
-
-- [ ] ilm.delete_lifecycle
-
-- [ ] ilm.explain_lifecycle
-
-- [ ] ilm.get_lifecycle
-
-- [ ] ilm.get_status
-
-- [ ] ilm.migrate_to_data_tiers
-
-- [ ] ilm.move_to_step
-
-- [ ] ilm.put_lifecycle
-
-- [ ] ilm.remove_policy
-
-- [ ] ilm.retry
-
-- [ ] ilm.start
-
-- [ ] ilm.stop
-
-- [ ] indices.clear_cache
-
-- [ ] indices.clone
-
-- [ ] indices.close
-
-- [ ] indices.delete_template
-
-- [ ] indices.disk_usage
-
-- [ ] indices.downsample
-
-- [ ] indices.exists_template
-
-- [ ] indices.field_usage_stats
-
-- [ ] indices.flush
-
-- [ ] indices.forcemerge
-
-- [ ] indices.get_field_mapping
-
-- [ ] indices.get_template
-
-- [ ] indices.open
-
-- [ ] indices.promote_data_stream
-
-- [ ] indices.put_template
-
-- [ ] indices.recovery
-
-- [ ] indices.reload_search_analyzers
-
-- [ ] indices.resolve_cluster
-
-- [ ] indices.segments
-
-- [ ] indices.shard_stores
-
-- [ ] indices.shrink
-
-- [ ] indices.split
-
-- [ ] indices.stats
-
-- [ ] indices.unfreeze
-
-- [ ] inference.delete_model
-
-- [ ] inference.get_model
-
-- [ ] inference.inference
-
-- [ ] inference.put_model
-
-- [ ] ingest.geo_ip_stats
-
-- [ ] knn_search
-
-- [ ] license.delete
-
-- [ ] license.get_basic_status
-
-- [ ] license.get_trial_status
-
-- [ ] license.post
-
-- [ ] license.post_start_basic
-
-- [ ] license.post_start_trial
-
-- [ ] migration.deprecations
-
-- [ ] migration.get_feature_upgrade_status
-
-- [ ] migration.post_feature_upgrade
-
-- [ ] ml.clear_trained_model_deployment_cache
-
-- [ ] ml.delete_expired_data
-
-- [ ] ml.delete_forecast
-
-- [ ] ml.delete_model_snapshot
-
-- [ ] ml.explain_data_frame_analytics
-
-- [ ] ml.forecast
-
-- [ ] ml.get_buckets
-
-- [ ] ml.get_categories
-
-- [ ] ml.get_influencers
-
-- [ ] ml.get_memory_stats
-
-- [ ] ml.get_model_snapshot_upgrade_stats
-
-- [ ] ml.get_model_snapshots
-
-- [ ] ml.get_records
-
-- [ ] ml.infer_trained_model
-
-- [ ] ml.info
-
-- [ ] ml.post_data
-
-- [ ] ml.revert_model_snapshot
-
-- [ ] ml.set_upgrade_mode
-
-- [ ] ml.update_model_snapshot
-
-- [ ] ml.update_trained_model_deployment
-
-- [ ] ml.upgrade_job_snapshot
-
-- [ ] ml.validate
-
-- [ ] ml.validate_detector
-
-- [ ] monitoring.bulk
-
-- [ ] nodes.clear_repositories_metering_archive
-
-- [ ] nodes.get_repositories_metering_info
-
-- [ ] nodes.hot_threads
-
-- [ ] nodes.info
-
-- [ ] nodes.reload_secure_settings
-
-- [ ] nodes.stats
-
-- [ ] nodes.usage
-
-- [ ] profiling.flamegraph
-
-- [ ] profiling.stacktraces
-
-- [ ] profiling.status
-
-- [ ] reindex_rethrottle
-
-- [ ] rollup.delete_job
-
-- [ ] rollup.get_jobs
-
-- [ ] rollup.get_rollup_caps
-
-- [ ] rollup.get_rollup_index_caps
-
-- [ ] rollup.put_job
-
-- [ ] rollup.rollup_search
-
-- [ ] rollup.start_job
-
-- [ ] rollup.stop_job
-
-- [ ] search_application.post_behavioral_analytics_event
-
-- [ ] search_application.render_query
-
-- [ ] search_application.search
-
-- [ ] search_shards
-
-- [ ] searchable_snapshots.cache_stats
-
-- [ ] searchable_snapshots.clear_cache
-
-- [ ] searchable_snapshots.mount
-
-- [ ] searchable_snapshots.stats
-
-- [ ] security.activate_user_profile
-
-- [ ] security.bulk_update_api_keys
-
-- [ ] security.change_password
-
-- [ ] security.clear_api_key_cache
-
-- [ ] security.clear_cached_privileges
-
-- [ ] security.clear_cached_realms
-
-- [ ] security.clear_cached_roles
-
-- [ ] security.clear_cached_service_tokens
-
-- [ ] security.create_cross_cluster_api_key
-
-- [ ] security.create_service_token
-
-- [ ] security.delete_privileges
-
-- [ ] security.delete_role
-
-- [ ] security.delete_role_mapping
-
-- [ ] security.delete_service_token
-
-- [ ] security.delete_user
-
-- [ ] security.disable_user
-
-- [ ] security.disable_user_profile
-
-- [ ] security.enable_user
-
-- [ ] security.enable_user_profile
-
-- [ ] security.enroll_kibana
-
-- [ ] security.enroll_node
-
-- [ ] security.get_builtin_privileges
-
-- [ ] security.get_privileges
-
-- [ ] security.get_role
-
-- [ ] security.get_role_mapping
-
-- [ ] security.get_service_accounts
-
-- [ ] security.get_service_credentials
-
-- [ ] security.get_settings
-
-- [ ] security.get_token
-
-- [ ] security.get_user
-
-- [ ] security.get_user_privileges
-
-- [ ] security.get_user_profile
-
-- [ ] security.grant_api_key
-
-- [ ] security.has_privileges_user_profile
-
-- [ ] security.invalidate_token
-
-- [ ] security.oidc_authenticate
-
-- [ ] security.oidc_logout
-
-- [ ] security.oidc_prepare_authentication
-
-- [ ] security.put_privileges
-
-- [ ] security.put_role
-
-- [ ] security.put_role_mapping
-
-- [ ] security.put_user
-
-- [ ] security.query_user
-
-- [ ] security.saml_authenticate
-
-- [ ] security.saml_complete_logout
-
-- [ ] security.saml_invalidate
-
-- [ ] security.saml_logout
-
-- [ ] security.saml_prepare_authentication
-
-- [ ] security.saml_service_provider_metadata
-
-- [ ] security.suggest_user_profiles
-
-- [ ] security.update_api_key
-
-- [ ] security.update_cross_cluster_api_key
-
-- [ ] security.update_settings
-
-- [ ] security.update_user_profile_data
-
-- [ ] shutdown.delete_node
-
-- [ ] shutdown.get_node
-
-- [ ] shutdown.put_node
-
-- [ ] simulate.ingest
-
-- [ ] slm.delete_lifecycle
-
-- [ ] slm.execute_lifecycle
-
-- [ ] slm.execute_retention
-
-- [ ] slm.get_lifecycle
-
-- [ ] slm.get_stats
-
-- [ ] slm.get_status
-
-- [ ] slm.put_lifecycle
-
-- [ ] slm.start
-
-- [ ] slm.stop
-
-- [ ] snapshot.cleanup_repository
-
-- [ ] snapshot.clone
-
-- [ ] snapshot.create
-
-- [ ] snapshot.create_repository
-
-- [ ] snapshot.delete
-
-- [ ] snapshot.delete_repository
-
-- [ ] snapshot.get
-
-- [ ] snapshot.get_repository
-
-- [ ] snapshot.repository_analyze
-
-- [ ] snapshot.restore
-
-- [ ] snapshot.status
-
-- [ ] snapshot.verify_repository
-
-- [ ] ssl.certificates
-
-- [ ] synonyms.get_synonyms_sets
-
-- [ ] tasks.cancel
-
-- [ ] tasks.get
-
-- [ ] tasks.list
-
-- [ ] text_structure.find_structure
-
-- [ ] text_structure.test_grok_pattern
-
-- [ ] transform.upgrade_transforms
-
-- [ ] update_by_query_rethrottle
-
-- [ ] watcher.ack_watch
-
-- [ ] watcher.activate_watch
-
-- [ ] watcher.deactivate_watch
-
-- [ ] watcher.delete_watch
-
-- [ ] watcher.execute_watch
-
-- [ ] watcher.get_settings
-
-- [ ] watcher.get_watch
-
-- [ ] watcher.put_watch
-
-- [ ] watcher.query_watches
-
-- [ ] watcher.start
-
-- [ ] watcher.stats
-
-- [ ] watcher.stop
-
-- [ ] watcher.update_settings
-
-- [ ] xpack.info
-
-- [ ] xpack.usage
+* [APIs in JSON spec and not in elasticsearch-specification](#apis-in-json-spec-and-not-elasticsearch-specification)
+
+## Endpoints in stack JSON spec
+- [x] <span title='tested'> [async_search.delete](./tests/async_search/10_basic.yml#L49)</span>
+- [x] <span title='tested'> [async_search.get](./tests/async_search/10_basic.yml#L39)</span>
+- [x] <span title='tested'> [async_search.status](./tests/async_search/10_basic.yml#L44)</span>
+- [x] <span title='tested'> [async_search.submit](./tests/async_search/10_basic.yml#L31)</span>
+- [ ] <span title='not tested'> autoscaling.delete_autoscaling_policy</span>
+- [ ] <span title='not tested'> autoscaling.get_autoscaling_capacity</span>
+- [ ] <span title='not tested'> autoscaling.get_autoscaling_policy</span>
+- [ ] <span title='not tested'> autoscaling.put_autoscaling_policy</span>
+- [x] <span title='tested'> [bulk](./tests/bulk/10_basic.yml#L2)</span>
+- [x] <span title='tested'> [cat.aliases](./tests/cat/aliases.yml#L16)</span>
+- [ ] <span title='not tested'> cat.allocation</span>
+- [x] <span title='tested'> [cat.component_templates](./tests/cat/component_templates.yml#L2)</span>
+- [x] <span title='tested'> [cat.count](./tests/cat/count.yml#L13)</span>
+- [ ] <span title='not tested'> cat.fielddata</span>
+- [ ] <span title='not tested'> cat.health</span>
+- [x] <span title='tested'> [cat.help](./tests/cat/help.yml#L2)</span>
+- [x] <span title='tested'> [cat.indices](./tests/cat/indices.yml#L13)</span>
+- [ ] <span title='not tested'> cat.master</span>
+- [x] <span title='tested'> [cat.ml_data_frame_analytics](./tests/cat/ml.yml#L4)</span>
+- [x] <span title='tested'> [cat.ml_datafeeds](./tests/cat/ml.yml#L7)</span>
+- [x] <span title='tested'> [cat.ml_jobs](./tests/cat/ml.yml#L10)</span>
+- [x] <span title='tested'> [cat.ml_trained_models](./tests/cat/ml.yml#L13)</span>
+- [ ] <span title='not tested'> cat.nodeattrs</span>
+- [ ] <span title='not tested'> cat.nodes</span>
+- [ ] <span title='not tested'> cat.pending_tasks</span>
+- [ ] <span title='not tested'> cat.plugins</span>
+- [ ] <span title='not tested'> cat.recovery</span>
+- [ ] <span title='not tested'> cat.repositories</span>
+- [ ] <span title='not tested'> cat.segments</span>
+- [ ] <span title='not tested'> cat.shards</span>
+- [ ] <span title='not tested'> cat.snapshots</span>
+- [ ] <span title='not tested'> cat.tasks</span>
+- [ ] <span title='not tested'> cat.templates</span>
+- [ ] <span title='not tested'> cat.thread_pool</span>
+- [x] <span title='tested'> [cat.transforms](./tests/cat/transform.yml#L27)</span>
+- [ ] <span title='not tested'> ccr.delete_auto_follow_pattern</span>
+- [ ] <span title='not tested'> ccr.follow</span>
+- [ ] <span title='not tested'> ccr.follow_info</span>
+- [ ] <span title='not tested'> ccr.follow_stats</span>
+- [ ] <span title='not tested'> ccr.forget_follower</span>
+- [ ] <span title='not tested'> ccr.get_auto_follow_pattern</span>
+- [ ] <span title='not tested'> ccr.pause_auto_follow_pattern</span>
+- [ ] <span title='not tested'> ccr.pause_follow</span>
+- [ ] <span title='not tested'> ccr.put_auto_follow_pattern</span>
+- [ ] <span title='not tested'> ccr.resume_auto_follow_pattern</span>
+- [ ] <span title='not tested'> ccr.resume_follow</span>
+- [ ] <span title='not tested'> ccr.stats</span>
+- [ ] <span title='not tested'> ccr.unfollow</span>
+- [x] <span title='tested'> [clear_scroll](./tests/scroll/10_basic.yml#L24)</span>
+- [x] <span title='tested'> [close_point_in_time](./tests/point_in_time/10_basic.yml#L26)</span>
+- [ ] <span title='not tested'> cluster.allocation_explain</span>
+- [x] <span title='tested'> [cluster.delete_component_template](./tests/cluster/component_templates.yml#L27)</span>
+- [ ] <span title='not tested'> cluster.delete_voting_config_exclusions</span>
+- [x] <span title='tested'> [cluster.exists_component_template](./tests/cluster/component_templates.yml#L17)</span>
+- [x] <span title='tested'> [cluster.get_component_template](./tests/cluster/component_templates.yml#L22)</span>
+- [ ] <span title='not tested'> cluster.get_settings</span>
+- [ ] <span title='not tested'> cluster.health</span>
+- [x] <span title='tested'> [cluster.info](./tests/cluster/cluster_info.yml#L2)</span>
+- [ ] <span title='not tested'> cluster.pending_tasks</span>
+- [ ] <span title='not tested'> cluster.post_voting_config_exclusions</span>
+- [x] <span title='tested'> [cluster.put_component_template](./tests/cluster/component_templates.yml#L4)</span>
+- [ ] <span title='not tested'> cluster.put_settings</span>
+- [ ] <span title='not tested'> cluster.remote_info</span>
+- [ ] <span title='not tested'> cluster.reroute</span>
+- [ ] <span title='not tested'> cluster.state</span>
+- [ ] <span title='not tested'> cluster.stats</span>
+- [ ] <span title='not tested'> connector.check_in</span>
+- [ ] <span title='not tested'> connector.delete</span>
+- [ ] <span title='not tested'> connector.get</span>
+- [ ] <span title='not tested'> connector.last_sync</span>
+- [ ] <span title='not tested'> connector.list</span>
+- [ ] <span title='not tested'> connector.post</span>
+- [ ] <span title='not tested'> connector.put</span>
+- [ ] <span title='not tested'> connector.update_api_key_id</span>
+- [ ] <span title='not tested'> connector.update_configuration</span>
+- [ ] <span title='not tested'> connector.update_error</span>
+- [ ] <span title='not tested'> connector.update_filtering</span>
+- [ ] <span title='not tested'> connector.update_index_name</span>
+- [ ] <span title='not tested'> connector.update_name</span>
+- [ ] <span title='not tested'> connector.update_native</span>
+- [ ] <span title='not tested'> connector.update_pipeline</span>
+- [ ] <span title='not tested'> connector.update_scheduling</span>
+- [ ] <span title='not tested'> connector.update_service_type</span>
+- [ ] <span title='not tested'> connector.update_status</span>
+- [ ] <span title='not tested'> connector_secret.delete</span>
+- [ ] <span title='not tested'> connector_secret.get</span>
+- [ ] <span title='not tested'> connector_secret.post</span>
+- [ ] <span title='not tested'> connector_secret.put</span>
+- [ ] <span title='not tested'> connector_sync_job.cancel</span>
+- [ ] <span title='not tested'> connector_sync_job.check_in</span>
+- [ ] <span title='not tested'> connector_sync_job.delete</span>
+- [ ] <span title='not tested'> connector_sync_job.error</span>
+- [ ] <span title='not tested'> connector_sync_job.get</span>
+- [ ] <span title='not tested'> connector_sync_job.list</span>
+- [ ] <span title='not tested'> connector_sync_job.post</span>
+- [ ] <span title='not tested'> connector_sync_job.update_stats</span>
+- [x] <span title='tested'> [count](./tests/async_search/10_basic.yml#L8)</span>
+- [x] <span title='tested'> [create](./tests/cat/aliases.yml#L4)</span>
+- [ ] <span title='not tested'> dangling_indices.delete_dangling_index</span>
+- [ ] <span title='not tested'> dangling_indices.import_dangling_index</span>
+- [ ] <span title='not tested'> dangling_indices.list_dangling_indices</span>
+- [x] <span title='tested'> [delete](./tests/async_search/10_basic.yml#L25)</span>
+- [x] <span title='tested'> [delete_by_query](./tests/delete_by_query/10_basic.yml#L5)</span>
+- [ ] <span title='not tested'> delete_by_query_rethrottle</span>
+- [x] <span title='tested'> [delete_script](./tests/script/10_basic.yml#L29)</span>
+- [x] <span title='tested'> [enrich.delete_policy](./tests/enrich/10_basic.yml#L44)</span>
+- [x] <span title='tested'> [enrich.execute_policy](./tests/enrich/10_basic.yml#L30)</span>
+- [x] <span title='tested'> [enrich.get_policy](./tests/enrich/10_basic.yml#L35)</span>
+- [x] <span title='tested'> [enrich.put_policy](./tests/enrich/10_basic.yml#L20)</span>
+- [x] <span title='tested'> [enrich.stats](./tests/enrich/10_basic.yml#L40)</span>
+- [x] <span title='tested'> [eql.delete](./tests/eql/10_basic.yml#L118)</span>
+- [x] <span title='tested'> [eql.get](./tests/eql/10_basic.yml#L105)</span>
+- [x] <span title='tested'> [eql.get_status](./tests/eql/10_basic.yml#L105)</span>
+- [x] <span title='tested'> [eql.search](./tests/eql/10_basic.yml#L95)</span>
+- [ ] <span title='not tested'> esql.async_query</span>
+- [ ] <span title='not tested'> esql.async_query_get</span>
+- [ ] <span title='not tested'> esql.query</span>
+- [x] <span title='tested'> [exists](./tests/cluster/component_templates.yml#L17)</span>
+- [x] <span title='tested'> [exists_source](./tests/exists_source/10_basic.yml#L5)</span>
+- [x] <span title='tested'> [explain](./tests/explain/10_basic.yml#L5)</span>
+- [ ] <span title='not tested'> features.get_features</span>
+- [ ] <span title='not tested'> features.reset_features</span>
+- [x] <span title='tested'> [field_caps](./tests/field_caps/10_basic.yml#L5)</span>
+- [ ] <span title='not tested'> fleet.delete_secret</span>
+- [ ] <span title='not tested'> fleet.get_secret</span>
+- [ ] <span title='not tested'> fleet.global_checkpoints</span>
+- [ ] <span title='not tested'> fleet.msearch</span>
+- [ ] <span title='not tested'> fleet.post_secret</span>
+- [ ] <span title='not tested'> fleet.search</span>
+- [x] <span title='tested'> [get](./tests/async_search/10_basic.yml#L39)</span>
+- [x] <span title='tested'> [get_script](./tests/script/10_basic.yml#L25)</span>
+- [ ] <span title='not tested'> get_script_context</span>
+- [ ] <span title='not tested'> get_script_languages</span>
+- [x] <span title='tested'> [get_source](./tests/get_source/10_basic.yml#L5)</span>
+- [x] <span title='tested'> [graph.explore](./tests/graph/explore.yml#L27)</span>
+- [ ] <span title='not tested'> health_report</span>
+- [ ] <span title='not tested'> ilm.delete_lifecycle</span>
+- [ ] <span title='not tested'> ilm.explain_lifecycle</span>
+- [ ] <span title='not tested'> ilm.get_lifecycle</span>
+- [ ] <span title='not tested'> ilm.get_status</span>
+- [ ] <span title='not tested'> ilm.migrate_to_data_tiers</span>
+- [ ] <span title='not tested'> ilm.move_to_step</span>
+- [ ] <span title='not tested'> ilm.put_lifecycle</span>
+- [ ] <span title='not tested'> ilm.remove_policy</span>
+- [ ] <span title='not tested'> ilm.retry</span>
+- [ ] <span title='not tested'> ilm.start</span>
+- [ ] <span title='not tested'> ilm.stop</span>
+- [x] <span title='tested'> [index](./tests/async_search/10_basic.yml#L4)</span>
+- [x] <span title='tested'> [indices.add_block](./tests/indices/block.yml#L12)</span>
+- [x] <span title='tested'> [indices.analyze](./tests/indices/analyze.yml#L13)</span>
+- [ ] <span title='not tested'> indices.clear_cache</span>
+- [ ] <span title='not tested'> indices.clone</span>
+- [ ] <span title='not tested'> indices.close</span>
+- [x] <span title='tested'> [indices.create](./tests/cat/aliases.yml#L4)</span>
+- [x] <span title='tested'> [indices.create_data_stream](./tests/indices/data_streams.yml#L22)</span>
+- [x] <span title='tested'> [indices.data_streams_stats](./tests/indices/data_streams.yml#L32)</span>
+- [x] <span title='tested'> [indices.delete](./tests/async_search/10_basic.yml#L25)</span>
+- [x] <span title='tested'> [indices.delete_alias](./tests/indices/alias.yml#L45)</span>
+- [x] <span title='tested'> [indices.delete_data_lifecycle](./tests/indices/data_lifecycle.yml#L26)</span>
+- [x] <span title='tested'> [indices.delete_data_stream](./tests/indices/data_streams.yml#L36)</span>
+- [x] <span title='tested'> [indices.delete_index_template](./tests/indices/data_streams.yml#L17)</span>
+- [ ] <span title='not tested'> indices.delete_template</span>
+- [ ] <span title='not tested'> indices.disk_usage</span>
+- [ ] <span title='not tested'> indices.downsample</span>
+- [x] <span title='tested'> [indices.exists](./tests/indices/alias.yml#L33)</span>
+- [x] <span title='tested'> [indices.exists_alias](./tests/indices/alias.yml#L33)</span>
+- [x] <span title='tested'> [indices.exists_index_template](./tests/indices/index_template.yml#L27)</span>
+- [ ] <span title='not tested'> indices.exists_template</span>
+- [x] <span title='tested'> [indices.explain_data_lifecycle](./tests/indices/data_lifecycle.yml#L23)</span>
+- [ ] <span title='not tested'> indices.field_usage_stats</span>
+- [ ] <span title='not tested'> indices.flush</span>
+- [ ] <span title='not tested'> indices.forcemerge</span>
+- [x] <span title='tested'> [indices.get](./tests/indices/alias.yml#L27)</span>
+- [x] <span title='tested'> [indices.get_alias](./tests/indices/alias.yml#L27)</span>
+- [x] <span title='tested'> [indices.get_data_lifecycle](./tests/indices/data_lifecycle.yml#L18)</span>
+- [x] <span title='tested'> [indices.get_data_stream](./tests/indices/data_streams.yml#L27)</span>
+- [ ] <span title='not tested'> indices.get_field_mapping</span>
+- [x] <span title='tested'> [indices.get_index_template](./tests/indices/index_template.yml#L20)</span>
+- [x] <span title='tested'> [indices.get_mapping](./tests/indices/mapping.yml#L28)</span>
+- [x] <span title='tested'> [indices.get_settings](./tests/indices/settings.yml#L17)</span>
+- [ ] <span title='not tested'> indices.get_template</span>
+- [x] <span title='tested'> [indices.migrate_to_data_stream](./tests/indices/migrate_modify_data_stream.yml#L35)</span>
+- [x] <span title='tested'> [indices.modify_data_stream](./tests/indices/migrate_modify_data_stream.yml#L39)</span>
+- [ ] <span title='not tested'> indices.open</span>
+- [ ] <span title='not tested'> indices.promote_data_stream</span>
+- [x] <span title='tested'> [indices.put_alias](./tests/cat/aliases.yml#L7)</span>
+- [x] <span title='tested'> [indices.put_data_lifecycle](./tests/indices/data_lifecycle.yml#L12)</span>
+- [x] <span title='tested'> [indices.put_index_template](./tests/indices/data_streams.yml#L4)</span>
+- [x] <span title='tested'> [indices.put_mapping](./tests/indices/mapping.yml#L14)</span>
+- [x] <span title='tested'> [indices.put_settings](./tests/indices/settings.yml#L23)</span>
+- [ ] <span title='not tested'> indices.put_template</span>
+- [ ] <span title='not tested'> indices.recovery</span>
+- [x] <span title='tested'> [indices.refresh](./tests/graph/explore.yml#L20)</span>
+- [ ] <span title='not tested'> indices.reload_search_analyzers</span>
+- [ ] <span title='not tested'> indices.resolve_cluster</span>
+- [x] <span title='tested'> [indices.resolve_index](./tests/indices/resolve.yml#L18)</span>
+- [x] <span title='tested'> [indices.rollover](./tests/indices/rollover.yml#L36)</span>
+- [ ] <span title='not tested'> indices.segments</span>
+- [ ] <span title='not tested'> indices.shard_stores</span>
+- [ ] <span title='not tested'> indices.shrink</span>
+- [x] <span title='tested'> [indices.simulate_index_template](./tests/indices/simulate_template.yml#L34)</span>
+- [x] <span title='tested'> [indices.simulate_template](./tests/indices/simulate_index_template.yml#L34)</span>
+- [ ] <span title='not tested'> indices.split</span>
+- [ ] <span title='not tested'> indices.stats</span>
+- [ ] <span title='not tested'> indices.unfreeze</span>
+- [x] <span title='tested'> [indices.update_aliases](./tests/indices/alias.yml#L37)</span>
+- [x] <span title='tested'> [indices.validate_query](./tests/validate_query/10_basic.yml#L12)</span>
+- [ ] <span title='not tested'> inference.delete_model</span>
+- [ ] <span title='not tested'> inference.get_model</span>
+- [ ] <span title='not tested'> inference.inference</span>
+- [ ] <span title='not tested'> inference.put_model</span>
+- [x] <span title='tested'> [info](./tests/cluster/cluster_info.yml#L2)</span>
+- [x] <span title='tested'> [ingest.delete_pipeline](./tests/ingest/10_basic.yml#L25)</span>
+- [ ] <span title='not tested'> ingest.geo_ip_stats</span>
+- [x] <span title='tested'> [ingest.get_pipeline](./tests/ingest/10_basic.yml#L12)</span>
+- [x] <span title='tested'> [ingest.processor_grok](./tests/ingest/10_basic.yml#L28)</span>
+- [x] <span title='tested'> [ingest.put_pipeline](./tests/ingest/10_basic.yml#L4)</span>
+- [x] <span title='tested'> [ingest.simulate](./tests/ingest/10_basic.yml#L16)</span>
+- [ ] <span title='not tested'> knn_search</span>
+- [ ] <span title='not tested'> license.delete</span>
+- [x] <span title='tested'> [license.get](./tests/license.yml#L4)</span>
+- [ ] <span title='not tested'> license.get_basic_status</span>
+- [ ] <span title='not tested'> license.get_trial_status</span>
+- [ ] <span title='not tested'> license.post</span>
+- [ ] <span title='not tested'> license.post_start_basic</span>
+- [ ] <span title='not tested'> license.post_start_trial</span>
+- [x] <span title='tested'> [logstash.delete_pipeline](./tests/logstash/10_basic.yml#L26)</span>
+- [x] <span title='tested'> [logstash.get_pipeline](./tests/logstash/10_basic.yml#L22)</span>
+- [x] <span title='tested'> [logstash.put_pipeline](./tests/logstash/10_basic.yml#L4)</span>
+- [x] <span title='tested'> [mget](./tests/mget.yml#L6)</span>
+- [ ] <span title='not tested'> migration.deprecations</span>
+- [ ] <span title='not tested'> migration.get_feature_upgrade_status</span>
+- [ ] <span title='not tested'> migration.post_feature_upgrade</span>
+- [ ] <span title='not tested'> ml.clear_trained_model_deployment_cache</span>
+- [x] <span title='tested'> [ml.close_job](./tests/machine_learning/jobs_crud.yml#L65)</span>
+- [x] <span title='tested'> [ml.delete_calendar](./tests/machine_learning/calendar_crud.yml#L4)</span>
+- [x] <span title='tested'> [ml.delete_calendar_event](./tests/machine_learning/calendar_events_crud.yml#L84)</span>
+- [x] <span title='tested'> [ml.delete_calendar_job](./tests/machine_learning/calendar_job.yml#L33)</span>
+- [x] <span title='tested'> [ml.delete_data_frame_analytics](./tests/machine_learning/data_frame_analytics.yml#L76)</span>
+- [x] <span title='tested'> [ml.delete_datafeed](./tests/machine_learning/datafeed_crud.yml#L86)</span>
+- [ ] <span title='not tested'> ml.delete_expired_data</span>
+- [x] <span title='tested'> [ml.delete_filter](./tests/machine_learning/filter_crud.yml#L33)</span>
+- [ ] <span title='not tested'> ml.delete_forecast</span>
+- [x] <span title='tested'> [ml.delete_job](./tests/machine_learning/calendar_crud.yml#L10)</span>
+- [ ] <span title='not tested'> ml.delete_model_snapshot</span>
+- [x] <span title='tested'> [ml.delete_trained_model](./tests/machine_learning/trained_model.yml#L32)</span>
+- [x] <span title='tested'> [ml.delete_trained_model_alias](./tests/machine_learning/trained_model_aliases.yml#L36)</span>
+- [x] <span title='tested'> [ml.estimate_model_memory](./tests/machine_learning/estimate_model_memory.yml#L4)</span>
+- [x] <span title='tested'> [ml.evaluate_data_frame](./tests/machine_learning/data_frame_evaluate.yml#L180)</span>
+- [ ] <span title='not tested'> ml.explain_data_frame_analytics</span>
+- [x] <span title='tested'> [ml.flush_job](./tests/machine_learning/jobs_crud.yml#L60)</span>
+- [ ] <span title='not tested'> ml.forecast</span>
+- [ ] <span title='not tested'> ml.get_buckets</span>
+- [x] <span title='tested'> [ml.get_calendar_events](./tests/machine_learning/calendar_events_crud.yml#L25)</span>
+- [x] <span title='tested'> [ml.get_calendars](./tests/machine_learning/calendar_crud.yml#L21)</span>
+- [ ] <span title='not tested'> ml.get_categories</span>
+- [x] <span title='tested'> [ml.get_data_frame_analytics](./tests/machine_learning/data_frame_analytics.yml#L33)</span>
+- [x] <span title='tested'> [ml.get_data_frame_analytics_stats](./tests/machine_learning/data_frame_analytics.yml#L57)</span>
+- [x] <span title='tested'> [ml.get_datafeed_stats](./tests/machine_learning/datafeed_crud.yml#L49)</span>
+- [x] <span title='tested'> [ml.get_datafeeds](./tests/machine_learning/datafeed_crud.yml#L43)</span>
+- [x] <span title='tested'> [ml.get_filters](./tests/machine_learning/filter_crud.yml#L13)</span>
+- [ ] <span title='not tested'> ml.get_influencers</span>
+- [x] <span title='tested'> [ml.get_job_stats](./tests/machine_learning/jobs_crud.yml#L17)</span>
+- [x] <span title='tested'> [ml.get_jobs](./tests/machine_learning/jobs_crud.yml#L11)</span>
+- [ ] <span title='not tested'> ml.get_memory_stats</span>
+- [ ] <span title='not tested'> ml.get_model_snapshot_upgrade_stats</span>
+- [ ] <span title='not tested'> ml.get_model_snapshots</span>
+- [x] <span title='tested'> [ml.get_overall_buckets](./tests/machine_learning/get_overall_buckets.yml#L4)</span>
+- [ ] <span title='not tested'> ml.get_records</span>
+- [x] <span title='tested'> [ml.get_trained_models](./tests/machine_learning/trained_model.yml#L27)</span>
+- [x] <span title='tested'> [ml.get_trained_models_stats](./tests/machine_learning/trained_model_more.yml#L43)</span>
+- [ ] <span title='not tested'> ml.infer_trained_model</span>
+- [ ] <span title='not tested'> ml.info</span>
+- [x] <span title='tested'> [ml.open_job](./tests/machine_learning/jobs_crud.yml#L42)</span>
+- [x] <span title='tested'> [ml.post_calendar_events](./tests/machine_learning/calendar_events_crud.yml#L13)</span>
+- [ ] <span title='not tested'> ml.post_data</span>
+- [x] <span title='tested'> [ml.preview_data_frame_analytics](./tests/machine_learning/data_frame_analytics.yml#L61)</span>
+- [x] <span title='tested'> [ml.preview_datafeed](./tests/machine_learning/preview_datafeed.yml#L101)</span>
+- [x] <span title='tested'> [ml.put_calendar](./tests/machine_learning/calendar_crud.yml#L53)</span>
+- [x] <span title='tested'> [ml.put_calendar_job](./tests/machine_learning/calendar_job.yml#L26)</span>
+- [x] <span title='tested'> [ml.put_data_frame_analytics](./tests/machine_learning/data_frame_analytics.yml#L38)</span>
+- [x] <span title='tested'> [ml.put_datafeed](./tests/machine_learning/datafeed_crud.yml#L54)</span>
+- [x] <span title='tested'> [ml.put_filter](./tests/machine_learning/filter_crud.yml#L4)</span>
+- [x] <span title='tested'> [ml.put_job](./tests/machine_learning/calendar_crud.yml#L26)</span>
+- [x] <span title='tested'> [ml.put_trained_model](./tests/machine_learning/trained_model.yml#L4)</span>
+- [x] <span title='tested'> [ml.put_trained_model_alias](./tests/machine_learning/trained_model_aliases.yml#L31)</span>
+- [x] <span title='tested'> [ml.put_trained_model_definition_part](./tests/machine_learning/trained_model_more.yml#L32)</span>
+- [x] <span title='tested'> [ml.put_trained_model_vocabulary](./tests/machine_learning/trained_model_more.yml#L26)</span>
+- [x] <span title='tested'> [ml.reset_job](./tests/machine_learning/jobs_reset.yml#L25)</span>
+- [ ] <span title='not tested'> ml.revert_model_snapshot</span>
+- [ ] <span title='not tested'> ml.set_upgrade_mode</span>
+- [x] <span title='tested'> [ml.start_data_frame_analytics](./tests/machine_learning/data_frame_analytics.yml#L64)</span>
+- [x] <span title='tested'> [ml.start_datafeed](./tests/machine_learning/start_stop_datafeed.yml#L58)</span>
+- [x] <span title='tested'> [ml.start_trained_model_deployment](./tests/machine_learning/trained_model_more.yml#L48)</span>
+- [x] <span title='tested'> [ml.stop_data_frame_analytics](./tests/machine_learning/data_frame_analytics.yml#L67)</span>
+- [x] <span title='tested'> [ml.stop_datafeed](./tests/machine_learning/start_stop_datafeed.yml#L66)</span>
+- [x] <span title='tested'> [ml.stop_trained_model_deployment](./tests/machine_learning/trained_model_more.yml#L54)</span>
+- [x] <span title='tested'> [ml.update_data_frame_analytics](./tests/machine_learning/data_frame_analytics.yml#L70)</span>
+- [x] <span title='tested'> [ml.update_datafeed](./tests/machine_learning/datafeed_crud.yml#L68)</span>
+- [x] <span title='tested'> [ml.update_filter](./tests/machine_learning/filter_crud.yml#L21)</span>
+- [x] <span title='tested'> [ml.update_job](./tests/machine_learning/jobs_crud.yml#L71)</span>
+- [ ] <span title='not tested'> ml.update_model_snapshot</span>
+- [ ] <span title='not tested'> ml.update_trained_model_deployment</span>
+- [ ] <span title='not tested'> ml.upgrade_job_snapshot</span>
+- [ ] <span title='not tested'> ml.validate</span>
+- [ ] <span title='not tested'> ml.validate_detector</span>
+- [ ] <span title='not tested'> monitoring.bulk</span>
+- [x] <span title='tested'> [msearch](./tests/msearch.yml#L4)</span>
+- [x] <span title='tested'> [msearch_template](./tests/msearch_template.yml#L4)</span>
+- [x] <span title='tested'> [mtermvectors](./tests/mtermvectors/10_basic.yml#L5)</span>
+- [ ] <span title='not tested'> nodes.clear_repositories_metering_archive</span>
+- [ ] <span title='not tested'> nodes.get_repositories_metering_info</span>
+- [ ] <span title='not tested'> nodes.hot_threads</span>
+- [ ] <span title='not tested'> nodes.info</span>
+- [ ] <span title='not tested'> nodes.reload_secure_settings</span>
+- [ ] <span title='not tested'> nodes.stats</span>
+- [ ] <span title='not tested'> nodes.usage</span>
+- [x] <span title='tested'> [open_point_in_time](./tests/point_in_time/10_basic.yml#L12)</span>
+- [x] <span title='tested'> [ping](./tests/cluster/component_templates.yml#L8)</span>
+- [ ] <span title='not tested'> profiling.flamegraph</span>
+- [ ] <span title='not tested'> profiling.stacktraces</span>
+- [ ] <span title='not tested'> profiling.status</span>
+- [x] <span title='tested'> [put_script](./tests/msearch_template.yml#L6)</span>
+- [x] <span title='tested'> [query_ruleset.delete](./tests/query_ruleset/10_basic.yml#L32)</span>
+- [x] <span title='tested'> [query_ruleset.get](./tests/query_ruleset/10_basic.yml#L25)</span>
+- [x] <span title='tested'> [query_ruleset.list](./tests/query_ruleset/10_basic.yml#L29)</span>
+- [x] <span title='tested'> [query_ruleset.put](./tests/query_ruleset/10_basic.yml#L4)</span>
+- [x] <span title='tested'> [rank_eval](./tests/rank_eval.yml#L16)</span>
+- [x] <span title='tested'> [reindex](./tests/reindex/10_basic.yml#L4)</span>
+- [ ] <span title='not tested'> reindex_rethrottle</span>
+- [x] <span title='tested'> [render_search_template](./tests/search_template/10_basic.yml#L4)</span>
+- [ ] <span title='not tested'> rollup.delete_job</span>
+- [ ] <span title='not tested'> rollup.get_jobs</span>
+- [ ] <span title='not tested'> rollup.get_rollup_caps</span>
+- [ ] <span title='not tested'> rollup.get_rollup_index_caps</span>
+- [ ] <span title='not tested'> rollup.put_job</span>
+- [ ] <span title='not tested'> rollup.rollup_search</span>
+- [ ] <span title='not tested'> rollup.start_job</span>
+- [ ] <span title='not tested'> rollup.stop_job</span>
+- [x] <span title='tested'> [scripts_painless_execute](./tests/script/10_basic.yml#L32)</span>
+- [x] <span title='tested'> [scroll](./tests/machine_learning/datafeed_crud.yml#L64)</span>
+- [x] <span title='tested'> [search](./tests/async_search/10_basic.yml#L5)</span>
+- [x] <span title='tested'> [search_application.delete](./tests/search_application/10_basic.yml#L51)</span>
+- [x] <span title='tested'> [search_application.delete_behavioral_analytics](./tests/search_application/20_behavioral_analytics.yml#L13)</span>
+- [x] <span title='tested'> [search_application.get](./tests/search_application/10_basic.yml#L44)</span>
+- [x] <span title='tested'> [search_application.get_behavioral_analytics](./tests/search_application/20_behavioral_analytics.yml#L9)</span>
+- [x] <span title='tested'> [search_application.list](./tests/search_application/10_basic.yml#L48)</span>
+- [ ] <span title='not tested'> search_application.post_behavioral_analytics_event</span>
+- [x] <span title='tested'> [search_application.put](./tests/search_application/10_basic.yml#L20)</span>
+- [x] <span title='tested'> [search_application.put_behavioral_analytics](./tests/search_application/20_behavioral_analytics.yml#L4)</span>
+- [ ] <span title='not tested'> search_application.render_query</span>
+- [ ] <span title='not tested'> search_application.search</span>
+- [x] <span title='tested'> [search_mvt](./tests/search_mvt/10_basic.yml#L29)</span>
+- [ ] <span title='not tested'> search_shards</span>
+- [x] <span title='tested'> [search_template](./tests/msearch_template.yml#L4)</span>
+- [ ] <span title='not tested'> searchable_snapshots.cache_stats</span>
+- [ ] <span title='not tested'> searchable_snapshots.clear_cache</span>
+- [ ] <span title='not tested'> searchable_snapshots.mount</span>
+- [ ] <span title='not tested'> searchable_snapshots.stats</span>
+- [ ] <span title='not tested'> security.activate_user_profile</span>
+- [x] <span title='tested'> [security.authenticate](./tests/security/20_authenticate.yml#L2)</span>
+- [ ] <span title='not tested'> security.bulk_update_api_keys</span>
+- [ ] <span title='not tested'> security.change_password</span>
+- [ ] <span title='not tested'> security.clear_api_key_cache</span>
+- [ ] <span title='not tested'> security.clear_cached_privileges</span>
+- [ ] <span title='not tested'> security.clear_cached_realms</span>
+- [ ] <span title='not tested'> security.clear_cached_roles</span>
+- [ ] <span title='not tested'> security.clear_cached_service_tokens</span>
+- [x] <span title='tested'> [security.create_api_key](./tests/security/10_api_key_basic.yml#L4)</span>
+- [ ] <span title='not tested'> security.create_cross_cluster_api_key</span>
+- [ ] <span title='not tested'> security.create_service_token</span>
+- [ ] <span title='not tested'> security.delete_privileges</span>
+- [ ] <span title='not tested'> security.delete_role</span>
+- [ ] <span title='not tested'> security.delete_role_mapping</span>
+- [ ] <span title='not tested'> security.delete_service_token</span>
+- [ ] <span title='not tested'> security.delete_user</span>
+- [ ] <span title='not tested'> security.disable_user</span>
+- [ ] <span title='not tested'> security.disable_user_profile</span>
+- [ ] <span title='not tested'> security.enable_user</span>
+- [ ] <span title='not tested'> security.enable_user_profile</span>
+- [ ] <span title='not tested'> security.enroll_kibana</span>
+- [ ] <span title='not tested'> security.enroll_node</span>
+- [x] <span title='tested'> [security.get_api_key](./tests/security/10_api_key_basic.yml#L15)</span>
+- [ ] <span title='not tested'> security.get_builtin_privileges</span>
+- [ ] <span title='not tested'> security.get_privileges</span>
+- [ ] <span title='not tested'> security.get_role</span>
+- [ ] <span title='not tested'> security.get_role_mapping</span>
+- [ ] <span title='not tested'> security.get_service_accounts</span>
+- [ ] <span title='not tested'> security.get_service_credentials</span>
+- [ ] <span title='not tested'> security.get_settings</span>
+- [ ] <span title='not tested'> security.get_token</span>
+- [ ] <span title='not tested'> security.get_user</span>
+- [ ] <span title='not tested'> security.get_user_privileges</span>
+- [ ] <span title='not tested'> security.get_user_profile</span>
+- [ ] <span title='not tested'> security.grant_api_key</span>
+- [x] <span title='tested'> [security.has_privileges](./tests/security/30_has_privileges.yml#L2)</span>
+- [ ] <span title='not tested'> security.has_privileges_user_profile</span>
+- [x] <span title='tested'> [security.invalidate_api_key](./tests/security/10_api_key_basic.yml#L29)</span>
+- [ ] <span title='not tested'> security.invalidate_token</span>
+- [ ] <span title='not tested'> security.oidc_authenticate</span>
+- [ ] <span title='not tested'> security.oidc_logout</span>
+- [ ] <span title='not tested'> security.oidc_prepare_authentication</span>
+- [ ] <span title='not tested'> security.put_privileges</span>
+- [ ] <span title='not tested'> security.put_role</span>
+- [ ] <span title='not tested'> security.put_role_mapping</span>
+- [ ] <span title='not tested'> security.put_user</span>
+- [x] <span title='tested'> [security.query_api_keys](./tests/security/10_api_key_basic.yml#L20)</span>
+- [ ] <span title='not tested'> security.query_user</span>
+- [ ] <span title='not tested'> security.saml_authenticate</span>
+- [ ] <span title='not tested'> security.saml_complete_logout</span>
+- [ ] <span title='not tested'> security.saml_invalidate</span>
+- [ ] <span title='not tested'> security.saml_logout</span>
+- [ ] <span title='not tested'> security.saml_prepare_authentication</span>
+- [ ] <span title='not tested'> security.saml_service_provider_metadata</span>
+- [ ] <span title='not tested'> security.suggest_user_profiles</span>
+- [ ] <span title='not tested'> security.update_api_key</span>
+- [ ] <span title='not tested'> security.update_cross_cluster_api_key</span>
+- [ ] <span title='not tested'> security.update_settings</span>
+- [ ] <span title='not tested'> security.update_user_profile_data</span>
+- [ ] <span title='not tested'> shutdown.delete_node</span>
+- [ ] <span title='not tested'> shutdown.get_node</span>
+- [ ] <span title='not tested'> shutdown.put_node</span>
+- [ ] <span title='not tested'> simulate.ingest</span>
+- [ ] <span title='not tested'> slm.delete_lifecycle</span>
+- [ ] <span title='not tested'> slm.execute_lifecycle</span>
+- [ ] <span title='not tested'> slm.execute_retention</span>
+- [ ] <span title='not tested'> slm.get_lifecycle</span>
+- [ ] <span title='not tested'> slm.get_stats</span>
+- [ ] <span title='not tested'> slm.get_status</span>
+- [ ] <span title='not tested'> slm.put_lifecycle</span>
+- [ ] <span title='not tested'> slm.start</span>
+- [ ] <span title='not tested'> slm.stop</span>
+- [ ] <span title='not tested'> snapshot.cleanup_repository</span>
+- [ ] <span title='not tested'> snapshot.clone</span>
+- [ ] <span title='not tested'> snapshot.create</span>
+- [ ] <span title='not tested'> snapshot.create_repository</span>
+- [ ] <span title='not tested'> snapshot.delete</span>
+- [ ] <span title='not tested'> snapshot.delete_repository</span>
+- [ ] <span title='not tested'> snapshot.get</span>
+- [ ] <span title='not tested'> snapshot.get_repository</span>
+- [ ] <span title='not tested'> snapshot.repository_analyze</span>
+- [ ] <span title='not tested'> snapshot.restore</span>
+- [ ] <span title='not tested'> snapshot.status</span>
+- [ ] <span title='not tested'> snapshot.verify_repository</span>
+- [x] <span title='tested'> [sql.clear_cursor](./tests/sql/10_basic.yml#L33)</span>
+- [x] <span title='tested'> [sql.delete_async](./tests/sql/10_basic.yml#L55)</span>
+- [x] <span title='tested'> [sql.get_async](./tests/sql/10_basic.yml#L48)</span>
+- [x] <span title='tested'> [sql.get_async_status](./tests/sql/10_basic.yml#L48)</span>
+- [x] <span title='tested'> [sql.query](./tests/sql/10_basic.yml#L22)</span>
+- [x] <span title='tested'> [sql.translate](./tests/sql/10_basic.yml#L29)</span>
+- [ ] <span title='not tested'> ssl.certificates</span>
+- [x] <span title='tested'> [synonyms.delete_synonym](./tests/synonyms/10_basic.yml#L32)</span>
+- [x] <span title='tested'> [synonyms.delete_synonym_rule](./tests/synonyms/10_basic.yml#L32)</span>
+- [x] <span title='tested'> [synonyms.get_synonym](./tests/synonyms/10_basic.yml#L17)</span>
+- [x] <span title='tested'> [synonyms.get_synonym_rule](./tests/synonyms/10_basic.yml#L27)</span>
+- [ ] <span title='not tested'> synonyms.get_synonyms_sets</span>
+- [x] <span title='tested'> [synonyms.put_synonym](./tests/synonyms/10_basic.yml#L12)</span>
+- [x] <span title='tested'> [synonyms.put_synonym_rule](./tests/synonyms/10_basic.yml#L21)</span>
+- [ ] <span title='not tested'> tasks.cancel</span>
+- [ ] <span title='not tested'> tasks.get</span>
+- [ ] <span title='not tested'> tasks.list</span>
+- [x] <span title='tested'> [terms_enum](./tests/terms_enum/10_basic.yml#L4)</span>
+- [x] <span title='tested'> [termvectors](./tests/mtermvectors/10_basic.yml#L5)</span>
+- [ ] <span title='not tested'> text_structure.find_structure</span>
+- [ ] <span title='not tested'> text_structure.test_grok_pattern</span>
+- [x] <span title='tested'> [transform.delete_transform](./tests/cat/transform.yml#L24)</span>
+- [x] <span title='tested'> [transform.get_transform](./tests/transform/10_basic.yml#L36)</span>
+- [x] <span title='tested'> [transform.get_transform_stats](./tests/transform/10_basic.yml#L39)</span>
+- [x] <span title='tested'> [transform.preview_transform](./tests/transform/10_basic.yml#L42)</span>
+- [x] <span title='tested'> [transform.put_transform](./tests/cat/transform.yml#L8)</span>
+- [x] <span title='tested'> [transform.reset_transform](./tests/transform/10_basic.yml#L54)</span>
+- [x] <span title='tested'> [transform.schedule_now_transform](./tests/transform/10_basic.yml#L48)</span>
+- [x] <span title='tested'> [transform.start_transform](./tests/transform/10_basic.yml#L45)</span>
+- [x] <span title='tested'> [transform.stop_transform](./tests/transform/10_basic.yml#L51)</span>
+- [x] <span title='tested'> [transform.update_transform](./tests/transform/10_basic.yml#L31)</span>
+- [ ] <span title='not tested'> transform.upgrade_transforms</span>
+- [x] <span title='tested'> [update](./tests/indices/alias.yml#L37)</span>
+- [x] <span title='tested'> [update_by_query](./tests/update_by_query/10_basic.yml#L4)</span>
+- [ ] <span title='not tested'> update_by_query_rethrottle</span>
+- [ ] <span title='not tested'> watcher.ack_watch</span>
+- [ ] <span title='not tested'> watcher.activate_watch</span>
+- [ ] <span title='not tested'> watcher.deactivate_watch</span>
+- [ ] <span title='not tested'> watcher.delete_watch</span>
+- [ ] <span title='not tested'> watcher.execute_watch</span>
+- [ ] <span title='not tested'> watcher.get_settings</span>
+- [ ] <span title='not tested'> watcher.get_watch</span>
+- [ ] <span title='not tested'> watcher.put_watch</span>
+- [ ] <span title='not tested'> watcher.query_watches</span>
+- [ ] <span title='not tested'> watcher.start</span>
+- [ ] <span title='not tested'> watcher.stats</span>
+- [ ] <span title='not tested'> watcher.stop</span>
+- [ ] <span title='not tested'> watcher.update_settings</span>
+- [ ] <span title='not tested'> xpack.info</span>
+- [ ] <span title='not tested'> xpack.usage</span>
+
+
+## Endpoints in elasticsearch-specification
+
+### Serverless
+
+- [x] <span title='tested'> [async_search.delete](./tests/async_search/10_basic.yml#L49)</span>
+- [x] <span title='tested'> [async_search.get](./tests/async_search/10_basic.yml#L39)</span>
+- [x] <span title='tested'> [async_search.status](./tests/async_search/10_basic.yml#L44)</span>
+- [x] <span title='tested'> [async_search.submit](./tests/async_search/10_basic.yml#L31)</span>
+- [x] <span title='tested'> [bulk](./tests/bulk/10_basic.yml#L2)</span>
+- [x] <span title='tested'> [cat.aliases](./tests/cat/aliases.yml#L16)</span>
+- [x] <span title='tested'> [cat.component_templates](./tests/cat/component_templates.yml#L2)</span>
+- [x] <span title='tested'> [cat.count](./tests/cat/count.yml#L13)</span>
+- [x] <span title='tested'> [cat.help](./tests/cat/help.yml#L2)</span>
+- [x] <span title='tested'> [cat.indices](./tests/cat/indices.yml#L13)</span>
+- [x] <span title='tested'> [cat.ml_data_frame_analytics](./tests/cat/ml.yml#L4)</span>
+- [x] <span title='tested'> [cat.ml_datafeeds](./tests/cat/ml.yml#L7)</span>
+- [x] <span title='tested'> [cat.ml_jobs](./tests/cat/ml.yml#L10)</span>
+- [x] <span title='tested'> [cat.ml_trained_models](./tests/cat/ml.yml#L13)</span>
+- [x] <span title='tested'> [cat.transforms](./tests/cat/transform.yml#L27)</span>
+- [x] <span title='tested'> [clear_scroll](./tests/scroll/10_basic.yml#L24)</span>
+- [x] <span title='tested'> [close_point_in_time](./tests/point_in_time/10_basic.yml#L26)</span>
+- [x] <span title='tested'> [cluster.delete_component_template](./tests/cluster/component_templates.yml#L27)</span>
+- [x] <span title='tested'> [cluster.exists_component_template](./tests/cluster/component_templates.yml#L17)</span>
+- [x] <span title='tested'> [cluster.get_component_template](./tests/cluster/component_templates.yml#L22)</span>
+- [x] <span title='tested'> [cluster.info](./tests/cluster/cluster_info.yml#L2)</span>
+- [x] <span title='tested'> [cluster.put_component_template](./tests/cluster/component_templates.yml#L4)</span>
+- [x] <span title='tested'> [count](./tests/async_search/10_basic.yml#L8)</span>
+- [x] <span title='tested'> [create](./tests/cat/aliases.yml#L4)</span>
+- [x] <span title='tested'> [delete](./tests/async_search/10_basic.yml#L25)</span>
+- [x] <span title='tested'> [delete_by_query](./tests/delete_by_query/10_basic.yml#L5)</span>
+- [x] <span title='tested'> [delete_script](./tests/script/10_basic.yml#L29)</span>
+- [x] <span title='tested'> [enrich.delete_policy](./tests/enrich/10_basic.yml#L44)</span>
+- [x] <span title='tested'> [enrich.execute_policy](./tests/enrich/10_basic.yml#L30)</span>
+- [x] <span title='tested'> [enrich.get_policy](./tests/enrich/10_basic.yml#L35)</span>
+- [x] <span title='tested'> [enrich.put_policy](./tests/enrich/10_basic.yml#L20)</span>
+- [x] <span title='tested'> [enrich.stats](./tests/enrich/10_basic.yml#L40)</span>
+- [x] <span title='tested'> [eql.delete](./tests/eql/10_basic.yml#L118)</span>
+- [x] <span title='tested'> [eql.get](./tests/eql/10_basic.yml#L105)</span>
+- [x] <span title='tested'> [eql.get_status](./tests/eql/10_basic.yml#L105)</span>
+- [x] <span title='tested'> [eql.search](./tests/eql/10_basic.yml#L95)</span>
+- [x] <span title='tested'> [exists](./tests/cluster/component_templates.yml#L17)</span>
+- [x] <span title='tested'> [exists_source](./tests/exists_source/10_basic.yml#L5)</span>
+- [x] <span title='tested'> [explain](./tests/explain/10_basic.yml#L5)</span>
+- [x] <span title='tested'> [field_caps](./tests/field_caps/10_basic.yml#L5)</span>
+- [x] <span title='tested'> [get](./tests/async_search/10_basic.yml#L39)</span>
+- [x] <span title='tested'> [get_script](./tests/script/10_basic.yml#L25)</span>
+- [x] <span title='tested'> [get_source](./tests/get_source/10_basic.yml#L5)</span>
+- [x] <span title='tested'> [graph.explore](./tests/graph/explore.yml#L27)</span>
+- [x] <span title='tested'> [index](./tests/async_search/10_basic.yml#L4)</span>
+- [x] <span title='tested'> [indices.add_block](./tests/indices/block.yml#L12)</span>
+- [x] <span title='tested'> [indices.analyze](./tests/indices/analyze.yml#L13)</span>
+- [x] <span title='tested'> [indices.create](./tests/cat/aliases.yml#L4)</span>
+- [x] <span title='tested'> [indices.create_data_stream](./tests/indices/data_streams.yml#L22)</span>
+- [x] <span title='tested'> [indices.data_streams_stats](./tests/indices/data_streams.yml#L32)</span>
+- [x] <span title='tested'> [indices.delete](./tests/async_search/10_basic.yml#L25)</span>
+- [x] <span title='tested'> [indices.delete_alias](./tests/indices/alias.yml#L45)</span>
+- [x] <span title='tested'> [indices.delete_data_lifecycle](./tests/indices/data_lifecycle.yml#L26)</span>
+- [x] <span title='tested'> [indices.delete_data_stream](./tests/indices/data_streams.yml#L36)</span>
+- [x] <span title='tested'> [indices.delete_index_template](./tests/indices/data_streams.yml#L17)</span>
+- [x] <span title='tested'> [indices.exists](./tests/indices/alias.yml#L33)</span>
+- [x] <span title='tested'> [indices.exists_alias](./tests/indices/alias.yml#L33)</span>
+- [x] <span title='tested'> [indices.exists_index_template](./tests/indices/index_template.yml#L27)</span>
+- [x] <span title='tested'> [indices.explain_data_lifecycle](./tests/indices/data_lifecycle.yml#L23)</span>
+- [x] <span title='tested'> [indices.get](./tests/indices/alias.yml#L27)</span>
+- [x] <span title='tested'> [indices.get_alias](./tests/indices/alias.yml#L27)</span>
+- [x] <span title='tested'> [indices.get_data_lifecycle](./tests/indices/data_lifecycle.yml#L18)</span>
+- [x] <span title='tested'> [indices.get_data_stream](./tests/indices/data_streams.yml#L27)</span>
+- [x] <span title='tested'> [indices.get_index_template](./tests/indices/index_template.yml#L20)</span>
+- [x] <span title='tested'> [indices.get_mapping](./tests/indices/mapping.yml#L28)</span>
+- [x] <span title='tested'> [indices.get_settings](./tests/indices/settings.yml#L17)</span>
+- [x] <span title='tested'> [indices.migrate_to_data_stream](./tests/indices/migrate_modify_data_stream.yml#L35)</span>
+- [x] <span title='tested'> [indices.modify_data_stream](./tests/indices/migrate_modify_data_stream.yml#L39)</span>
+- [x] <span title='tested'> [indices.put_alias](./tests/cat/aliases.yml#L7)</span>
+- [x] <span title='tested'> [indices.put_data_lifecycle](./tests/indices/data_lifecycle.yml#L12)</span>
+- [x] <span title='tested'> [indices.put_index_template](./tests/indices/data_streams.yml#L4)</span>
+- [x] <span title='tested'> [indices.put_mapping](./tests/indices/mapping.yml#L14)</span>
+- [x] <span title='tested'> [indices.put_settings](./tests/indices/settings.yml#L23)</span>
+- [ ] <span title='not tested'> indices.put_template</span>
+- [x] <span title='tested'> [indices.refresh](./tests/graph/explore.yml#L20)</span>
+- [x] <span title='tested'> [indices.resolve_index](./tests/indices/resolve.yml#L18)</span>
+- [x] <span title='tested'> [indices.rollover](./tests/indices/rollover.yml#L36)</span>
+- [x] <span title='tested'> [indices.simulate_index_template](./tests/indices/simulate_template.yml#L34)</span>
+- [x] <span title='tested'> [indices.simulate_template](./tests/indices/simulate_index_template.yml#L34)</span>
+- [x] <span title='tested'> [indices.update_aliases](./tests/indices/alias.yml#L37)</span>
+- [x] <span title='tested'> [indices.validate_query](./tests/validate_query/10_basic.yml#L12)</span>
+- [ ] <span title='not tested'> inference.delete_model</span>
+- [ ] <span title='not tested'> inference.get_model</span>
+- [ ] <span title='not tested'> inference.inference</span>
+- [ ] <span title='not tested'> inference.put_model</span>
+- [x] <span title='tested'> [info](./tests/cluster/cluster_info.yml#L2)</span>
+- [x] <span title='tested'> [ingest.delete_pipeline](./tests/ingest/10_basic.yml#L25)</span>
+- [x] <span title='tested'> [ingest.get_pipeline](./tests/ingest/10_basic.yml#L12)</span>
+- [x] <span title='tested'> [ingest.processor_grok](./tests/ingest/10_basic.yml#L28)</span>
+- [x] <span title='tested'> [ingest.put_pipeline](./tests/ingest/10_basic.yml#L4)</span>
+- [x] <span title='tested'> [ingest.simulate](./tests/ingest/10_basic.yml#L16)</span>
+- [x] <span title='tested'> [license.get](./tests/license.yml#L4)</span>
+- [x] <span title='tested'> [logstash.delete_pipeline](./tests/logstash/10_basic.yml#L26)</span>
+- [x] <span title='tested'> [logstash.get_pipeline](./tests/logstash/10_basic.yml#L22)</span>
+- [x] <span title='tested'> [logstash.put_pipeline](./tests/logstash/10_basic.yml#L4)</span>
+- [x] <span title='tested'> [mget](./tests/mget.yml#L6)</span>
+- [x] <span title='tested'> [ml.close_job](./tests/machine_learning/jobs_crud.yml#L65)</span>
+- [x] <span title='tested'> [ml.delete_calendar](./tests/machine_learning/calendar_crud.yml#L4)</span>
+- [x] <span title='tested'> [ml.delete_calendar_event](./tests/machine_learning/calendar_events_crud.yml#L84)</span>
+- [x] <span title='tested'> [ml.delete_calendar_job](./tests/machine_learning/calendar_job.yml#L33)</span>
+- [x] <span title='tested'> [ml.delete_data_frame_analytics](./tests/machine_learning/data_frame_analytics.yml#L76)</span>
+- [x] <span title='tested'> [ml.delete_datafeed](./tests/machine_learning/datafeed_crud.yml#L86)</span>
+- [x] <span title='tested'> [ml.delete_filter](./tests/machine_learning/filter_crud.yml#L33)</span>
+- [x] <span title='tested'> [ml.delete_job](./tests/machine_learning/calendar_crud.yml#L10)</span>
+- [x] <span title='tested'> [ml.delete_trained_model](./tests/machine_learning/trained_model.yml#L32)</span>
+- [x] <span title='tested'> [ml.delete_trained_model_alias](./tests/machine_learning/trained_model_aliases.yml#L36)</span>
+- [x] <span title='tested'> [ml.estimate_model_memory](./tests/machine_learning/estimate_model_memory.yml#L4)</span>
+- [x] <span title='tested'> [ml.evaluate_data_frame](./tests/machine_learning/data_frame_evaluate.yml#L180)</span>
+- [x] <span title='tested'> [ml.flush_job](./tests/machine_learning/jobs_crud.yml#L60)</span>
+- [x] <span title='tested'> [ml.get_calendar_events](./tests/machine_learning/calendar_events_crud.yml#L25)</span>
+- [x] <span title='tested'> [ml.get_calendars](./tests/machine_learning/calendar_crud.yml#L21)</span>
+- [x] <span title='tested'> [ml.get_data_frame_analytics](./tests/machine_learning/data_frame_analytics.yml#L33)</span>
+- [x] <span title='tested'> [ml.get_data_frame_analytics_stats](./tests/machine_learning/data_frame_analytics.yml#L57)</span>
+- [x] <span title='tested'> [ml.get_datafeed_stats](./tests/machine_learning/datafeed_crud.yml#L49)</span>
+- [x] <span title='tested'> [ml.get_datafeeds](./tests/machine_learning/datafeed_crud.yml#L43)</span>
+- [x] <span title='tested'> [ml.get_filters](./tests/machine_learning/filter_crud.yml#L13)</span>
+- [x] <span title='tested'> [ml.get_job_stats](./tests/machine_learning/jobs_crud.yml#L17)</span>
+- [x] <span title='tested'> [ml.get_jobs](./tests/machine_learning/jobs_crud.yml#L11)</span>
+- [x] <span title='tested'> [ml.get_overall_buckets](./tests/machine_learning/get_overall_buckets.yml#L4)</span>
+- [x] <span title='tested'> [ml.get_trained_models](./tests/machine_learning/trained_model.yml#L27)</span>
+- [x] <span title='tested'> [ml.get_trained_models_stats](./tests/machine_learning/trained_model_more.yml#L43)</span>
+- [ ] <span title='not tested'> ml.infer_trained_model</span>
+- [x] <span title='tested'> [ml.open_job](./tests/machine_learning/jobs_crud.yml#L42)</span>
+- [x] <span title='tested'> [ml.post_calendar_events](./tests/machine_learning/calendar_events_crud.yml#L13)</span>
+- [x] <span title='tested'> [ml.preview_data_frame_analytics](./tests/machine_learning/data_frame_analytics.yml#L61)</span>
+- [x] <span title='tested'> [ml.preview_datafeed](./tests/machine_learning/preview_datafeed.yml#L101)</span>
+- [x] <span title='tested'> [ml.put_calendar](./tests/machine_learning/calendar_crud.yml#L53)</span>
+- [x] <span title='tested'> [ml.put_calendar_job](./tests/machine_learning/calendar_job.yml#L26)</span>
+- [x] <span title='tested'> [ml.put_data_frame_analytics](./tests/machine_learning/data_frame_analytics.yml#L38)</span>
+- [x] <span title='tested'> [ml.put_datafeed](./tests/machine_learning/datafeed_crud.yml#L54)</span>
+- [x] <span title='tested'> [ml.put_filter](./tests/machine_learning/filter_crud.yml#L4)</span>
+- [x] <span title='tested'> [ml.put_job](./tests/machine_learning/calendar_crud.yml#L26)</span>
+- [x] <span title='tested'> [ml.put_trained_model](./tests/machine_learning/trained_model.yml#L4)</span>
+- [x] <span title='tested'> [ml.put_trained_model_alias](./tests/machine_learning/trained_model_aliases.yml#L31)</span>
+- [x] <span title='tested'> [ml.put_trained_model_definition_part](./tests/machine_learning/trained_model_more.yml#L32)</span>
+- [x] <span title='tested'> [ml.put_trained_model_vocabulary](./tests/machine_learning/trained_model_more.yml#L26)</span>
+- [x] <span title='tested'> [ml.reset_job](./tests/machine_learning/jobs_reset.yml#L25)</span>
+- [x] <span title='tested'> [ml.start_data_frame_analytics](./tests/machine_learning/data_frame_analytics.yml#L64)</span>
+- [x] <span title='tested'> [ml.start_datafeed](./tests/machine_learning/start_stop_datafeed.yml#L58)</span>
+- [x] <span title='tested'> [ml.start_trained_model_deployment](./tests/machine_learning/trained_model_more.yml#L48)</span>
+- [x] <span title='tested'> [ml.stop_data_frame_analytics](./tests/machine_learning/data_frame_analytics.yml#L67)</span>
+- [x] <span title='tested'> [ml.stop_datafeed](./tests/machine_learning/start_stop_datafeed.yml#L66)</span>
+- [x] <span title='tested'> [ml.stop_trained_model_deployment](./tests/machine_learning/trained_model_more.yml#L54)</span>
+- [x] <span title='tested'> [ml.update_data_frame_analytics](./tests/machine_learning/data_frame_analytics.yml#L70)</span>
+- [x] <span title='tested'> [ml.update_datafeed](./tests/machine_learning/datafeed_crud.yml#L68)</span>
+- [x] <span title='tested'> [ml.update_filter](./tests/machine_learning/filter_crud.yml#L21)</span>
+- [x] <span title='tested'> [ml.update_job](./tests/machine_learning/jobs_crud.yml#L71)</span>
+- [x] <span title='tested'> [msearch](./tests/msearch.yml#L4)</span>
+- [x] <span title='tested'> [msearch_template](./tests/msearch_template.yml#L4)</span>
+- [x] <span title='tested'> [mtermvectors](./tests/mtermvectors/10_basic.yml#L5)</span>
+- [x] <span title='tested'> [open_point_in_time](./tests/point_in_time/10_basic.yml#L12)</span>
+- [x] <span title='tested'> [ping](./tests/cluster/component_templates.yml#L8)</span>
+- [x] <span title='tested'> [put_script](./tests/msearch_template.yml#L6)</span>
+- [x] <span title='tested'> [query_ruleset.delete](./tests/query_ruleset/10_basic.yml#L32)</span>
+- [x] <span title='tested'> [query_ruleset.get](./tests/query_ruleset/10_basic.yml#L25)</span>
+- [x] <span title='tested'> [query_ruleset.list](./tests/query_ruleset/10_basic.yml#L29)</span>
+- [x] <span title='tested'> [query_ruleset.put](./tests/query_ruleset/10_basic.yml#L4)</span>
+- [x] <span title='tested'> [rank_eval](./tests/rank_eval.yml#L16)</span>
+- [x] <span title='tested'> [reindex](./tests/reindex/10_basic.yml#L4)</span>
+- [x] <span title='tested'> [render_search_template](./tests/search_template/10_basic.yml#L4)</span>
+- [x] <span title='tested'> [scripts_painless_execute](./tests/script/10_basic.yml#L32)</span>
+- [x] <span title='tested'> [scroll](./tests/machine_learning/datafeed_crud.yml#L64)</span>
+- [x] <span title='tested'> [search](./tests/async_search/10_basic.yml#L5)</span>
+- [x] <span title='tested'> [search_application.delete](./tests/search_application/10_basic.yml#L51)</span>
+- [x] <span title='tested'> [search_application.delete_behavioral_analytics](./tests/search_application/20_behavioral_analytics.yml#L13)</span>
+- [x] <span title='tested'> [search_application.get](./tests/search_application/10_basic.yml#L44)</span>
+- [x] <span title='tested'> [search_application.get_behavioral_analytics](./tests/search_application/20_behavioral_analytics.yml#L9)</span>
+- [x] <span title='tested'> [search_application.list](./tests/search_application/10_basic.yml#L48)</span>
+- [x] <span title='tested'> [search_application.put](./tests/search_application/10_basic.yml#L20)</span>
+- [x] <span title='tested'> [search_application.put_behavioral_analytics](./tests/search_application/20_behavioral_analytics.yml#L4)</span>
+- [ ] <span title='not tested'> search_application.search</span>
+- [x] <span title='tested'> [search_mvt](./tests/search_mvt/10_basic.yml#L29)</span>
+- [x] <span title='tested'> [search_template](./tests/msearch_template.yml#L4)</span>
+- [x] <span title='tested'> [security.authenticate](./tests/security/20_authenticate.yml#L2)</span>
+- [x] <span title='tested'> [security.create_api_key](./tests/security/10_api_key_basic.yml#L4)</span>
+- [x] <span title='tested'> [security.get_api_key](./tests/security/10_api_key_basic.yml#L15)</span>
+- [x] <span title='tested'> [security.has_privileges](./tests/security/30_has_privileges.yml#L2)</span>
+- [x] <span title='tested'> [security.invalidate_api_key](./tests/security/10_api_key_basic.yml#L29)</span>
+- [x] <span title='tested'> [security.query_api_keys](./tests/security/10_api_key_basic.yml#L20)</span>
+- [ ] <span title='not tested'> security.update_api_key</span>
+- [x] <span title='tested'> [sql.clear_cursor](./tests/sql/10_basic.yml#L33)</span>
+- [x] <span title='tested'> [sql.delete_async](./tests/sql/10_basic.yml#L55)</span>
+- [x] <span title='tested'> [sql.get_async](./tests/sql/10_basic.yml#L48)</span>
+- [x] <span title='tested'> [sql.get_async_status](./tests/sql/10_basic.yml#L48)</span>
+- [x] <span title='tested'> [sql.query](./tests/sql/10_basic.yml#L22)</span>
+- [x] <span title='tested'> [sql.translate](./tests/sql/10_basic.yml#L29)</span>
+- [x] <span title='tested'> [synonyms.delete_synonym](./tests/synonyms/10_basic.yml#L32)</span>
+- [x] <span title='tested'> [synonyms.delete_synonym_rule](./tests/synonyms/10_basic.yml#L32)</span>
+- [x] <span title='tested'> [synonyms.get_synonym](./tests/synonyms/10_basic.yml#L17)</span>
+- [x] <span title='tested'> [synonyms.get_synonym_rule](./tests/synonyms/10_basic.yml#L27)</span>
+- [ ] <span title='not tested'> synonyms.get_synonyms_sets</span>
+- [x] <span title='tested'> [synonyms.put_synonym](./tests/synonyms/10_basic.yml#L12)</span>
+- [x] <span title='tested'> [synonyms.put_synonym_rule](./tests/synonyms/10_basic.yml#L21)</span>
+- [ ] <span title='not tested'> tasks.get</span>
+- [x] <span title='tested'> [terms_enum](./tests/terms_enum/10_basic.yml#L4)</span>
+- [x] <span title='tested'> [termvectors](./tests/mtermvectors/10_basic.yml#L5)</span>
+- [x] <span title='tested'> [transform.delete_transform](./tests/cat/transform.yml#L24)</span>
+- [x] <span title='tested'> [transform.get_transform](./tests/transform/10_basic.yml#L36)</span>
+- [x] <span title='tested'> [transform.get_transform_stats](./tests/transform/10_basic.yml#L39)</span>
+- [x] <span title='tested'> [transform.preview_transform](./tests/transform/10_basic.yml#L42)</span>
+- [x] <span title='tested'> [transform.put_transform](./tests/cat/transform.yml#L8)</span>
+- [x] <span title='tested'> [transform.reset_transform](./tests/transform/10_basic.yml#L54)</span>
+- [x] <span title='tested'> [transform.schedule_now_transform](./tests/transform/10_basic.yml#L48)</span>
+- [x] <span title='tested'> [transform.start_transform](./tests/transform/10_basic.yml#L45)</span>
+- [x] <span title='tested'> [transform.stop_transform](./tests/transform/10_basic.yml#L51)</span>
+- [x] <span title='tested'> [transform.update_transform](./tests/transform/10_basic.yml#L31)</span>
+- [x] <span title='tested'> [update](./tests/indices/alias.yml#L37)</span>
+- [x] <span title='tested'> [update_by_query](./tests/update_by_query/10_basic.yml#L4)</span>
+
+
+### Stack
+
+- [x] <span title='tested'> [async_search.delete](./tests/async_search/10_basic.yml#L49)</span>
+- [x] <span title='tested'> [async_search.get](./tests/async_search/10_basic.yml#L39)</span>
+- [x] <span title='tested'> [async_search.status](./tests/async_search/10_basic.yml#L44)</span>
+- [x] <span title='tested'> [async_search.submit](./tests/async_search/10_basic.yml#L31)</span>
+- [ ] <span title='not tested'> autoscaling.delete_autoscaling_policy</span>
+- [ ] <span title='not tested'> autoscaling.get_autoscaling_capacity</span>
+- [ ] <span title='not tested'> autoscaling.get_autoscaling_policy</span>
+- [ ] <span title='not tested'> autoscaling.put_autoscaling_policy</span>
+- [x] <span title='tested'> [bulk](./tests/bulk/10_basic.yml#L2)</span>
+- [x] <span title='tested'> [cat.aliases](./tests/cat/aliases.yml#L16)</span>
+- [ ] <span title='not tested'> cat.allocation</span>
+- [x] <span title='tested'> [cat.component_templates](./tests/cat/component_templates.yml#L2)</span>
+- [x] <span title='tested'> [cat.count](./tests/cat/count.yml#L13)</span>
+- [ ] <span title='not tested'> cat.fielddata</span>
+- [ ] <span title='not tested'> cat.health</span>
+- [x] <span title='tested'> [cat.help](./tests/cat/help.yml#L2)</span>
+- [x] <span title='tested'> [cat.indices](./tests/cat/indices.yml#L13)</span>
+- [ ] <span title='not tested'> cat.master</span>
+- [x] <span title='tested'> [cat.ml_data_frame_analytics](./tests/cat/ml.yml#L4)</span>
+- [x] <span title='tested'> [cat.ml_datafeeds](./tests/cat/ml.yml#L7)</span>
+- [x] <span title='tested'> [cat.ml_jobs](./tests/cat/ml.yml#L10)</span>
+- [x] <span title='tested'> [cat.ml_trained_models](./tests/cat/ml.yml#L13)</span>
+- [ ] <span title='not tested'> cat.nodeattrs</span>
+- [ ] <span title='not tested'> cat.nodes</span>
+- [ ] <span title='not tested'> cat.pending_tasks</span>
+- [ ] <span title='not tested'> cat.plugins</span>
+- [ ] <span title='not tested'> cat.recovery</span>
+- [ ] <span title='not tested'> cat.repositories</span>
+- [ ] <span title='not tested'> cat.segments</span>
+- [ ] <span title='not tested'> cat.shards</span>
+- [ ] <span title='not tested'> cat.snapshots</span>
+- [ ] <span title='not tested'> cat.tasks</span>
+- [ ] <span title='not tested'> cat.templates</span>
+- [ ] <span title='not tested'> cat.thread_pool</span>
+- [x] <span title='tested'> [cat.transforms](./tests/cat/transform.yml#L27)</span>
+- [ ] <span title='not tested'> ccr.delete_auto_follow_pattern</span>
+- [ ] <span title='not tested'> ccr.follow</span>
+- [ ] <span title='not tested'> ccr.follow_info</span>
+- [ ] <span title='not tested'> ccr.follow_stats</span>
+- [ ] <span title='not tested'> ccr.forget_follower</span>
+- [ ] <span title='not tested'> ccr.get_auto_follow_pattern</span>
+- [ ] <span title='not tested'> ccr.pause_auto_follow_pattern</span>
+- [ ] <span title='not tested'> ccr.pause_follow</span>
+- [ ] <span title='not tested'> ccr.put_auto_follow_pattern</span>
+- [ ] <span title='not tested'> ccr.resume_auto_follow_pattern</span>
+- [ ] <span title='not tested'> ccr.resume_follow</span>
+- [ ] <span title='not tested'> ccr.stats</span>
+- [ ] <span title='not tested'> ccr.unfollow</span>
+- [x] <span title='tested'> [clear_scroll](./tests/scroll/10_basic.yml#L24)</span>
+- [x] <span title='tested'> [close_point_in_time](./tests/point_in_time/10_basic.yml#L26)</span>
+- [ ] <span title='not tested'> cluster.allocation_explain</span>
+- [x] <span title='tested'> [cluster.delete_component_template](./tests/cluster/component_templates.yml#L27)</span>
+- [ ] <span title='not tested'> cluster.delete_voting_config_exclusions</span>
+- [x] <span title='tested'> [cluster.exists_component_template](./tests/cluster/component_templates.yml#L17)</span>
+- [x] <span title='tested'> [cluster.get_component_template](./tests/cluster/component_templates.yml#L22)</span>
+- [ ] <span title='not tested'> cluster.get_settings</span>
+- [ ] <span title='not tested'> cluster.health</span>
+- [x] <span title='tested'> [cluster.info](./tests/cluster/cluster_info.yml#L2)</span>
+- [ ] <span title='not tested'> cluster.pending_tasks</span>
+- [ ] <span title='not tested'> cluster.post_voting_config_exclusions</span>
+- [x] <span title='tested'> [cluster.put_component_template](./tests/cluster/component_templates.yml#L4)</span>
+- [ ] <span title='not tested'> cluster.put_settings</span>
+- [ ] <span title='not tested'> cluster.remote_info</span>
+- [ ] <span title='not tested'> cluster.reroute</span>
+- [ ] <span title='not tested'> cluster.state</span>
+- [ ] <span title='not tested'> cluster.stats</span>
+- [x] <span title='tested'> [count](./tests/async_search/10_basic.yml#L8)</span>
+- [x] <span title='tested'> [create](./tests/cat/aliases.yml#L4)</span>
+- [ ] <span title='not tested'> dangling_indices.delete_dangling_index</span>
+- [ ] <span title='not tested'> dangling_indices.import_dangling_index</span>
+- [ ] <span title='not tested'> dangling_indices.list_dangling_indices</span>
+- [x] <span title='tested'> [delete](./tests/async_search/10_basic.yml#L25)</span>
+- [x] <span title='tested'> [delete_by_query](./tests/delete_by_query/10_basic.yml#L5)</span>
+- [ ] <span title='not tested'> delete_by_query_rethrottle</span>
+- [x] <span title='tested'> [delete_script](./tests/script/10_basic.yml#L29)</span>
+- [x] <span title='tested'> [enrich.delete_policy](./tests/enrich/10_basic.yml#L44)</span>
+- [x] <span title='tested'> [enrich.execute_policy](./tests/enrich/10_basic.yml#L30)</span>
+- [x] <span title='tested'> [enrich.get_policy](./tests/enrich/10_basic.yml#L35)</span>
+- [x] <span title='tested'> [enrich.put_policy](./tests/enrich/10_basic.yml#L20)</span>
+- [x] <span title='tested'> [enrich.stats](./tests/enrich/10_basic.yml#L40)</span>
+- [x] <span title='tested'> [eql.delete](./tests/eql/10_basic.yml#L118)</span>
+- [x] <span title='tested'> [eql.get](./tests/eql/10_basic.yml#L105)</span>
+- [x] <span title='tested'> [eql.get_status](./tests/eql/10_basic.yml#L105)</span>
+- [x] <span title='tested'> [eql.search](./tests/eql/10_basic.yml#L95)</span>
+- [ ] <span title='not tested'> esql.query</span>
+- [x] <span title='tested'> [exists](./tests/cluster/component_templates.yml#L17)</span>
+- [x] <span title='tested'> [exists_source](./tests/exists_source/10_basic.yml#L5)</span>
+- [x] <span title='tested'> [explain](./tests/explain/10_basic.yml#L5)</span>
+- [ ] <span title='not tested'> features.get_features</span>
+- [ ] <span title='not tested'> features.reset_features</span>
+- [x] <span title='tested'> [field_caps](./tests/field_caps/10_basic.yml#L5)</span>
+- [ ] <span title='not tested'> fleet.global_checkpoints</span>
+- [ ] <span title='not tested'> fleet.msearch</span>
+- [ ] <span title='not tested'> fleet.search</span>
+- [x] <span title='tested'> [get](./tests/async_search/10_basic.yml#L39)</span>
+- [x] <span title='tested'> [get_script](./tests/script/10_basic.yml#L25)</span>
+- [ ] <span title='not tested'> get_script_context</span>
+- [ ] <span title='not tested'> get_script_languages</span>
+- [x] <span title='tested'> [get_source](./tests/get_source/10_basic.yml#L5)</span>
+- [x] <span title='tested'> [graph.explore](./tests/graph/explore.yml#L27)</span>
+- [ ] <span title='not tested'> health_report</span>
+- [ ] <span title='not tested'> ilm.delete_lifecycle</span>
+- [ ] <span title='not tested'> ilm.explain_lifecycle</span>
+- [ ] <span title='not tested'> ilm.get_lifecycle</span>
+- [ ] <span title='not tested'> ilm.get_status</span>
+- [ ] <span title='not tested'> ilm.migrate_to_data_tiers</span>
+- [ ] <span title='not tested'> ilm.move_to_step</span>
+- [ ] <span title='not tested'> ilm.put_lifecycle</span>
+- [ ] <span title='not tested'> ilm.remove_policy</span>
+- [ ] <span title='not tested'> ilm.retry</span>
+- [ ] <span title='not tested'> ilm.start</span>
+- [ ] <span title='not tested'> ilm.stop</span>
+- [x] <span title='tested'> [index](./tests/async_search/10_basic.yml#L4)</span>
+- [x] <span title='tested'> [indices.add_block](./tests/indices/block.yml#L12)</span>
+- [x] <span title='tested'> [indices.analyze](./tests/indices/analyze.yml#L13)</span>
+- [ ] <span title='not tested'> indices.clear_cache</span>
+- [ ] <span title='not tested'> indices.clone</span>
+- [ ] <span title='not tested'> indices.close</span>
+- [x] <span title='tested'> [indices.create](./tests/cat/aliases.yml#L4)</span>
+- [x] <span title='tested'> [indices.create_data_stream](./tests/indices/data_streams.yml#L22)</span>
+- [x] <span title='tested'> [indices.data_streams_stats](./tests/indices/data_streams.yml#L32)</span>
+- [x] <span title='tested'> [indices.delete](./tests/async_search/10_basic.yml#L25)</span>
+- [x] <span title='tested'> [indices.delete_alias](./tests/indices/alias.yml#L45)</span>
+- [x] <span title='tested'> [indices.delete_data_lifecycle](./tests/indices/data_lifecycle.yml#L26)</span>
+- [x] <span title='tested'> [indices.delete_data_stream](./tests/indices/data_streams.yml#L36)</span>
+- [x] <span title='tested'> [indices.delete_index_template](./tests/indices/data_streams.yml#L17)</span>
+- [ ] <span title='not tested'> indices.delete_template</span>
+- [ ] <span title='not tested'> indices.disk_usage</span>
+- [ ] <span title='not tested'> indices.downsample</span>
+- [x] <span title='tested'> [indices.exists](./tests/indices/alias.yml#L33)</span>
+- [x] <span title='tested'> [indices.exists_alias](./tests/indices/alias.yml#L33)</span>
+- [x] <span title='tested'> [indices.exists_index_template](./tests/indices/index_template.yml#L27)</span>
+- [ ] <span title='not tested'> indices.exists_template</span>
+- [x] <span title='tested'> [indices.explain_data_lifecycle](./tests/indices/data_lifecycle.yml#L23)</span>
+- [ ] <span title='not tested'> indices.field_usage_stats</span>
+- [ ] <span title='not tested'> indices.flush</span>
+- [ ] <span title='not tested'> indices.forcemerge</span>
+- [x] <span title='tested'> [indices.get](./tests/indices/alias.yml#L27)</span>
+- [x] <span title='tested'> [indices.get_alias](./tests/indices/alias.yml#L27)</span>
+- [x] <span title='tested'> [indices.get_data_lifecycle](./tests/indices/data_lifecycle.yml#L18)</span>
+- [x] <span title='tested'> [indices.get_data_stream](./tests/indices/data_streams.yml#L27)</span>
+- [ ] <span title='not tested'> indices.get_field_mapping</span>
+- [x] <span title='tested'> [indices.get_index_template](./tests/indices/index_template.yml#L20)</span>
+- [x] <span title='tested'> [indices.get_mapping](./tests/indices/mapping.yml#L28)</span>
+- [x] <span title='tested'> [indices.get_settings](./tests/indices/settings.yml#L17)</span>
+- [ ] <span title='not tested'> indices.get_template</span>
+- [x] <span title='tested'> [indices.migrate_to_data_stream](./tests/indices/migrate_modify_data_stream.yml#L35)</span>
+- [x] <span title='tested'> [indices.modify_data_stream](./tests/indices/migrate_modify_data_stream.yml#L39)</span>
+- [ ] <span title='not tested'> indices.open</span>
+- [ ] <span title='not tested'> indices.promote_data_stream</span>
+- [x] <span title='tested'> [indices.put_alias](./tests/cat/aliases.yml#L7)</span>
+- [x] <span title='tested'> [indices.put_data_lifecycle](./tests/indices/data_lifecycle.yml#L12)</span>
+- [x] <span title='tested'> [indices.put_index_template](./tests/indices/data_streams.yml#L4)</span>
+- [x] <span title='tested'> [indices.put_mapping](./tests/indices/mapping.yml#L14)</span>
+- [x] <span title='tested'> [indices.put_settings](./tests/indices/settings.yml#L23)</span>
+- [ ] <span title='not tested'> indices.put_template</span>
+- [ ] <span title='not tested'> indices.recovery</span>
+- [x] <span title='tested'> [indices.refresh](./tests/graph/explore.yml#L20)</span>
+- [ ] <span title='not tested'> indices.reload_search_analyzers</span>
+- [ ] <span title='not tested'> indices.resolve_cluster</span>
+- [x] <span title='tested'> [indices.resolve_index](./tests/indices/resolve.yml#L18)</span>
+- [x] <span title='tested'> [indices.rollover](./tests/indices/rollover.yml#L36)</span>
+- [ ] <span title='not tested'> indices.segments</span>
+- [ ] <span title='not tested'> indices.shard_stores</span>
+- [ ] <span title='not tested'> indices.shrink</span>
+- [x] <span title='tested'> [indices.simulate_index_template](./tests/indices/simulate_template.yml#L34)</span>
+- [x] <span title='tested'> [indices.simulate_template](./tests/indices/simulate_index_template.yml#L34)</span>
+- [ ] <span title='not tested'> indices.split</span>
+- [ ] <span title='not tested'> indices.stats</span>
+- [ ] <span title='not tested'> indices.unfreeze</span>
+- [x] <span title='tested'> [indices.update_aliases](./tests/indices/alias.yml#L37)</span>
+- [x] <span title='tested'> [indices.validate_query](./tests/validate_query/10_basic.yml#L12)</span>
+- [ ] <span title='not tested'> inference.delete_model</span>
+- [ ] <span title='not tested'> inference.get_model</span>
+- [ ] <span title='not tested'> inference.inference</span>
+- [ ] <span title='not tested'> inference.put_model</span>
+- [x] <span title='tested'> [info](./tests/cluster/cluster_info.yml#L2)</span>
+- [x] <span title='tested'> [ingest.delete_pipeline](./tests/ingest/10_basic.yml#L25)</span>
+- [ ] <span title='not tested'> ingest.geo_ip_stats</span>
+- [x] <span title='tested'> [ingest.get_pipeline](./tests/ingest/10_basic.yml#L12)</span>
+- [x] <span title='tested'> [ingest.processor_grok](./tests/ingest/10_basic.yml#L28)</span>
+- [x] <span title='tested'> [ingest.put_pipeline](./tests/ingest/10_basic.yml#L4)</span>
+- [x] <span title='tested'> [ingest.simulate](./tests/ingest/10_basic.yml#L16)</span>
+- [ ] <span title='not tested'> knn_search</span>
+- [ ] <span title='not tested'> license.delete</span>
+- [x] <span title='tested'> [license.get](./tests/license.yml#L4)</span>
+- [ ] <span title='not tested'> license.get_basic_status</span>
+- [ ] <span title='not tested'> license.get_trial_status</span>
+- [ ] <span title='not tested'> license.post</span>
+- [ ] <span title='not tested'> license.post_start_basic</span>
+- [ ] <span title='not tested'> license.post_start_trial</span>
+- [x] <span title='tested'> [logstash.delete_pipeline](./tests/logstash/10_basic.yml#L26)</span>
+- [x] <span title='tested'> [logstash.get_pipeline](./tests/logstash/10_basic.yml#L22)</span>
+- [x] <span title='tested'> [logstash.put_pipeline](./tests/logstash/10_basic.yml#L4)</span>
+- [x] <span title='tested'> [mget](./tests/mget.yml#L6)</span>
+- [ ] <span title='not tested'> migration.deprecations</span>
+- [ ] <span title='not tested'> migration.get_feature_upgrade_status</span>
+- [ ] <span title='not tested'> migration.post_feature_upgrade</span>
+- [ ] <span title='not tested'> ml.clear_trained_model_deployment_cache</span>
+- [x] <span title='tested'> [ml.close_job](./tests/machine_learning/jobs_crud.yml#L65)</span>
+- [x] <span title='tested'> [ml.delete_calendar](./tests/machine_learning/calendar_crud.yml#L4)</span>
+- [x] <span title='tested'> [ml.delete_calendar_event](./tests/machine_learning/calendar_events_crud.yml#L84)</span>
+- [x] <span title='tested'> [ml.delete_calendar_job](./tests/machine_learning/calendar_job.yml#L33)</span>
+- [x] <span title='tested'> [ml.delete_data_frame_analytics](./tests/machine_learning/data_frame_analytics.yml#L76)</span>
+- [x] <span title='tested'> [ml.delete_datafeed](./tests/machine_learning/datafeed_crud.yml#L86)</span>
+- [ ] <span title='not tested'> ml.delete_expired_data</span>
+- [x] <span title='tested'> [ml.delete_filter](./tests/machine_learning/filter_crud.yml#L33)</span>
+- [ ] <span title='not tested'> ml.delete_forecast</span>
+- [x] <span title='tested'> [ml.delete_job](./tests/machine_learning/calendar_crud.yml#L10)</span>
+- [ ] <span title='not tested'> ml.delete_model_snapshot</span>
+- [x] <span title='tested'> [ml.delete_trained_model](./tests/machine_learning/trained_model.yml#L32)</span>
+- [x] <span title='tested'> [ml.delete_trained_model_alias](./tests/machine_learning/trained_model_aliases.yml#L36)</span>
+- [x] <span title='tested'> [ml.estimate_model_memory](./tests/machine_learning/estimate_model_memory.yml#L4)</span>
+- [x] <span title='tested'> [ml.evaluate_data_frame](./tests/machine_learning/data_frame_evaluate.yml#L180)</span>
+- [ ] <span title='not tested'> ml.explain_data_frame_analytics</span>
+- [x] <span title='tested'> [ml.flush_job](./tests/machine_learning/jobs_crud.yml#L60)</span>
+- [ ] <span title='not tested'> ml.forecast</span>
+- [ ] <span title='not tested'> ml.get_buckets</span>
+- [x] <span title='tested'> [ml.get_calendar_events](./tests/machine_learning/calendar_events_crud.yml#L25)</span>
+- [x] <span title='tested'> [ml.get_calendars](./tests/machine_learning/calendar_crud.yml#L21)</span>
+- [ ] <span title='not tested'> ml.get_categories</span>
+- [x] <span title='tested'> [ml.get_data_frame_analytics](./tests/machine_learning/data_frame_analytics.yml#L33)</span>
+- [x] <span title='tested'> [ml.get_data_frame_analytics_stats](./tests/machine_learning/data_frame_analytics.yml#L57)</span>
+- [x] <span title='tested'> [ml.get_datafeed_stats](./tests/machine_learning/datafeed_crud.yml#L49)</span>
+- [x] <span title='tested'> [ml.get_datafeeds](./tests/machine_learning/datafeed_crud.yml#L43)</span>
+- [x] <span title='tested'> [ml.get_filters](./tests/machine_learning/filter_crud.yml#L13)</span>
+- [ ] <span title='not tested'> ml.get_influencers</span>
+- [x] <span title='tested'> [ml.get_job_stats](./tests/machine_learning/jobs_crud.yml#L17)</span>
+- [x] <span title='tested'> [ml.get_jobs](./tests/machine_learning/jobs_crud.yml#L11)</span>
+- [ ] <span title='not tested'> ml.get_memory_stats</span>
+- [ ] <span title='not tested'> ml.get_model_snapshot_upgrade_stats</span>
+- [ ] <span title='not tested'> ml.get_model_snapshots</span>
+- [x] <span title='tested'> [ml.get_overall_buckets](./tests/machine_learning/get_overall_buckets.yml#L4)</span>
+- [ ] <span title='not tested'> ml.get_records</span>
+- [x] <span title='tested'> [ml.get_trained_models](./tests/machine_learning/trained_model.yml#L27)</span>
+- [x] <span title='tested'> [ml.get_trained_models_stats](./tests/machine_learning/trained_model_more.yml#L43)</span>
+- [ ] <span title='not tested'> ml.infer_trained_model</span>
+- [ ] <span title='not tested'> ml.info</span>
+- [x] <span title='tested'> [ml.open_job](./tests/machine_learning/jobs_crud.yml#L42)</span>
+- [x] <span title='tested'> [ml.post_calendar_events](./tests/machine_learning/calendar_events_crud.yml#L13)</span>
+- [ ] <span title='not tested'> ml.post_data</span>
+- [x] <span title='tested'> [ml.preview_data_frame_analytics](./tests/machine_learning/data_frame_analytics.yml#L61)</span>
+- [x] <span title='tested'> [ml.preview_datafeed](./tests/machine_learning/preview_datafeed.yml#L101)</span>
+- [x] <span title='tested'> [ml.put_calendar](./tests/machine_learning/calendar_crud.yml#L53)</span>
+- [x] <span title='tested'> [ml.put_calendar_job](./tests/machine_learning/calendar_job.yml#L26)</span>
+- [x] <span title='tested'> [ml.put_data_frame_analytics](./tests/machine_learning/data_frame_analytics.yml#L38)</span>
+- [x] <span title='tested'> [ml.put_datafeed](./tests/machine_learning/datafeed_crud.yml#L54)</span>
+- [x] <span title='tested'> [ml.put_filter](./tests/machine_learning/filter_crud.yml#L4)</span>
+- [x] <span title='tested'> [ml.put_job](./tests/machine_learning/calendar_crud.yml#L26)</span>
+- [x] <span title='tested'> [ml.put_trained_model](./tests/machine_learning/trained_model.yml#L4)</span>
+- [x] <span title='tested'> [ml.put_trained_model_alias](./tests/machine_learning/trained_model_aliases.yml#L31)</span>
+- [x] <span title='tested'> [ml.put_trained_model_definition_part](./tests/machine_learning/trained_model_more.yml#L32)</span>
+- [x] <span title='tested'> [ml.put_trained_model_vocabulary](./tests/machine_learning/trained_model_more.yml#L26)</span>
+- [x] <span title='tested'> [ml.reset_job](./tests/machine_learning/jobs_reset.yml#L25)</span>
+- [ ] <span title='not tested'> ml.revert_model_snapshot</span>
+- [ ] <span title='not tested'> ml.set_upgrade_mode</span>
+- [x] <span title='tested'> [ml.start_data_frame_analytics](./tests/machine_learning/data_frame_analytics.yml#L64)</span>
+- [x] <span title='tested'> [ml.start_datafeed](./tests/machine_learning/start_stop_datafeed.yml#L58)</span>
+- [x] <span title='tested'> [ml.start_trained_model_deployment](./tests/machine_learning/trained_model_more.yml#L48)</span>
+- [x] <span title='tested'> [ml.stop_data_frame_analytics](./tests/machine_learning/data_frame_analytics.yml#L67)</span>
+- [x] <span title='tested'> [ml.stop_datafeed](./tests/machine_learning/start_stop_datafeed.yml#L66)</span>
+- [x] <span title='tested'> [ml.stop_trained_model_deployment](./tests/machine_learning/trained_model_more.yml#L54)</span>
+- [x] <span title='tested'> [ml.update_data_frame_analytics](./tests/machine_learning/data_frame_analytics.yml#L70)</span>
+- [x] <span title='tested'> [ml.update_datafeed](./tests/machine_learning/datafeed_crud.yml#L68)</span>
+- [x] <span title='tested'> [ml.update_filter](./tests/machine_learning/filter_crud.yml#L21)</span>
+- [x] <span title='tested'> [ml.update_job](./tests/machine_learning/jobs_crud.yml#L71)</span>
+- [ ] <span title='not tested'> ml.update_model_snapshot</span>
+- [ ] <span title='not tested'> ml.update_trained_model_deployment</span>
+- [ ] <span title='not tested'> ml.upgrade_job_snapshot</span>
+- [ ] <span title='not tested'> monitoring.bulk</span>
+- [x] <span title='tested'> [msearch](./tests/msearch.yml#L4)</span>
+- [x] <span title='tested'> [msearch_template](./tests/msearch_template.yml#L4)</span>
+- [x] <span title='tested'> [mtermvectors](./tests/mtermvectors/10_basic.yml#L5)</span>
+- [ ] <span title='not tested'> nodes.clear_repositories_metering_archive</span>
+- [ ] <span title='not tested'> nodes.get_repositories_metering_info</span>
+- [ ] <span title='not tested'> nodes.hot_threads</span>
+- [ ] <span title='not tested'> nodes.info</span>
+- [ ] <span title='not tested'> nodes.reload_secure_settings</span>
+- [ ] <span title='not tested'> nodes.stats</span>
+- [ ] <span title='not tested'> nodes.usage</span>
+- [x] <span title='tested'> [open_point_in_time](./tests/point_in_time/10_basic.yml#L12)</span>
+- [x] <span title='tested'> [ping](./tests/cluster/component_templates.yml#L8)</span>
+- [x] <span title='tested'> [put_script](./tests/msearch_template.yml#L6)</span>
+- [x] <span title='tested'> [query_ruleset.delete](./tests/query_ruleset/10_basic.yml#L32)</span>
+- [x] <span title='tested'> [query_ruleset.get](./tests/query_ruleset/10_basic.yml#L25)</span>
+- [x] <span title='tested'> [query_ruleset.list](./tests/query_ruleset/10_basic.yml#L29)</span>
+- [x] <span title='tested'> [query_ruleset.put](./tests/query_ruleset/10_basic.yml#L4)</span>
+- [x] <span title='tested'> [rank_eval](./tests/rank_eval.yml#L16)</span>
+- [x] <span title='tested'> [reindex](./tests/reindex/10_basic.yml#L4)</span>
+- [ ] <span title='not tested'> reindex_rethrottle</span>
+- [x] <span title='tested'> [render_search_template](./tests/search_template/10_basic.yml#L4)</span>
+- [ ] <span title='not tested'> rollup.delete_job</span>
+- [ ] <span title='not tested'> rollup.get_jobs</span>
+- [ ] <span title='not tested'> rollup.get_rollup_caps</span>
+- [ ] <span title='not tested'> rollup.get_rollup_index_caps</span>
+- [ ] <span title='not tested'> rollup.put_job</span>
+- [ ] <span title='not tested'> rollup.rollup_search</span>
+- [ ] <span title='not tested'> rollup.start_job</span>
+- [ ] <span title='not tested'> rollup.stop_job</span>
+- [x] <span title='tested'> [scripts_painless_execute](./tests/script/10_basic.yml#L32)</span>
+- [x] <span title='tested'> [scroll](./tests/machine_learning/datafeed_crud.yml#L64)</span>
+- [x] <span title='tested'> [search](./tests/async_search/10_basic.yml#L5)</span>
+- [x] <span title='tested'> [search_application.delete](./tests/search_application/10_basic.yml#L51)</span>
+- [x] <span title='tested'> [search_application.delete_behavioral_analytics](./tests/search_application/20_behavioral_analytics.yml#L13)</span>
+- [x] <span title='tested'> [search_application.get](./tests/search_application/10_basic.yml#L44)</span>
+- [x] <span title='tested'> [search_application.get_behavioral_analytics](./tests/search_application/20_behavioral_analytics.yml#L9)</span>
+- [x] <span title='tested'> [search_application.list](./tests/search_application/10_basic.yml#L48)</span>
+- [ ] <span title='not tested'> search_application.post_behavioral_analytics_event</span>
+- [x] <span title='tested'> [search_application.put](./tests/search_application/10_basic.yml#L20)</span>
+- [x] <span title='tested'> [search_application.put_behavioral_analytics](./tests/search_application/20_behavioral_analytics.yml#L4)</span>
+- [ ] <span title='not tested'> search_application.render_query</span>
+- [ ] <span title='not tested'> search_application.search</span>
+- [x] <span title='tested'> [search_mvt](./tests/search_mvt/10_basic.yml#L29)</span>
+- [ ] <span title='not tested'> search_shards</span>
+- [x] <span title='tested'> [search_template](./tests/msearch_template.yml#L4)</span>
+- [ ] <span title='not tested'> searchable_snapshots.cache_stats</span>
+- [ ] <span title='not tested'> searchable_snapshots.clear_cache</span>
+- [ ] <span title='not tested'> searchable_snapshots.mount</span>
+- [ ] <span title='not tested'> searchable_snapshots.stats</span>
+- [ ] <span title='not tested'> security.activate_user_profile</span>
+- [x] <span title='tested'> [security.authenticate](./tests/security/20_authenticate.yml#L2)</span>
+- [ ] <span title='not tested'> security.bulk_update_api_keys</span>
+- [ ] <span title='not tested'> security.change_password</span>
+- [ ] <span title='not tested'> security.clear_api_key_cache</span>
+- [ ] <span title='not tested'> security.clear_cached_privileges</span>
+- [ ] <span title='not tested'> security.clear_cached_realms</span>
+- [ ] <span title='not tested'> security.clear_cached_roles</span>
+- [ ] <span title='not tested'> security.clear_cached_service_tokens</span>
+- [x] <span title='tested'> [security.create_api_key](./tests/security/10_api_key_basic.yml#L4)</span>
+- [ ] <span title='not tested'> security.create_cross_cluster_api_key</span>
+- [ ] <span title='not tested'> security.create_service_token</span>
+- [ ] <span title='not tested'> security.delete_privileges</span>
+- [ ] <span title='not tested'> security.delete_role</span>
+- [ ] <span title='not tested'> security.delete_role_mapping</span>
+- [ ] <span title='not tested'> security.delete_service_token</span>
+- [ ] <span title='not tested'> security.delete_user</span>
+- [ ] <span title='not tested'> security.disable_user</span>
+- [ ] <span title='not tested'> security.disable_user_profile</span>
+- [ ] <span title='not tested'> security.enable_user</span>
+- [ ] <span title='not tested'> security.enable_user_profile</span>
+- [ ] <span title='not tested'> security.enroll_kibana</span>
+- [ ] <span title='not tested'> security.enroll_node</span>
+- [x] <span title='tested'> [security.get_api_key](./tests/security/10_api_key_basic.yml#L15)</span>
+- [ ] <span title='not tested'> security.get_builtin_privileges</span>
+- [ ] <span title='not tested'> security.get_privileges</span>
+- [ ] <span title='not tested'> security.get_role</span>
+- [ ] <span title='not tested'> security.get_role_mapping</span>
+- [ ] <span title='not tested'> security.get_service_accounts</span>
+- [ ] <span title='not tested'> security.get_service_credentials</span>
+- [ ] <span title='not tested'> security.get_settings</span>
+- [ ] <span title='not tested'> security.get_token</span>
+- [ ] <span title='not tested'> security.get_user</span>
+- [ ] <span title='not tested'> security.get_user_privileges</span>
+- [ ] <span title='not tested'> security.get_user_profile</span>
+- [ ] <span title='not tested'> security.grant_api_key</span>
+- [x] <span title='tested'> [security.has_privileges](./tests/security/30_has_privileges.yml#L2)</span>
+- [ ] <span title='not tested'> security.has_privileges_user_profile</span>
+- [x] <span title='tested'> [security.invalidate_api_key](./tests/security/10_api_key_basic.yml#L29)</span>
+- [ ] <span title='not tested'> security.invalidate_token</span>
+- [ ] <span title='not tested'> security.oidc_authenticate</span>
+- [ ] <span title='not tested'> security.oidc_logout</span>
+- [ ] <span title='not tested'> security.oidc_prepare_authentication</span>
+- [ ] <span title='not tested'> security.put_privileges</span>
+- [ ] <span title='not tested'> security.put_role</span>
+- [ ] <span title='not tested'> security.put_role_mapping</span>
+- [ ] <span title='not tested'> security.put_user</span>
+- [x] <span title='tested'> [security.query_api_keys](./tests/security/10_api_key_basic.yml#L20)</span>
+- [ ] <span title='not tested'> security.saml_authenticate</span>
+- [ ] <span title='not tested'> security.saml_complete_logout</span>
+- [ ] <span title='not tested'> security.saml_invalidate</span>
+- [ ] <span title='not tested'> security.saml_logout</span>
+- [ ] <span title='not tested'> security.saml_prepare_authentication</span>
+- [ ] <span title='not tested'> security.saml_service_provider_metadata</span>
+- [ ] <span title='not tested'> security.suggest_user_profiles</span>
+- [ ] <span title='not tested'> security.update_api_key</span>
+- [ ] <span title='not tested'> security.update_cross_cluster_api_key</span>
+- [ ] <span title='not tested'> security.update_settings</span>
+- [ ] <span title='not tested'> security.update_user_profile_data</span>
+- [ ] <span title='not tested'> shutdown.delete_node</span>
+- [ ] <span title='not tested'> shutdown.get_node</span>
+- [ ] <span title='not tested'> shutdown.put_node</span>
+- [ ] <span title='not tested'> slm.delete_lifecycle</span>
+- [ ] <span title='not tested'> slm.execute_lifecycle</span>
+- [ ] <span title='not tested'> slm.execute_retention</span>
+- [ ] <span title='not tested'> slm.get_lifecycle</span>
+- [ ] <span title='not tested'> slm.get_stats</span>
+- [ ] <span title='not tested'> slm.get_status</span>
+- [ ] <span title='not tested'> slm.put_lifecycle</span>
+- [ ] <span title='not tested'> slm.start</span>
+- [ ] <span title='not tested'> slm.stop</span>
+- [ ] <span title='not tested'> snapshot.cleanup_repository</span>
+- [ ] <span title='not tested'> snapshot.clone</span>
+- [ ] <span title='not tested'> snapshot.create</span>
+- [ ] <span title='not tested'> snapshot.create_repository</span>
+- [ ] <span title='not tested'> snapshot.delete</span>
+- [ ] <span title='not tested'> snapshot.delete_repository</span>
+- [ ] <span title='not tested'> snapshot.get</span>
+- [ ] <span title='not tested'> snapshot.get_repository</span>
+- [ ] <span title='not tested'> snapshot.repository_analyze</span>
+- [ ] <span title='not tested'> snapshot.restore</span>
+- [ ] <span title='not tested'> snapshot.status</span>
+- [ ] <span title='not tested'> snapshot.verify_repository</span>
+- [x] <span title='tested'> [sql.clear_cursor](./tests/sql/10_basic.yml#L33)</span>
+- [x] <span title='tested'> [sql.delete_async](./tests/sql/10_basic.yml#L55)</span>
+- [x] <span title='tested'> [sql.get_async](./tests/sql/10_basic.yml#L48)</span>
+- [x] <span title='tested'> [sql.get_async_status](./tests/sql/10_basic.yml#L48)</span>
+- [x] <span title='tested'> [sql.query](./tests/sql/10_basic.yml#L22)</span>
+- [x] <span title='tested'> [sql.translate](./tests/sql/10_basic.yml#L29)</span>
+- [ ] <span title='not tested'> ssl.certificates</span>
+- [x] <span title='tested'> [synonyms.delete_synonym](./tests/synonyms/10_basic.yml#L32)</span>
+- [x] <span title='tested'> [synonyms.delete_synonym_rule](./tests/synonyms/10_basic.yml#L32)</span>
+- [x] <span title='tested'> [synonyms.get_synonym](./tests/synonyms/10_basic.yml#L17)</span>
+- [x] <span title='tested'> [synonyms.get_synonym_rule](./tests/synonyms/10_basic.yml#L27)</span>
+- [ ] <span title='not tested'> synonyms.get_synonyms_sets</span>
+- [x] <span title='tested'> [synonyms.put_synonym](./tests/synonyms/10_basic.yml#L12)</span>
+- [x] <span title='tested'> [synonyms.put_synonym_rule](./tests/synonyms/10_basic.yml#L21)</span>
+- [ ] <span title='not tested'> tasks.cancel</span>
+- [ ] <span title='not tested'> tasks.get</span>
+- [ ] <span title='not tested'> tasks.list</span>
+- [x] <span title='tested'> [terms_enum](./tests/terms_enum/10_basic.yml#L4)</span>
+- [x] <span title='tested'> [termvectors](./tests/mtermvectors/10_basic.yml#L5)</span>
+- [ ] <span title='not tested'> text_structure.find_structure</span>
+- [ ] <span title='not tested'> text_structure.test_grok_pattern</span>
+- [x] <span title='tested'> [transform.delete_transform](./tests/cat/transform.yml#L24)</span>
+- [x] <span title='tested'> [transform.get_transform](./tests/transform/10_basic.yml#L36)</span>
+- [x] <span title='tested'> [transform.get_transform_stats](./tests/transform/10_basic.yml#L39)</span>
+- [x] <span title='tested'> [transform.preview_transform](./tests/transform/10_basic.yml#L42)</span>
+- [x] <span title='tested'> [transform.put_transform](./tests/cat/transform.yml#L8)</span>
+- [x] <span title='tested'> [transform.reset_transform](./tests/transform/10_basic.yml#L54)</span>
+- [x] <span title='tested'> [transform.schedule_now_transform](./tests/transform/10_basic.yml#L48)</span>
+- [x] <span title='tested'> [transform.start_transform](./tests/transform/10_basic.yml#L45)</span>
+- [x] <span title='tested'> [transform.stop_transform](./tests/transform/10_basic.yml#L51)</span>
+- [x] <span title='tested'> [transform.update_transform](./tests/transform/10_basic.yml#L31)</span>
+- [ ] <span title='not tested'> transform.upgrade_transforms</span>
+- [x] <span title='tested'> [update](./tests/indices/alias.yml#L37)</span>
+- [x] <span title='tested'> [update_by_query](./tests/update_by_query/10_basic.yml#L4)</span>
+- [ ] <span title='not tested'> update_by_query_rethrottle</span>
+- [ ] <span title='not tested'> watcher.ack_watch</span>
+- [ ] <span title='not tested'> watcher.activate_watch</span>
+- [ ] <span title='not tested'> watcher.deactivate_watch</span>
+- [ ] <span title='not tested'> watcher.delete_watch</span>
+- [ ] <span title='not tested'> watcher.execute_watch</span>
+- [ ] <span title='not tested'> watcher.get_settings</span>
+- [ ] <span title='not tested'> watcher.get_watch</span>
+- [ ] <span title='not tested'> watcher.put_watch</span>
+- [ ] <span title='not tested'> watcher.query_watches</span>
+- [ ] <span title='not tested'> watcher.start</span>
+- [ ] <span title='not tested'> watcher.stats</span>
+- [ ] <span title='not tested'> watcher.stop</span>
+- [ ] <span title='not tested'> watcher.update_settings</span>
+- [ ] <span title='not tested'> xpack.info</span>
+- [ ] <span title='not tested'> xpack.usage</span>
+
+
+### APIs in JSON spec and not elasticsearch-specification
+
+- [ ] <span title='not tested'> connector.check_in</span>
+- [ ] <span title='not tested'> connector.delete</span>
+- [ ] <span title='not tested'> connector.get</span>
+- [ ] <span title='not tested'> connector.last_sync</span>
+- [ ] <span title='not tested'> connector.list</span>
+- [ ] <span title='not tested'> connector.post</span>
+- [ ] <span title='not tested'> connector.put</span>
+- [ ] <span title='not tested'> connector.update_api_key_id</span>
+- [ ] <span title='not tested'> connector.update_configuration</span>
+- [ ] <span title='not tested'> connector.update_error</span>
+- [ ] <span title='not tested'> connector.update_filtering</span>
+- [ ] <span title='not tested'> connector.update_index_name</span>
+- [ ] <span title='not tested'> connector.update_name</span>
+- [ ] <span title='not tested'> connector.update_native</span>
+- [ ] <span title='not tested'> connector.update_pipeline</span>
+- [ ] <span title='not tested'> connector.update_scheduling</span>
+- [ ] <span title='not tested'> connector.update_service_type</span>
+- [ ] <span title='not tested'> connector.update_status</span>
+- [ ] <span title='not tested'> connector_secret.delete</span>
+- [ ] <span title='not tested'> connector_secret.get</span>
+- [ ] <span title='not tested'> connector_secret.post</span>
+- [ ] <span title='not tested'> connector_secret.put</span>
+- [ ] <span title='not tested'> connector_sync_job.cancel</span>
+- [ ] <span title='not tested'> connector_sync_job.check_in</span>
+- [ ] <span title='not tested'> connector_sync_job.delete</span>
+- [ ] <span title='not tested'> connector_sync_job.error</span>
+- [ ] <span title='not tested'> connector_sync_job.get</span>
+- [ ] <span title='not tested'> connector_sync_job.list</span>
+- [ ] <span title='not tested'> connector_sync_job.post</span>
+- [ ] <span title='not tested'> connector_sync_job.update_stats</span>
+- [ ] <span title='not tested'> esql.async_query</span>
+- [ ] <span title='not tested'> esql.async_query_get</span>
+- [ ] <span title='not tested'> fleet.delete_secret</span>
+- [ ] <span title='not tested'> fleet.get_secret</span>
+- [ ] <span title='not tested'> fleet.post_secret</span>
+- [ ] <span title='not tested'> ml.validate</span>
+- [ ] <span title='not tested'> ml.validate_detector</span>
+- [ ] <span title='not tested'> profiling.flamegraph</span>
+- [ ] <span title='not tested'> profiling.stacktraces</span>
+- [ ] <span title='not tested'> profiling.status</span>
+- [ ] <span title='not tested'> security.query_user</span>
+- [ ] <span title='not tested'> simulate.ingest</span>
 
