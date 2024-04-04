@@ -1,5 +1,5 @@
 ---
 'license':
   - do:
-      license.get:
+      license.get: {}
   - match: { license.status: 'active' }
