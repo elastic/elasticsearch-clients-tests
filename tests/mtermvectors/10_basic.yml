@@ -10,7 +10,7 @@ setup:
         id: 'testing_document'
         body: { text: 'The quick brown fox is brown.' }
   - do:
-      indices.refresh:
+      indices.refresh: {}
 ---
 teardown:
   - do:
