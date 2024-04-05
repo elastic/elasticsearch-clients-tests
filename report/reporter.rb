@@ -70,7 +70,7 @@ module Elastic
 
     def display_endpoint(api)
       if (test = find_test(api))
-        "- [x] <span title='tested'> [#{api}](#{test[:file]})</span>"
+        "- [x] <span title='tested'> [#{api}](#{test[:file]}\#L#{test[:line]})</span>"
       else
         "- [ ] <span title='not tested'> #{api}</span>"
       end
@@ -82,8 +82,10 @@ module Elastic
       Dir[TESTS_PATH].map do |path|
         relative_path = path[path.index('/tests')..-1]
 
-        if File.readlines(path).grep(/#{endpoint}/).any?
-          return { endpoint: endpoint, file: ".#{relative_path}" }
+        File.readlines(path).each_with_index do |line, index|
+          next unless line.include?(endpoint)
+
+          return { endpoint: endpoint, file: ".#{relative_path}", line: index + 1 }
         end
       end
       false
