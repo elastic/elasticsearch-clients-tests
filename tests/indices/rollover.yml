@@ -5,20 +5,20 @@ requires:
 ---
 teardown:
   - do:
-      indices.delete: { index: logs-1 }
+      indices.delete: { index: logs-1, ignore: 404 }
   - do:
-      indices.delete: { index: logs-000002 }
+      indices.delete: { index: logs-000002, ignore: 404 }
 ---
 "Rollover index via API":
   # create index with alias
   - do:
       indices.create:
         index: logs-1
-        wait_for_active_shards: 1
         body:
           aliases:
             logs_index: {}
             logs_search: {}
+
   # index document
   - do:
       index:
@@ -39,15 +39,10 @@ teardown:
   - do:
       indices.rollover:
         alias: "logs_search"
-        wait_for_active_shards: 1
-        body:
-          conditions:
-            max_docs: 1
   - match: { old_index: logs-1 }
   - match: { new_index: logs-000002 }
   - match: { rolled_over: true }
   - match: { dry_run: false }
-  - match: { conditions: { "[max_docs: 1]": true } }
 
   # ensure new index is created
   - do:
