@@ -20,7 +20,7 @@ teardown:
 "Resolve index with indices and aliases":
   - do:
       indices.resolve_index:
-        name: '*'
+        name: 'test_resolve*'
 
   - match: {indices.0.name: test_resolve_index1}
   - match: {indices.0.aliases.0: test_alias}
