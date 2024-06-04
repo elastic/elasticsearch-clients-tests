@@ -64,7 +64,7 @@ teardown:
   - match: { calendar_id: advent }
   - match: { job_ids.0: cal }
   - match: { job_ids.1: cal2 }
-  - match: { description: "This is a calendar about..."}
+  - match: { description: "This is a calendar about..." }
 
   - do:
       ml.get_calendars:

@@ -52,7 +52,7 @@ teardown:
       transform.schedule_now_transform: { transform_id: 'population' }
   - is_true: 'acknowledged'
   - do:
-      transform.stop_transform: { transform_id: 'population' }
+      transform.stop_transform: { transform_id: 'population', wait_for_completion: true }
   - is_true: 'acknowledged'
   - do:
       transform.reset_transform: { transform_id: 'population' }
