@@ -2,24 +2,24 @@ require 'erb'
 require './download_artifacts'
 require './reporter'
 
-desc "Generate report"
+desc 'Generate report'
 task :report do
   @reporter = Elastic::Reporter.new
   template = ERB.new(File.read('./template.erb'), trim_mode: '-')
   File.write('../apis_report.md', template.result(binding))
 end
 
-desc "Download Elasticsearch Stack artifacts"
+desc 'Download Elasticsearch Stack artifacts'
 task :download_json do
-  Elastic::download_json_spec(ENV['STACK_VERSION'] || '8.13.0-SNAPSHOT')
+  Elastic::download_json_spec(ENV['STACK_VERSION'] || '8.14.0-SNAPSHOT')
 end
 
-desc "Download Elasticsearch Serverless artifacts"
+desc 'Download Elasticsearch Serverless artifacts'
 task :download_spec do
   Elastic::download_es_specification
 end
 
-desc "Download all artifacts"
+desc 'Download all artifacts'
 task :download_all do
   Rake::Task['download_json'].invoke
   Rake::Task['download_spec'].invoke

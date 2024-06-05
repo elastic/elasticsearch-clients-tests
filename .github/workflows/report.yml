@@ -15,7 +15,7 @@ jobs:
         with:
           ruby-version: 3.3
         env:
-            STACK_VERSION: 8.14.0-SNAPSHOT
+          STACK_VERSION: 8.15.0-SNAPSHOT
       - name: Build
         run: |
           cd report && bundle install
