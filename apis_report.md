@@ -2,13 +2,13 @@
 
 Endpoints that are currently being tested are marked as done and link to the test where they're being used.
 
-* [Endpoints in stack JSON spec](#endpoints-in-stack-json-spec): 494
-* [Endpoints in elasticsearch-specification](#stack): 457
-* [Endpoints in Serverless](#serverless): 208
-* [Tested](#tested): 198
-* [Untested](#untested): 296
-* Coverage Stack: ![](https://geps.dev/progress/40)
-* Coverage Serverless: ![](https://geps.dev/progress/95)
+* [Endpoints in stack JSON spec](#endpoints-in-stack-json-spec): 499
+* [Endpoints in elasticsearch-specification](#stack): 482
+* [Endpoints in Serverless](#serverless): 235
+* [Tested](#tested): 196
+* [Untested](#untested): 303
+* Coverage Stack: ![](https://geps.dev/progress/39)
+* Coverage Serverless: ![](https://geps.dev/progress/83)
 * [APIs in JSON spec and not in elasticsearch-specification](#apis-in-json-spec-and-not-elasticsearch-specification)
 
 ## Endpoints in stack JSON spec
@@ -63,10 +63,10 @@ Endpoints that are currently being tested are marked as done and link to the tes
 - [x] <span title='tested'> [clear_scroll](./tests/scroll/10_basic.yml#L28)</span>
 - [x] <span title='tested'> [close_point_in_time](./tests/point_in_time/10_basic.yml#L30)</span>
 - [ ] <span title='not tested'> cluster.allocation_explain</span>
-- [x] <span title='tested'> [cluster.delete_component_template](./tests/cluster/component_templates.yml#L31)</span>
+- [x] <span title='tested'> [cluster.delete_component_template](./tests/cluster/component_templates.yml#L29)</span>
 - [ ] <span title='not tested'> cluster.delete_voting_config_exclusions</span>
-- [x] <span title='tested'> [cluster.exists_component_template](./tests/cluster/component_templates.yml#L21)</span>
-- [x] <span title='tested'> [cluster.get_component_template](./tests/cluster/component_templates.yml#L26)</span>
+- [x] <span title='tested'> [cluster.exists_component_template](./tests/cluster/component_templates.yml#L19)</span>
+- [x] <span title='tested'> [cluster.get_component_template](./tests/cluster/component_templates.yml#L24)</span>
 - [ ] <span title='not tested'> cluster.get_settings</span>
 - [ ] <span title='not tested'> cluster.health</span>
 - [x] <span title='tested'> [cluster.info](./tests/cluster/cluster_info.yml#L6)</span>
@@ -85,10 +85,24 @@ Endpoints that are currently being tested are marked as done and link to the tes
 - [ ] <span title='not tested'> connector.list</span>
 - [ ] <span title='not tested'> connector.post</span>
 - [ ] <span title='not tested'> connector.put</span>
+- [ ] <span title='not tested'> connector.secret_delete</span>
+- [ ] <span title='not tested'> connector.secret_get</span>
+- [ ] <span title='not tested'> connector.secret_post</span>
+- [ ] <span title='not tested'> connector.secret_put</span>
+- [ ] <span title='not tested'> connector.sync_job_cancel</span>
+- [ ] <span title='not tested'> connector.sync_job_check_in</span>
+- [ ] <span title='not tested'> connector.sync_job_delete</span>
+- [ ] <span title='not tested'> connector.sync_job_error</span>
+- [ ] <span title='not tested'> connector.sync_job_get</span>
+- [ ] <span title='not tested'> connector.sync_job_list</span>
+- [ ] <span title='not tested'> connector.sync_job_post</span>
+- [ ] <span title='not tested'> connector.sync_job_update_stats</span>
+- [ ] <span title='not tested'> connector.update_active_filtering</span>
 - [ ] <span title='not tested'> connector.update_api_key_id</span>
 - [ ] <span title='not tested'> connector.update_configuration</span>
 - [ ] <span title='not tested'> connector.update_error</span>
 - [ ] <span title='not tested'> connector.update_filtering</span>
+- [ ] <span title='not tested'> connector.update_filtering_validation</span>
 - [ ] <span title='not tested'> connector.update_index_name</span>
 - [ ] <span title='not tested'> connector.update_name</span>
 - [ ] <span title='not tested'> connector.update_native</span>
@@ -96,18 +110,6 @@ Endpoints that are currently being tested are marked as done and link to the tes
 - [ ] <span title='not tested'> connector.update_scheduling</span>
 - [ ] <span title='not tested'> connector.update_service_type</span>
 - [ ] <span title='not tested'> connector.update_status</span>
-- [ ] <span title='not tested'> connector_secret.delete</span>
-- [ ] <span title='not tested'> connector_secret.get</span>
-- [ ] <span title='not tested'> connector_secret.post</span>
-- [ ] <span title='not tested'> connector_secret.put</span>
-- [ ] <span title='not tested'> connector_sync_job.cancel</span>
-- [ ] <span title='not tested'> connector_sync_job.check_in</span>
-- [ ] <span title='not tested'> connector_sync_job.delete</span>
-- [ ] <span title='not tested'> connector_sync_job.error</span>
-- [ ] <span title='not tested'> connector_sync_job.get</span>
-- [ ] <span title='not tested'> connector_sync_job.list</span>
-- [ ] <span title='not tested'> connector_sync_job.post</span>
-- [ ] <span title='not tested'> connector_sync_job.update_stats</span>
 - [x] <span title='tested'> [count](./tests/async_search/10_basic.yml#L12)</span>
 - [x] <span title='tested'> [create](./tests/cat/aliases.yml#L8)</span>
 - [ ] <span title='not tested'> dangling_indices.delete_dangling_index</span>
@@ -117,11 +119,11 @@ Endpoints that are currently being tested are marked as done and link to the tes
 - [x] <span title='tested'> [delete_by_query](./tests/delete_by_query/10_basic.yml#L9)</span>
 - [ ] <span title='not tested'> delete_by_query_rethrottle</span>
 - [x] <span title='tested'> [delete_script](./tests/script/10_basic.yml#L33)</span>
-- [x] <span title='tested'> [enrich.delete_policy](./tests/enrich/10_basic.yml#L48)</span>
+- [x] <span title='tested'> [enrich.delete_policy](./tests/enrich/10_basic.yml#L44)</span>
 - [x] <span title='tested'> [enrich.execute_policy](./tests/enrich/10_basic.yml#L34)</span>
 - [x] <span title='tested'> [enrich.get_policy](./tests/enrich/10_basic.yml#L39)</span>
 - [x] <span title='tested'> [enrich.put_policy](./tests/enrich/10_basic.yml#L24)</span>
-- [x] <span title='tested'> [enrich.stats](./tests/enrich/10_basic.yml#L44)</span>
+- [ ] <span title='not tested'> enrich.stats</span>
 - [x] <span title='tested'> [eql.delete](./tests/eql/10_basic.yml#L122)</span>
 - [x] <span title='tested'> [eql.get](./tests/eql/10_basic.yml#L109)</span>
 - [x] <span title='tested'> [eql.get_status](./tests/eql/10_basic.yml#L109)</span>
@@ -129,7 +131,7 @@ Endpoints that are currently being tested are marked as done and link to the tes
 - [ ] <span title='not tested'> esql.async_query</span>
 - [ ] <span title='not tested'> esql.async_query_get</span>
 - [ ] <span title='not tested'> esql.query</span>
-- [x] <span title='tested'> [exists](./tests/cluster/component_templates.yml#L21)</span>
+- [x] <span title='tested'> [exists](./tests/cluster/component_templates.yml#L19)</span>
 - [x] <span title='tested'> [exists_source](./tests/exists_source/10_basic.yml#L9)</span>
 - [x] <span title='tested'> [explain](./tests/explain/10_basic.yml#L9)</span>
 - [ ] <span title='not tested'> features.get_features</span>
@@ -170,7 +172,7 @@ Endpoints that are currently being tested are marked as done and link to the tes
 - [x] <span title='tested'> [indices.data_streams_stats](./tests/indices/data_streams.yml#L36)</span>
 - [x] <span title='tested'> [indices.delete](./tests/async_search/10_basic.yml#L29)</span>
 - [x] <span title='tested'> [indices.delete_alias](./tests/indices/alias.yml#L49)</span>
-- [x] <span title='tested'> [indices.delete_data_lifecycle](./tests/indices/data_lifecycle.yml#L30)</span>
+- [ ] <span title='not tested'> indices.delete_data_lifecycle</span>
 - [x] <span title='tested'> [indices.delete_data_stream](./tests/indices/data_streams.yml#L40)</span>
 - [x] <span title='tested'> [indices.delete_index_template](./tests/indices/data_streams.yml#L21)</span>
 - [ ] <span title='not tested'> indices.delete_template</span>
@@ -212,7 +214,7 @@ Endpoints that are currently being tested are marked as done and link to the tes
 - [ ] <span title='not tested'> indices.segments</span>
 - [ ] <span title='not tested'> indices.shard_stores</span>
 - [ ] <span title='not tested'> indices.shrink</span>
-- [x] <span title='tested'> [indices.simulate_index_template](./tests/indices/simulate_template.yml#L38)</span>
+- [x] <span title='tested'> [indices.simulate_index_template](./tests/indices/simulate_template.yml#L37)</span>
 - [x] <span title='tested'> [indices.simulate_template](./tests/indices/simulate_index_template.yml#L38)</span>
 - [ ] <span title='not tested'> indices.split</span>
 - [ ] <span title='not tested'> indices.stats</span>
@@ -334,6 +336,7 @@ Endpoints that are currently being tested are marked as done and link to the tes
 - [ ] <span title='not tested'> profiling.flamegraph</span>
 - [ ] <span title='not tested'> profiling.stacktraces</span>
 - [ ] <span title='not tested'> profiling.status</span>
+- [ ] <span title='not tested'> profiling.topn_functions</span>
 - [x] <span title='tested'> [put_script](./tests/msearch_template.yml#L10)</span>
 - [x] <span title='tested'> [query_ruleset.delete](./tests/query_ruleset/10_basic.yml#L36)</span>
 - [x] <span title='tested'> [query_ruleset.get](./tests/query_ruleset/10_basic.yml#L29)</span>
@@ -475,6 +478,8 @@ Endpoints that are currently being tested are marked as done and link to the tes
 - [ ] <span title='not tested'> tasks.list</span>
 - [x] <span title='tested'> [terms_enum](./tests/terms_enum/10_basic.yml#L8)</span>
 - [x] <span title='tested'> [termvectors](./tests/mtermvectors/10_basic.yml#L9)</span>
+- [ ] <span title='not tested'> text_structure.find_field_structure</span>
+- [ ] <span title='not tested'> text_structure.find_message_structure</span>
 - [ ] <span title='not tested'> text_structure.find_structure</span>
 - [ ] <span title='not tested'> text_structure.test_grok_pattern</span>
 - [x] <span title='tested'> [transform.delete_transform](./tests/cat/transform.yml#L28)</span>
@@ -529,26 +534,52 @@ Endpoints that are currently being tested are marked as done and link to the tes
 - [x] <span title='tested'> [cat.transforms](./tests/cat/transform.yml#L31)</span>
 - [x] <span title='tested'> [clear_scroll](./tests/scroll/10_basic.yml#L28)</span>
 - [x] <span title='tested'> [close_point_in_time](./tests/point_in_time/10_basic.yml#L30)</span>
-- [x] <span title='tested'> [cluster.delete_component_template](./tests/cluster/component_templates.yml#L31)</span>
-- [x] <span title='tested'> [cluster.exists_component_template](./tests/cluster/component_templates.yml#L21)</span>
-- [x] <span title='tested'> [cluster.get_component_template](./tests/cluster/component_templates.yml#L26)</span>
+- [x] <span title='tested'> [cluster.delete_component_template](./tests/cluster/component_templates.yml#L29)</span>
+- [x] <span title='tested'> [cluster.exists_component_template](./tests/cluster/component_templates.yml#L19)</span>
+- [x] <span title='tested'> [cluster.get_component_template](./tests/cluster/component_templates.yml#L24)</span>
 - [x] <span title='tested'> [cluster.info](./tests/cluster/cluster_info.yml#L6)</span>
 - [x] <span title='tested'> [cluster.put_component_template](./tests/cluster/component_templates.yml#L8)</span>
+- [ ] <span title='not tested'> connector.check_in</span>
+- [ ] <span title='not tested'> connector.delete</span>
+- [ ] <span title='not tested'> connector.get</span>
+- [ ] <span title='not tested'> connector.last_sync</span>
+- [ ] <span title='not tested'> connector.list</span>
+- [ ] <span title='not tested'> connector.post</span>
+- [ ] <span title='not tested'> connector.put</span>
+- [ ] <span title='not tested'> connector.sync_job_cancel</span>
+- [ ] <span title='not tested'> connector.sync_job_delete</span>
+- [ ] <span title='not tested'> connector.sync_job_get</span>
+- [ ] <span title='not tested'> connector.sync_job_list</span>
+- [ ] <span title='not tested'> connector.sync_job_post</span>
+- [ ] <span title='not tested'> connector.update_active_filtering</span>
+- [ ] <span title='not tested'> connector.update_api_key_id</span>
+- [ ] <span title='not tested'> connector.update_configuration</span>
+- [ ] <span title='not tested'> connector.update_error</span>
+- [ ] <span title='not tested'> connector.update_filtering</span>
+- [ ] <span title='not tested'> connector.update_filtering_validation</span>
+- [ ] <span title='not tested'> connector.update_index_name</span>
+- [ ] <span title='not tested'> connector.update_name</span>
+- [ ] <span title='not tested'> connector.update_native</span>
+- [ ] <span title='not tested'> connector.update_pipeline</span>
+- [ ] <span title='not tested'> connector.update_scheduling</span>
+- [ ] <span title='not tested'> connector.update_service_type</span>
+- [ ] <span title='not tested'> connector.update_status</span>
 - [x] <span title='tested'> [count](./tests/async_search/10_basic.yml#L12)</span>
 - [x] <span title='tested'> [create](./tests/cat/aliases.yml#L8)</span>
 - [x] <span title='tested'> [delete](./tests/async_search/10_basic.yml#L29)</span>
 - [x] <span title='tested'> [delete_by_query](./tests/delete_by_query/10_basic.yml#L9)</span>
 - [x] <span title='tested'> [delete_script](./tests/script/10_basic.yml#L33)</span>
-- [x] <span title='tested'> [enrich.delete_policy](./tests/enrich/10_basic.yml#L48)</span>
+- [x] <span title='tested'> [enrich.delete_policy](./tests/enrich/10_basic.yml#L44)</span>
 - [x] <span title='tested'> [enrich.execute_policy](./tests/enrich/10_basic.yml#L34)</span>
 - [x] <span title='tested'> [enrich.get_policy](./tests/enrich/10_basic.yml#L39)</span>
 - [x] <span title='tested'> [enrich.put_policy](./tests/enrich/10_basic.yml#L24)</span>
-- [x] <span title='tested'> [enrich.stats](./tests/enrich/10_basic.yml#L44)</span>
+- [ ] <span title='not tested'> enrich.stats</span>
 - [x] <span title='tested'> [eql.delete](./tests/eql/10_basic.yml#L122)</span>
 - [x] <span title='tested'> [eql.get](./tests/eql/10_basic.yml#L109)</span>
 - [x] <span title='tested'> [eql.get_status](./tests/eql/10_basic.yml#L109)</span>
 - [x] <span title='tested'> [eql.search](./tests/eql/10_basic.yml#L99)</span>
-- [x] <span title='tested'> [exists](./tests/cluster/component_templates.yml#L21)</span>
+- [ ] <span title='not tested'> esql.query</span>
+- [x] <span title='tested'> [exists](./tests/cluster/component_templates.yml#L19)</span>
 - [x] <span title='tested'> [exists_source](./tests/exists_source/10_basic.yml#L9)</span>
 - [x] <span title='tested'> [explain](./tests/explain/10_basic.yml#L9)</span>
 - [x] <span title='tested'> [field_caps](./tests/field_caps/10_basic.yml#L9)</span>
@@ -564,7 +595,7 @@ Endpoints that are currently being tested are marked as done and link to the tes
 - [x] <span title='tested'> [indices.data_streams_stats](./tests/indices/data_streams.yml#L36)</span>
 - [x] <span title='tested'> [indices.delete](./tests/async_search/10_basic.yml#L29)</span>
 - [x] <span title='tested'> [indices.delete_alias](./tests/indices/alias.yml#L49)</span>
-- [x] <span title='tested'> [indices.delete_data_lifecycle](./tests/indices/data_lifecycle.yml#L30)</span>
+- [ ] <span title='not tested'> indices.delete_data_lifecycle</span>
 - [x] <span title='tested'> [indices.delete_data_stream](./tests/indices/data_streams.yml#L40)</span>
 - [x] <span title='tested'> [indices.delete_index_template](./tests/indices/data_streams.yml#L21)</span>
 - [x] <span title='tested'> [indices.exists](./tests/indices/alias.yml#L37)</span>
@@ -589,14 +620,14 @@ Endpoints that are currently being tested are marked as done and link to the tes
 - [x] <span title='tested'> [indices.refresh](./tests/graph/explore.yml#L24)</span>
 - [x] <span title='tested'> [indices.resolve_index](./tests/indices/resolve.yml#L22)</span>
 - [x] <span title='tested'> [indices.rollover](./tests/indices/rollover.yml#L40)</span>
-- [x] <span title='tested'> [indices.simulate_index_template](./tests/indices/simulate_template.yml#L38)</span>
+- [x] <span title='tested'> [indices.simulate_index_template](./tests/indices/simulate_template.yml#L37)</span>
 - [x] <span title='tested'> [indices.simulate_template](./tests/indices/simulate_index_template.yml#L38)</span>
 - [x] <span title='tested'> [indices.update_aliases](./tests/indices/alias.yml#L41)</span>
 - [x] <span title='tested'> [indices.validate_query](./tests/validate_query/10_basic.yml#L16)</span>
-- [ ] <span title='not tested'> inference.delete_model</span>
-- [ ] <span title='not tested'> inference.get_model</span>
+- [ ] <span title='not tested'> inference.delete</span>
+- [ ] <span title='not tested'> inference.get</span>
 - [ ] <span title='not tested'> inference.inference</span>
-- [ ] <span title='not tested'> inference.put_model</span>
+- [ ] <span title='not tested'> inference.put</span>
 - [x] <span title='tested'> [info](./tests/cluster/cluster_info.yml#L6)</span>
 - [x] <span title='tested'> [ingest.delete_pipeline](./tests/ingest/10_basic.yml#L29)</span>
 - [x] <span title='tested'> [ingest.get_pipeline](./tests/ingest/10_basic.yml#L16)</span>
@@ -659,6 +690,7 @@ Endpoints that are currently being tested are marked as done and link to the tes
 - [x] <span title='tested'> [ml.update_datafeed](./tests/machine_learning/datafeed_crud.yml#L72)</span>
 - [x] <span title='tested'> [ml.update_filter](./tests/machine_learning/filter_crud.yml#L25)</span>
 - [x] <span title='tested'> [ml.update_job](./tests/machine_learning/jobs_crud.yml#L75)</span>
+- [ ] <span title='not tested'> ml.update_trained_model_deployment</span>
 - [x] <span title='tested'> [msearch](./tests/msearch.yml#L8)</span>
 - [x] <span title='tested'> [msearch_template](./tests/msearch_template.yml#L8)</span>
 - [x] <span title='tested'> [mtermvectors](./tests/mtermvectors/10_basic.yml#L9)</span>
@@ -775,10 +807,10 @@ Endpoints that are currently being tested are marked as done and link to the tes
 - [x] <span title='tested'> [clear_scroll](./tests/scroll/10_basic.yml#L28)</span>
 - [x] <span title='tested'> [close_point_in_time](./tests/point_in_time/10_basic.yml#L30)</span>
 - [ ] <span title='not tested'> cluster.allocation_explain</span>
-- [x] <span title='tested'> [cluster.delete_component_template](./tests/cluster/component_templates.yml#L31)</span>
+- [x] <span title='tested'> [cluster.delete_component_template](./tests/cluster/component_templates.yml#L29)</span>
 - [ ] <span title='not tested'> cluster.delete_voting_config_exclusions</span>
-- [x] <span title='tested'> [cluster.exists_component_template](./tests/cluster/component_templates.yml#L21)</span>
-- [x] <span title='tested'> [cluster.get_component_template](./tests/cluster/component_templates.yml#L26)</span>
+- [x] <span title='tested'> [cluster.exists_component_template](./tests/cluster/component_templates.yml#L19)</span>
+- [x] <span title='tested'> [cluster.get_component_template](./tests/cluster/component_templates.yml#L24)</span>
 - [ ] <span title='not tested'> cluster.get_settings</span>
 - [ ] <span title='not tested'> cluster.health</span>
 - [x] <span title='tested'> [cluster.info](./tests/cluster/cluster_info.yml#L6)</span>
@@ -790,6 +822,31 @@ Endpoints that are currently being tested are marked as done and link to the tes
 - [ ] <span title='not tested'> cluster.reroute</span>
 - [ ] <span title='not tested'> cluster.state</span>
 - [ ] <span title='not tested'> cluster.stats</span>
+- [ ] <span title='not tested'> connector.check_in</span>
+- [ ] <span title='not tested'> connector.delete</span>
+- [ ] <span title='not tested'> connector.get</span>
+- [ ] <span title='not tested'> connector.last_sync</span>
+- [ ] <span title='not tested'> connector.list</span>
+- [ ] <span title='not tested'> connector.post</span>
+- [ ] <span title='not tested'> connector.put</span>
+- [ ] <span title='not tested'> connector.sync_job_cancel</span>
+- [ ] <span title='not tested'> connector.sync_job_delete</span>
+- [ ] <span title='not tested'> connector.sync_job_get</span>
+- [ ] <span title='not tested'> connector.sync_job_list</span>
+- [ ] <span title='not tested'> connector.sync_job_post</span>
+- [ ] <span title='not tested'> connector.update_active_filtering</span>
+- [ ] <span title='not tested'> connector.update_api_key_id</span>
+- [ ] <span title='not tested'> connector.update_configuration</span>
+- [ ] <span title='not tested'> connector.update_error</span>
+- [ ] <span title='not tested'> connector.update_filtering</span>
+- [ ] <span title='not tested'> connector.update_filtering_validation</span>
+- [ ] <span title='not tested'> connector.update_index_name</span>
+- [ ] <span title='not tested'> connector.update_name</span>
+- [ ] <span title='not tested'> connector.update_native</span>
+- [ ] <span title='not tested'> connector.update_pipeline</span>
+- [ ] <span title='not tested'> connector.update_scheduling</span>
+- [ ] <span title='not tested'> connector.update_service_type</span>
+- [ ] <span title='not tested'> connector.update_status</span>
 - [x] <span title='tested'> [count](./tests/async_search/10_basic.yml#L12)</span>
 - [x] <span title='tested'> [create](./tests/cat/aliases.yml#L8)</span>
 - [ ] <span title='not tested'> dangling_indices.delete_dangling_index</span>
@@ -799,17 +856,17 @@ Endpoints that are currently being tested are marked as done and link to the tes
 - [x] <span title='tested'> [delete_by_query](./tests/delete_by_query/10_basic.yml#L9)</span>
 - [ ] <span title='not tested'> delete_by_query_rethrottle</span>
 - [x] <span title='tested'> [delete_script](./tests/script/10_basic.yml#L33)</span>
-- [x] <span title='tested'> [enrich.delete_policy](./tests/enrich/10_basic.yml#L48)</span>
+- [x] <span title='tested'> [enrich.delete_policy](./tests/enrich/10_basic.yml#L44)</span>
 - [x] <span title='tested'> [enrich.execute_policy](./tests/enrich/10_basic.yml#L34)</span>
 - [x] <span title='tested'> [enrich.get_policy](./tests/enrich/10_basic.yml#L39)</span>
 - [x] <span title='tested'> [enrich.put_policy](./tests/enrich/10_basic.yml#L24)</span>
-- [x] <span title='tested'> [enrich.stats](./tests/enrich/10_basic.yml#L44)</span>
+- [ ] <span title='not tested'> enrich.stats</span>
 - [x] <span title='tested'> [eql.delete](./tests/eql/10_basic.yml#L122)</span>
 - [x] <span title='tested'> [eql.get](./tests/eql/10_basic.yml#L109)</span>
 - [x] <span title='tested'> [eql.get_status](./tests/eql/10_basic.yml#L109)</span>
 - [x] <span title='tested'> [eql.search](./tests/eql/10_basic.yml#L99)</span>
 - [ ] <span title='not tested'> esql.query</span>
-- [x] <span title='tested'> [exists](./tests/cluster/component_templates.yml#L21)</span>
+- [x] <span title='tested'> [exists](./tests/cluster/component_templates.yml#L19)</span>
 - [x] <span title='tested'> [exists_source](./tests/exists_source/10_basic.yml#L9)</span>
 - [x] <span title='tested'> [explain](./tests/explain/10_basic.yml#L9)</span>
 - [ ] <span title='not tested'> features.get_features</span>
@@ -847,7 +904,7 @@ Endpoints that are currently being tested are marked as done and link to the tes
 - [x] <span title='tested'> [indices.data_streams_stats](./tests/indices/data_streams.yml#L36)</span>
 - [x] <span title='tested'> [indices.delete](./tests/async_search/10_basic.yml#L29)</span>
 - [x] <span title='tested'> [indices.delete_alias](./tests/indices/alias.yml#L49)</span>
-- [x] <span title='tested'> [indices.delete_data_lifecycle](./tests/indices/data_lifecycle.yml#L30)</span>
+- [ ] <span title='not tested'> indices.delete_data_lifecycle</span>
 - [x] <span title='tested'> [indices.delete_data_stream](./tests/indices/data_streams.yml#L40)</span>
 - [x] <span title='tested'> [indices.delete_index_template](./tests/indices/data_streams.yml#L21)</span>
 - [ ] <span title='not tested'> indices.delete_template</span>
@@ -889,17 +946,17 @@ Endpoints that are currently being tested are marked as done and link to the tes
 - [ ] <span title='not tested'> indices.segments</span>
 - [ ] <span title='not tested'> indices.shard_stores</span>
 - [ ] <span title='not tested'> indices.shrink</span>
-- [x] <span title='tested'> [indices.simulate_index_template](./tests/indices/simulate_template.yml#L38)</span>
+- [x] <span title='tested'> [indices.simulate_index_template](./tests/indices/simulate_template.yml#L37)</span>
 - [x] <span title='tested'> [indices.simulate_template](./tests/indices/simulate_index_template.yml#L38)</span>
 - [ ] <span title='not tested'> indices.split</span>
 - [ ] <span title='not tested'> indices.stats</span>
 - [ ] <span title='not tested'> indices.unfreeze</span>
 - [x] <span title='tested'> [indices.update_aliases](./tests/indices/alias.yml#L41)</span>
 - [x] <span title='tested'> [indices.validate_query](./tests/validate_query/10_basic.yml#L16)</span>
-- [ ] <span title='not tested'> inference.delete_model</span>
-- [ ] <span title='not tested'> inference.get_model</span>
+- [ ] <span title='not tested'> inference.delete</span>
+- [ ] <span title='not tested'> inference.get</span>
 - [ ] <span title='not tested'> inference.inference</span>
-- [ ] <span title='not tested'> inference.put_model</span>
+- [ ] <span title='not tested'> inference.put</span>
 - [x] <span title='tested'> [info](./tests/cluster/cluster_info.yml#L6)</span>
 - [x] <span title='tested'> [ingest.delete_pipeline](./tests/ingest/10_basic.yml#L29)</span>
 - [ ] <span title='not tested'> ingest.geo_ip_stats</span>
@@ -1180,46 +1237,29 @@ Endpoints that are currently being tested are marked as done and link to the tes
 
 ### APIs in JSON spec and not elasticsearch-specification
 
-- [ ] <span title='not tested'> connector.check_in</span>
-- [ ] <span title='not tested'> connector.delete</span>
-- [ ] <span title='not tested'> connector.get</span>
-- [ ] <span title='not tested'> connector.last_sync</span>
-- [ ] <span title='not tested'> connector.list</span>
-- [ ] <span title='not tested'> connector.post</span>
-- [ ] <span title='not tested'> connector.put</span>
-- [ ] <span title='not tested'> connector.update_api_key_id</span>
-- [ ] <span title='not tested'> connector.update_configuration</span>
-- [ ] <span title='not tested'> connector.update_error</span>
-- [ ] <span title='not tested'> connector.update_filtering</span>
-- [ ] <span title='not tested'> connector.update_index_name</span>
-- [ ] <span title='not tested'> connector.update_name</span>
-- [ ] <span title='not tested'> connector.update_native</span>
-- [ ] <span title='not tested'> connector.update_pipeline</span>
-- [ ] <span title='not tested'> connector.update_scheduling</span>
-- [ ] <span title='not tested'> connector.update_service_type</span>
-- [ ] <span title='not tested'> connector.update_status</span>
-- [ ] <span title='not tested'> connector_secret.delete</span>
-- [ ] <span title='not tested'> connector_secret.get</span>
-- [ ] <span title='not tested'> connector_secret.post</span>
-- [ ] <span title='not tested'> connector_secret.put</span>
-- [ ] <span title='not tested'> connector_sync_job.cancel</span>
-- [ ] <span title='not tested'> connector_sync_job.check_in</span>
-- [ ] <span title='not tested'> connector_sync_job.delete</span>
-- [ ] <span title='not tested'> connector_sync_job.error</span>
-- [ ] <span title='not tested'> connector_sync_job.get</span>
-- [ ] <span title='not tested'> connector_sync_job.list</span>
-- [ ] <span title='not tested'> connector_sync_job.post</span>
-- [ ] <span title='not tested'> connector_sync_job.update_stats</span>
+- [ ] <span title='not tested'> connector.secret_delete</span>
+- [ ] <span title='not tested'> connector.secret_get</span>
+- [ ] <span title='not tested'> connector.secret_post</span>
+- [ ] <span title='not tested'> connector.secret_put</span>
+- [ ] <span title='not tested'> connector.sync_job_check_in</span>
+- [ ] <span title='not tested'> connector.sync_job_error</span>
+- [ ] <span title='not tested'> connector.sync_job_update_stats</span>
 - [ ] <span title='not tested'> esql.async_query</span>
 - [ ] <span title='not tested'> esql.async_query_get</span>
 - [ ] <span title='not tested'> fleet.delete_secret</span>
 - [ ] <span title='not tested'> fleet.get_secret</span>
 - [ ] <span title='not tested'> fleet.post_secret</span>
+- [ ] <span title='not tested'> inference.delete_model</span>
+- [ ] <span title='not tested'> inference.get_model</span>
+- [ ] <span title='not tested'> inference.put_model</span>
 - [ ] <span title='not tested'> ml.validate</span>
 - [ ] <span title='not tested'> ml.validate_detector</span>
 - [ ] <span title='not tested'> profiling.flamegraph</span>
 - [ ] <span title='not tested'> profiling.stacktraces</span>
 - [ ] <span title='not tested'> profiling.status</span>
+- [ ] <span title='not tested'> profiling.topn_functions</span>
 - [ ] <span title='not tested'> security.query_user</span>
 - [ ] <span title='not tested'> simulate.ingest</span>
+- [ ] <span title='not tested'> text_structure.find_field_structure</span>
+- [ ] <span title='not tested'> text_structure.find_message_structure</span>
 
