@@ -5,8 +5,8 @@ Endpoints that are currently being tested are marked as done and link to the tes
 * [Endpoints in stack JSON spec](#endpoints-in-stack-json-spec): 499
 * [Endpoints in elasticsearch-specification](#stack): 482
 * [Endpoints in Serverless](#serverless): 235
-* [Tested](#tested): 196
-* [Untested](#untested): 303
+* [Tested](#tested): 197
+* [Untested](#untested): 302
 * Coverage Stack: ![](https://geps.dev/progress/39)
 * Coverage Serverless: ![](https://geps.dev/progress/83)
 * [APIs in JSON spec and not in elasticsearch-specification](#apis-in-json-spec-and-not-elasticsearch-specification)
@@ -130,7 +130,7 @@ Endpoints that are currently being tested are marked as done and link to the tes
 - [x] <span title='tested'> [eql.search](./tests/eql/10_basic.yml#L99)</span>
 - [ ] <span title='not tested'> esql.async_query</span>
 - [ ] <span title='not tested'> esql.async_query_get</span>
-- [ ] <span title='not tested'> esql.query</span>
+- [x] <span title='tested'> [esql.query](./tests/esql/10_query.yml#L40)</span>
 - [x] <span title='tested'> [exists](./tests/cluster/component_templates.yml#L19)</span>
 - [x] <span title='tested'> [exists_source](./tests/exists_source/10_basic.yml#L9)</span>
 - [x] <span title='tested'> [explain](./tests/explain/10_basic.yml#L9)</span>
@@ -463,7 +463,7 @@ Endpoints that are currently being tested are marked as done and link to the tes
 - [x] <span title='tested'> [sql.delete_async](./tests/sql/10_basic.yml#L59)</span>
 - [x] <span title='tested'> [sql.get_async](./tests/sql/10_basic.yml#L52)</span>
 - [x] <span title='tested'> [sql.get_async_status](./tests/sql/10_basic.yml#L52)</span>
-- [x] <span title='tested'> [sql.query](./tests/sql/10_basic.yml#L26)</span>
+- [x] <span title='tested'> [sql.query](./tests/esql/10_query.yml#L40)</span>
 - [x] <span title='tested'> [sql.translate](./tests/sql/10_basic.yml#L33)</span>
 - [ ] <span title='not tested'> ssl.certificates</span>
 - [x] <span title='tested'> [synonyms.delete_synonym](./tests/synonyms/10_basic.yml#L36)</span>
@@ -578,7 +578,7 @@ Endpoints that are currently being tested are marked as done and link to the tes
 - [x] <span title='tested'> [eql.get](./tests/eql/10_basic.yml#L109)</span>
 - [x] <span title='tested'> [eql.get_status](./tests/eql/10_basic.yml#L109)</span>
 - [x] <span title='tested'> [eql.search](./tests/eql/10_basic.yml#L99)</span>
-- [ ] <span title='not tested'> esql.query</span>
+- [x] <span title='tested'> [esql.query](./tests/esql/10_query.yml#L40)</span>
 - [x] <span title='tested'> [exists](./tests/cluster/component_templates.yml#L19)</span>
 - [x] <span title='tested'> [exists_source](./tests/exists_source/10_basic.yml#L9)</span>
 - [x] <span title='tested'> [explain](./tests/explain/10_basic.yml#L9)</span>
@@ -728,7 +728,7 @@ Endpoints that are currently being tested are marked as done and link to the tes
 - [x] <span title='tested'> [sql.delete_async](./tests/sql/10_basic.yml#L59)</span>
 - [x] <span title='tested'> [sql.get_async](./tests/sql/10_basic.yml#L52)</span>
 - [x] <span title='tested'> [sql.get_async_status](./tests/sql/10_basic.yml#L52)</span>
-- [x] <span title='tested'> [sql.query](./tests/sql/10_basic.yml#L26)</span>
+- [x] <span title='tested'> [sql.query](./tests/esql/10_query.yml#L40)</span>
 - [x] <span title='tested'> [sql.translate](./tests/sql/10_basic.yml#L33)</span>
 - [x] <span title='tested'> [synonyms.delete_synonym](./tests/synonyms/10_basic.yml#L36)</span>
 - [x] <span title='tested'> [synonyms.delete_synonym_rule](./tests/synonyms/10_basic.yml#L36)</span>
@@ -865,7 +865,7 @@ Endpoints that are currently being tested are marked as done and link to the tes
 - [x] <span title='tested'> [eql.get](./tests/eql/10_basic.yml#L109)</span>
 - [x] <span title='tested'> [eql.get_status](./tests/eql/10_basic.yml#L109)</span>
 - [x] <span title='tested'> [eql.search](./tests/eql/10_basic.yml#L99)</span>
-- [ ] <span title='not tested'> esql.query</span>
+- [x] <span title='tested'> [esql.query](./tests/esql/10_query.yml#L40)</span>
 - [x] <span title='tested'> [exists](./tests/cluster/component_templates.yml#L19)</span>
 - [x] <span title='tested'> [exists_source](./tests/exists_source/10_basic.yml#L9)</span>
 - [x] <span title='tested'> [explain](./tests/explain/10_basic.yml#L9)</span>
@@ -1187,7 +1187,7 @@ Endpoints that are currently being tested are marked as done and link to the tes
 - [x] <span title='tested'> [sql.delete_async](./tests/sql/10_basic.yml#L59)</span>
 - [x] <span title='tested'> [sql.get_async](./tests/sql/10_basic.yml#L52)</span>
 - [x] <span title='tested'> [sql.get_async_status](./tests/sql/10_basic.yml#L52)</span>
-- [x] <span title='tested'> [sql.query](./tests/sql/10_basic.yml#L26)</span>
+- [x] <span title='tested'> [sql.query](./tests/esql/10_query.yml#L40)</span>
 - [x] <span title='tested'> [sql.translate](./tests/sql/10_basic.yml#L33)</span>
 - [ ] <span title='not tested'> ssl.certificates</span>
 - [x] <span title='tested'> [synonyms.delete_synonym](./tests/synonyms/10_basic.yml#L36)</span>
