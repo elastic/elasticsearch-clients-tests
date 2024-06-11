@@ -83,7 +83,7 @@ module Elastic
         relative_path = path[path.index('/tests')..-1]
 
         File.readlines(path).each_with_index do |line, index|
-          next unless line.include?(endpoint)
+          next unless line.split(':')[0].strip.gsub('"', '') == endpoint
 
           return { endpoint: endpoint, file: ".#{relative_path}", line: index + 1 }
         end
