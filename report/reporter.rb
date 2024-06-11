@@ -83,7 +83,9 @@ module Elastic
         relative_path = path[path.index('/tests')..-1]
 
         File.readlines(path).each_with_index do |line, index|
-          next unless line.split(':')[0].strip.gsub('"', '') == endpoint
+          api_mention = line.split(':')[0].strip.gsub('"', '')
+          next unless api_mention == endpoint
+          next unless Regexp.new(/^#{api_mention}/) =~ endpoint
 
           return { endpoint: endpoint, file: ".#{relative_path}", line: index + 1 }
         end
