@@ -2,12 +2,12 @@
 
 Endpoints that are currently being tested are marked as done and link to the test where they're being used.
 
-* [Endpoints in stack JSON spec](#endpoints-in-stack-json-spec): 503
+* [Endpoints in stack JSON spec](#endpoints-in-stack-json-spec): 499
 * [Endpoints in elasticsearch-specification](#stack): 482
 * [Endpoints in Serverless](#serverless): 235
 * [Tested](#tested): 196
-* [Untested](#untested): 307
-* Coverage Stack: ![](https://geps.dev/progress/38)
+* [Untested](#untested): 303
+* Coverage Stack: ![](https://geps.dev/progress/39)
 * Coverage Serverless: ![](https://geps.dev/progress/83)
 * [APIs in JSON spec and not in elasticsearch-specification](#apis-in-json-spec-and-not-elasticsearch-specification)
 
@@ -21,7 +21,6 @@ Endpoints that are currently being tested are marked as done and link to the tes
 - [ ] <span title='not tested'> autoscaling.get_autoscaling_policy</span>
 - [ ] <span title='not tested'> autoscaling.put_autoscaling_policy</span>
 - [x] <span title='tested'> [bulk](./tests/bulk/10_basic.yml#L9)</span>
-- [ ] <span title='not tested'> capabilities</span>
 - [x] <span title='tested'> [cat.aliases](./tests/cat/aliases.yml#L20)</span>
 - [ ] <span title='not tested'> cat.allocation</span>
 - [x] <span title='tested'> [cat.component_templates](./tests/cat/component_templates.yml#L6)</span>
@@ -102,7 +101,6 @@ Endpoints that are currently being tested are marked as done and link to the tes
 - [ ] <span title='not tested'> connector.update_api_key_id</span>
 - [ ] <span title='not tested'> connector.update_configuration</span>
 - [ ] <span title='not tested'> connector.update_error</span>
-- [ ] <span title='not tested'> connector.update_features</span>
 - [ ] <span title='not tested'> connector.update_filtering</span>
 - [ ] <span title='not tested'> connector.update_filtering_validation</span>
 - [ ] <span title='not tested'> connector.update_index_name</span>
@@ -223,10 +221,10 @@ Endpoints that are currently being tested are marked as done and link to the tes
 - [ ] <span title='not tested'> indices.unfreeze</span>
 - [x] <span title='tested'> [indices.update_aliases](./tests/indices/alias.yml#L41)</span>
 - [x] <span title='tested'> [indices.validate_query](./tests/validate_query/10_basic.yml#L16)</span>
-- [ ] <span title='not tested'> inference.delete</span>
-- [ ] <span title='not tested'> inference.get</span>
+- [ ] <span title='not tested'> inference.delete_model</span>
+- [ ] <span title='not tested'> inference.get_model</span>
 - [ ] <span title='not tested'> inference.inference</span>
-- [ ] <span title='not tested'> inference.put</span>
+- [ ] <span title='not tested'> inference.put_model</span>
 - [x] <span title='tested'> [info](./tests/info.yml#L8)</span>
 - [x] <span title='tested'> [ingest.delete_pipeline](./tests/ingest/10_basic.yml#L29)</span>
 - [ ] <span title='not tested'> ingest.geo_ip_stats</span>
@@ -340,7 +338,6 @@ Endpoints that are currently being tested are marked as done and link to the tes
 - [ ] <span title='not tested'> profiling.status</span>
 - [ ] <span title='not tested'> profiling.topn_functions</span>
 - [x] <span title='tested'> [put_script](./tests/msearch_template.yml#L10)</span>
-- [ ] <span title='not tested'> query_rule.put</span>
 - [x] <span title='tested'> [query_ruleset.delete](./tests/query_ruleset/10_basic.yml#L36)</span>
 - [x] <span title='tested'> [query_ruleset.get](./tests/query_ruleset/10_basic.yml#L29)</span>
 - [x] <span title='tested'> [query_ruleset.list](./tests/query_ruleset/10_basic.yml#L33)</span>
@@ -486,7 +483,6 @@ Endpoints that are currently being tested are marked as done and link to the tes
 - [ ] <span title='not tested'> text_structure.find_structure</span>
 - [ ] <span title='not tested'> text_structure.test_grok_pattern</span>
 - [x] <span title='tested'> [transform.delete_transform](./tests/cat/transform.yml#L28)</span>
-- [ ] <span title='not tested'> transform.get_node_stats</span>
 - [x] <span title='tested'> [transform.get_transform](./tests/transform/10_basic.yml#L40)</span>
 - [x] <span title='tested'> [transform.get_transform_stats](./tests/transform/10_basic.yml#L43)</span>
 - [x] <span title='tested'> [transform.preview_transform](./tests/transform/10_basic.yml#L46)</span>
@@ -1241,7 +1237,6 @@ Endpoints that are currently being tested are marked as done and link to the tes
 
 ### APIs in JSON spec and not elasticsearch-specification
 
-- [ ] <span title='not tested'> capabilities</span>
 - [ ] <span title='not tested'> connector.secret_delete</span>
 - [ ] <span title='not tested'> connector.secret_get</span>
 - [ ] <span title='not tested'> connector.secret_post</span>
@@ -1249,22 +1244,22 @@ Endpoints that are currently being tested are marked as done and link to the tes
 - [ ] <span title='not tested'> connector.sync_job_check_in</span>
 - [ ] <span title='not tested'> connector.sync_job_error</span>
 - [ ] <span title='not tested'> connector.sync_job_update_stats</span>
-- [ ] <span title='not tested'> connector.update_features</span>
 - [ ] <span title='not tested'> esql.async_query</span>
 - [ ] <span title='not tested'> esql.async_query_get</span>
 - [ ] <span title='not tested'> fleet.delete_secret</span>
 - [ ] <span title='not tested'> fleet.get_secret</span>
 - [ ] <span title='not tested'> fleet.post_secret</span>
+- [ ] <span title='not tested'> inference.delete_model</span>
+- [ ] <span title='not tested'> inference.get_model</span>
+- [ ] <span title='not tested'> inference.put_model</span>
 - [ ] <span title='not tested'> ml.validate</span>
 - [ ] <span title='not tested'> ml.validate_detector</span>
 - [ ] <span title='not tested'> profiling.flamegraph</span>
 - [ ] <span title='not tested'> profiling.stacktraces</span>
 - [ ] <span title='not tested'> profiling.status</span>
 - [ ] <span title='not tested'> profiling.topn_functions</span>
-- [ ] <span title='not tested'> query_rule.put</span>
 - [ ] <span title='not tested'> security.query_user</span>
 - [ ] <span title='not tested'> simulate.ingest</span>
 - [ ] <span title='not tested'> text_structure.find_field_structure</span>
 - [ ] <span title='not tested'> text_structure.find_message_structure</span>
-- [ ] <span title='not tested'> transform.get_node_stats</span>
 
