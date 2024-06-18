@@ -1,0 +1,9 @@
+---
+requires:
+  serverless: false
+  stack: true
+---
+'info':
+  - do:
+      info: {}
+  - match: { tagline: 'You Know, for Search' }
