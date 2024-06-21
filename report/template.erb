@@ -2,32 +2,30 @@
 
 Endpoints that are currently being tested are marked as done and link to the test where they're being used.
 
-* [Endpoints in stack JSON spec](#endpoints-in-stack-json-spec): <%= @reporter.apis[:json].count %>
-* [Endpoints in elasticsearch-specification](#stack): <%= @reporter.apis[:specification].count %>
+* [Endpoints in Stack (elasticsearch-specification)](#stack): <%= @reporter.apis[:specification].count %>
 * [Endpoints in Serverless](#serverless): <%= @reporter.serverless_apis.count %>
-* [Tested](#tested): <%= @reporter.tested.count %>
-* [Untested](#untested): <%= @reporter.untested.count %>
-* Coverage Stack: ![](https://geps.dev/progress/<%= @reporter.coverage_stack %>)
-* Coverage Serverless: ![](https://geps.dev/progress/<%= @reporter.coverage_serverless %>)
+* [Endpoints in Stack JSON spec](#endpoints-in-stack-json-spec): <%= @reporter.apis[:json].count %>
+* Elasticsearch Stack - **Tested**: <%= @reporter.tested_stack.count %> | **Untested**: <%= @reporter.untested_stack.count %> ![](https://geps.dev/progress/<%= @reporter.coverage_stack %>)
+* Elasticsearch Serverless - **Tested** <%= @reporter.tested_serverless.count %> | **Untested**: <%= @reporter.untested_serverless.count %> ![](https://geps.dev/progress/<%= @reporter.coverage_serverless %>)
 * [APIs in JSON spec and not in elasticsearch-specification](#apis-in-json-spec-and-not-elasticsearch-specification)
-
-## Endpoints in stack JSON spec
-<% @reporter.json_apis.each do |api| -%>
-<%= @reporter.display_endpoint(api) %>
-<% end %>
 
 ## Endpoints in elasticsearch-specification
 
 ### Serverless
 
 <% @reporter.serverless_apis.each do |api| -%>
-<%= @reporter.display_endpoint(api['name']) %>
+  <%= @reporter.display_endpoint(api['name']) %>
 <% end %>
 
 ### Stack
 
 <% @reporter.stack_apis.each do |api| -%>
-<%= @reporter.display_endpoint(api['name']) %>
+  <%= @reporter.display_endpoint(api['name']) %>
+<% end %>
+
+## Endpoints in stack JSON spec
+<% @reporter.json_apis.each do |api| -%>
+  <%= @reporter.display_endpoint(api) %>
 <% end %>
 
 ### APIs in JSON spec and not elasticsearch-specification

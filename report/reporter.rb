@@ -3,14 +3,16 @@ module Elastic
     STACK_FILES = "#{File.expand_path('./tmp/rest-api-spec/api')}/*.json".freeze
     TESTS_PATH = File.expand_path('../tests/**/*.yml')
 
-    attr_reader :apis, :tested, :untested
+    attr_reader :apis, :tested_stack, :tested_serverless, :untested_stack, :untested_serverless
 
     def initialize
       @apis = {}
       @apis[:specification] = specification_apis
       @apis[:json] = json_apis
-      @tested = []
-      @untested = []
+      @tested_stack = []
+      @tested_serverless = []
+      @untested_stack = []
+      @untested_serverless = []
       report!
     end
 
@@ -51,21 +53,27 @@ module Elastic
     end
 
     def report!
-      @apis[:json].each do |api|
-        if (test = find_test(api))
-          @tested << test
+      @apis[:specification].each do |api|
+        availability = {
+          stack: api['availability'].nil? || !!api.dig('availability', 'stack'),
+          serverless: api['availability'].nil? || api.dig('availability', 'serverless', 'visibility') == 'public'
+        }
+        if (test = find_test(api['name']))
+          @tested_stack << test if availability[:stack]
+          @tested_serverless << test if availability[:serverless]
         else
-          @untested << api
+          @untested_stack << api['name'] if availability[:stack]
+          @untested_serverless << api['name'] if availability[:serverless]
         end
       end
     end
 
     def coverage_serverless
-      @tested.count * 100 / serverless_apis.count
+      @tested_serverless.count * 100 / serverless_apis.count
     end
 
     def coverage_stack
-      @tested.count * 100 / @apis[:json].count
+      @tested_stack.count * 100 / @apis[:json].count
     end
 
     def display_endpoint(api)
@@ -86,11 +94,23 @@ module Elastic
           api_mention = line.split(':')[0].strip.gsub('"', '')
           next unless api_mention == endpoint
           next unless Regexp.new(/^#{api_mention}/) =~ endpoint
+          requires = find_requires(path)
 
-          return { endpoint: endpoint, file: ".#{relative_path}", line: index + 1 }
+          return {
+            endpoint: endpoint,
+            file: ".#{relative_path}",
+            line: index + 1,
+            serverless: requires['serverless'],
+            stack: requires['stack']
+          }
         end
       end
       false
+    end
+
+    def find_requires(path)
+      require 'yaml'
+      YAML.load_stream(File.read(path)).select { |a| a.keys.first == 'requires' }.first['requires']
     end
 
     def reject_internal(apis)
