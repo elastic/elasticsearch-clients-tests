@@ -5,7 +5,7 @@ Endpoints that are currently being tested are marked as done and link to the tes
 * [Endpoints in Stack (elasticsearch-specification)](#stack): 500
 * [Endpoints in Serverless](#serverless): 235
 * [Endpoints in Stack JSON spec](#endpoints-in-stack-json-spec): 499
-* Elasticsearch Stack - **Tested**: 197 | **Untested**: 303 ![](https://geps.dev/progress/39)
+* Elasticsearch Stack - **Tested**: 196 | **Untested**: 304 ![](https://geps.dev/progress/39)
 * Elasticsearch Serverless - **Tested** 196 | **Untested**: 39 ![](https://geps.dev/progress/83)
 * [APIs in JSON spec and not in elasticsearch-specification](#apis-in-json-spec-and-not-elasticsearch-specification)
 
@@ -266,7 +266,7 @@ Endpoints that are currently being tested are marked as done and link to the tes
   - [x] <span title='tested'> [cat.component_templates](./tests/cat/component_templates.yml#L6)</span>
   - [x] <span title='tested'> [cat.count](./tests/cat/count.yml#L17)</span>
   - [ ] <span title='not tested'> cat.fielddata</span>
-  - [x] <span title='tested'> [cat.health](./tests/cat/health.yml#L8)</span>
+  - [ ] <span title='not tested'> cat.health</span>
   - [x] <span title='tested'> [cat.help](./tests/cat/help.yml#L6)</span>
   - [x] <span title='tested'> [cat.indices](./tests/cat/indices.yml#L17)</span>
   - [ ] <span title='not tested'> cat.master</span>
@@ -755,7 +755,7 @@ Endpoints that are currently being tested are marked as done and link to the tes
   - [x] <span title='tested'> [cat.component_templates](./tests/cat/component_templates.yml#L6)</span>
   - [x] <span title='tested'> [cat.count](./tests/cat/count.yml#L17)</span>
   - [ ] <span title='not tested'> cat.fielddata</span>
-  - [x] <span title='tested'> [cat.health](./tests/cat/health.yml#L8)</span>
+  - [ ] <span title='not tested'> cat.health</span>
   - [x] <span title='tested'> [cat.help](./tests/cat/help.yml#L6)</span>
   - [x] <span title='tested'> [cat.indices](./tests/cat/indices.yml#L17)</span>
   - [ ] <span title='not tested'> cat.master</span>
