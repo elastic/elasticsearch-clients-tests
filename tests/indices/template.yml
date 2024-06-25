@@ -1,0 +1,31 @@
+---
+requires:
+  serverless: false
+  stack: true
+---
+'Put template':
+  - do:
+      indices.put_template:
+        name: test
+        body:
+          index_patterns: 'test-*'
+          settings:
+            number_of_shards:   1
+            number_of_replicas: 0
+          mappings:
+            properties:
+              field:
+                type: keyword
+
+  - do:
+      indices.get_template:
+        name: test
+        flat_settings: true
+
+  - match: {test.index_patterns: ["test-*"]}
+  - match: {test.settings: {index.number_of_shards: '1', index.number_of_replicas: '0'}}
+  - match: {test.mappings: {properties: {field: {type: keyword}}}}
+  - do:
+      indices.delete_template:
+        name: "test"
+  - match: { acknowledged: true }

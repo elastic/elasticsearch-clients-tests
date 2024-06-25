@@ -41,6 +41,11 @@ teardown:
   - match: { policies.0.config.match.name: 'policy_test' }
 
   - do:
+      enrich.stats: {}
+  - is_true: 'executing_policies'
+  - match: { coordinator_stats.0.node_id: '/[a-zA-Z0-9]+/' }
+
+  - do:
       enrich.delete_policy:
         name: 'policy_test'
   - match: { acknowledged: true }

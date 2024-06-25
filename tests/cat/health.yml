@@ -1,0 +1,11 @@
+---
+requires:
+  serverless: false
+  stack: true
+---
+"Health":
+  - do:
+      cat.health:
+        format: json
+  - match: { 0.epoch: '/[0-9]+/' }
+  - match: { 0.status: '/[green|yellow]/' }

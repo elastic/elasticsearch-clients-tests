@@ -26,3 +26,7 @@ teardown:
   - do:
       indices.explain_data_lifecycle: { index: 'my-data-stream' }
   - match: { indices.my-data-stream.index: 'my-data-stream' }
+  - do:
+      indices.delete_data_lifecycle:
+        name: 'my-data-stream'
+  - match: { acknowledged: true }
