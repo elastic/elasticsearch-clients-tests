@@ -2,11 +2,11 @@
 
 Endpoints that are currently being tested are marked as done and link to the test where they're being used.
 
-* [Endpoints in Stack (elasticsearch-specification)](#stack): 500
-* [Endpoints in Serverless](#serverless): 235
+* [Endpoints in Stack (elasticsearch-specification)](#stack): 503
+* [Endpoints in Serverless](#serverless): 238
 * [Endpoints in Stack JSON spec](#endpoints-in-stack-json-spec): 499
-* Elasticsearch Stack - **Tested**: 196 | **Untested**: 304 ![](https://geps.dev/progress/39)
-* Elasticsearch Serverless - **Tested** 196 | **Untested**: 39 ![](https://geps.dev/progress/83)
+* Elasticsearch Stack - **Tested**: 202 | **Untested**: 301 ![](https://geps.dev/progress/40)
+* Elasticsearch Serverless - **Tested** 199 | **Untested**: 39 ![](https://geps.dev/progress/83)
 * [APIs in JSON spec and not in elasticsearch-specification](#apis-in-json-spec-and-not-elasticsearch-specification)
 
 ## Endpoints in elasticsearch-specification
@@ -65,11 +65,11 @@ Endpoints that are currently being tested are marked as done and link to the tes
   - [x] <span title='tested'> [delete](./tests/delete/10_basic.yml#L16)</span>
   - [x] <span title='tested'> [delete_by_query](./tests/delete_by_query/10_basic.yml#L23)</span>
   - [x] <span title='tested'> [delete_script](./tests/script/10_basic.yml#L33)</span>
-  - [x] <span title='tested'> [enrich.delete_policy](./tests/enrich/10_basic.yml#L44)</span>
+  - [x] <span title='tested'> [enrich.delete_policy](./tests/enrich/10_basic.yml#L49)</span>
   - [x] <span title='tested'> [enrich.execute_policy](./tests/enrich/10_basic.yml#L34)</span>
   - [x] <span title='tested'> [enrich.get_policy](./tests/enrich/10_basic.yml#L39)</span>
   - [x] <span title='tested'> [enrich.put_policy](./tests/enrich/10_basic.yml#L24)</span>
-  - [ ] <span title='not tested'> enrich.stats</span>
+  - [x] <span title='tested'> [enrich.stats](./tests/enrich/10_basic.yml#L44)</span>
   - [x] <span title='tested'> [eql.delete](./tests/eql/10_basic.yml#L122)</span>
   - [x] <span title='tested'> [eql.get](./tests/eql/10_basic.yml#L114)</span>
   - [x] <span title='tested'> [eql.get_status](./tests/eql/10_basic.yml#L109)</span>
@@ -91,7 +91,7 @@ Endpoints that are currently being tested are marked as done and link to the tes
   - [x] <span title='tested'> [indices.data_streams_stats](./tests/indices/data_streams.yml#L36)</span>
   - [x] <span title='tested'> [indices.delete](./tests/async_search/10_basic.yml#L29)</span>
   - [x] <span title='tested'> [indices.delete_alias](./tests/indices/alias.yml#L49)</span>
-  - [ ] <span title='not tested'> indices.delete_data_lifecycle</span>
+  - [x] <span title='tested'> [indices.delete_data_lifecycle](./tests/indices/data_lifecycle.yml#L30)</span>
   - [x] <span title='tested'> [indices.delete_data_stream](./tests/indices/data_streams.yml#L40)</span>
   - [x] <span title='tested'> [indices.delete_index_template](./tests/indices/data_streams.yml#L21)</span>
   - [x] <span title='tested'> [indices.exists](./tests/indices/exists.yml#L18)</span>
@@ -112,7 +112,7 @@ Endpoints that are currently being tested are marked as done and link to the tes
   - [x] <span title='tested'> [indices.put_index_template](./tests/indices/data_streams.yml#L8)</span>
   - [x] <span title='tested'> [indices.put_mapping](./tests/indices/mapping.yml#L18)</span>
   - [x] <span title='tested'> [indices.put_settings](./tests/indices/settings.yml#L27)</span>
-  - [ ] <span title='not tested'> indices.put_template</span>
+  - [x] <span title='tested'> [indices.put_template](./tests/indices/template.yml#L8)</span>
   - [x] <span title='tested'> [indices.refresh](./tests/graph/explore.yml#L24)</span>
   - [x] <span title='tested'> [indices.resolve_index](./tests/indices/resolve.yml#L22)</span>
   - [x] <span title='tested'> [indices.rollover](./tests/indices/rollover.yml#L40)</span>
@@ -193,6 +193,9 @@ Endpoints that are currently being tested are marked as done and link to the tes
   - [x] <span title='tested'> [open_point_in_time](./tests/point_in_time/10_basic.yml#L16)</span>
   - [x] <span title='tested'> [ping](./tests/ping/ping.yml#L8)</span>
   - [x] <span title='tested'> [put_script](./tests/msearch_template.yml#L10)</span>
+  - [ ] <span title='not tested'> query_rule.delete</span>
+  - [ ] <span title='not tested'> query_rule.get</span>
+  - [ ] <span title='not tested'> query_rule.put</span>
   - [x] <span title='tested'> [query_ruleset.delete](./tests/query_ruleset/10_basic.yml#L36)</span>
   - [x] <span title='tested'> [query_ruleset.get](./tests/query_ruleset/10_basic.yml#L29)</span>
   - [x] <span title='tested'> [query_ruleset.list](./tests/query_ruleset/10_basic.yml#L33)</span>
@@ -266,7 +269,7 @@ Endpoints that are currently being tested are marked as done and link to the tes
   - [x] <span title='tested'> [cat.component_templates](./tests/cat/component_templates.yml#L6)</span>
   - [x] <span title='tested'> [cat.count](./tests/cat/count.yml#L17)</span>
   - [ ] <span title='not tested'> cat.fielddata</span>
-  - [ ] <span title='not tested'> cat.health</span>
+  - [x] <span title='tested'> [cat.health](./tests/cat/health.yml#L8)</span>
   - [x] <span title='tested'> [cat.help](./tests/cat/help.yml#L6)</span>
   - [x] <span title='tested'> [cat.indices](./tests/cat/indices.yml#L17)</span>
   - [ ] <span title='not tested'> cat.master</span>
@@ -355,11 +358,11 @@ Endpoints that are currently being tested are marked as done and link to the tes
   - [x] <span title='tested'> [delete_by_query](./tests/delete_by_query/10_basic.yml#L23)</span>
   - [ ] <span title='not tested'> delete_by_query_rethrottle</span>
   - [x] <span title='tested'> [delete_script](./tests/script/10_basic.yml#L33)</span>
-  - [x] <span title='tested'> [enrich.delete_policy](./tests/enrich/10_basic.yml#L44)</span>
+  - [x] <span title='tested'> [enrich.delete_policy](./tests/enrich/10_basic.yml#L49)</span>
   - [x] <span title='tested'> [enrich.execute_policy](./tests/enrich/10_basic.yml#L34)</span>
   - [x] <span title='tested'> [enrich.get_policy](./tests/enrich/10_basic.yml#L39)</span>
   - [x] <span title='tested'> [enrich.put_policy](./tests/enrich/10_basic.yml#L24)</span>
-  - [ ] <span title='not tested'> enrich.stats</span>
+  - [x] <span title='tested'> [enrich.stats](./tests/enrich/10_basic.yml#L44)</span>
   - [x] <span title='tested'> [eql.delete](./tests/eql/10_basic.yml#L122)</span>
   - [x] <span title='tested'> [eql.get](./tests/eql/10_basic.yml#L114)</span>
   - [x] <span title='tested'> [eql.get_status](./tests/eql/10_basic.yml#L109)</span>
@@ -405,10 +408,10 @@ Endpoints that are currently being tested are marked as done and link to the tes
   - [x] <span title='tested'> [indices.data_streams_stats](./tests/indices/data_streams.yml#L36)</span>
   - [x] <span title='tested'> [indices.delete](./tests/async_search/10_basic.yml#L29)</span>
   - [x] <span title='tested'> [indices.delete_alias](./tests/indices/alias.yml#L49)</span>
-  - [ ] <span title='not tested'> indices.delete_data_lifecycle</span>
+  - [x] <span title='tested'> [indices.delete_data_lifecycle](./tests/indices/data_lifecycle.yml#L30)</span>
   - [x] <span title='tested'> [indices.delete_data_stream](./tests/indices/data_streams.yml#L40)</span>
   - [x] <span title='tested'> [indices.delete_index_template](./tests/indices/data_streams.yml#L21)</span>
-  - [ ] <span title='not tested'> indices.delete_template</span>
+  - [x] <span title='tested'> [indices.delete_template](./tests/indices/template.yml#L29)</span>
   - [ ] <span title='not tested'> indices.disk_usage</span>
   - [ ] <span title='not tested'> indices.downsample</span>
   - [x] <span title='tested'> [indices.exists](./tests/indices/exists.yml#L18)</span>
@@ -427,7 +430,7 @@ Endpoints that are currently being tested are marked as done and link to the tes
   - [x] <span title='tested'> [indices.get_index_template](./tests/indices/index_template.yml#L24)</span>
   - [x] <span title='tested'> [indices.get_mapping](./tests/indices/mapping.yml#L32)</span>
   - [x] <span title='tested'> [indices.get_settings](./tests/indices/settings.yml#L21)</span>
-  - [ ] <span title='not tested'> indices.get_template</span>
+  - [x] <span title='tested'> [indices.get_template](./tests/indices/template.yml#L21)</span>
   - [x] <span title='tested'> [indices.migrate_to_data_stream](./tests/indices/migrate_modify_data_stream.yml#L39)</span>
   - [x] <span title='tested'> [indices.modify_data_stream](./tests/indices/migrate_modify_data_stream.yml#L43)</span>
   - [ ] <span title='not tested'> indices.open</span>
@@ -437,7 +440,7 @@ Endpoints that are currently being tested are marked as done and link to the tes
   - [x] <span title='tested'> [indices.put_index_template](./tests/indices/data_streams.yml#L8)</span>
   - [x] <span title='tested'> [indices.put_mapping](./tests/indices/mapping.yml#L18)</span>
   - [x] <span title='tested'> [indices.put_settings](./tests/indices/settings.yml#L27)</span>
-  - [ ] <span title='not tested'> indices.put_template</span>
+  - [x] <span title='tested'> [indices.put_template](./tests/indices/template.yml#L8)</span>
   - [ ] <span title='not tested'> indices.recovery</span>
   - [x] <span title='tested'> [indices.refresh](./tests/graph/explore.yml#L24)</span>
   - [ ] <span title='not tested'> indices.reload_search_analyzers</span>
@@ -565,6 +568,9 @@ Endpoints that are currently being tested are marked as done and link to the tes
   - [x] <span title='tested'> [open_point_in_time](./tests/point_in_time/10_basic.yml#L16)</span>
   - [x] <span title='tested'> [ping](./tests/ping/ping.yml#L8)</span>
   - [x] <span title='tested'> [put_script](./tests/msearch_template.yml#L10)</span>
+  - [ ] <span title='not tested'> query_rule.delete</span>
+  - [ ] <span title='not tested'> query_rule.get</span>
+  - [ ] <span title='not tested'> query_rule.put</span>
   - [x] <span title='tested'> [query_ruleset.delete](./tests/query_ruleset/10_basic.yml#L36)</span>
   - [x] <span title='tested'> [query_ruleset.get](./tests/query_ruleset/10_basic.yml#L29)</span>
   - [x] <span title='tested'> [query_ruleset.list](./tests/query_ruleset/10_basic.yml#L33)</span>
@@ -755,7 +761,7 @@ Endpoints that are currently being tested are marked as done and link to the tes
   - [x] <span title='tested'> [cat.component_templates](./tests/cat/component_templates.yml#L6)</span>
   - [x] <span title='tested'> [cat.count](./tests/cat/count.yml#L17)</span>
   - [ ] <span title='not tested'> cat.fielddata</span>
-  - [ ] <span title='not tested'> cat.health</span>
+  - [x] <span title='tested'> [cat.health](./tests/cat/health.yml#L8)</span>
   - [x] <span title='tested'> [cat.help](./tests/cat/help.yml#L6)</span>
   - [x] <span title='tested'> [cat.indices](./tests/cat/indices.yml#L17)</span>
   - [ ] <span title='not tested'> cat.master</span>
@@ -848,11 +854,11 @@ Endpoints that are currently being tested are marked as done and link to the tes
   - [x] <span title='tested'> [delete_by_query](./tests/delete_by_query/10_basic.yml#L23)</span>
   - [ ] <span title='not tested'> delete_by_query_rethrottle</span>
   - [x] <span title='tested'> [delete_script](./tests/script/10_basic.yml#L33)</span>
-  - [x] <span title='tested'> [enrich.delete_policy](./tests/enrich/10_basic.yml#L44)</span>
+  - [x] <span title='tested'> [enrich.delete_policy](./tests/enrich/10_basic.yml#L49)</span>
   - [x] <span title='tested'> [enrich.execute_policy](./tests/enrich/10_basic.yml#L34)</span>
   - [x] <span title='tested'> [enrich.get_policy](./tests/enrich/10_basic.yml#L39)</span>
   - [x] <span title='tested'> [enrich.put_policy](./tests/enrich/10_basic.yml#L24)</span>
-  - [ ] <span title='not tested'> enrich.stats</span>
+  - [x] <span title='tested'> [enrich.stats](./tests/enrich/10_basic.yml#L44)</span>
   - [x] <span title='tested'> [eql.delete](./tests/eql/10_basic.yml#L122)</span>
   - [x] <span title='tested'> [eql.get](./tests/eql/10_basic.yml#L114)</span>
   - [x] <span title='tested'> [eql.get_status](./tests/eql/10_basic.yml#L109)</span>
@@ -901,10 +907,10 @@ Endpoints that are currently being tested are marked as done and link to the tes
   - [x] <span title='tested'> [indices.data_streams_stats](./tests/indices/data_streams.yml#L36)</span>
   - [x] <span title='tested'> [indices.delete](./tests/async_search/10_basic.yml#L29)</span>
   - [x] <span title='tested'> [indices.delete_alias](./tests/indices/alias.yml#L49)</span>
-  - [ ] <span title='not tested'> indices.delete_data_lifecycle</span>
+  - [x] <span title='tested'> [indices.delete_data_lifecycle](./tests/indices/data_lifecycle.yml#L30)</span>
   - [x] <span title='tested'> [indices.delete_data_stream](./tests/indices/data_streams.yml#L40)</span>
   - [x] <span title='tested'> [indices.delete_index_template](./tests/indices/data_streams.yml#L21)</span>
-  - [ ] <span title='not tested'> indices.delete_template</span>
+  - [x] <span title='tested'> [indices.delete_template](./tests/indices/template.yml#L29)</span>
   - [ ] <span title='not tested'> indices.disk_usage</span>
   - [ ] <span title='not tested'> indices.downsample</span>
   - [x] <span title='tested'> [indices.exists](./tests/indices/exists.yml#L18)</span>
@@ -923,7 +929,7 @@ Endpoints that are currently being tested are marked as done and link to the tes
   - [x] <span title='tested'> [indices.get_index_template](./tests/indices/index_template.yml#L24)</span>
   - [x] <span title='tested'> [indices.get_mapping](./tests/indices/mapping.yml#L32)</span>
   - [x] <span title='tested'> [indices.get_settings](./tests/indices/settings.yml#L21)</span>
-  - [ ] <span title='not tested'> indices.get_template</span>
+  - [x] <span title='tested'> [indices.get_template](./tests/indices/template.yml#L21)</span>
   - [x] <span title='tested'> [indices.migrate_to_data_stream](./tests/indices/migrate_modify_data_stream.yml#L39)</span>
   - [x] <span title='tested'> [indices.modify_data_stream](./tests/indices/migrate_modify_data_stream.yml#L43)</span>
   - [ ] <span title='not tested'> indices.open</span>
@@ -933,7 +939,7 @@ Endpoints that are currently being tested are marked as done and link to the tes
   - [x] <span title='tested'> [indices.put_index_template](./tests/indices/data_streams.yml#L8)</span>
   - [x] <span title='tested'> [indices.put_mapping](./tests/indices/mapping.yml#L18)</span>
   - [x] <span title='tested'> [indices.put_settings](./tests/indices/settings.yml#L27)</span>
-  - [ ] <span title='not tested'> indices.put_template</span>
+  - [x] <span title='tested'> [indices.put_template](./tests/indices/template.yml#L8)</span>
   - [ ] <span title='not tested'> indices.recovery</span>
   - [x] <span title='tested'> [indices.refresh](./tests/graph/explore.yml#L24)</span>
   - [ ] <span title='not tested'> indices.reload_search_analyzers</span>
