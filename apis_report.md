@@ -2,10 +2,10 @@
 
 Endpoints that are currently being tested are marked as done and link to the test where they're being used.
 
-* [Endpoints in Stack (elasticsearch-specification)](#stack): 506
+* [Endpoints in Stack (elasticsearch-specification)](#stack): 496
 * [Endpoints in Serverless](#serverless): 238
-* [Endpoints in Stack JSON spec](#endpoints-in-stack-json-spec): 499
-* Elasticsearch Stack - **Tested**: 210 | **Untested**: 296 ![](https://geps.dev/progress/42)
+* [Endpoints in Stack JSON spec](#endpoints-in-stack-json-spec): 492
+* Elasticsearch Stack - **Tested**: 210 | **Untested**: 286 ![](https://geps.dev/progress/42)
 * Elasticsearch Serverless - **Tested** 207 | **Untested**: 31 ![](https://geps.dev/progress/86)
 * [APIs in JSON spec and not in elasticsearch-specification](#apis-in-json-spec-and-not-elasticsearch-specification)
 
@@ -259,10 +259,6 @@ Endpoints that are currently being tested are marked as done and link to the tes
   - [x] <span title='tested'> [async_search.get](./tests/async_search/10_basic.yml#L43)</span>
   - [x] <span title='tested'> [async_search.status](./tests/async_search/10_basic.yml#L48)</span>
   - [x] <span title='tested'> [async_search.submit](./tests/async_search/10_basic.yml#L35)</span>
-  - [ ] <span title='not tested'> autoscaling.delete_autoscaling_policy</span>
-  - [ ] <span title='not tested'> autoscaling.get_autoscaling_capacity</span>
-  - [ ] <span title='not tested'> autoscaling.get_autoscaling_policy</span>
-  - [ ] <span title='not tested'> autoscaling.put_autoscaling_policy</span>
   - [x] <span title='tested'> [bulk](./tests/bulk/10_basic.yml#L9)</span>
   - [x] <span title='tested'> [cat.aliases](./tests/cat/aliases.yml#L20)</span>
   - [ ] <span title='not tested'> cat.allocation</span>
@@ -330,7 +326,6 @@ Endpoints that are currently being tested are marked as done and link to the tes
   - [ ] <span title='not tested'> connector.put</span>
   - [ ] <span title='not tested'> connector.sync_job_cancel</span>
   - [ ] <span title='not tested'> connector.sync_job_check_in</span>
-  - [ ] <span title='not tested'> connector.sync_job_claim</span>
   - [ ] <span title='not tested'> connector.sync_job_delete</span>
   - [ ] <span title='not tested'> connector.sync_job_error</span>
   - [ ] <span title='not tested'> connector.sync_job_get</span>
@@ -341,7 +336,6 @@ Endpoints that are currently being tested are marked as done and link to the tes
   - [ ] <span title='not tested'> connector.update_api_key_id</span>
   - [ ] <span title='not tested'> connector.update_configuration</span>
   - [ ] <span title='not tested'> connector.update_error</span>
-  - [ ] <span title='not tested'> connector.update_features</span>
   - [ ] <span title='not tested'> connector.update_filtering</span>
   - [ ] <span title='not tested'> connector.update_filtering_validation</span>
   - [ ] <span title='not tested'> connector.update_index_name</span>
@@ -669,9 +663,6 @@ Endpoints that are currently being tested are marked as done and link to the tes
   - [ ] <span title='not tested'> security.update_cross_cluster_api_key</span>
   - [ ] <span title='not tested'> security.update_settings</span>
   - [ ] <span title='not tested'> security.update_user_profile_data</span>
-  - [ ] <span title='not tested'> shutdown.delete_node</span>
-  - [ ] <span title='not tested'> shutdown.get_node</span>
-  - [ ] <span title='not tested'> shutdown.put_node</span>
   - [ ] <span title='not tested'> simulate.ingest</span>
   - [ ] <span title='not tested'> slm.delete_lifecycle</span>
   - [ ] <span title='not tested'> slm.execute_lifecycle</span>
@@ -718,7 +709,6 @@ Endpoints that are currently being tested are marked as done and link to the tes
   - [ ] <span title='not tested'> text_structure.find_structure</span>
   - [ ] <span title='not tested'> text_structure.test_grok_pattern</span>
   - [x] <span title='tested'> [transform.delete_transform](./tests/cat/transform.yml#L28)</span>
-  - [ ] <span title='not tested'> transform.get_node_stats</span>
   - [x] <span title='tested'> [transform.get_transform](./tests/transform/10_basic.yml#L40)</span>
   - [x] <span title='tested'> [transform.get_transform_stats](./tests/transform/10_basic.yml#L43)</span>
   - [x] <span title='tested'> [transform.preview_transform](./tests/transform/10_basic.yml#L46)</span>
@@ -754,10 +744,6 @@ Endpoints that are currently being tested are marked as done and link to the tes
   - [x] <span title='tested'> [async_search.get](./tests/async_search/10_basic.yml#L43)</span>
   - [x] <span title='tested'> [async_search.status](./tests/async_search/10_basic.yml#L48)</span>
   - [x] <span title='tested'> [async_search.submit](./tests/async_search/10_basic.yml#L35)</span>
-  - [ ] <span title='not tested'> autoscaling.delete_autoscaling_policy</span>
-  - [ ] <span title='not tested'> autoscaling.get_autoscaling_capacity</span>
-  - [ ] <span title='not tested'> autoscaling.get_autoscaling_policy</span>
-  - [ ] <span title='not tested'> autoscaling.put_autoscaling_policy</span>
   - [x] <span title='tested'> [bulk](./tests/bulk/10_basic.yml#L9)</span>
   - [x] <span title='tested'> [cat.aliases](./tests/cat/aliases.yml#L20)</span>
   - [ ] <span title='not tested'> cat.allocation</span>
@@ -1172,9 +1158,6 @@ Endpoints that are currently being tested are marked as done and link to the tes
   - [ ] <span title='not tested'> security.update_cross_cluster_api_key</span>
   - [ ] <span title='not tested'> security.update_settings</span>
   - [ ] <span title='not tested'> security.update_user_profile_data</span>
-  - [ ] <span title='not tested'> shutdown.delete_node</span>
-  - [ ] <span title='not tested'> shutdown.get_node</span>
-  - [ ] <span title='not tested'> shutdown.put_node</span>
   - [ ] <span title='not tested'> simulate.ingest</span>
   - [ ] <span title='not tested'> slm.delete_lifecycle</span>
   - [ ] <span title='not tested'> slm.execute_lifecycle</span>
@@ -1253,20 +1236,24 @@ Endpoints that are currently being tested are marked as done and link to the tes
 
 ### APIs in JSON spec and not elasticsearch-specification
 
-- [ ] <span title='not tested'> connector.secret_delete</span>
-- [ ] <span title='not tested'> connector.secret_get</span>
-- [ ] <span title='not tested'> connector.secret_post</span>
-- [ ] <span title='not tested'> connector.secret_put</span>
-- [ ] <span title='not tested'> fleet.delete_secret</span>
-- [ ] <span title='not tested'> fleet.get_secret</span>
-- [ ] <span title='not tested'> fleet.post_secret</span>
 - [ ] <span title='not tested'> inference.delete_model</span>
 - [ ] <span title='not tested'> inference.get_model</span>
 - [ ] <span title='not tested'> inference.put_model</span>
-- [ ] <span title='not tested'> ml.validate</span>
-- [ ] <span title='not tested'> ml.validate_detector</span>
-- [ ] <span title='not tested'> profiling.flamegraph</span>
-- [ ] <span title='not tested'> profiling.stacktraces</span>
-- [ ] <span title='not tested'> profiling.status</span>
-- [ ] <span title='not tested'> profiling.topn_functions</span>
 
+
+### Internal APIs (Not tracked)
+
+* _common
+* _internal.delete_desired_balance
+* _internal.delete_desired_nodes
+* _internal.get_desired_balance
+* _internal.get_desired_nodes
+* _internal.prevalidate_node_removal
+* _internal.update_desired_nodes
+* autoscaling.delete_autoscaling_policy
+* autoscaling.get_autoscaling_capacity
+* autoscaling.get_autoscaling_policy
+* autoscaling.put_autoscaling_policy
+* shutdown.delete_node
+* shutdown.get_node
+* shutdown.put_node
