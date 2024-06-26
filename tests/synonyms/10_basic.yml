@@ -33,6 +33,9 @@ teardown:
         rule_id: 'rule_id'
   - match: { synonyms: 'bye,goodbye' }
   - do:
+      synonyms.get_synonyms_sets: {}
+  - match: { results.0.synonyms_set: 'synonym_id' }
+  - do:
       synonyms.delete_synonym_rule:
         set_id: 'synonym_id'
         rule_id: 'rule_id'
