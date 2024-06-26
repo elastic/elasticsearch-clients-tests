@@ -24,12 +24,16 @@ Endpoints that are currently being tested are marked as done and link to the tes
 <% end %>
 
 ## Endpoints in stack JSON spec
-<% @reporter.json_apis.each do |api| -%>
+<% @reporter.apis[:json].each do |api| -%>
   <%= @reporter.display_endpoint(api) %>
 <% end %>
 
 ### APIs in JSON spec and not elasticsearch-specification
 
-<% (@reporter.json_apis - @reporter.stack_apis.map { |a| a['name'] }).each do |api| -%>
+<% (@reporter.apis[:json] - @reporter.apis[:specification].map { |a| a['name'] }).each do |api| -%>
 <%= @reporter.display_endpoint(api) %>
-<%  end %>
+<% end %>
+
+### Internal APIs (Not tracked)
+
+<%= @reporter.apis[:internal].sort.join("\n* ").prepend('* ') %>

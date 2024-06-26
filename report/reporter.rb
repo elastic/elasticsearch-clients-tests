@@ -1,14 +1,24 @@
 module Elastic
+  # Generates API report.
+  #
+  # Usage:
+  # @reporter = Elastic::Reporter.new
+  # template = ERB.new(File.read('./template.erb'), trim_mode: '-')
+  # File.write('../apis_report.md', template.result(binding))
+  #
   class Reporter
     STACK_FILES = "#{File.expand_path('./tmp/rest-api-spec/api')}/*.json".freeze
     TESTS_PATH = File.expand_path('../tests/**/*.yml')
+    # APIs designed for indirect use by ECE/ESS and ECK, direct use is not supported.'
+    EXCLUDED_APIS = ['autoscaling', 'shutdown']
 
     attr_reader :apis, :tested_stack, :tested_serverless, :untested_stack, :untested_serverless
 
     def initialize
       @apis = {}
-      @apis[:specification] = specification_apis
-      @apis[:json] = json_apis
+      @apis[:internal] = Set[]
+      @apis[:specification] = []
+      @apis[:json] = []
       @tested_stack = []
       @tested_serverless = []
       @untested_stack = []
@@ -19,23 +29,34 @@ module Elastic
     # Stack APIs are obtained from the Elasticsearch Rest JSON specification.
     # Use `rake download_stack` to download the spec files to ../tmp.
     #
-    def json_apis
-      apis = Dir[STACK_FILES].map { |path| path.split('/').last.gsub('.json','') }
-      reject_internal(apis)
+    def build_json_apis!
+      @apis[:json] = []
+      apis = Dir[STACK_FILES].map { |path| path.split('/').last.gsub('.json', '') }
+      apis.each do |name|
+        if name.start_with?('_') || skippable?(name)
+          @apis[:internal] << name
+        else
+          @apis[:json] << name
+        end
+      end
     end
 
     # Serverless APIs are obtained from elastic/elasticsearch-specification.
     # Use `rake download_serverless` to download the files to ../tmp.
-    def specification_apis
-      apis = JSON.parse(File.read('./tmp/schema.json'))['endpoints'].map do |s|
-        { 'name' => s['name'], 'availability' => s['availability'] }
+    def build_specification_apis!
+      @apis[:specification] = []
+      JSON.parse(File.read('./tmp/schema.json'))['endpoints'].map do |s|
+        if s['name'].start_with?('_') || skippable?(s['name'])
+          @apis[:internal] << s['name']
+        else
+          @apis[:specification] << { 'name' => s['name'], 'availability' => s['availability'] }
+        end
       end
-      reject_internal(apis)
     end
 
     def stack_apis
       @apis[:specification].select do |api|
-        api.dig('availability').nil? ||
+        api['availability'].nil? ||
           api.dig('availability', 'stack', 'visibility') != 'private'
       end
     end
@@ -44,7 +65,7 @@ module Elastic
       # The absence of an 'availability' field on a property implies that the property is
       # available in all flavors.
       @apis[:specification].select do |api|
-        api.dig('availability').nil? ||
+        api['availability'].nil? ||
           (
             !!api.dig('availability', 'serverless') &&
             api.dig('availability', 'serverless', 'visibility') == 'public'
@@ -53,6 +74,9 @@ module Elastic
     end
 
     def report!
+      build_specification_apis!
+      build_json_apis!
+
       @apis[:specification].each do |api|
         availability = {
           stack: api['availability'].nil? || !!api.dig('availability', 'stack'),
@@ -94,8 +118,8 @@ module Elastic
           api_mention = line.split(':')[0].strip.gsub('"', '')
           next unless api_mention == endpoint
           next unless Regexp.new(/^#{api_mention}/) =~ endpoint
-          requires = find_requires(path)
 
+          requires = find_requires(path)
           return {
             endpoint: endpoint,
             file: ".#{relative_path}",
@@ -113,14 +137,12 @@ module Elastic
       YAML.load_stream(File.read(path)).select { |a| a.keys.first == 'requires' }.first['requires']
     end
 
-    def reject_internal(apis)
-      apis.reject! do |api|
-        if api.is_a?(Hash)
-          api.dig('name').start_with?('_')
-        elsif api.is_a?(String)
-          api.start_with?('_')
-        end
+    # If the name is in the namespaces for indirect use APIs, they can be skipped in the report.
+    def skippable?(name)
+      EXCLUDED_APIS.each do |namespace|
+        return true if name.match?(namespace)
       end
+      false
     end
   end
 end
