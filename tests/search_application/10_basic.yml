@@ -49,6 +49,12 @@ teardown:
         name: 'search_app'
   - match: { name: 'search_app' }
   - do:
+      search_application.search:
+        name: 'search_app'
+        body:
+          params: { query_string: 'test' }
+  - is_true: hits
+  - do:
       search_application.list: {}
   - gt: { count: 0 }
   - do:
