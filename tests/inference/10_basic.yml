@@ -1,0 +1,39 @@
+---
+requires:
+  serverless: true
+  stack: true
+---
+"Inference":
+  - do:
+      inference.put:
+        inference_id: elser_model_test
+        body: >
+          {
+            "task_type": "sparse_embedding",
+            "service": "elser",
+            "service_settings": {
+              "num_allocations": 1,
+              "num_threads": 1
+            },
+            "task_settings": {
+            }
+          }
+  - match: { model_id: elser_model_test }
+  - match: { task_type: sparse_embedding }
+
+  - do:
+      inference.get:
+        inference_id: elser_model_test
+  - match: { endpoints.0.model_id: elser_model_test }
+
+  - do:
+      inference.inference:
+        inference_id: elser_model_test
+        body:
+          input: 'The sky above the port was the color of television tuned to a dead channel.'
+  - is_true: sparse_embedding.0.embedding
+
+  - do:
+      inference.delete:
+        inference_id: elser_model_test
+  - match: { acknowledged: true }
