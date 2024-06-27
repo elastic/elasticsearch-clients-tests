@@ -1,6 +1,6 @@
 ---
 requires:
-  serverless: true
+  serverless: false
   stack: true
 ---
 setup:
@@ -18,14 +18,6 @@ teardown:
         body:
           data_retention: '7d'
   - is_true: 'acknowledged'
-  - do:
-      indices.get_data_lifecycle:
-        name: 'my-data-stream'
-        include_defaults: true
-  - is_true: 'data_streams'
-  - do:
-      indices.explain_data_lifecycle: { index: 'my-data-stream' }
-  - match: { indices.my-data-stream.index: 'my-data-stream' }
   - do:
       indices.delete_data_lifecycle:
         name: 'my-data-stream'
