@@ -1,0 +1,10 @@
+---
+requires:
+  serverless: false
+  stack: true
+---
+'enric.stats':
+  - do:
+      enrich.stats: {}
+  - is_true: 'executing_policies'
+  - match: { coordinator_stats.0.node_id: '/[a-zA-Z0-9]+/' }
