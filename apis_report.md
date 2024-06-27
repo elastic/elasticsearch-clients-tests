@@ -2,10 +2,10 @@
 
 Endpoints that are currently being tested are marked as done and link to the test where they're being used.
 
-* [Endpoints in Stack (elasticsearch-specification)](#stack): 496
+* [Endpoints in Stack (elasticsearch-specification)](#stack): 499
 * [Endpoints in Serverless](#serverless): 238
 * [Endpoints in Stack JSON spec](#endpoints-in-stack-json-spec): 492
-* Elasticsearch Stack - **Tested**: 210 | **Untested**: 286 ![](https://geps.dev/progress/42)
+* Elasticsearch Stack - **Tested**: 210 | **Untested**: 289 ![](https://geps.dev/progress/42)
 * Elasticsearch Serverless - **Tested** 207 | **Untested**: 31 ![](https://geps.dev/progress/86)
 * [APIs in JSON spec and not in elasticsearch-specification](#apis-in-json-spec-and-not-elasticsearch-specification)
 
@@ -326,6 +326,7 @@ Endpoints that are currently being tested are marked as done and link to the tes
   - [ ] <span title='not tested'> connector.put</span>
   - [ ] <span title='not tested'> connector.sync_job_cancel</span>
   - [ ] <span title='not tested'> connector.sync_job_check_in</span>
+  - [ ] <span title='not tested'> connector.sync_job_claim</span>
   - [ ] <span title='not tested'> connector.sync_job_delete</span>
   - [ ] <span title='not tested'> connector.sync_job_error</span>
   - [ ] <span title='not tested'> connector.sync_job_get</span>
@@ -336,6 +337,7 @@ Endpoints that are currently being tested are marked as done and link to the tes
   - [ ] <span title='not tested'> connector.update_api_key_id</span>
   - [ ] <span title='not tested'> connector.update_configuration</span>
   - [ ] <span title='not tested'> connector.update_error</span>
+  - [ ] <span title='not tested'> connector.update_features</span>
   - [ ] <span title='not tested'> connector.update_filtering</span>
   - [ ] <span title='not tested'> connector.update_filtering_validation</span>
   - [ ] <span title='not tested'> connector.update_index_name</span>
@@ -709,6 +711,7 @@ Endpoints that are currently being tested are marked as done and link to the tes
   - [ ] <span title='not tested'> text_structure.find_structure</span>
   - [ ] <span title='not tested'> text_structure.test_grok_pattern</span>
   - [x] <span title='tested'> [transform.delete_transform](./tests/cat/transform.yml#L28)</span>
+  - [ ] <span title='not tested'> transform.get_node_stats</span>
   - [x] <span title='tested'> [transform.get_transform](./tests/transform/10_basic.yml#L40)</span>
   - [x] <span title='tested'> [transform.get_transform_stats](./tests/transform/10_basic.yml#L43)</span>
   - [x] <span title='tested'> [transform.preview_transform](./tests/transform/10_basic.yml#L46)</span>
