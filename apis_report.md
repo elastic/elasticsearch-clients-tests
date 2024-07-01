@@ -5,8 +5,8 @@ Endpoints that are currently being tested are marked as done and link to the tes
 * [Endpoints in Stack (elasticsearch-specification)](#stack): 499
 * [Endpoints in Serverless](#serverless): 238
 * [Endpoints in Stack JSON spec](#endpoints-in-stack-json-spec): 492
-* Elasticsearch Stack - **Tested**: 206 | **Untested**: 293 ![](https://geps.dev/progress/41)
-* Elasticsearch Serverless - **Tested** 203 | **Untested**: 35 ![](https://geps.dev/progress/85)
+* Elasticsearch Stack - **Tested**: 213 | **Untested**: 286 ![](https://geps.dev/progress/43)
+* Elasticsearch Serverless - **Tested** 210 | **Untested**: 28 ![](https://geps.dev/progress/88)
 * [APIs in JSON spec and not in elasticsearch-specification](#apis-in-json-spec-and-not-elasticsearch-specification)
 
 ## Endpoints in elasticsearch-specification
@@ -193,13 +193,13 @@ Endpoints that are currently being tested are marked as done and link to the tes
   - [x] <span title='tested'> [open_point_in_time](./tests/point_in_time/10_basic.yml#L16)</span>
   - [x] <span title='tested'> [ping](./tests/ping/ping.yml#L8)</span>
   - [x] <span title='tested'> [put_script](./tests/msearch_template.yml#L10)</span>
-  - [ ] <span title='not tested'> query_rules.delete_rule</span>
-  - [ ] <span title='not tested'> query_rules.delete_ruleset</span>
-  - [ ] <span title='not tested'> query_rules.get_rule</span>
-  - [ ] <span title='not tested'> query_rules.get_ruleset</span>
-  - [ ] <span title='not tested'> query_rules.list_rulesets</span>
-  - [ ] <span title='not tested'> query_rules.put_rule</span>
-  - [ ] <span title='not tested'> query_rules.put_ruleset</span>
+  - [x] <span title='tested'> [query_rules.delete_rule](./tests/query_rules/10_query_rules.yml#L46)</span>
+  - [x] <span title='tested'> [query_rules.delete_ruleset](./tests/query_rules/10_query_rules.yml#L22)</span>
+  - [x] <span title='tested'> [query_rules.get_rule](./tests/query_rules/10_query_rules.yml#L40)</span>
+  - [x] <span title='tested'> [query_rules.get_ruleset](./tests/query_rules/20_rulesets.yml#L29)</span>
+  - [x] <span title='tested'> [query_rules.list_rulesets](./tests/query_rules/20_rulesets.yml#L33)</span>
+  - [x] <span title='tested'> [query_rules.put_rule](./tests/query_rules/10_query_rules.yml#L27)</span>
+  - [x] <span title='tested'> [query_rules.put_ruleset](./tests/query_rules/10_query_rules.yml#L8)</span>
   - [x] <span title='tested'> [rank_eval](./tests/rank_eval.yml#L20)</span>
   - [x] <span title='tested'> [reindex](./tests/reindex/10_basic.yml#L23)</span>
   - [x] <span title='tested'> [render_search_template](./tests/search_template/10_basic.yml#L29)</span>
@@ -566,13 +566,13 @@ Endpoints that are currently being tested are marked as done and link to the tes
   - [x] <span title='tested'> [open_point_in_time](./tests/point_in_time/10_basic.yml#L16)</span>
   - [x] <span title='tested'> [ping](./tests/ping/ping.yml#L8)</span>
   - [x] <span title='tested'> [put_script](./tests/msearch_template.yml#L10)</span>
-  - [ ] <span title='not tested'> query_rules.delete_rule</span>
-  - [ ] <span title='not tested'> query_rules.delete_ruleset</span>
-  - [ ] <span title='not tested'> query_rules.get_rule</span>
-  - [ ] <span title='not tested'> query_rules.get_ruleset</span>
-  - [ ] <span title='not tested'> query_rules.list_rulesets</span>
-  - [ ] <span title='not tested'> query_rules.put_rule</span>
-  - [ ] <span title='not tested'> query_rules.put_ruleset</span>
+  - [x] <span title='tested'> [query_rules.delete_rule](./tests/query_rules/10_query_rules.yml#L46)</span>
+  - [x] <span title='tested'> [query_rules.delete_ruleset](./tests/query_rules/10_query_rules.yml#L22)</span>
+  - [x] <span title='tested'> [query_rules.get_rule](./tests/query_rules/10_query_rules.yml#L40)</span>
+  - [x] <span title='tested'> [query_rules.get_ruleset](./tests/query_rules/20_rulesets.yml#L29)</span>
+  - [x] <span title='tested'> [query_rules.list_rulesets](./tests/query_rules/20_rulesets.yml#L33)</span>
+  - [x] <span title='tested'> [query_rules.put_rule](./tests/query_rules/10_query_rules.yml#L27)</span>
+  - [x] <span title='tested'> [query_rules.put_ruleset](./tests/query_rules/10_query_rules.yml#L8)</span>
   - [x] <span title='tested'> [rank_eval](./tests/rank_eval.yml#L20)</span>
   - [x] <span title='tested'> [reindex](./tests/reindex/10_basic.yml#L23)</span>
   - [ ] <span title='not tested'> reindex_rethrottle</span>
@@ -1065,10 +1065,10 @@ Endpoints that are currently being tested are marked as done and link to the tes
   - [ ] <span title='not tested'> profiling.status</span>
   - [ ] <span title='not tested'> profiling.topn_functions</span>
   - [x] <span title='tested'> [put_script](./tests/msearch_template.yml#L10)</span>
-  - [x] <span title='tested'> [query_ruleset.delete](./tests/query_ruleset/10_basic.yml#L36)</span>
-  - [x] <span title='tested'> [query_ruleset.get](./tests/query_ruleset/10_basic.yml#L29)</span>
-  - [x] <span title='tested'> [query_ruleset.list](./tests/query_ruleset/10_basic.yml#L33)</span>
-  - [x] <span title='tested'> [query_ruleset.put](./tests/query_ruleset/10_basic.yml#L8)</span>
+  - [ ] <span title='not tested'> query_ruleset.delete</span>
+  - [ ] <span title='not tested'> query_ruleset.get</span>
+  - [ ] <span title='not tested'> query_ruleset.list</span>
+  - [ ] <span title='not tested'> query_ruleset.put</span>
   - [x] <span title='tested'> [rank_eval](./tests/rank_eval.yml#L20)</span>
   - [x] <span title='tested'> [reindex](./tests/reindex/10_basic.yml#L23)</span>
   - [ ] <span title='not tested'> reindex_rethrottle</span>
@@ -1242,10 +1242,10 @@ Endpoints that are currently being tested are marked as done and link to the tes
 - [ ] <span title='not tested'> inference.delete_model</span>
 - [ ] <span title='not tested'> inference.get_model</span>
 - [ ] <span title='not tested'> inference.put_model</span>
-- [x] <span title='tested'> [query_ruleset.delete](./tests/query_ruleset/10_basic.yml#L36)</span>
-- [x] <span title='tested'> [query_ruleset.get](./tests/query_ruleset/10_basic.yml#L29)</span>
-- [x] <span title='tested'> [query_ruleset.list](./tests/query_ruleset/10_basic.yml#L33)</span>
-- [x] <span title='tested'> [query_ruleset.put](./tests/query_ruleset/10_basic.yml#L8)</span>
+- [ ] <span title='not tested'> query_ruleset.delete</span>
+- [ ] <span title='not tested'> query_ruleset.get</span>
+- [ ] <span title='not tested'> query_ruleset.list</span>
+- [ ] <span title='not tested'> query_ruleset.put</span>
 
 
 ### Internal APIs (Not tracked)
