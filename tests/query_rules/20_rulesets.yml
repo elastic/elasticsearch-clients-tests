@@ -5,7 +5,7 @@ requires:
 ---
 'put ruleset':
   - do:
-      query_ruleset.put:
+      query_rules.put_ruleset:
         body:
           rules:
             - rule_id: "my-rule1"
@@ -26,13 +26,13 @@ requires:
         ruleset_id: 'query_ruleset_testing'
   - match: { result: 'created' }
   - do:
-      query_ruleset.get:
+      query_rules.get_ruleset:
         ruleset_id: 'query_ruleset_testing'
   - match: { ruleset_id: 'query_ruleset_testing' }
   - do:
-      query_ruleset.list: {}
+      query_rules.list_rulesets: {}
   - match: { results.0.ruleset_id: 'query_ruleset_testing' }
   - do:
-      query_ruleset.delete:
+      query_rules.delete_ruleset:
         ruleset_id: 'query_ruleset_testing'
   - is_true: 'acknowledged'

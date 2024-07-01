@@ -1,0 +1,49 @@
+---
+requires:
+  serverless: true
+  stack: true
+---
+setup:
+  - do:
+      query_rules.put_ruleset:
+        body:
+          rules:
+            - rule_id: "my-rule1"
+              type: "pinned"
+              criteria:
+                - {type: "contains", metadata: "user_query", values: [ "pugs", "puggles" ] }
+                - {type: "exact", metadata: "user_country", values: [ "us" ] }
+              actions:
+                ids: ["id1", "id2"]
+        ruleset_id: "query_rules_testing"
+---
+teardown:
+  - do:
+      query_rules.delete_ruleset:
+        ruleset_id: "query_rules_testing"
+---
+"Query rules":
+  - do:
+      query_rules.put_rule:
+        body:
+          type: "pinned"
+          criteria:
+            - { type: "fuzzy", metadata: "user_query", values: [ "rescue dogs" ] }
+          actions:
+            docs:
+              - {_index: "index1", _id: "id3" }
+              - {_index: "index2", _id: "id4" }
+        ruleset_id: "query_rules_testing"
+        rule_id: "my-rule2"
+  - match: { result: "created" }
+  - do:
+      query_rules.get_rule:
+        rule_id: "my-rule2"
+        ruleset_id: "query_rules_testing"
+  - match: { rule_id: "my-rule2" }
+  - match: { type: "pinned" }
+  - do:
+      query_rules.delete_rule:
+        rule_id: "my-rule2"
+        ruleset_id: "query_rules_testing"
+  - match: { acknowledged: true }
