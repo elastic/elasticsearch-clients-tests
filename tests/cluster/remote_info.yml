@@ -1,0 +1,9 @@
+---
+requires:
+  serverless: false
+  stack: true
+---
+'cluster.remote_info':
+  - do:
+      cluster.remote_info: {}
+  - is_true: $body

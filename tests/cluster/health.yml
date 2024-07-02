@@ -1,0 +1,9 @@
+---
+requires:
+  serverless: false
+  stack: true
+---
+'cluster.health':
+  - do:
+      cluster.health: {}
+  - match: { cluster_name: "/[a-zA-Z\\-0-9]+/" }

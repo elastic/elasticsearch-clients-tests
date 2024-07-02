@@ -1,0 +1,10 @@
+---
+requires:
+  serverless: false
+  stack: true
+---
+'cluster.post_voting_config_exclusions':
+  - do:
+      cluster.post_voting_config_exclusions:
+        node_ids: "*"
+  - is_true: $body

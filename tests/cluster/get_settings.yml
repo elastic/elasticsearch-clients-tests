@@ -1,0 +1,9 @@
+---
+requires:
+  serverless: false
+  stack: true
+---
+'cluster.get_settings':
+  - do:
+      cluster.get_settings: {}
+  - is_true: $body

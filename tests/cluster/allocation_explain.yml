@@ -1,0 +1,23 @@
+---
+requires:
+  serverless: false
+  stack: true
+---
+setup:
+  - do:
+      indices.create:
+        index: 'allocation_explain'
+---
+teardown:
+  - do:
+      indices.delete:
+        index: 'allocation_explain'
+---
+'cluster.allocation_explain':
+  - do:
+      cluster.allocation_explain:
+        body:
+          index: 'allocation_explain'
+          shard: 0
+          primary: true
+  - match: { index: 'allocation_explain' }

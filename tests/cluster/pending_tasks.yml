@@ -1,0 +1,9 @@
+---
+requires:
+  serverless: false
+  stack: true
+---
+'cluster.pending_tasks':
+  - do:
+      cluster.pending_tasks: {}
+  - is_true: tasks

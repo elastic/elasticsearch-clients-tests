@@ -1,0 +1,12 @@
+---
+requires:
+  serverless: false
+  stack: true
+---
+'cluster.put_settings':
+  - do:
+      cluster.put_settings:
+        body:
+          transient:
+            indices.recovery.max_bytes_per_sec: null
+  - is_true: acknowledged

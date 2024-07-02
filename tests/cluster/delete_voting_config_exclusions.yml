@@ -1,0 +1,9 @@
+---
+requires:
+  serverless: false
+  stack: true
+---
+'cluster.delete_voting_config_exclusions':
+  - do:
+      cluster.delete_voting_config_exclusions: {}
+  - is_true: $body

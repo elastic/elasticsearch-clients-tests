@@ -1,0 +1,9 @@
+---
+requires:
+  serverless: false
+  stack: true
+---
+'cluster.reroute':
+  - do:
+      cluster.reroute: {}
+  - is_true: acknowledged
