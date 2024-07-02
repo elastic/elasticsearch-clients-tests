@@ -1,0 +1,11 @@
+---
+requires:
+  serverless: false
+  stack: true
+---
+"cat.allocation":
+  - do:
+      cat.allocation:
+        format: 'json'
+  - is_true: 0.shards
+  - match: { 0.node: "/[a-z\\-_]+/" }

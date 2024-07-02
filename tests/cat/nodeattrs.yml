@@ -1,0 +1,11 @@
+---
+requires:
+  serverless: false
+  stack: true
+---
+"cat.nodeattrs":
+  - do:
+      cat.nodeattrs:
+        format: "json"
+  - is_true: $body
+  - match: { 0.node: "/[a-z_\\-]+/" }

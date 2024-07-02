@@ -1,0 +1,11 @@
+---
+requires:
+  serverless: false
+  stack: true
+---
+"cat.nodes":
+  - do:
+      cat.nodes:
+        format: "json"
+  - match: { 0.name: "/[a-z_\\-]+/" }
+  - is_true: 0.ip

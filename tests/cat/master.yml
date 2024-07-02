@@ -1,0 +1,11 @@
+---
+requires:
+  serverless: false
+  stack: true
+---
+"cat.master":
+  - do:
+      cat.master:
+        format: "json"
+  - match: { 0.id: "/[a-zA-Z0-9]+/" }
+  - match: { 0.node: "/[a-z\\-_]+/" }

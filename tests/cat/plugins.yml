@@ -1,0 +1,10 @@
+---
+requires:
+  serverless: false
+  stack: true
+---
+"cat.plugins":
+  - do:
+      cat.plugins:
+        format: "json"
+  - is_true: $body

@@ -1,0 +1,10 @@
+---
+requires:
+  serverless: false
+  stack: true
+---
+"cat.repositories":
+  - do:
+      cat.repositories:
+        format: "json"
+  - is_true: $body

@@ -1,0 +1,10 @@
+---
+requires:
+  serverless: false
+  stack: true
+---
+"cat.templates":
+  - do:
+      cat.templates:
+        format: "json"
+  - match: { 0.name: "/[a-z0-9\\-\\.]+/" }

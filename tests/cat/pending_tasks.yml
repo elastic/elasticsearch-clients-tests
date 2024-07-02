@@ -1,0 +1,10 @@
+---
+requires:
+  serverless: false
+  stack: true
+---
+"cat.pending_tasks":
+  - do:
+      cat.pending_tasks:
+        format: "json"
+  - is_true: $body

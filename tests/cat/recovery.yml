@@ -1,0 +1,10 @@
+---
+requires:
+  serverless: false
+  stack: true
+---
+"cat.recovery":
+  - do:
+      cat.recovery:
+        format: "json"
+  - is_true: $body

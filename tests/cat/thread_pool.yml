@@ -1,0 +1,11 @@
+---
+requires:
+  serverless: false
+  stack: true
+---
+"cat.thread_pool":
+  - do:
+      cat.thread_pool:
+        format: "json"
+  - match: { 0.node_name: "/[a-z\\-_]+/" }
+  - match: { 0.name: "/[a-z\\-_]+/" }

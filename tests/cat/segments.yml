@@ -1,0 +1,10 @@
+---
+requires:
+  serverless: false
+  stack: true
+---
+"cat.segments":
+  - do:
+      cat.segments:
+        format: "json"
+  - is_true: $body

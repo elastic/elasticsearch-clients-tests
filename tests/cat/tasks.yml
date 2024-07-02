@@ -1,0 +1,11 @@
+---
+requires:
+  serverless: false
+  stack: true
+---
+"cat.tasks":
+  - do:
+      cat.tasks:
+        format: "json"
+  - match: { 0.action: "/.+/" }
+  - match: { 0.task_id: "/[a-zA-Z0-9]+/" }

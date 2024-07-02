@@ -1,0 +1,12 @@
+---
+requires:
+  serverless: false
+  stack: true
+---
+"cat.shards":
+  - do:
+      cat.shards:
+        format: "json"
+  - is_true: 0.index
+  - is_true: 0.shard
+  - match: { 0.state: 'STARTED' }

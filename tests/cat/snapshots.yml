@@ -1,0 +1,10 @@
+---
+requires:
+  serverless: false
+  stack: true
+---
+"cat.snapshots":
+  - do:
+      cat.snapshots:
+        format: "json"
+  - is_true: $body

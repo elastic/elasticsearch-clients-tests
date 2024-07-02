@@ -1,0 +1,9 @@
+---
+requires:
+  serverless: false
+  stack: true
+---
+"cat.fielddata":
+  - do:
+      cat.fielddata: {}
+  - is_true: $body
