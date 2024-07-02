@@ -5,7 +5,7 @@ Endpoints that are currently being tested are marked as done and link to the tes
 * [Endpoints in Stack (elasticsearch-specification)](#stack): 499
 * [Endpoints in Serverless](#serverless): 237
 * [Endpoints in Stack JSON spec](#endpoints-in-stack-json-spec): 492
-* Elasticsearch Stack - **Tested**: 224 | **Untested**: 275 ![](https://geps.dev/progress/45)
+* Elasticsearch Stack - **Tested**: 239 | **Untested**: 260 ![](https://geps.dev/progress/48)
 * Elasticsearch Serverless - **Tested** 209 | **Untested**: 28 ![](https://geps.dev/progress/88)
 * [APIs in JSON spec and not in elasticsearch-specification](#apis-in-json-spec-and-not-elasticsearch-specification)
 
@@ -260,30 +260,30 @@ Endpoints that are currently being tested are marked as done and link to the tes
   - [x] <span title='tested'> [async_search.submit](./tests/async_search/10_basic.yml#L35)</span>
   - [x] <span title='tested'> [bulk](./tests/bulk/10_basic.yml#L9)</span>
   - [x] <span title='tested'> [cat.aliases](./tests/cat/aliases.yml#L20)</span>
-  - [ ] <span title='not tested'> cat.allocation</span>
+  - [x] <span title='tested'> [cat.allocation](./tests/cat/allocation.yml#L6)</span>
   - [x] <span title='tested'> [cat.component_templates](./tests/cat/component_templates.yml#L6)</span>
   - [x] <span title='tested'> [cat.count](./tests/cat/count.yml#L17)</span>
-  - [ ] <span title='not tested'> cat.fielddata</span>
+  - [x] <span title='tested'> [cat.fielddata](./tests/cat/fielddata.yml#L6)</span>
   - [x] <span title='tested'> [cat.health](./tests/cat/health.yml#L8)</span>
   - [x] <span title='tested'> [cat.help](./tests/cat/help.yml#L6)</span>
   - [x] <span title='tested'> [cat.indices](./tests/cat/indices.yml#L17)</span>
-  - [ ] <span title='not tested'> cat.master</span>
+  - [x] <span title='tested'> [cat.master](./tests/cat/master.yml#L6)</span>
   - [x] <span title='tested'> [cat.ml_data_frame_analytics](./tests/cat/ml.yml#L8)</span>
   - [x] <span title='tested'> [cat.ml_datafeeds](./tests/cat/ml.yml#L12)</span>
   - [x] <span title='tested'> [cat.ml_jobs](./tests/cat/ml.yml#L16)</span>
   - [x] <span title='tested'> [cat.ml_trained_models](./tests/cat/ml.yml#L20)</span>
-  - [ ] <span title='not tested'> cat.nodeattrs</span>
-  - [ ] <span title='not tested'> cat.nodes</span>
-  - [ ] <span title='not tested'> cat.pending_tasks</span>
-  - [ ] <span title='not tested'> cat.plugins</span>
-  - [ ] <span title='not tested'> cat.recovery</span>
-  - [ ] <span title='not tested'> cat.repositories</span>
-  - [ ] <span title='not tested'> cat.segments</span>
-  - [ ] <span title='not tested'> cat.shards</span>
-  - [ ] <span title='not tested'> cat.snapshots</span>
-  - [ ] <span title='not tested'> cat.tasks</span>
-  - [ ] <span title='not tested'> cat.templates</span>
-  - [ ] <span title='not tested'> cat.thread_pool</span>
+  - [x] <span title='tested'> [cat.nodeattrs](./tests/cat/nodeattrs.yml#L6)</span>
+  - [x] <span title='tested'> [cat.nodes](./tests/cat/nodes.yml#L6)</span>
+  - [x] <span title='tested'> [cat.pending_tasks](./tests/cat/pending_tasks.yml#L6)</span>
+  - [x] <span title='tested'> [cat.plugins](./tests/cat/plugins.yml#L6)</span>
+  - [x] <span title='tested'> [cat.recovery](./tests/cat/recovery.yml#L6)</span>
+  - [x] <span title='tested'> [cat.repositories](./tests/cat/repositories.yml#L6)</span>
+  - [x] <span title='tested'> [cat.segments](./tests/cat/segments.yml#L6)</span>
+  - [x] <span title='tested'> [cat.shards](./tests/cat/shards.yml#L6)</span>
+  - [x] <span title='tested'> [cat.snapshots](./tests/cat/snapshots.yml#L6)</span>
+  - [x] <span title='tested'> [cat.tasks](./tests/cat/tasks.yml#L6)</span>
+  - [x] <span title='tested'> [cat.templates](./tests/cat/templates.yml#L6)</span>
+  - [x] <span title='tested'> [cat.thread_pool](./tests/cat/thread_pool.yml#L6)</span>
   - [x] <span title='tested'> [cat.transforms](./tests/cat/transform.yml#L31)</span>
   - [ ] <span title='not tested'> ccr.delete_auto_follow_pattern</span>
   - [ ] <span title='not tested'> ccr.follow</span>
@@ -748,30 +748,30 @@ Endpoints that are currently being tested are marked as done and link to the tes
   - [x] <span title='tested'> [async_search.submit](./tests/async_search/10_basic.yml#L35)</span>
   - [x] <span title='tested'> [bulk](./tests/bulk/10_basic.yml#L9)</span>
   - [x] <span title='tested'> [cat.aliases](./tests/cat/aliases.yml#L20)</span>
-  - [ ] <span title='not tested'> cat.allocation</span>
+  - [x] <span title='tested'> [cat.allocation](./tests/cat/allocation.yml#L6)</span>
   - [x] <span title='tested'> [cat.component_templates](./tests/cat/component_templates.yml#L6)</span>
   - [x] <span title='tested'> [cat.count](./tests/cat/count.yml#L17)</span>
-  - [ ] <span title='not tested'> cat.fielddata</span>
+  - [x] <span title='tested'> [cat.fielddata](./tests/cat/fielddata.yml#L6)</span>
   - [x] <span title='tested'> [cat.health](./tests/cat/health.yml#L8)</span>
   - [x] <span title='tested'> [cat.help](./tests/cat/help.yml#L6)</span>
   - [x] <span title='tested'> [cat.indices](./tests/cat/indices.yml#L17)</span>
-  - [ ] <span title='not tested'> cat.master</span>
+  - [x] <span title='tested'> [cat.master](./tests/cat/master.yml#L6)</span>
   - [x] <span title='tested'> [cat.ml_data_frame_analytics](./tests/cat/ml.yml#L8)</span>
   - [x] <span title='tested'> [cat.ml_datafeeds](./tests/cat/ml.yml#L12)</span>
   - [x] <span title='tested'> [cat.ml_jobs](./tests/cat/ml.yml#L16)</span>
   - [x] <span title='tested'> [cat.ml_trained_models](./tests/cat/ml.yml#L20)</span>
-  - [ ] <span title='not tested'> cat.nodeattrs</span>
-  - [ ] <span title='not tested'> cat.nodes</span>
-  - [ ] <span title='not tested'> cat.pending_tasks</span>
-  - [ ] <span title='not tested'> cat.plugins</span>
-  - [ ] <span title='not tested'> cat.recovery</span>
-  - [ ] <span title='not tested'> cat.repositories</span>
-  - [ ] <span title='not tested'> cat.segments</span>
-  - [ ] <span title='not tested'> cat.shards</span>
-  - [ ] <span title='not tested'> cat.snapshots</span>
-  - [ ] <span title='not tested'> cat.tasks</span>
-  - [ ] <span title='not tested'> cat.templates</span>
-  - [ ] <span title='not tested'> cat.thread_pool</span>
+  - [x] <span title='tested'> [cat.nodeattrs](./tests/cat/nodeattrs.yml#L6)</span>
+  - [x] <span title='tested'> [cat.nodes](./tests/cat/nodes.yml#L6)</span>
+  - [x] <span title='tested'> [cat.pending_tasks](./tests/cat/pending_tasks.yml#L6)</span>
+  - [x] <span title='tested'> [cat.plugins](./tests/cat/plugins.yml#L6)</span>
+  - [x] <span title='tested'> [cat.recovery](./tests/cat/recovery.yml#L6)</span>
+  - [x] <span title='tested'> [cat.repositories](./tests/cat/repositories.yml#L6)</span>
+  - [x] <span title='tested'> [cat.segments](./tests/cat/segments.yml#L6)</span>
+  - [x] <span title='tested'> [cat.shards](./tests/cat/shards.yml#L6)</span>
+  - [x] <span title='tested'> [cat.snapshots](./tests/cat/snapshots.yml#L6)</span>
+  - [x] <span title='tested'> [cat.tasks](./tests/cat/tasks.yml#L6)</span>
+  - [x] <span title='tested'> [cat.templates](./tests/cat/templates.yml#L6)</span>
+  - [x] <span title='tested'> [cat.thread_pool](./tests/cat/thread_pool.yml#L6)</span>
   - [x] <span title='tested'> [cat.transforms](./tests/cat/transform.yml#L31)</span>
   - [ ] <span title='not tested'> ccr.delete_auto_follow_pattern</span>
   - [ ] <span title='not tested'> ccr.follow</span>
