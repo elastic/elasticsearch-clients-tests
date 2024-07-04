@@ -1,0 +1,28 @@
+---
+requires:
+  serverless: false
+  stack: true
+---
+setup:
+  - do:
+      search_application.put_behavioral_analytics:
+        name: my-test-analytics-collection
+---
+teardown:
+  - do:
+      search_application.delete_behavioral_analytics:
+        name: my-test-analytics-collection
+---
+"Post page_view analytics event":
+  - do:
+      search_application.post_behavioral_analytics_event:
+        collection_name: my-test-analytics-collection
+        event_type: "page_view"
+        body:
+          session:
+            id: "123"
+          user:
+            id: "456"
+          page:
+            url: "https://www.elastic.co"
+  - is_true: accepted
