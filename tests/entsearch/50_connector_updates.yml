@@ -1,0 +1,244 @@
+---
+requires:
+  stack: true
+  serverless: true
+---
+setup:
+  - do:
+      connector.put:
+        connector_id: test-connector-updates
+        body:
+          index_name: search-1-test
+          name: my-connector
+          language: pl
+          is_native: false
+          service_type: super-connector
+---
+teardown:
+  - do:
+      connector.delete:
+        connector_id: test-connector-updates
+---
+"Update Connector Name":
+  - do:
+      connector.update_name:
+        connector_id: test-connector-updates
+        body:
+          name: test-name
+  - match: { result: updated }
+
+  - do:
+      connector.update_filtering:
+        connector_id: test-connector-updates
+        body:
+          advanced_snippet:
+            created_at: "2023-05-25T12:30:00.000Z"
+            updated_at: "2023-05-25T12:30:00.000Z"
+            value:
+              - tables:
+                  - some_table
+                query: 'SELECT id, st_geohash(coordinates) FROM my_db.some_table;'
+          rules:
+            - created_at: "2023-06-25T12:30:00.000Z"
+              field: _
+              id: DEFAULT
+              order: 0
+              policy: include
+              rule: regex
+              updated_at: "2023-05-25T12:30:00.000Z"
+              value: ".*"
+  - match: { result: updated }
+
+  - do:
+      connector.update_filtering_validation:
+        connector_id: test-connector-updates
+        body:
+          validation:
+            state: valid
+            errors: []
+  - match: { result: updated }
+
+
+  - do:
+      connector.update_active_filtering:
+        connector_id: test-connector-updates
+  - match: { result: updated }
+
+  - do:
+      connector.get:
+        connector_id: test-connector-updates
+  - match: { filtering.0.draft.advanced_snippet.created_at: "2023-05-25T12:30:00.000Z" }
+  - match: { filtering.0.draft.advanced_snippet.value.0.tables.0.: "some_table" }
+  - match: { filtering.0.draft.rules.0.created_at: "2023-06-25T12:30:00.000Z" }
+  - match: { filtering.0.active.advanced_snippet.created_at: "2023-05-25T12:30:00.000Z" }
+  - match: { filtering.0.active.advanced_snippet.value.0.tables.0.: "some_table" }
+  - match: { filtering.0.active.rules.0.created_at: "2023-06-25T12:30:00.000Z" }
+
+  - do:
+      connector.update_error:
+        connector_id: test-connector-updates
+        body:
+          error: "some error"
+  - match: { result: updated }
+
+  - do:
+      connector.update_configuration:
+        connector_id: test-connector-updates
+        body:
+          configuration:
+            some_field:
+              default_value: null
+              depends_on:
+                - field: some_field
+                  value: 31
+              display: numeric
+              label: Very important field
+              options: [ ]
+              order: 4
+              required: true
+              sensitive: false
+              tooltip: Wow, this tooltip is useful.
+              type: str
+              ui_restrictions: [ ]
+              validations:
+                - constraint: 0
+                  type: greater_than
+              value: 123
+            yet_another_field:
+              default_value: null
+              depends_on:
+                - field: some_field
+                  value: 31
+              display: numeric
+              label: Another important field
+              options: [ ]
+              order: 4
+              required: true
+              sensitive: false
+              tooltip: Wow, this tooltip is useful.
+              type: str
+              ui_restrictions: [ ]
+              validations:
+                - constraint: 0
+                  type: greater_than
+              value: "peace & love"
+
+  - do:
+      connector.get:
+        connector_id: test-connector-updates
+  - match: { configuration.some_field.value: 123 }
+  - match: { configuration.some_field.sensitive: false }
+  - match: { configuration.some_field.display: numeric }
+  - match: { status: configured }
+  - match: { configuration.yet_another_field.value: "peace & love" }
+
+  - do:
+      connector.update_index_name:
+        connector_id: test-connector-updates
+        body:
+          index_name: search-2-test
+  - match: { result: updated }
+
+  - do:
+      connector.get:
+        connector_id: test-connector-updates
+  - match: { index_name: search-2-test }
+
+  - do:
+      connector.put:
+        connector_id: test-connector-native
+        body:
+          index_name: search-3-test
+          name: my-connector
+          language: pl
+          is_native: false
+          service_type: super-connector
+
+  - do:
+      connector.update_native:
+        connector_id: test-connector-native
+        body:
+          is_native: true
+  - match: { result: updated }
+
+  - do:
+      connector.get:
+        connector_id: test-connector-native
+  - match: { is_native: true }
+  - match: { status: configured }
+
+  - do:
+      connector.update_pipeline:
+        connector_id: test-connector-updates
+        body:
+          pipeline:
+            extract_binary_content: true
+            name: test-pipeline
+            reduce_whitespace: true
+            run_ml_inference: false
+  - match: { result: updated }
+
+  - do:
+      connector.get:
+        connector_id: test-connector-updates
+  - match: { pipeline.extract_binary_content: true }
+  - match: { pipeline.name: test-pipeline }
+  - match: { pipeline.reduce_whitespace: true }
+  - match: { pipeline.run_ml_inference: false }
+
+  - do:
+      connector.update_scheduling:
+        connector_id: test-connector-updates
+        body:
+          scheduling:
+            access_control:
+              enabled: true
+              interval: 1 0 0 * * ?
+            full:
+              enabled: false
+              interval: 2 0 0 * * ?
+            incremental:
+              enabled: false
+              interval: 3 0 0 * * ?
+  - match: { result: updated }
+
+  - do:
+      connector.get:
+        connector_id: test-connector-updates
+  - match: { scheduling.access_control.enabled: true }
+  - match: { scheduling.access_control.interval: "1 0 0 * * ?" }
+  - match: { scheduling.full.enabled: false }
+  - match: { scheduling.full.interval: "2 0 0 * * ?" }
+  - match: { scheduling.incremental.enabled: false }
+  - match: { scheduling.incremental.interval: "3 0 0 * * ?" }
+
+  - do:
+      connector.update_status:
+        connector_id: test-connector-updates
+        body:
+          status: needs_configuration
+  - match: { result: updated }
+
+  - do:
+      connector.get:
+        connector_id: test-connector-updates
+  - match: { status: needs_configuration }
+
+  - do:
+      connector.update_service_type:
+        connector_id: test-connector-updates
+        body:
+          service_type: even-better-connector
+  - match: { result: updated }
+
+  - do:
+      connector.get:
+        connector_id: test-connector-updates
+  - match: { service_type: even-better-connector }
+
+  - do:
+      connector.update_api_key_id:
+        connector_id: test-connector-updates
+        body:
+          api_key_id: test-api-key-id
+  - match: { result: updated }

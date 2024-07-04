@@ -1,0 +1,50 @@
+---
+requires:
+  serverless: true
+  stack: false
+---
+setup:
+  - do:
+      connector.put:
+        connector_id: test-connector
+        body:
+          index_name: sync-jobs-test
+          name: my-connector
+          language: de
+          is_native: false
+          service_type: super-connector
+---
+teardown:
+  - do:
+      connector.delete:
+        connector_id: test-connector
+---
+"connector.sync_jobs (serverless)":
+  - do:
+      connector.sync_job_post:
+        body:
+          id: test-connector
+          job_type: full
+          trigger_method: on_demand
+  - set:  { id: id }
+  - match: { id: $id }
+
+  - do:
+      connector.sync_job_get:
+        connector_sync_job_id: $id
+  - match: { connector.id: test-connector }
+  - set: { last_seen: last_seen_before_check_in }
+
+  - do:
+      connector.sync_job_cancel:
+        connector_sync_job_id: $id
+  - match: { result: updated }
+
+  - do:
+      connector.sync_job_list: {}
+  - gte: { count: 1 }
+
+  - do:
+      connector.sync_job_delete:
+        connector_sync_job_id: $id
+  - match: { acknowledged: true }

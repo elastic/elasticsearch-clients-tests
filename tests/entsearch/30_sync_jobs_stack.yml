@@ -1,0 +1,74 @@
+---
+requires:
+  serverless: false
+  stack: true
+---
+setup:
+  - do:
+      connector.put:
+        connector_id: test-connector
+        body:
+          index_name: sync-jobs-test
+          name: my-connector
+          language: de
+          is_native: false
+          service_type: super-connector
+---
+"connector.sync_jobs (stack)":
+  - do:
+      connector.sync_job_post:
+        body:
+          id: test-connector
+          job_type: full
+          trigger_method: on_demand
+  - set:  { id: id }
+  - match: { id: $id }
+
+  - do:
+      connector.sync_job_get:
+        connector_sync_job_id: $id
+  - match: { connector.id: test-connector }
+  - set: { last_seen: last_seen_before_check_in }
+
+  - do:
+      connector.sync_job_check_in:
+        connector_sync_job_id: $id
+  - match: { result: updated }
+
+  - do:
+      connector.sync_job_cancel:
+        connector_sync_job_id: $id
+  - match: { result: updated }
+
+  - do:
+      connector.sync_job_update_stats:
+        connector_sync_job_id: $id
+        body:
+          deleted_document_count: 10
+          indexed_document_count: 20
+          indexed_document_volume: 1000
+
+  - match: { result: updated }
+
+  - do:
+      connector.sync_job_get:
+        connector_sync_job_id: $id
+  - match: { deleted_document_count: 10 }
+  - match: { indexed_document_count: 20 }
+  - match: { indexed_document_volume: 1000 }
+
+  - do:
+      connector.sync_job_list: {}
+  - gte: { count: 1 }
+
+  - do:
+      connector.sync_job_claim:
+        connector_sync_job_id: $id
+        body:
+          worker_hostname: "host-name"
+  - match: { result: updated }
+
+  - do:
+      connector.sync_job_delete:
+        connector_sync_job_id: $id
+  - match: { acknowledged: true }

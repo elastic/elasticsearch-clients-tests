@@ -1,0 +1,35 @@
+---
+requires:
+  stack: true
+  serverless: false
+---
+setup:
+  - do:
+      connector.put:
+        connector_id: test-connector-updates
+        body:
+          index_name: search-1-test
+          name: my-connector
+          language: pl
+          is_native: false
+          service_type: super-connector
+---
+teardown:
+  - do:
+      connector.delete:
+        connector_id: test-connector-updates
+---
+'connector updates stack':
+  - do:
+      connector.update_features:
+        connector_id: test-connector-updates
+        body:
+          features:
+            document_level_security: { enabled: true }
+  - match: { result: updated }
+
+
+  - do:
+      connector.get:
+        connector_id: test-connector-updates
+  - match: { features.document_level_security.enabled: true }
