@@ -1,0 +1,82 @@
+---
+requires:
+  stack: true
+  serverless: false
+---
+setup:
+  - do:
+      indices.create:
+        index: test-search-index1
+        body:
+          settings:
+            index:
+              number_of_shards: 1
+              number_of_replicas: 0
+
+  - do:
+      indices.create:
+        index: test-search-index2
+        body:
+          settings:
+            index:
+              number_of_shards: 1
+              number_of_replicas: 0
+
+  - do:
+      search_application.put:
+        name: test-search-application
+        body:
+          indices: [ "test-search-index1", "test-search-index2" ]
+          analytics_collection_name: "test-analytics"
+          template:
+            script:
+              source:
+                query:
+                  term:
+                    "{{field_name}}": "{{field_value}}"
+              params:
+                field_name: field1
+                field_value: value1
+
+  - do:
+      index:
+        index: test-search-index1
+        id: doc1
+        body:
+          field1: value1
+          field2: value1
+        refresh: true
+
+  - do:
+      index:
+        index: test-search-index2
+        id: doc2
+        body:
+          field1: value1
+          field3: value3
+        refresh: true
+---
+teardown:
+  - do:
+      search_application.delete:
+        name: test-search-application
+        ignore: 404
+
+  - do:
+      indices.delete:
+        index: test-search-index1
+        ignore: 404
+
+  - do:
+      indices.delete:
+        index: test-search-index2
+        ignore: 404
+---
+'search_application.render_query':
+  - do:
+      search_application.render_query:
+        name: test-search-application
+        body:
+          params:
+            field_name: field2
+  - match: { query: { term: { field2: {value: "value1"} } } }
