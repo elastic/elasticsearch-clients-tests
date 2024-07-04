@@ -1,0 +1,94 @@
+---
+requires:
+  serverless: false
+  stack: true
+---
+setup:
+  - do:
+      security.put_user:
+        username: "joe"
+        body:  >
+            {
+              "password": "s3krit-password",
+              "roles" : [ "admin_role" ]
+            }
+
+---
+teardown:
+  - do:
+      security.delete_user:
+        username: "joe"
+        ignore: 404
+  - do:
+      security.delete_role:
+        name: "admin_role"
+        ignore: 404
+---
+"Test put role api":
+  - do:
+      security.put_role:
+        name: "admin_role"
+        body:  >
+            {
+              "metadata": {
+                "key1" : "val1",
+                "key2" : "val2"
+              },
+              "indices": [
+                {
+                  "names": "*",
+                  "privileges": ["all"]
+                }
+              ]
+            }
+  - match: { role: { created: true } }
+
+  - do:
+      security.get_role:
+        name: "admin_role"
+  - match: { admin_role.metadata.key1:  "val1" }
+  - match: { admin_role.metadata.key2:  "val2" }
+  - match: { admin_role.indices.0.names.0: "*" }
+  - match: { admin_role.indices.0.privileges.0:  "all" }
+
+  - do:
+      security.query_role:
+        body: >
+          {
+            "query": { "match_all": {} }, "sort": ["name"]
+          }
+  - gte: { total: 1 }
+  - gte: { count: 1 }
+  - match: { roles.0.name: "admin_role" }
+  - do:
+      security.bulk_put_role:
+        body:  >
+          {
+            "roles": {
+              "test_admin_role": {
+                "description": "This is my test role",
+                "metadata": {
+                  "key1": "val1",
+                  "key2": "val2"
+                },
+                "indices": [
+                  {
+                    "names": "*",
+                    "privileges": [ "all" ]
+                  }
+                ]
+              }
+            }
+          }
+  - match: { created: ["test_admin_role"] }
+
+  - do:
+      security.get_role:
+        name: "test_admin_role"
+  - match: { test_admin_role.description:  "This is my test role" }
+
+  - do:
+      security.bulk_delete_role:
+        body:
+          names: ["test_admin_role"]
+  - match: { deleted.0: "test_admin_role" }
