@@ -5,8 +5,8 @@ Endpoints that are currently being tested are marked as done and link to the tes
 * [Endpoints in Stack (elasticsearch-specification)](#stack): <%= @reporter.apis[:specification].count %>
 * [Endpoints in Serverless](#serverless): <%= @reporter.serverless_apis.count %>
 * [Endpoints in Stack JSON spec](#endpoints-in-stack-json-spec): <%= @reporter.apis[:json].count %>
-* Elasticsearch Stack - **Tested**: <%= @reporter.tested_stack.count %> | **Untested**: <%= @reporter.untested_stack.count %> ![](https://geps.dev/progress/<%= @reporter.coverage_stack %>)
-* Elasticsearch Serverless - **Tested** <%= @reporter.tested_serverless.count %> | **Untested**: <%= @reporter.untested_serverless.count %> ![](https://geps.dev/progress/<%= @reporter.coverage_serverless %>)
+* Elasticsearch Stack - **Tested**: <%= @reporter.stack_tested_count %> | **Untested**: <%= @reporter.stack_untested_count %> ![](https://geps.dev/progress/<%= @reporter.coverage_stack %>)
+* Elasticsearch Serverless - **Tested** <%= @reporter.serverless_tested_count %> | **Untested**: <%= @reporter.serverless_untested_count %> ![](https://geps.dev/progress/<%= @reporter.coverage_serverless %>)
 * [APIs in JSON spec and not in elasticsearch-specification](#apis-in-json-spec-and-not-elasticsearch-specification)
 
 ## Endpoints in elasticsearch-specification
@@ -14,26 +14,24 @@ Endpoints that are currently being tested are marked as done and link to the tes
 ### Serverless
 
 <% @reporter.serverless_apis.each do |api| -%>
-  <%= @reporter.display_endpoint(api['name']) %>
+  <%= @reporter.display_endpoint(api['name'], :serverless) %>
 <% end %>
 
 ### Stack
 
 <% @reporter.stack_apis.each do |api| -%>
-  <%= @reporter.display_endpoint(api['name']) %>
+  <%= @reporter.display_endpoint(api['name'], :stack) %>
 <% end %>
 
 ## Endpoints in stack JSON spec
-<% @reporter.apis[:json].each do |api| -%>
-  <%= @reporter.display_endpoint(api) %>
-<% end %>
 
-### APIs in JSON spec and not elasticsearch-specification
+<%=  @reporter.apis[:json].map { |a| "`#{a}`" }.join(', ') -%>
 
-<% (@reporter.apis[:json] - @reporter.apis[:specification].map { |a| a['name'] }).each do |api| -%>
-<%= @reporter.display_endpoint(api) %>
-<% end %>
+<% difference = @reporter.apis[:json] - @reporter.apis[:specification].map { |a| a['name'] } -%>
+<%  unless difference.empty? -%>
+## APIs in JSON spec and not elasticsearch-specification
+<%= difference.join(', ') -%>
+<% end -%>
+## Internal APIs (Not tracked)
+<%= @reporter.apis[:internal].map { |a| "`#{a}`" }.join(', ') -%>
 
-### Internal APIs (Not tracked)
-
-<%= @reporter.apis[:internal].sort.join("\n* ").prepend('* ') %>

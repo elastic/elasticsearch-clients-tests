@@ -12,17 +12,17 @@ module Elastic
     # APIs designed for indirect use by ECE/ESS and ECK, direct use is not supported.'
     EXCLUDED_APIS = ['autoscaling', 'shutdown']
 
-    attr_reader :apis, :tested_stack, :tested_serverless, :untested_stack, :untested_serverless
+    attr_reader :apis, :stack_tested_count, :serverless_tested_count, :stack_untested_count, :serverless_untested_count
 
     def initialize
       @apis = {}
       @apis[:internal] = Set[]
       @apis[:specification] = []
       @apis[:json] = []
-      @tested_stack = []
-      @tested_serverless = []
-      @untested_stack = []
-      @untested_serverless = []
+      @stack_tested_count = 0
+      @stack_untested_count = 0
+      @serverless_tested_count = 0
+      @serverless_untested_count = 0
       report!
     end
 
@@ -82,37 +82,43 @@ module Elastic
           stack: api['availability'].nil? || !!api.dig('availability', 'stack'),
           serverless: api['availability'].nil? || api.dig('availability', 'serverless', 'visibility') == 'public'
         }
-        if (test = find_test(api['name']))
-          @tested_stack << test if availability[:stack]
-          @tested_serverless << test if availability[:serverless]
-        else
-          @untested_stack << api['name'] if availability[:stack]
-          @untested_serverless << api['name'] if availability[:serverless]
+        if find_test(api['name'], :serverless)
+          @serverless_tested_count += 1
+        elsif availability[:serverless]
+          @serverless_untested_count += 1
+        end
+        if find_test(api['name'], :stack)
+          @stack_tested_count += 1
+        elsif availability[:stack]
+          @stack_untested_count += 1
         end
       end
     end
 
     def coverage_serverless
-      @tested_serverless.count * 100 / serverless_apis.count
+      @serverless_tested_count * 100 / serverless_apis.count
     end
 
     def coverage_stack
-      @tested_stack.count * 100 / @apis[:json].count
+      @stack_tested_count * 100 / @apis[:json].count
     end
 
-    def display_endpoint(api)
-      if (test = find_test(api))
-        "- [x] <span title='tested'> [#{api}](#{test[:file]}\#L#{test[:line]})</span>"
+    def display_endpoint(api, flavour = nil)
+      return "- `#{api}`" if flavour.nil?
+
+      if (test = find_test(api, flavour))
+        "- [x] <span title='tested'> [`#{api}`](#{test[:file]}\#L#{test[:line]})</span>"
       else
-        "- [ ] <span title='not tested'> #{api}</span>"
+        "- [ ] <span title='not tested'> `#{api}`</span>"
       end
     end
 
     private
 
-    def find_test(endpoint)
+    def find_test(endpoint, flavour = nil)
       Dir[TESTS_PATH].map do |path|
-        relative_path = path[path.index('/tests')..-1]
+        relative_path = path[path.index('/tests')..]
+        next unless File.read(path).include?("#{flavour}: true")
 
         File.readlines(path).each_with_index do |line, index|
           api_mention = line.split(':')[0].strip.gsub('"', '')
