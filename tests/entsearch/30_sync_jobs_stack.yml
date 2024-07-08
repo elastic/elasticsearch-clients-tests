@@ -72,3 +72,18 @@ setup:
       connector.sync_job_delete:
         connector_sync_job_id: $id
   - match: { acknowledged: true }
+
+  - do:
+      connector.sync_job_post:
+        body:
+          id: test-connector
+          job_type: full
+          trigger_method: on_demand
+  - set: { id: id }
+
+  - do:
+      catch: bad_request
+      connector.sync_job_error:
+        connector_sync_job_id: $id
+        body:
+          error: error
