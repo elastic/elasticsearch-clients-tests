@@ -2,10 +2,10 @@
 
 Endpoints that are currently being tested are marked as done and link to the test where they're being used.
 
-* [Endpoints in Stack (elasticsearch-specification)](#stack): 499
+* [Endpoints in Stack (elasticsearch-specification)](#stack): 502
 * [Endpoints in Serverless](#serverless): 237
 * [Endpoints in Stack JSON spec](#endpoints-in-stack-json-spec): 492
-* Elasticsearch Stack - **Tested**: 239 | **Untested**: 260 ![](https://geps.dev/progress/48)
+* Elasticsearch Stack - **Tested**: 239 | **Untested**: 263 ![](https://geps.dev/progress/48)
 * Elasticsearch Serverless - **Tested** 209 | **Untested**: 28 ![](https://geps.dev/progress/88)
 * [APIs in JSON spec and not in elasticsearch-specification](#apis-in-json-spec-and-not-elasticsearch-specification)
 
@@ -606,6 +606,8 @@ Endpoints that are currently being tested are marked as done and link to the tes
   - [ ] <span title='not tested'> searchable_snapshots.stats</span>
   - [ ] <span title='not tested'> security.activate_user_profile</span>
   - [x] <span title='tested'> [security.authenticate](./tests/security/20_authenticate.yml#L8)</span>
+  - [ ] <span title='not tested'> security.bulk_delete_role</span>
+  - [ ] <span title='not tested'> security.bulk_put_role</span>
   - [ ] <span title='not tested'> security.bulk_update_api_keys</span>
   - [ ] <span title='not tested'> security.change_password</span>
   - [ ] <span title='not tested'> security.clear_api_key_cache</span>
@@ -652,6 +654,7 @@ Endpoints that are currently being tested are marked as done and link to the tes
   - [ ] <span title='not tested'> security.put_role_mapping</span>
   - [ ] <span title='not tested'> security.put_user</span>
   - [x] <span title='tested'> [security.query_api_keys](./tests/security/10_api_key_basic.yml#L24)</span>
+  - [ ] <span title='not tested'> security.query_role</span>
   - [ ] <span title='not tested'> security.query_user</span>
   - [ ] <span title='not tested'> security.saml_authenticate</span>
   - [ ] <span title='not tested'> security.saml_complete_logout</span>
