@@ -5,7 +5,7 @@ Endpoints that are currently being tested are marked as done and link to the tes
 * [Endpoints in Stack (elasticsearch-specification)](#stack): 502
 * [Endpoints in Serverless](#serverless): 237
 * [Endpoints in Stack JSON spec](#endpoints-in-stack-json-spec): 502
-* Elasticsearch Stack - **Tested**: 283 | **Untested**: 219 ![](https://geps.dev/progress/56)
+* Elasticsearch Stack - **Tested**: 284 | **Untested**: 218 ![](https://geps.dev/progress/56)
 * Elasticsearch Serverless - **Tested** 234 | **Untested**: 3 ![](https://geps.dev/progress/98)
 * [APIs in JSON spec and not in elasticsearch-specification](#apis-in-json-spec-and-not-elasticsearch-specification)
 
@@ -327,7 +327,7 @@ Endpoints that are currently being tested are marked as done and link to the tes
   - [x] <span title='tested'> [connector.sync_job_check_in](./tests/entsearch/30_sync_jobs_stack.yml#L34)</span>
   - [x] <span title='tested'> [connector.sync_job_claim](./tests/entsearch/30_sync_jobs_stack.yml#L65)</span>
   - [x] <span title='tested'> [connector.sync_job_delete](./tests/entsearch/30_sync_jobs_serverless.yml#L48)</span>
-  - [ ] <span title='not tested'> connector.sync_job_error</span>
+  - [x] <span title='tested'> [connector.sync_job_error](./tests/entsearch/30_sync_jobs_stack.yml#L86)</span>
   - [x] <span title='tested'> [connector.sync_job_get](./tests/entsearch/30_sync_jobs_serverless.yml#L33)</span>
   - [x] <span title='tested'> [connector.sync_job_list](./tests/entsearch/30_sync_jobs_serverless.yml#L44)</span>
   - [x] <span title='tested'> [connector.sync_job_post](./tests/entsearch/30_sync_jobs_serverless.yml#L24)</span>
@@ -823,7 +823,7 @@ Endpoints that are currently being tested are marked as done and link to the tes
   - [x] <span title='tested'> [connector.sync_job_check_in](./tests/entsearch/30_sync_jobs_stack.yml#L34)</span>
   - [x] <span title='tested'> [connector.sync_job_claim](./tests/entsearch/30_sync_jobs_stack.yml#L65)</span>
   - [x] <span title='tested'> [connector.sync_job_delete](./tests/entsearch/30_sync_jobs_serverless.yml#L48)</span>
-  - [ ] <span title='not tested'> connector.sync_job_error</span>
+  - [x] <span title='tested'> [connector.sync_job_error](./tests/entsearch/30_sync_jobs_stack.yml#L86)</span>
   - [x] <span title='tested'> [connector.sync_job_get](./tests/entsearch/30_sync_jobs_serverless.yml#L33)</span>
   - [x] <span title='tested'> [connector.sync_job_list](./tests/entsearch/30_sync_jobs_serverless.yml#L44)</span>
   - [x] <span title='tested'> [connector.sync_job_post](./tests/entsearch/30_sync_jobs_serverless.yml#L24)</span>
