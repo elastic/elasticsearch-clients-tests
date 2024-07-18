@@ -4,9 +4,9 @@ Endpoints that are currently being tested are marked as done and link to the tes
 
 * [Endpoints in Stack (elasticsearch-specification)](#stack): 502
 * [Endpoints in Serverless](#serverless): 237
-* [Endpoints in Stack JSON spec](#endpoints-in-stack-json-spec): 492
-* Elasticsearch Stack - **Tested**: 239 | **Untested**: 263 ![](https://geps.dev/progress/48)
-* Elasticsearch Serverless - **Tested** 209 | **Untested**: 28 ![](https://geps.dev/progress/88)
+* [Endpoints in Stack JSON spec](#endpoints-in-stack-json-spec): 502
+* Elasticsearch Stack - **Tested**: 284 | **Untested**: 218 ![](https://geps.dev/progress/56)
+* Elasticsearch Serverless - **Tested** 234 | **Untested**: 3 ![](https://geps.dev/progress/98)
 * [APIs in JSON spec and not in elasticsearch-specification](#apis-in-json-spec-and-not-elasticsearch-specification)
 
 ## Endpoints in elasticsearch-specification
@@ -316,36 +316,36 @@ Endpoints that are currently being tested are marked as done and link to the tes
   - [x] <span title='tested'> [cluster.reroute](./tests/cluster/reroute.yml#L8)</span>
   - [x] <span title='tested'> [cluster.state](./tests/cluster/state.yml#L8)</span>
   - [x] <span title='tested'> [cluster.stats](./tests/cluster/stats.yml#L8)</span>
-  - [ ] <span title='not tested'> connector.check_in</span>
-  - [ ] <span title='not tested'> connector.delete</span>
-  - [ ] <span title='not tested'> connector.get</span>
-  - [ ] <span title='not tested'> connector.last_sync</span>
-  - [ ] <span title='not tested'> connector.list</span>
-  - [ ] <span title='not tested'> connector.post</span>
-  - [ ] <span title='not tested'> connector.put</span>
-  - [ ] <span title='not tested'> connector.sync_job_cancel</span>
-  - [ ] <span title='not tested'> connector.sync_job_check_in</span>
-  - [ ] <span title='not tested'> connector.sync_job_claim</span>
-  - [ ] <span title='not tested'> connector.sync_job_delete</span>
-  - [ ] <span title='not tested'> connector.sync_job_error</span>
-  - [ ] <span title='not tested'> connector.sync_job_get</span>
-  - [ ] <span title='not tested'> connector.sync_job_list</span>
-  - [ ] <span title='not tested'> connector.sync_job_post</span>
-  - [ ] <span title='not tested'> connector.sync_job_update_stats</span>
-  - [ ] <span title='not tested'> connector.update_active_filtering</span>
-  - [ ] <span title='not tested'> connector.update_api_key_id</span>
-  - [ ] <span title='not tested'> connector.update_configuration</span>
-  - [ ] <span title='not tested'> connector.update_error</span>
-  - [ ] <span title='not tested'> connector.update_features</span>
-  - [ ] <span title='not tested'> connector.update_filtering</span>
-  - [ ] <span title='not tested'> connector.update_filtering_validation</span>
-  - [ ] <span title='not tested'> connector.update_index_name</span>
-  - [ ] <span title='not tested'> connector.update_name</span>
-  - [ ] <span title='not tested'> connector.update_native</span>
-  - [ ] <span title='not tested'> connector.update_pipeline</span>
-  - [ ] <span title='not tested'> connector.update_scheduling</span>
-  - [ ] <span title='not tested'> connector.update_service_type</span>
-  - [ ] <span title='not tested'> connector.update_status</span>
+  - [x] <span title='tested'> [connector.check_in](./tests/entsearch/20_connector.yml#L21)</span>
+  - [x] <span title='tested'> [connector.delete](./tests/entsearch/20_connector.yml#L55)</span>
+  - [x] <span title='tested'> [connector.get](./tests/entsearch/20_connector.yml#L34)</span>
+  - [x] <span title='tested'> [connector.last_sync](./tests/entsearch/20_connector.yml#L26)</span>
+  - [x] <span title='tested'> [connector.list](./tests/entsearch/20_connector.yml#L41)</span>
+  - [x] <span title='tested'> [connector.post](./tests/entsearch/20_connector.yml#L45)</span>
+  - [x] <span title='tested'> [connector.put](./tests/entsearch/20_connector.yml#L14)</span>
+  - [x] <span title='tested'> [connector.sync_job_cancel](./tests/entsearch/30_sync_jobs_serverless.yml#L39)</span>
+  - [x] <span title='tested'> [connector.sync_job_check_in](./tests/entsearch/30_sync_jobs_stack.yml#L34)</span>
+  - [x] <span title='tested'> [connector.sync_job_claim](./tests/entsearch/30_sync_jobs_stack.yml#L65)</span>
+  - [x] <span title='tested'> [connector.sync_job_delete](./tests/entsearch/30_sync_jobs_serverless.yml#L48)</span>
+  - [x] <span title='tested'> [connector.sync_job_error](./tests/entsearch/30_sync_jobs_stack.yml#L86)</span>
+  - [x] <span title='tested'> [connector.sync_job_get](./tests/entsearch/30_sync_jobs_serverless.yml#L33)</span>
+  - [x] <span title='tested'> [connector.sync_job_list](./tests/entsearch/30_sync_jobs_serverless.yml#L44)</span>
+  - [x] <span title='tested'> [connector.sync_job_post](./tests/entsearch/30_sync_jobs_serverless.yml#L24)</span>
+  - [x] <span title='tested'> [connector.sync_job_update_stats](./tests/entsearch/30_sync_jobs_stack.yml#L44)</span>
+  - [x] <span title='tested'> [connector.update_active_filtering](./tests/entsearch/50_connector_updates.yml#L63)</span>
+  - [x] <span title='tested'> [connector.update_api_key_id](./tests/entsearch/50_connector_updates.yml#L240)</span>
+  - [x] <span title='tested'> [connector.update_configuration](./tests/entsearch/50_connector_updates.yml#L85)</span>
+  - [x] <span title='tested'> [connector.update_error](./tests/entsearch/50_connector_updates.yml#L78)</span>
+  - [x] <span title='tested'> [connector.update_features](./tests/entsearch/60_connector_updates_stack.yml#L24)</span>
+  - [x] <span title='tested'> [connector.update_filtering](./tests/entsearch/50_connector_updates.yml#L31)</span>
+  - [x] <span title='tested'> [connector.update_filtering_validation](./tests/entsearch/50_connector_updates.yml#L53)</span>
+  - [x] <span title='tested'> [connector.update_index_name](./tests/entsearch/50_connector_updates.yml#L136)</span>
+  - [x] <span title='tested'> [connector.update_name](./tests/entsearch/50_connector_updates.yml#L24)</span>
+  - [x] <span title='tested'> [connector.update_native](./tests/entsearch/50_connector_updates.yml#L158)</span>
+  - [x] <span title='tested'> [connector.update_pipeline](./tests/entsearch/50_connector_updates.yml#L171)</span>
+  - [x] <span title='tested'> [connector.update_scheduling](./tests/entsearch/50_connector_updates.yml#L190)</span>
+  - [x] <span title='tested'> [connector.update_service_type](./tests/entsearch/50_connector_updates.yml#L228)</span>
+  - [x] <span title='tested'> [connector.update_status](./tests/entsearch/50_connector_updates.yml#L216)</span>
   - [x] <span title='tested'> [count](./tests/bulk/10_basic.yml#L24)</span>
   - [x] <span title='tested'> [create](./tests/create/10_basic.yml#L18)</span>
   - [ ] <span title='not tested'> dangling_indices.delete_dangling_index</span>
@@ -815,30 +815,32 @@ Endpoints that are currently being tested are marked as done and link to the tes
   - [ ] <span title='not tested'> connector.post</span>
   - [ ] <span title='not tested'> connector.put</span>
   - [ ] <span title='not tested'> connector.secret_delete</span>
-  - [ ] <span title='not tested'> connector.secret_get</span>
-  - [ ] <span title='not tested'> connector.secret_post</span>
-  - [ ] <span title='not tested'> connector.secret_put</span>
-  - [ ] <span title='not tested'> connector.sync_job_cancel</span>
-  - [ ] <span title='not tested'> connector.sync_job_check_in</span>
-  - [ ] <span title='not tested'> connector.sync_job_delete</span>
-  - [ ] <span title='not tested'> connector.sync_job_error</span>
-  - [ ] <span title='not tested'> connector.sync_job_get</span>
-  - [ ] <span title='not tested'> connector.sync_job_list</span>
-  - [ ] <span title='not tested'> connector.sync_job_post</span>
-  - [ ] <span title='not tested'> connector.sync_job_update_stats</span>
-  - [ ] <span title='not tested'> connector.update_active_filtering</span>
-  - [ ] <span title='not tested'> connector.update_api_key_id</span>
-  - [ ] <span title='not tested'> connector.update_configuration</span>
-  - [ ] <span title='not tested'> connector.update_error</span>
-  - [ ] <span title='not tested'> connector.update_filtering</span>
-  - [ ] <span title='not tested'> connector.update_filtering_validation</span>
-  - [ ] <span title='not tested'> connector.update_index_name</span>
-  - [ ] <span title='not tested'> connector.update_name</span>
-  - [ ] <span title='not tested'> connector.update_native</span>
-  - [ ] <span title='not tested'> connector.update_pipeline</span>
-  - [ ] <span title='not tested'> connector.update_scheduling</span>
-  - [ ] <span title='not tested'> connector.update_service_type</span>
-  - [ ] <span title='not tested'> connector.update_status</span>
+  - [x] <span title='tested'> [connector.secret_get](./tests/entsearch/40_connector_secret.yml#L14)</span>
+  - [x] <span title='tested'> [connector.secret_post](./tests/entsearch/40_connector_secret.yml#L8)</span>
+  - [x] <span title='tested'> [connector.secret_put](./tests/entsearch/40_connector_secret.yml#L18)</span>
+  - [x] <span title='tested'> [connector.sync_job_cancel](./tests/entsearch/30_sync_jobs_serverless.yml#L39)</span>
+  - [x] <span title='tested'> [connector.sync_job_check_in](./tests/entsearch/30_sync_jobs_stack.yml#L34)</span>
+  - [x] <span title='tested'> [connector.sync_job_claim](./tests/entsearch/30_sync_jobs_stack.yml#L65)</span>
+  - [x] <span title='tested'> [connector.sync_job_delete](./tests/entsearch/30_sync_jobs_serverless.yml#L48)</span>
+  - [x] <span title='tested'> [connector.sync_job_error](./tests/entsearch/30_sync_jobs_stack.yml#L86)</span>
+  - [x] <span title='tested'> [connector.sync_job_get](./tests/entsearch/30_sync_jobs_serverless.yml#L33)</span>
+  - [x] <span title='tested'> [connector.sync_job_list](./tests/entsearch/30_sync_jobs_serverless.yml#L44)</span>
+  - [x] <span title='tested'> [connector.sync_job_post](./tests/entsearch/30_sync_jobs_serverless.yml#L24)</span>
+  - [x] <span title='tested'> [connector.sync_job_update_stats](./tests/entsearch/30_sync_jobs_stack.yml#L44)</span>
+  - [x] <span title='tested'> [connector.update_active_filtering](./tests/entsearch/50_connector_updates.yml#L63)</span>
+  - [x] <span title='tested'> [connector.update_api_key_id](./tests/entsearch/50_connector_updates.yml#L240)</span>
+  - [x] <span title='tested'> [connector.update_configuration](./tests/entsearch/50_connector_updates.yml#L85)</span>
+  - [x] <span title='tested'> [connector.update_error](./tests/entsearch/50_connector_updates.yml#L78)</span>
+  - [x] <span title='tested'> [connector.update_features](./tests/entsearch/60_connector_updates_stack.yml#L24)</span>
+  - [x] <span title='tested'> [connector.update_filtering](./tests/entsearch/50_connector_updates.yml#L31)</span>
+  - [x] <span title='tested'> [connector.update_filtering_validation](./tests/entsearch/50_connector_updates.yml#L53)</span>
+  - [x] <span title='tested'> [connector.update_index_name](./tests/entsearch/50_connector_updates.yml#L136)</span>
+  - [x] <span title='tested'> [connector.update_name](./tests/entsearch/50_connector_updates.yml#L24)</span>
+  - [x] <span title='tested'> [connector.update_native](./tests/entsearch/50_connector_updates.yml#L158)</span>
+  - [x] <span title='tested'> [connector.update_pipeline](./tests/entsearch/50_connector_updates.yml#L171)</span>
+  - [x] <span title='tested'> [connector.update_scheduling](./tests/entsearch/50_connector_updates.yml#L190)</span>
+  - [x] <span title='tested'> [connector.update_service_type](./tests/entsearch/50_connector_updates.yml#L228)</span>
+  - [x] <span title='tested'> [connector.update_status](./tests/entsearch/50_connector_updates.yml#L216)</span>
   - [x] <span title='tested'> [count](./tests/bulk/10_basic.yml#L24)</span>
   - [x] <span title='tested'> [create](./tests/create/10_basic.yml#L18)</span>
   - [ ] <span title='not tested'> dangling_indices.delete_dangling_index</span>
