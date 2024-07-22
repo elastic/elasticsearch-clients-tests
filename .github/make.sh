@@ -27,7 +27,7 @@ case $CMD in
         exit 1
       fi
       echo -e "\033[36;1mTARGET: bump stack in test matrix to version $VERSION\033[0m"
-      sed -i "s/[0-9]\+\.[0-9]\+\.[0-9]\+-SNAPSHOT/$VERSION-SNAPSHOT/" $repo/.github/workflows/report.yml
+      sed -i "s/[0-9]\+\.[0-9]\+\.[0-9]\+-SNAPSHOT/$VERSION/" $repo/.github/workflows/report.yml
 
       ;;
     *)
