@@ -1,0 +1,10 @@
+---
+requires:
+  serverless: false
+  stack: true
+---
+# TODO: Not sure how we can test importing and therefore deleting dangling indices.
+"Dangling indices":
+  - do:
+      dangling_indices.list_dangling_indices: {}
+  - is_true: dangling_indices
