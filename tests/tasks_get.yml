@@ -1,0 +1,9 @@
+---
+requires:
+  serverless: false
+  stack: true
+---
+"tasks.get":
+  - do:
+      tasks.get: {}
+  - is_true: nodes
