@@ -1,0 +1,9 @@
+---
+requires:
+  serverless: false
+  stack: true
+---
+'Health report':
+  - do:
+      health_report: {}
+  - match: { status: 'green' }
