@@ -1,0 +1,14 @@
+---
+requires:
+  serverless: false
+  stack: true
+---
+'Features':
+  - do:
+      features.get_features: {}
+  - is_true: features
+
+  - do:
+      features.reset_features: {}
+  - is_true: features
+  - match: { features.0.status: 'SUCCESS' }
