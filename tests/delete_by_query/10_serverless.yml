@@ -1,0 +1,42 @@
+---
+requires:
+  serverless: true
+  stack: false
+---
+setup:
+  - do:
+      indices.create:
+        index: 'delete_by_query_test_index'
+  - do:
+      index:
+        index: 'delete_by_query_test_index'
+        body: { name: 'user', age: 30 }
+        refresh: true
+  - do:
+      index:
+        index: 'delete_by_query_test_index'
+        body: { name: 'horacio', age: 42 }
+        refresh: true
+  - do:
+      index:
+        index: 'delete_by_query_test_index'
+        body: { name: 'valentina', age: 35 }
+        refresh: true
+---
+teardown:
+  - do:
+      indices.delete:
+        index: 'delete_by_query_test_index'
+---
+'delete_by_query':
+  - do:
+      delete_by_query:
+        index: 'delete_by_query_test_index'
+        body: {
+          query: {
+            term: {
+              name: 'user'
+            }
+          }
+        }
+  - match: { deleted: 1 }

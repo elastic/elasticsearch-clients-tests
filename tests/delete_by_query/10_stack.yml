@@ -1,6 +1,6 @@
 ---
 requires:
-  serverless: true
+  serverless: false
   stack: true
 ---
 setup:
@@ -12,13 +12,23 @@ setup:
         index: 'delete_by_query_test_index'
         body: { name: 'user', age: 30 }
         refresh: true
+  - do:
+      index:
+        index: 'delete_by_query_test_index'
+        body: { name: 'horacio', age: 42 }
+        refresh: true
+  - do:
+      index:
+        index: 'delete_by_query_test_index'
+        body: { name: 'valentina', age: 35 }
+        refresh: true
 ---
 teardown:
   - do:
       indices.delete:
         index: 'delete_by_query_test_index'
 ---
-'count':
+'delete_by_query':
   - do:
       delete_by_query:
         index: 'delete_by_query_test_index'
@@ -30,3 +40,9 @@ teardown:
           }
         }
   - match: { deleted: 1 }
+
+  - do:
+      delete_by_query_rethrottle:
+        task_id: 'test:007'
+        requests_per_second: 2
+  - match: { node_failures.0.caused_by.type: 'no_such_node_exception' }
