@@ -1,0 +1,9 @@
+---
+requires:
+  serverless: false
+  stack: true
+---
+"XPack info":
+  - do:
+      xpack.info: { }
+  - match: { tagline: 'You know, for X' }
