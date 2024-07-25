@@ -5,8 +5,8 @@ Endpoints that are currently being tested are marked as done and link to the tes
 * [Endpoints in Stack (elasticsearch-specification)](#stack): 505
 * [Endpoints in Serverless](#serverless): 237
 * [Endpoints in Stack JSON spec](#endpoints-in-stack-json-spec): 505
-* Elasticsearch Stack - **Tested**: 293 | **Untested**: 212 ![](https://geps.dev/progress/58)
-* Elasticsearch Serverless - **Tested** 231 | **Untested**: 7 ![](https://geps.dev/progress/97)
+* Elasticsearch Stack - **Tested**: 307 | **Untested**: 184 ![](https://geps.dev/progress/60)
+* Elasticsearch Serverless - **Tested** 230 | **Untested**: 7 ![](https://geps.dev/progress/97)
 * [APIs in JSON spec and not in elasticsearch-specification](#apis-in-json-spec-and-not-elasticsearch-specification)
 
 ## Endpoints in elasticsearch-specification
@@ -397,9 +397,9 @@ Endpoints that are currently being tested are marked as done and link to the tes
   - [x] <span title='tested'> [`index`](./tests/async_search/10_basic.yml#L8)</span>
   - [x] <span title='tested'> [`indices.add_block`](./tests/indices/block.yml#L16)</span>
   - [x] <span title='tested'> [`indices.analyze`](./tests/indices/analyze.yml#L19)</span>
-  - [ ] <span title='not tested'> `indices.clear_cache`</span>
-  - [ ] <span title='not tested'> `indices.clone`</span>
-  - [ ] <span title='not tested'> `indices.close`</span>
+  - [x] <span title='tested'> [`indices.clear_cache`](./tests/indices/clear_cache.yml#L8)</span>
+  - [x] <span title='tested'> [`indices.clone`](./tests/indices/clone.yml#L50)</span>
+  - [x] <span title='tested'> [`indices.close`](./tests/indices/open_close.yml#L21)</span>
   - [x] <span title='tested'> [`indices.create`](./tests/cat/aliases.yml#L8)</span>
   - [x] <span title='tested'> [`indices.create_data_stream`](./tests/indices/data_streams.yml#L26)</span>
   - [x] <span title='tested'> [`indices.data_streams_stats`](./tests/indices/data_streams.yml#L36)</span>
@@ -408,49 +408,49 @@ Endpoints that are currently being tested are marked as done and link to the tes
   - [x] <span title='tested'> [`indices.delete_data_lifecycle`](./tests/indices/20_data_lifecycle.yml#L22)</span>
   - [x] <span title='tested'> [`indices.delete_data_stream`](./tests/indices/data_streams.yml#L40)</span>
   - [x] <span title='tested'> [`indices.delete_index_template`](./tests/indices/data_streams.yml#L21)</span>
-  - [x] <span title='tested'> [`indices.delete_template`](./tests/indices/template.yml#L29)</span>
-  - [ ] <span title='not tested'> `indices.disk_usage`</span>
+  - [x] <span title='tested'> [`indices.delete_template`](./tests/indices/exists_template.yml#L8)</span>
+  - [x] <span title='tested'> [`indices.disk_usage`](./tests/indices/disk_usage.yml#L47)</span>
   - [ ] <span title='not tested'> `indices.downsample`</span>
   - [x] <span title='tested'> [`indices.exists`](./tests/indices/exists.yml#L18)</span>
   - [x] <span title='tested'> [`indices.exists_alias`](./tests/indices/alias.yml#L37)</span>
   - [x] <span title='tested'> [`indices.exists_index_template`](./tests/indices/index_template.yml#L31)</span>
-  - [ ] <span title='not tested'> `indices.exists_template`</span>
+  - [x] <span title='tested'> [`indices.exists_template`](./tests/indices/exists_template.yml#L20)</span>
   - [x] <span title='tested'> [`indices.explain_data_lifecycle`](./tests/indices/10_data_lifecycle.yml#L27)</span>
-  - [ ] <span title='not tested'> `indices.field_usage_stats`</span>
-  - [ ] <span title='not tested'> `indices.flush`</span>
-  - [ ] <span title='not tested'> `indices.forcemerge`</span>
+  - [x] <span title='tested'> [`indices.field_usage_stats`](./tests/indices/field_usage.yml#L32)</span>
+  - [x] <span title='tested'> [`indices.flush`](./tests/indices/flush.yml#L22)</span>
+  - [x] <span title='tested'> [`indices.forcemerge`](./tests/indices/forcemerge.yml#L18)</span>
   - [x] <span title='tested'> [`indices.get`](./tests/indices/get.yml#L17)</span>
   - [x] <span title='tested'> [`indices.get_alias`](./tests/indices/alias.yml#L31)</span>
   - [x] <span title='tested'> [`indices.get_data_lifecycle`](./tests/indices/10_data_lifecycle.yml#L22)</span>
   - [x] <span title='tested'> [`indices.get_data_stream`](./tests/indices/data_streams.yml#L31)</span>
-  - [ ] <span title='not tested'> `indices.get_field_mapping`</span>
+  - [x] <span title='tested'> [`indices.get_field_mapping`](./tests/indices/get_field_mapping.yml#L23)</span>
   - [x] <span title='tested'> [`indices.get_index_template`](./tests/indices/index_template.yml#L24)</span>
   - [x] <span title='tested'> [`indices.get_mapping`](./tests/indices/mapping.yml#L32)</span>
   - [x] <span title='tested'> [`indices.get_settings`](./tests/indices/settings.yml#L21)</span>
   - [x] <span title='tested'> [`indices.get_template`](./tests/indices/template.yml#L21)</span>
   - [x] <span title='tested'> [`indices.migrate_to_data_stream`](./tests/indices/migrate_modify_data_stream.yml#L39)</span>
   - [x] <span title='tested'> [`indices.modify_data_stream`](./tests/indices/migrate_modify_data_stream.yml#L43)</span>
-  - [ ] <span title='not tested'> `indices.open`</span>
+  - [x] <span title='tested'> [`indices.open`](./tests/indices/open_close.yml#L29)</span>
   - [ ] <span title='not tested'> `indices.promote_data_stream`</span>
   - [x] <span title='tested'> [`indices.put_alias`](./tests/cat/aliases.yml#L11)</span>
   - [x] <span title='tested'> [`indices.put_data_lifecycle`](./tests/indices/10_data_lifecycle.yml#L16)</span>
   - [x] <span title='tested'> [`indices.put_index_template`](./tests/indices/data_streams.yml#L8)</span>
   - [x] <span title='tested'> [`indices.put_mapping`](./tests/indices/mapping.yml#L18)</span>
-  - [x] <span title='tested'> [`indices.put_settings`](./tests/indices/settings.yml#L27)</span>
-  - [x] <span title='tested'> [`indices.put_template`](./tests/indices/template.yml#L8)</span>
-  - [ ] <span title='not tested'> `indices.recovery`</span>
+  - [x] <span title='tested'> [`indices.put_settings`](./tests/indices/clone.yml#L39)</span>
+  - [x] <span title='tested'> [`indices.put_template`](./tests/indices/exists_template.yml#L24)</span>
+  - [x] <span title='tested'> [`indices.recovery`](./tests/indices/recovery.yml#L22)</span>
   - [x] <span title='tested'> [`indices.refresh`](./tests/graph/explore.yml#L24)</span>
   - [ ] <span title='not tested'> `indices.reload_search_analyzers`</span>
-  - [ ] <span title='not tested'> `indices.resolve_cluster`</span>
+  - [x] <span title='tested'> [`indices.resolve_cluster`](./tests/indices/resolve_cluster.yml#L31)</span>
   - [x] <span title='tested'> [`indices.resolve_index`](./tests/indices/resolve.yml#L22)</span>
   - [x] <span title='tested'> [`indices.rollover`](./tests/indices/rollover.yml#L40)</span>
-  - [ ] <span title='not tested'> `indices.segments`</span>
-  - [ ] <span title='not tested'> `indices.shard_stores`</span>
-  - [ ] <span title='not tested'> `indices.shrink`</span>
+  - [x] <span title='tested'> [`indices.segments`](./tests/indices/segments.yml#L27)</span>
+  - [x] <span title='tested'> [`indices.shard_stores`](./tests/indices/shard_stores.yml#L27)</span>
+  - [x] <span title='tested'> [`indices.shrink`](./tests/indices/shrink.yml#L37)</span>
   - [x] <span title='tested'> [`indices.simulate_index_template`](./tests/indices/simulate_template_stack.yml#L37)</span>
   - [x] <span title='tested'> [`indices.simulate_template`](./tests/indices/simulate_index_template.yml#L38)</span>
-  - [ ] <span title='not tested'> `indices.split`</span>
-  - [ ] <span title='not tested'> `indices.stats`</span>
+  - [x] <span title='tested'> [`indices.split`](./tests/indices/split.yml#L49)</span>
+  - [x] <span title='tested'> [`indices.stats`](./tests/indices/flush.yml#L25)</span>
   - [ ] <span title='not tested'> `indices.unfreeze`</span>
   - [x] <span title='tested'> [`indices.update_aliases`](./tests/indices/alias.yml#L41)</span>
   - [x] <span title='tested'> [`indices.validate_query`](./tests/validate_query/10_basic.yml#L16)</span>
