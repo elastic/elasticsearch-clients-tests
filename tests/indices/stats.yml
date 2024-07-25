@@ -1,0 +1,10 @@
+---
+requires:
+  serverless: true
+  stack: true
+---
+"Index - blank":
+  - do:
+      indices.stats: {}
+  - gt: { _shards.total: 0 }
+  - is_true: _all

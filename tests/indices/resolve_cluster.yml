@@ -1,0 +1,46 @@
+---
+requires:
+  serverless: true
+  stack: true
+---
+setup:
+  - do:
+      indices.create:
+        index: resolve_cluster_index1
+        body:
+          aliases:
+            my_alias1: {}
+            my_alias2: {}
+  - do:
+      indices.create:
+        index: resolve_cluster_index2
+  - do:
+      indices.close:
+        index: resolve_cluster_index2
+---
+teardown:
+  - do:
+      indices.delete:
+        index: resolve_cluster_index1
+  - do:
+      indices.delete:
+        index: resolve_cluster_index2
+---
+"Resolve cluster with indices and aliases":
+  - do:
+      indices.resolve_cluster:
+        name: '*'
+  - match: {(local).connected: true}
+  - match: {(local).skip_unavailable: false}
+  - match: {(local).matching_indices: true}
+  - exists: (local).version.number
+
+  - do:
+      indices.resolve_cluster:
+        name: '*'
+        expand_wildcards: [closed]
+  - match: {(local).connected: true}
+  - match: {(local).skip_unavailable: false}
+    # still true because resolve_index/resolve_cluster does not check closed status of aliases
+  - match: {(local).matching_indices: true}
+  - exists: (local).version.number

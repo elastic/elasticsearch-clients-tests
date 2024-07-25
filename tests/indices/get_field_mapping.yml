@@ -1,0 +1,32 @@
+---
+requires:
+  stack: true
+  serverless: false
+---
+setup:
+  - do:
+      indices.create:
+        index: field_mappings
+        body:
+          mappings:
+            properties:
+              text:
+                type: text
+---
+teardown:
+  - do:
+      indices.delete:
+        index: field_mappings
+---
+"Get field mapping":
+  - do:
+      indices.get_field_mapping:
+        fields: text
+
+  - match: {field_mappings.mappings.text.mapping.text.type: text}
+
+  - do:
+      indices.get_field_mapping:
+        index: field_mappings
+        fields: text
+  - match: {field_mappings.mappings.text.mapping.text.type: text}

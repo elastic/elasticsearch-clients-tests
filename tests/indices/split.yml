@@ -1,0 +1,85 @@
+---
+requires:
+  serverless: true
+  stack: true
+---
+setup:
+  - do:
+      indices.create:
+        index: split_index_source
+        wait_for_active_shards: 1
+        body:
+          settings:
+            index.number_of_shards: 2
+            index.number_of_replicas: 0
+            index.number_of_routing_shards: 4
+  - do:
+      index:
+        index: split_index_source
+        id:    "1"
+        body:  { "foo": "hello world" }
+
+  - do:
+      index:
+        index: split_index_source
+        id:    "2"
+        body:  { "foo": "hello world 2" }
+
+  - do:
+      index:
+        index: split_index_source
+        id:    "3"
+        body:  { "foo": "hello world 3" }
+---
+teardown:
+  - do:
+      indices.delete:
+        index: split_index_source
+---
+"Split index via API":
+  # make it read-only
+  - do:
+      indices.put_settings:
+        index: split_index_source
+        body:
+          index.blocks.write: true
+          index.number_of_replicas: 0
+  # now we do the actual split
+  - do:
+      indices.split:
+        index: "split_index_source"
+        target: "split_index_target"
+        wait_for_active_shards: 1
+        master_timeout: 10s
+        body:
+          settings:
+            index.number_of_replicas: 0
+            index.number_of_shards: 4
+  - do:
+      get:
+        index: split_index_target
+        id:    "1"
+  - match: { _index:   split_index_target }
+  - match: { _id:      "1"     }
+  - match: { _source:  { foo: "hello world" } }
+
+  - do:
+      get:
+        index: split_index_target
+        id:    "2"
+  - match: { _index:   split_index_target }
+  - match: { _id:      "2"     }
+  - match: { _source:  { foo: "hello world 2" } }
+
+  - do:
+      get:
+        index: split_index_target
+        id:    "3"
+  - match: { _index:   split_index_target }
+  - match: { _id:      "3"     }
+  - match: { _source:  { foo: "hello world 3" } }
+
+  - do:
+      search:
+        index: split_index_target
+  - match: { hits.total.value: 3 }

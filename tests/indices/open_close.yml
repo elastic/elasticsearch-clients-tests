@@ -1,0 +1,31 @@
+---
+requires:
+  stack: true
+  serverless: false
+---
+setup:
+  - do:
+      indices.create:
+        index: open_close_index
+        body:
+          settings:
+            number_of_replicas: 0
+---
+teardown:
+  - do:
+      indices.delete:
+        index: open_close_index
+---
+"indices.open and indices.close":
+  - do:
+      indices.close:
+        index: open_close_index
+        wait_for_active_shards: all
+  - is_true: acknowledged
+  - match: { acknowledged: true }
+  - match: { shards_acknowledged: true }
+
+  - do:
+      indices.open:
+        index: open_close_index
+  - is_true: acknowledged

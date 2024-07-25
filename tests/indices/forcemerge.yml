@@ -1,0 +1,21 @@
+---
+requires:
+  stack: true
+  serverless: false
+---
+setup:
+  - do:
+      indices.create:
+        index: forcemerge-index
+---
+teardown:
+  - do:
+      indices.delete:
+        index: forcemerge-index
+---
+"Force merge index tests":
+  - do:
+      indices.forcemerge:
+        index: forcemerge-index
+        max_num_segments: 1
+  - gt: { _shards.total: 0 }

@@ -1,0 +1,37 @@
+---
+requires:
+  stack: true
+  serverless: false
+---
+setup:
+  - do:
+      indices.create:
+        index: flush-index
+        body:
+          settings:
+            number_of_shards: 1
+            index.translog.flush_threshold_size: 160b
+---
+teardown:
+  - do:
+      indices.delete:
+        index: flush-index
+---
+"Flush stats":
+  - do:
+      indices.flush:
+        index: flush-index
+  - do:
+      indices.stats: { index: flush-index }
+  - match: { indices.flush-index.primaries.flush.periodic: 0 }
+  - match: { indices.flush-index.primaries.flush.total:    1 }
+  - do:
+      index:
+        index: flush-index
+        id:    "1"
+        body:  { "message": "a long message to make a periodic flush happen after this index operation" }
+  - do:
+      indices.stats: { index: flush-index }
+  # periodic flush is async
+  - gte: { indices.flush-index.primaries.flush.periodic: 0 }
+  - gte: { indices.flush-index.primaries.flush.total:    1 }

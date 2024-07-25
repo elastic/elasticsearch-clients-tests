@@ -1,0 +1,26 @@
+---
+requires:
+  stack: true
+  serverless: false
+---
+setup:
+  - do:
+      indices.create:
+        index:  recovery_index
+        body:
+          settings:
+            index:
+              number_of_replicas: 0
+---
+teardown:
+  - do:
+      indices.delete:
+        index: recovery_index
+---
+"Indices recovery":
+  - do:
+      indices.recovery:
+        index: [recovery_index]
+        human: true
+  - match: { recovery_index.shards.0.type: "EMPTY_STORE" }
+  - match: { recovery_index.shards.0.stage: "DONE" }

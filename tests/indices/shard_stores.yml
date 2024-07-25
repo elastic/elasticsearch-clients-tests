@@ -1,0 +1,30 @@
+---
+requires:
+  serverless: true
+  stack: true
+---
+setup:
+  - do:
+      indices.create:
+        index: shard_stores_index
+        body:
+          settings:
+            number_of_shards: "1"
+            number_of_replicas: "0"
+  - do:
+      index:
+        index: shard_stores_index
+        body: { foo: bar }
+        refresh: true
+---
+teardown:
+  - do:
+      indices.delete:
+        index: shard_stores_index
+---
+"basic index test":
+  - do:
+      indices.shard_stores:
+        index: shard_stores_index
+        status: "green"
+  - match:   { indices.shard_stores_index.shards.0.stores.0.allocation: "primary" }

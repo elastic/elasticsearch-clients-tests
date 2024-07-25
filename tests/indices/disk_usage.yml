@@ -1,0 +1,57 @@
+---
+requires:
+  stack: true
+  serverless: false
+---
+setup:
+  - do:
+      indices.create:
+        index: disk-usage-index
+        body:
+          mappings:
+            properties:
+              name:
+                type: text
+              quantity:
+                type: long
+                doc_values: false
+              genre:
+                type: keyword
+                doc_values: true
+  - do:
+      index:
+        index: disk-usage-index
+        body: { "name": "foo", "quantity": 0, "genre": [ "rock", "pop" ] }
+  - do:
+      index:
+        index: disk-usage-index
+        body: { "name": "bar", "quantity": 99, "genre": "pop" }
+  - do:
+      index:
+        index: disk-usage-index
+        body: { "name": "baz", "quantity": 50, "genre": "jazz" }
+  - do:
+      index:
+        index: disk-usage-index
+        body: { "name": "bar & baz", "quantity": 1000, "genre": "blue" }
+  - do:
+      index:
+        index: disk-usage-index
+        body: { "name": "foobar", "quantity": 1000, "genre": "country" }
+---
+teardown:
+  - do:
+      indices.delete:
+        index: disk-usage-index
+---
+"indices.disk_usage":
+  - do:
+      indices.disk_usage:
+        index: disk-usage-index
+        run_expensive_tasks: true
+  - gt: { disk-usage-index.store_size_in_bytes: 100 }
+  - gt: { disk-usage-index.all_fields.total_in_bytes: 0 }
+  - gt: { disk-usage-index.all_fields.inverted_index.total_in_bytes: 0 }
+  - gt: { disk-usage-index.all_fields.stored_fields_in_bytes: 0 }
+  - gt: { disk-usage-index.all_fields.doc_values_in_bytes: 0 }
+  - gt: { disk-usage-index.all_fields.points_in_bytes: 0 }

@@ -1,0 +1,31 @@
+---
+requires:
+  serverless: true
+  stack: true
+---
+setup:
+  - do:
+      indices.create:
+        index: segments_index
+        body:
+          settings:
+            number_of_shards: "1"
+            number_of_replicas: "0"
+  - do:
+      index:
+        index: segments_index
+        body: { foo: bar }
+        refresh: true
+---
+teardown:
+  - do:
+      indices.delete:
+        index: segments_index
+---
+"basic segments test":
+  - do:
+      indices.segments:
+        index: segments_index
+  - match:   { _shards.total: 1}
+  - match:   { indices.segments_index.shards.0.0.routing.primary: true}
+  - match:   { indices.segments_index.shards.0.0.segments._0.num_docs: 1}

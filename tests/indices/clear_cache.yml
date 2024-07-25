@@ -1,0 +1,17 @@
+---
+requires:
+  stack: true
+  serverless: false
+---
+"clear_cache test":
+  - do:
+      indices.clear_cache: {}
+  - is_true: '_shards'
+  - do:
+      indices.clear_cache:
+        fielddata: true
+  - is_true: '_shards'
+  - do:
+      indices.clear_cache:
+        request: false
+  - is_true: '_shards'

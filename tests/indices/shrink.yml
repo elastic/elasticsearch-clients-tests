@@ -1,0 +1,51 @@
+---
+requires:
+  serverless: true
+  stack: true
+---
+setup:
+  - do:
+      indices.create:
+        index: source
+        wait_for_active_shards: 1
+        body:
+          settings:
+            # ensure everything is allocated on the same data node
+            index.routing.allocation.include._id: $node_id
+            index.number_of_shards: 2
+            index.number_of_replicas: 0
+  - do:
+      index:
+        index: source
+        id:    "1"
+        body:  { "foo": "hello world" }
+  # make it read-only
+  - do:
+      indices.put_settings:
+        index: source
+        body:
+          index.blocks.write: true
+          index.number_of_replicas: 0
+---
+teardown:
+  - do:
+      indices.delete:
+        index: source
+---
+'indices.shrink':
+  - do:
+      indices.shrink:
+        index: "source"
+        target: "target"
+        wait_for_active_shards: 1
+        master_timeout: 10s
+        body:
+          settings:
+            index.number_of_replicas: 0
+  - do:
+      get:
+        index: target
+        id:    "1"
+  - match: { _index:   target }
+  - match: { _id:      "1"     }
+  - match: { _source:  { foo: "hello world" } }

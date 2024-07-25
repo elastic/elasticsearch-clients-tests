@@ -1,0 +1,33 @@
+---
+requires:
+  stack: true
+  serverless: false
+---
+setup:
+  - do:
+      indices.create:
+        index: field_usage_stats
+        body:
+          settings:
+            routing.rebalance.enable: none
+            index.number_of_shards: 1
+            index.number_of_replicas: 0
+          mappings:
+            properties:
+              name:
+                type: text
+                "index_options": "offsets"
+                "term_vector" : "with_positions_offsets"
+              price:
+                type: double
+---
+teardown:
+  - do:
+      indices.delete:
+        index: field_usage_stats
+---
+
+'indices.field_usage_stats':
+  - do:
+      indices.field_usage_stats: { index: field_usage_stats }
+  - is_true: field_usage_stats
