@@ -1,6 +1,6 @@
 ---
 requires:
-  serverless: true
+  serverless: false
   stack: true
 ---
 "Index - blank":
