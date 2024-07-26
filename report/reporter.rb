@@ -67,7 +67,7 @@ module Elastic
       @apis[:specification].select do |api|
         api['availability'].nil? ||
           (
-            !!api.dig('availability', 'serverless') &&
+            api.dig('availability', 'serverless') &&
             api.dig('availability', 'serverless', 'visibility') == 'public'
           )
       end
@@ -76,20 +76,22 @@ module Elastic
     def report!
       build_specification_apis!
       build_json_apis!
+      calculate_tested_untested!
+    end
 
-      @apis[:specification].each do |api|
-        availability = {
-          stack: api['availability'].nil? || !!api.dig('availability', 'stack'),
-          serverless: api['availability'].nil? || api.dig('availability', 'serverless', 'visibility') == 'public'
-        }
+    def calculate_tested_untested!
+      serverless_apis.each do |api|
         if find_test(api['name'], :serverless)
           @serverless_tested_count += 1
-        elsif availability[:serverless]
+        else
           @serverless_untested_count += 1
         end
+      end
+
+      stack_apis.each do |api|
         if find_test(api['name'], :stack)
           @stack_tested_count += 1
-        elsif availability[:stack]
+        else
           @stack_untested_count += 1
         end
       end
