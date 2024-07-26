@@ -106,7 +106,25 @@ module Elastic
       @stack_tested_count * 100 / @apis[:json].count
     end
 
-    def display_endpoint(api, flavour = nil)
+    def display_table
+      @apis[:specification].map do |api|
+        name = api['name']
+        tested_stack = if (test = find_test(name, :stack))
+                         "<ul><li>- [x] [🔗](#{test[:file]}\#L#{test[:line]})</li></ul>"
+                       else
+                         '<ul><li>- [ ] </li></ul>'
+                       end
+        tested_serverless = if (test = find_test(name, :serverless))
+                              "<ul><li>- [x] [🔗](#{test[:file]}\#L#{test[:line]})</li></ul>"
+                            else
+                              '<ul><li>- [ ] </li></ul>'
+                            end
+        "| #{name} | #{stack_apis.include?(api) ? '🟢' : '🔴'} " \
+        "| #{tested_stack} | #{serverless_apis.include?(api) ? '🟢' : '🔴'} | #{tested_serverless} |"
+      end.join("\n")
+    end
+
+    def display_endpoint(api, flavour)
       return "- `#{api}`" if flavour.nil?
 
       if (test = find_test(api, flavour))
