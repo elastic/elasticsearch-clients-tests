@@ -124,16 +124,6 @@ module Elastic
       end.join("\n")
     end
 
-    def display_endpoint(api, flavour)
-      return "- `#{api}`" if flavour.nil?
-
-      if (test = find_test(api, flavour))
-        "- [x] <span title='tested'> [`#{api}`](#{test[:file]}\#L#{test[:line]})</span>"
-      else
-        "- [ ] <span title='not tested'> `#{api}`</span>"
-      end
-    end
-
     private
 
     def find_test(endpoint, flavour = nil)
