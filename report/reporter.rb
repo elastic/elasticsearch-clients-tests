@@ -45,11 +45,12 @@ module Elastic
     # Use `rake download_serverless` to download the files to ../tmp.
     def build_specification_apis!
       @apis[:specification] = []
-      JSON.parse(File.read('./tmp/schema.json'))['endpoints'].map do |s|
-        if s['name'].start_with?('_') || skippable?(s['name'])
-          @apis[:internal] << s['name']
+      JSON.parse(File.read('./tmp/schema.json'))['endpoints'].map do |spec|
+        if spec['name'].start_with?('_') || skippable?(spec['name']) ||
+           spec.dig('availability', 'stack', 'visibility') == 'private'
+          @apis[:internal] << spec['name']
         else
-          @apis[:specification] << { 'name' => s['name'], 'availability' => s['availability'] }
+          @apis[:specification] << { 'name' => spec['name'], 'availability' => spec['availability'] }
         end
       end
     end
