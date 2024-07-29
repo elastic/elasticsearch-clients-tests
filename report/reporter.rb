@@ -110,14 +110,18 @@ module Elastic
       @apis[:specification].map do |api|
         name = api['name']
         tested_stack = if (test = find_test(name, :stack))
-                         "<ul><li>- [x] [🔗](#{test[:file]}\#L#{test[:line]})</li></ul>"
+                         "[✅](#{test[:file]}\#L#{test[:line]})</li></ul>"
+                       elsif stack_apis.include?(api)
+                         '❌'
                        else
-                         '<ul><li>- [ ] </li></ul>'
+                         'Not Applicable'
                        end
         tested_serverless = if (test = find_test(name, :serverless))
-                              "<ul><li>- [x] [🔗](#{test[:file]}\#L#{test[:line]})</li></ul>"
+                              "[✅](#{test[:file]}\#L#{test[:line]})</li></ul>"
+                            elsif serverless_apis.include?(api)
+                              '❌'
                             else
-                              '<ul><li>- [ ] </li></ul>'
+                              'Not Applicable'
                             end
         "| #{name} | #{stack_apis.include?(api) ? '🟢' : '🔴'} " \
         "| #{tested_stack} | #{serverless_apis.include?(api) ? '🟢' : '🔴'} | #{tested_serverless} |"

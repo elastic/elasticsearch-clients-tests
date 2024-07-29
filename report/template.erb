@@ -1,15 +1,15 @@
-# Tests report
+# Elasticsearch Tests report
 
 Endpoints that are currently being tested are marked as done and link to the test where they're being used.
 
-* **ELASTICSEARCH STACK** - **Total**: <%= @reporter.apis[:specification].count %> | **Tested**: <%= @reporter.stack_tested_count %> | **Untested**: <%= @reporter.stack_untested_count %> ![](https://geps.dev/progress/<%= @reporter.coverage_stack %>)
-* **ELASTICSEARCH SERVERLESS** - **Total**: <%= @reporter.serverless_apis.count %> | **Tested** <%= @reporter.serverless_tested_count %> | **Untested**: <%= @reporter.serverless_untested_count %> ![](https://geps.dev/progress/<%= @reporter.coverage_serverless %>)
+* **STACK** - **Total**: <%= @reporter.apis[:specification].count %> | **Tested**: <%= @reporter.stack_tested_count %> | **Untested**: <%= @reporter.stack_untested_count %> ![](https://geps.dev/progress/<%= @reporter.coverage_stack %>)
+* **SERVERLESS** - **Total**: <%= @reporter.serverless_apis.count %> | **Tested** <%= @reporter.serverless_tested_count %> | **Untested**: <%= @reporter.serverless_untested_count %> ![](https://geps.dev/progress/<%= @reporter.coverage_serverless %>)
 * [APIs in JSON spec and not in elasticsearch-specification](#apis-in-json-spec-and-not-elasticsearch-specification)
 
 ## Endpoints in elasticsearch-specification
 
 | Endpoint name | Available in Stack | Tested in Stack | Available in Serverless | Tested in Serverless |
-|---------------|--------------------|-----------------|-------------------------|----------------------|
+| :------------ | :----------------: | :-------------: | :---------------------: | :------------------: |
 <%= @reporter.display_table -%>
 
 
