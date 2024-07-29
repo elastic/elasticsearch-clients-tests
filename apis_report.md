@@ -3,10 +3,10 @@
 Endpoints that are currently being tested are marked as done and link to the test where they're being used.
 
 * [Endpoints in Stack (elasticsearch-specification)](#stack): 505
-* [Endpoints in Serverless](#serverless): 237
+* [Endpoints in Serverless](#serverless): 236
 * [Endpoints in Stack JSON spec](#endpoints-in-stack-json-spec): 505
 * Elasticsearch Stack - **Tested**: 307 | **Untested**: 184 ![](https://geps.dev/progress/60)
-* Elasticsearch Serverless - **Tested** 230 | **Untested**: 7 ![](https://geps.dev/progress/97)
+* Elasticsearch Serverless - **Tested** 229 | **Untested**: 7 ![](https://geps.dev/progress/97)
 * [APIs in JSON spec and not in elasticsearch-specification](#apis-in-json-spec-and-not-elasticsearch-specification)
 
 ## Endpoints in elasticsearch-specification
@@ -38,7 +38,6 @@ Endpoints that are currently being tested are marked as done and link to the tes
   - [x] <span title='tested'> [`connector.check_in`](./tests/entsearch/20_connector.yml#L21)</span>
   - [x] <span title='tested'> [`connector.delete`](./tests/entsearch/20_connector.yml#L55)</span>
   - [x] <span title='tested'> [`connector.get`](./tests/entsearch/20_connector.yml#L34)</span>
-  - [x] <span title='tested'> [`connector.last_sync`](./tests/entsearch/20_connector.yml#L26)</span>
   - [x] <span title='tested'> [`connector.list`](./tests/entsearch/20_connector.yml#L41)</span>
   - [x] <span title='tested'> [`connector.post`](./tests/entsearch/20_connector.yml#L45)</span>
   - [x] <span title='tested'> [`connector.put`](./tests/entsearch/20_connector.yml#L14)</span>
