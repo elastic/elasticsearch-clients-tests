@@ -1,0 +1,92 @@
+---
+requires:
+  serverless: false
+  stack: true
+---
+setup:
+  - do:
+      indices.put_index_template:
+        name: my-template
+        body:
+          index_patterns: [logs-*]
+          template:
+            mappings:
+              properties:
+                '@timestamp':
+                  type: date
+          data_stream: {}
+
+  - do:
+      indices.create_data_stream:
+        name: logs-foobar
+  - is_true: acknowledged
+---
+teardown:
+  - do:
+      indices.delete_data_stream:
+        name: logs-foobar
+---
+'ILM':
+  - do:
+      ilm.put_lifecycle:
+        policy: "my_lifecycle"
+        body: |
+          {
+            "policy": {
+              "phases": {
+                "warm": {
+                  "min_age": "1000s",
+                  "actions": {
+                    "forcemerge": {
+                      "max_num_segments": 10000
+                    }
+                  }
+                },
+                "hot": {
+                  "min_age": "1000s",
+                  "actions": { }
+                }
+              }
+            }
+          }
+  - is_true: acknowledged
+
+  - do:
+      indices.reload_search_analyzers:
+        index: logs-foobar
+  - length: { reload_details: 1}
+
+  - do:
+      ilm.get_lifecycle:
+        policy: "my_lifecycle"
+  - match: { my_lifecycle.version: 1 }
+
+  - do:
+      ilm.explain_lifecycle:
+        index: logs-foobar
+  - is_true: 'indices'
+
+  - do:
+      ilm.get_status:
+        policy: "my_lifecycle"
+  - is_true: 'operation_mode'
+
+  - do:
+      ilm.start:
+        policy: "my_lifecycle"
+  - is_true: 'acknowledged'
+
+  - do:
+      ilm.stop:
+        index: logs-foobar
+  - is_false: 'dry_run'
+
+  - do:
+      ilm.remove_policy:
+        index: logs-foobar
+  - is_false: 'has_failures'
+
+  - do:
+      ilm.delete_lifecycle:
+        policy: "my_lifecycle"
+  - is_true: acknowledged
