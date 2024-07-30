@@ -1,0 +1,9 @@
+---
+requires:
+  serverless: false
+  stack: true
+---
+'ml.info':
+  - do:
+      ml.info: {}
+  - match: { defaults.anomaly_detectors.categorization_analyzer.tokenizer: "ml_standard" }
