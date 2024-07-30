@@ -1,0 +1,10 @@
+---
+requires:
+  serverless: false
+  stack: true
+---
+"Test get SSL certificates":
+  - do:
+      ssl.certificates: {}
+  - match: { 0.format: "PEM" }
+  - is_true: 0.path
