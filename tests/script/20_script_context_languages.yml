@@ -1,0 +1,16 @@
+---
+requires:
+  serverless: false
+  stack: true
+---
+'Get script context and languages':
+  - do:
+      get_script_context: {}
+  - is_true: contexts.0.name
+  - is_true: contexts.0.methods.0.return_type
+  - match: {contexts.0.methods.0.name: "execute"}
+
+  - do:
+      get_script_languages: {}
+  - match: { types_allowed.0: "inline" }
+  - match: { types_allowed.1: "stored" }
