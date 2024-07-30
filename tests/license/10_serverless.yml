@@ -1,7 +1,7 @@
 ---
 requires:
   serverless: true
-  stack: true
+  stack: false
 ---
 'license':
   - do:
