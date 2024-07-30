@@ -1,0 +1,18 @@
+---
+requires:
+  serverless: false
+  stack: true
+---
+"tasks":
+  - do:
+      tasks.get: {}
+  - is_true: nodes
+
+  - do:
+      tasks.list: {}
+  - is_true: nodes
+
+  - do:
+      tasks.cancel:
+        actions: "unknown_action"
+  - length: { nodes: 0 }
