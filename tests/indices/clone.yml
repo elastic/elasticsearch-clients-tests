@@ -6,7 +6,7 @@ requires:
 setup:
   - do:
       indices.create:
-        index: source
+        index: clone_source
         wait_for_active_shards: 1
         body:
           settings:
@@ -14,64 +14,64 @@ setup:
             index.number_of_replicas: 0
   - do:
       index:
-        index: source
+        index: clone_source
         id:    "1"
         body:  { "foo": "hello world" }
   - do:
       index:
-        index: source
+        index: clone_source
         id:    "2"
         body:  { "foo": "hello world 2" }
   - do:
       index:
-        index: source
+        index: clone_source
         id:    "3"
         body:  { "foo": "hello world 3" }
 ---
 teardown:
   - do:
       indices.delete:
-        index: source
+        index: clone_source
 ---
 "Clone index via API":
   # make it read-only
   - do:
       indices.put_settings:
-        index: source
+        index: clone_source
         body:
           index.blocks.write: true
           index.number_of_replicas: 0
   - do:
       cluster.health:
         wait_for_status: green
-        index: source
+        index: clone_source
   # now we do the actual clone
   - do:
       indices.clone:
-        index: "source"
-        target: "target"
+        index: "clone_source"
+        target: "clone_target"
         master_timeout: 10s
         body:
           settings:
             index.number_of_shards: 2
   - do:
       get:
-        index: target
+        index: clone_target
         id:    "1"
-  - match: { _index:   target }
+  - match: { _index:   clone_target }
   - match: { _id:      "1"     }
   - match: { _source:  { foo: "hello world" } }
   - do:
       get:
-        index: target
+        index: clone_target
         id:    "2"
   - match: { _index:   target }
   - match: { _id:      "2"     }
   - match: { _source:  { foo: "hello world 2" } }
   - do:
       get:
-        index: target
+        index: clone_target
         id:    "3"
-  - match: { _index:   target }
+  - match: { _index:   clone_target }
   - match: { _id:      "3"     }
   - match: { _source:  { foo: "hello world 3" } }
