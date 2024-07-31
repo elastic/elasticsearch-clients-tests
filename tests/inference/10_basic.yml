@@ -18,13 +18,14 @@ requires:
             "task_settings": {
             }
           }
-  - match: { inference_id: elser_model_test }
   - match: { task_type: sparse_embedding }
+  - match: { service: elser }
 
   - do:
       inference.get:
         inference_id: elser_model_test
-  - match: { endpoints.0.inference_id: elser_model_test }
+  - match: { endpoints.0.task_type: sparse_embedding }
+  - match: { endpoints.0.service: elser }
 
   - do:
       inference.inference:
