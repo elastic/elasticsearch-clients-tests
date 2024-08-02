@@ -1,6 +1,6 @@
 ---
 requires:
-  serverless: true
+  serverless: false
   stack: true
 ---
 setup:
@@ -21,7 +21,16 @@ teardown:
 'reindex':
   - do:
       reindex:
+        wait_for_completion: false
+        scroll: 10s
         body:
           source: { index: 'reindex_test' }
           dest: { index: 'reindex_test_reindexed' }
-  - match: { created: 1 }
+  - is_true: task
+  - set: { task: task_id }
+
+  - do:
+      reindex_rethrottle:
+        task_id: $task_id
+        requests_per_second: 1
+  - is_true: nodes
