@@ -12,12 +12,14 @@ Endpoints that are currently being tested are marked as done and link to the tes
 | :------------ | :----------------: | :-------------: | :---------------------: | :------------------: |
 <%= @reporter.display_table -%>
 
-<details>
-  <summary>Internal APIs (Not tracked)</summary>
-  <ul>
-    <%= @reporter.apis[:internal].map { |a| "<li><code>#{a}</code></li>" }.join("\n") -%>
-  </ul>
-</details>
+
+## Internal APIs (Not tracked)
+
+| Endpoint name | Reason |
+| ------------- | ------ |
+<% @reporter.apis[:internal].each do |api| -%>
+| <%= api[:name] -%> | <%= api[:reason] -%> |
+<% end -%>
 
 <details>
   <summary>Endpoints in stack JSON spec</summary>

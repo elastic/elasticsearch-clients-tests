@@ -10,7 +10,11 @@ module Elastic
     STACK_FILES = "#{File.expand_path('./tmp/rest-api-spec/api')}/*.json".freeze
     TESTS_PATH = File.expand_path('../tests/**/*.yml')
     # APIs designed for indirect use by ECE/ESS and ECK, direct use is not supported.'
-    EXCLUDED_APIS = ['autoscaling', 'shutdown']
+    EXCLUDED_APIS = [
+      { name: 'autoscaling', reason: 'Designed for indirect use by ECE/ESS and ECK. Direct use is not supported.' },
+      { name: 'shutdown', reason: 'Designed for indirect use by ECE/ESS and ECK. Direct use is not supported.' },
+      { name: 'rollup', reason: 'The rollup feature was never GA-ed and is still tech preview. It has been deprecated since 8.11.0 in favor of downsampling.' }
+    ].freeze
 
     attr_reader :apis, :stack_tested_count, :serverless_tested_count, :stack_untested_count, :serverless_untested_count
 
@@ -33,8 +37,10 @@ module Elastic
       @apis[:json] = []
       apis = Dir[STACK_FILES].map { |path| path.split('/').last.gsub('.json', '') }
       apis.each do |name|
-        if name.start_with?('_') || skippable?(name)
-          @apis[:internal] << name
+        if name.start_with?('_')
+          @apis[:internal] << { name: name, reason: 'Internal API' }
+        elsif (skippable = EXCLUDED_APIS.select { |api| name.match? api[:name] }.first)
+          @apis[:internal] << skippable
         else
           @apis[:json] << name
         end
@@ -46,9 +52,12 @@ module Elastic
     def build_specification_apis!
       @apis[:specification] = []
       JSON.parse(File.read('./tmp/schema.json'))['endpoints'].map do |spec|
-        if spec['name'].start_with?('_') || skippable?(spec['name']) ||
-           spec.dig('availability', 'stack', 'visibility') == 'private'
-          @apis[:internal] << spec['name']
+        if spec['name'].start_with?('_')
+          @apis[:internal] << { name: spec['name'], reason: 'Internal API' }
+        elsif (skippable = EXCLUDED_APIS.select { |api| spec['name'].match? api[:name] }.first)
+          @apis[:internal] << skippable
+        elsif spec.dig('availability', 'stack', 'visibility') == 'private'
+          @apis[:internal] << { name: spec['name'], reason: 'Private API' }
         else
           @apis[:specification] << { 'name' => spec['name'], 'availability' => spec['availability'] }
         end
@@ -156,14 +165,6 @@ module Elastic
     def find_requires(path)
       require 'yaml'
       YAML.load_stream(File.read(path)).select { |a| a.keys.first == 'requires' }.first['requires']
-    end
-
-    # If the name is in the namespaces for indirect use APIs, they can be skipped in the report.
-    def skippable?(name)
-      EXCLUDED_APIS.each do |namespace|
-        return true if name.match?(namespace)
-      end
-      false
     end
   end
 end
