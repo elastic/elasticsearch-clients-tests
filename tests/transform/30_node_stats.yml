@@ -1,0 +1,9 @@
+---
+requires:
+  serverless: false
+  stack: true
+---
+'Transform node stats':
+  - do:
+      transform.get_node_stats: {}
+  - is_true: total
