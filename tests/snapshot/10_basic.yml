@@ -1,0 +1,116 @@
+---
+requires:
+  stack: true
+  serverless: false
+---
+setup:
+  - do:
+      indices.create:
+        index: snapshot_index
+        body:
+          settings:
+            number_of_shards:   1
+            number_of_replicas: 0
+
+---
+teardown:
+  - do:
+      indices.delete:
+        index: snapshot_index
+---
+'Snapshot':
+  - do:
+      snapshot.create_repository:
+        repository: test_repo_1
+        body:
+          type: fs
+          settings:
+            location: "test_repo_1_loc"
+  - is_true: acknowledged
+
+  - do:
+      snapshot.create:
+        repository: test_repo_1
+        snapshot: test_snapshot
+        wait_for_completion: true
+  - match: { snapshot.snapshot: test_snapshot }
+  - match: { snapshot.state : SUCCESS }
+
+  - do:
+      snapshot.cleanup_repository:
+        repository: test_repo_1
+  - match: { results.deleted_bytes: 0 }
+  - match: { results.deleted_blobs: 0 }
+
+  - do:
+      snapshot.get:
+        repository: test_repo_1
+        snapshot: test_snapshot
+  - is_true: snapshots
+  - is_true: snapshots.0.failures
+
+  - do:
+      snapshot.status:
+        repository: test_repo_1
+        snapshot: test_snapshot
+  - is_true: snapshots
+  - match: { snapshots.0.snapshot: test_snapshot }
+  - match: { snapshots.0.state: SUCCESS }
+
+  - do:
+      indices.close:
+        index: snapshot_index
+
+  - do:
+      snapshot.restore:
+        repository: test_repo_1
+        snapshot: test_snapshot
+        wait_for_completion: true
+        body:
+          indices: snapshot_index
+
+  - do:
+      indices.recovery:
+        index: snapshot_index
+  - match: { snapshot_index.shards.0.type: SNAPSHOT }
+  - match: { snapshot_index.shards.0.stage: DONE }
+
+  - do:
+      snapshot.clone:
+        repository: test_repo_1
+        snapshot: test_snapshot
+        target_snapshot: target_snapshot_1
+        body:
+          "indices": snapshot_index
+  - match: { acknowledged: true }
+
+  - do:
+      snapshot.delete:
+        repository: test_repo_1
+        snapshot: target_snapshot_1
+  - match: { acknowledged: true }
+
+  - do:
+      snapshot.delete:
+        repository: test_repo_1
+        snapshot: test_snapshot
+  - match: { acknowledged: true }
+
+  - do:
+      snapshot.get_repository: {}
+  - is_true: test_repo_1
+
+  - do:
+      snapshot.repository_analyze:
+        repository: test_repo_1
+  - match: { repository: test_repo_1 }
+
+  - do:
+      snapshot.verify_repository:
+        repository: test_repo_1
+  - is_true: nodes
+
+  - do:
+      snapshot.delete_repository:
+        repository: test_repo_1
+  - is_true: acknowledged
