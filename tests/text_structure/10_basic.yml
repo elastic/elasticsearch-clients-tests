@@ -1,0 +1,100 @@
+---
+requires:
+  stack: true
+  serverless: false
+---
+setup:
+  - do:
+      indices.create:
+        index: airlines
+        body:
+          mappings:
+            properties:
+              message:
+                type: text
+  - do:
+      bulk:
+        refresh: true
+        body:
+          - index:
+              _index: airlines
+          - message: "{\"airline\": \"AAL\", \"responsetime\": 132.2046, \"sourcetype\": \"text-structure-test\", \"time\": 1403481600}"
+          - index:
+              _index: airlines
+          - message: "{\"airline\": \"JZA\", \"responsetime\": 990.4628, \"sourcetype\": \"text-structure-test\", \"time\": 1403481700}"
+          - index:
+              _index: airlines
+          - message: "{\"airline\": \"AAL\", \"responsetime\": 134.2046, \"sourcetype\": \"text-structure-test\", \"time\": 1403481800}"
+---
+teardown:
+  - do:
+      indices.delete:
+        index: airlines
+---
+"Field structure finder with JSON messages":
+  - do:
+      text_structure.find_field_structure:
+        index: airlines
+        field: message
+        documents_to_sample: 3
+        timeout: 10s
+  - match: { num_lines_analyzed: 3 }
+  - match: { num_messages_analyzed: 3 }
+  - match: { charset: "UTF-8" }
+
+  - do:
+      text_structure.find_message_structure:
+        timeout: 10s
+        body:
+          messages:
+            - "{\"airline\": \"AAL\", \"responsetime\": 132.2046, \"sourcetype\": \"text-structure-test\", \"time\": 1403481600}"
+            - "{\"airline\": \"JZA\", \"responsetime\": 990.4628, \"sourcetype\": \"text-structure-test\", \"time\": 1403481700}"
+            - "{\"airline\": \"AAL\", \"responsetime\": 134.2046, \"sourcetype\": \"text-structure-test\", \"time\": 1403481800}"
+  - match: { num_lines_analyzed: 3 }
+  - match: { num_messages_analyzed: 3 }
+  - match: { charset: "UTF-8" }
+
+  - do:
+      headers:
+        Content-Type: "application/json"
+      text_structure.find_structure:
+        lines_to_sample: 3
+        line_merge_size_limit: 1234
+        timeout: 10s
+        body:
+          - airline: AAL
+            responsetime: 132.2046
+            sourcetype: text-structure-test
+            time: 1403481600
+          - airline: JZA
+            responsetime: 990.4628
+            sourcetype: text-structure-test
+            time: 1403481700
+          - airline: AAL
+            responsetime: 134.2046
+            sourcetype: text-structure-test
+            time: 1403481800
+  - match: { num_lines_analyzed: 3 }
+  - match: { num_messages_analyzed: 3 }
+  - match: { charset: "UTF-8" }
+
+  - do:
+      text_structure.test_grok_pattern:
+        body:
+          grok_pattern: "%{WORD}.*%{WORD:first_name} %{WORD:last_name}!"
+          text:
+            - "Hello   Dave Roberts!"
+            - "this does not match"
+  - match:
+      matches:
+        - matched: true
+          fields:
+            first_name:
+              - match: Dave
+                offset: 8
+                length: 4
+            last_name:
+              - match: Roberts
+                offset: 13
+                length: 7
+        - matched: false
