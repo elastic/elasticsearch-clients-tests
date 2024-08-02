@@ -1,0 +1,52 @@
+---
+requires:
+  stack: true
+  serverless: false
+---
+'Nodes':
+  - do:
+      nodes.info: {}
+  - is_true: _nodes
+  - gte: { _nodes.total: 1 }
+
+  - do:
+      nodes.stats: {}
+  - is_true: _nodes
+  - gte: { _nodes.total: 1 }
+
+  - do:
+      nodes.usage: {}
+  - is_true: _nodes
+  - gte: { _nodes.total: 1 }
+
+  - do:
+      nodes.hot_threads:
+        type: "cpu"
+        format: json
+  - match:
+      $body: /Hot\ threads\ at/
+
+  - do:
+      nodes.reload_secure_settings: {}
+  - is_true: nodes
+  - is_true: cluster_name
+
+  - do:
+      cat.nodes:
+        format: 'json'
+        full_id: true
+        h: 'id'
+  - set: { 0.id: id }
+
+  - do:
+      nodes.get_repositories_metering_info:
+        node_id: $id
+  - is_true: nodes
+  - is_true: cluster_name
+
+  - do:
+      nodes.clear_repositories_metering_archive:
+        node_id: $id
+        max_archive_version: 1
+  - is_true: nodes
+  - is_true: cluster_name
