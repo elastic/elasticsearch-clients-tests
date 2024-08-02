@@ -12,16 +12,22 @@ Endpoints that are currently being tested are marked as done and link to the tes
 | :------------ | :----------------: | :-------------: | :---------------------: | :------------------: |
 <%= @reporter.display_table -%>
 
+<details>
+  <summary>Internal APIs (Not tracked)</summary>
+  <ul>
+    <%= @reporter.apis[:internal].map { |a| "<li><code>#{a}</code></li>" }.join("\n") -%>
+  </ul>
+</details>
+
+<details>
+  <summary>Endpoints in stack JSON spec</summary>
+<%=  @reporter.apis[:json].map { |a| "<code>#{a}</code>" }.join(', ') -%>
+</details>
 
 <% difference = @reporter.apis[:json] - @reporter.apis[:specification].map { |a| a['name'] } -%>
 <%  unless difference.empty? -%>
-## APIs in JSON spec and not elasticsearch-specification
-<%= difference.join(', ') -%>
+  <details>
+    <summary id="apis-in-json-spec-and-not-elasticsearch-specification">APIs in JSON spec and not elasticsearch-specification</summary>
+    <%= difference.map { |a| "<code>#{a}</code>" }.join(', ') -%>
+  </details>
 <% end -%>
-
-## Internal APIs (Not tracked)
-<%= @reporter.apis[:internal].map { |a| "`#{a}`" }.join(', ') -%>
-
-## Endpoints in stack JSON spec
-
-<%=  @reporter.apis[:json].map { |a| "`#{a}`" }.join(', ') -%>
