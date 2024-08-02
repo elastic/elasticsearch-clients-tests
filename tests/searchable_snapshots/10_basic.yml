@@ -1,0 +1,75 @@
+---
+requires:
+  stack: true
+  serverless: false
+---
+setup:
+  - do:
+      indices.create:
+        index: test_snapshots_searchable
+        body:
+          settings:
+            number_of_shards:   1
+            number_of_replicas: 0
+  - do:
+      bulk:
+        body:
+          - index:
+              _index: test_snapshots_searchable
+              _id:    "1"
+          - field: foo
+          - index:
+              _index: test_snapshots_searchable
+              _id:    "2"
+          - field: bar
+          - index:
+              _index: test_snapshots_searchable
+              _id:    "3"
+          - field: baz
+  - do:
+      snapshot.create_repository:
+        repository: repository-test
+        body:
+          type: fs
+          settings:
+            location: "repository-test"
+  - do:
+      snapshot.create:
+        repository: repository-test
+        snapshot: snapshot
+        wait_for_completion: true
+  - do:
+      indices.delete:
+        index: test_snapshots_searchable
+---
+teardown:
+  - do:
+      snapshot.delete:
+        repository: repository-test
+        snapshot: snapshot
+        ignore: 404
+---
+'Searchable Snapshots':
+  - do:
+      searchable_snapshots.mount:
+        repository: repository-test
+        snapshot: snapshot
+        wait_for_completion: true
+        storage: full_copy
+        body:
+          index: test_snapshots_searchable
+  - match: { snapshot.snapshot: snapshot }
+  - match: { snapshot.shards.failed: 0 }
+  - match: { snapshot.shards.successful: 1 }
+
+  - do:
+      searchable_snapshots.stats: {}
+  - gte: { _shards.total: 1 }
+
+  - do:
+      searchable_snapshots.cache_stats: {}
+  - is_true: nodes
+
+  - do:
+      searchable_snapshots.clear_cache: {}
+  - gte: { _shards.total: 1 }
