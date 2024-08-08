@@ -73,10 +73,10 @@ Endpoints that are currently being tested are marked as done and link to the tes
 | cluster.state | 🟢 | [✅](./tests/cluster/state.yml#L8)</li></ul> | 🔴 | Not Applicable |
 | cluster.stats | 🟢 | [✅](./tests/cluster/stats.yml#L8)</li></ul> | 🔴 | Not Applicable |
 | connector.check_in | 🟢 | [✅](./tests/entsearch/20_connector.yml#L21)</li></ul> | 🟢 | [✅](./tests/entsearch/20_connector.yml#L21)</li></ul> |
-| connector.delete | 🟢 | [✅](./tests/entsearch/20_connector.yml#L55)</li></ul> | 🟢 | [✅](./tests/entsearch/20_connector.yml#L55)</li></ul> |
-| connector.get | 🟢 | [✅](./tests/entsearch/20_connector.yml#L34)</li></ul> | 🟢 | [✅](./tests/entsearch/20_connector.yml#L34)</li></ul> |
-| connector.list | 🟢 | [✅](./tests/entsearch/20_connector.yml#L41)</li></ul> | 🟢 | [✅](./tests/entsearch/20_connector.yml#L41)</li></ul> |
-| connector.post | 🟢 | [✅](./tests/entsearch/20_connector.yml#L45)</li></ul> | 🟢 | [✅](./tests/entsearch/20_connector.yml#L45)</li></ul> |
+| connector.delete | 🟢 | [✅](./tests/entsearch/20_connector.yml#L40)</li></ul> | 🟢 | [✅](./tests/entsearch/20_connector.yml#L40)</li></ul> |
+| connector.get | 🟢 | [✅](./tests/entsearch/20_connector.yml#L35)</li></ul> | 🟢 | [✅](./tests/entsearch/20_connector.yml#L35)</li></ul> |
+| connector.list | 🟢 | [✅](./tests/entsearch/20_connector.yml#L26)</li></ul> | 🟢 | [✅](./tests/entsearch/20_connector.yml#L26)</li></ul> |
+| connector.post | 🟢 | [✅](./tests/entsearch/20_connector.yml#L30)</li></ul> | 🟢 | [✅](./tests/entsearch/20_connector.yml#L30)</li></ul> |
 | connector.put | 🟢 | [✅](./tests/entsearch/20_connector.yml#L14)</li></ul> | 🟢 | [✅](./tests/entsearch/20_connector.yml#L14)</li></ul> |
 | connector.sync_job_cancel | 🟢 | [✅](./tests/entsearch/30_sync_jobs_stack.yml#L39)</li></ul> | 🟢 | [✅](./tests/entsearch/30_sync_jobs_serverless.yml#L39)</li></ul> |
 | connector.sync_job_check_in | 🟢 | [✅](./tests/entsearch/30_sync_jobs_stack.yml#L34)</li></ul> | 🔴 | Not Applicable |
