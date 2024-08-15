@@ -1,0 +1,87 @@
+---
+requires:
+  stack: true
+  serverless: false
+---
+setup:
+  - do:
+      ml.put_job:
+        job_id: get-influencers-test
+        body:  >
+          {
+            "analysis_config" : {
+                "detectors" :[{"function":"metric","field_name":"responsetime","by_field_name":"airline"}]
+            },
+            "data_description" : {
+                "format":"xcontent",
+                "time_field":"time"
+            }
+          }
+
+  - do:
+      index:
+        index:  .ml-anomalies-get-influencers-test
+        id:     get-influencers-test_1464739200000_1_1
+        body:
+          {
+            "job_id": "get-influencers-test",
+            "timestamp": "2016-06-01T00:00:00Z",
+            "influencer_field_name": "foo",
+            "influencer_field_value": "bar",
+            "influencer_score": 50.0,
+            "result_type" : "influencer",
+            "bucket_span" : 1
+          }
+
+  - do:
+      index:
+        index:  .ml-anomalies-get-influencers-test
+        id:     get-influencers-test_1464825600000_1_2
+        body:
+          {
+            "job_id": "get-influencers-test",
+            "timestamp": "2016-06-02T00:00:00Z",
+            "influencer_field_name": "foo",
+            "influencer_field_value": "zoo",
+            "influencer_score": 80.0,
+            "result_type" : "influencer",
+            "bucket_span" : 1,
+            "is_interim": true
+          }
+
+  - do:
+      index:
+        index:  .ml-anomalies-get-influencers-test
+        id:     get-influencers-test_1464912000000_1_3
+        body:
+          {
+            "job_id": "get-influencers-test",
+            "timestamp": "2016-06-03T00:00:00Z",
+            "influencer_field_name": "foo",
+            "influencer_field_value": "zoo",
+            "influencer_score": 60.0,
+            "result_type" : "influencer",
+            "bucket_span" : 1
+          }
+
+  - do:
+      indices.refresh:
+        index: .ml-anomalies-get-influencers-test
+---
+teardown:
+  - do:
+      ml.delete_job:
+        job_id: get-influencers-test
+---
+'ml.get_influencers':
+  - do:
+      ml.get_influencers:
+        job_id: "get-influencers-test"
+
+  - match: { count: 3 }
+  - match: { influencers.0.influencer_score: 80 }
+  - match: { influencers.0.timestamp: 1464825600000 }
+  - match: { influencers.1.influencer_score: 60 }
+  - match: { influencers.1.timestamp: 1464912000000 }
+  - match: { influencers.2.influencer_score: 50 }
+  - match: { influencers.2.timestamp: 1464739200000 }

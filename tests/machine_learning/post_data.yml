@@ -1,0 +1,89 @@
+---
+requires:
+  stack: true
+  serverless: false
+---
+setup:
+  - do:
+      ml.put_job:
+        job_id: post-data-job
+        body:  >
+          {
+            "job_id":"post-data-job",
+            "description":"Analysis of response time by airline",
+            "analysis_config" : {
+                "bucket_span": "1h",
+                "detectors" :[{"function":"metric","field_name":"responsetime","by_field_name":"airline"}]
+            },
+            "data_description" : {
+                "format":"xcontent",
+                "time_field":"time",
+                "time_format":"epoch"
+            }
+          }
+
+  - do:
+      ml.open_job:
+        job_id: post-data-job
+---
+teardown:
+  - do:
+      ml.delete_job:
+        job_id: post-data-job
+---
+"Test POST data job api, flush, close and verify DataCounts doc":
+  - do:
+      ml.post_data:
+        job_id: post-data-job
+        body:
+          - airline: AAL
+            responsetime: 132.2046
+            sourcetype: post-data-job
+            time: 1403481600
+          - airline: JZA
+            responsetime: 990.4628
+            sourcetype: post-data-job
+            time: 1403481700
+
+  - match: { processed_record_count: 2 }
+  - match: { processed_field_count: 4}
+  - gte: { input_bytes: 140 }
+  - lte: { input_bytes: 180 }
+  - match: { input_field_count: 6 }
+  - match: { invalid_date_count: 0 }
+  - match: { missing_field_count: 0 }
+  - match: { out_of_order_timestamp_count: 0}
+  - match: { earliest_record_timestamp: 1403481600000}
+  - match: { latest_record_timestamp: 1403481700000}
+
+  - do:
+      ml.flush_job:
+        job_id: post-data-job
+  - match: { flushed: true }
+  - match: { last_finalized_bucket_end: 1403481600000 }
+
+  - do:
+      ml.close_job:
+        job_id: post-data-job
+  - match: { closed: true }
+
+  - do:
+      ml.get_job_stats:
+        job_id: post-data-job
+  - match: { jobs.0.state: "closed" }
+
+  - do:
+      get:
+        index: .ml-anomalies-post-data-job
+        id: post-data-job_data_counts
+
+  - match: { _source.processed_record_count: 2 }
+  - match: { _source.processed_field_count: 4}
+  - gte: { _source.input_bytes: 140 }
+  - lte: { _source.input_bytes: 180 }
+  - match: { _source.input_field_count: 6 }
+  - match: { _source.invalid_date_count: 0 }
+  - match: { _source.missing_field_count: 0 }
+  - match: { _source.out_of_order_timestamp_count: 0}
+  - match: { _source.earliest_record_timestamp: 1403481600000}
+  - match: { _source.latest_record_timestamp: 1403481700000}

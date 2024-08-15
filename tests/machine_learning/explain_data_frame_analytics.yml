@@ -1,0 +1,86 @@
+---
+requires:
+  stack: true
+  serverless: false
+---
+setup:
+  - do:
+      indices.create:
+        index: index-source
+        body:
+          mappings:
+            properties:
+              x:
+                type: float
+              y:
+                type: float
+
+  - do:
+      index:
+        index: index-source
+        refresh: true
+        body: { x: 1, y: 10 }
+  - match: { result: "created" }
+---
+teardown:
+  - do:
+      indices.delete:
+        index: index-source
+---
+"ml.explain_data_frame_analytics":
+  - do:
+      ml.explain_data_frame_analytics:
+        body:
+          source: { index: "index-source" }
+          analysis: { outlier_detection: {} }
+  - match:
+      memory_estimation.expected_memory_without_disk: / \d[km]b /
+  - match:
+      memory_estimation.expected_memory_with_disk: / \d[km]b /
+  - length: { field_selection: 2 }
+  - match: { field_selection.0.name: "x" }
+  - match: { field_selection.0.mapping_types: ["float"] }
+  - match: { field_selection.0.is_included: true }
+  - match: { field_selection.0.is_required: false }
+  - match: { field_selection.0.feature_type: "numerical" }
+  - is_false: field_selection.0.reason
+  - match: { field_selection.1.name: "y" }
+  - match: { field_selection.1.mapping_types: ["float"] }
+  - match: { field_selection.1.is_included: true }
+  - match: { field_selection.1.is_required: false }
+  - match: { field_selection.1.feature_type: "numerical" }
+  - is_false: field_selection.1.reason
+
+  - do:
+      index:
+        index: index-source
+        refresh: true
+        body: { x: 2, y: 20 }
+  - match: { result: "created" }
+
+  - do:
+      ml.explain_data_frame_analytics:
+        body:
+          source: { index: "index-source" }
+          analysis: { outlier_detection: {} }
+  - match:
+      memory_estimation.expected_memory_without_disk: / \d[km]b /
+  - match:
+      memory_estimation.expected_memory_with_disk: / \d[km]b /
+
+  - do:
+      index:
+        index: index-source
+        refresh: true
+        body: { x: 3, y: 30 }
+  - match: { result: "created" }
+
+  - do:
+      ml.explain_data_frame_analytics:
+        body:
+          source: { index: "index-source" }
+          analysis: { outlier_detection: {} }
+  - match:
+      memory_estimation.expected_memory_without_disk: / \d[km]b /
+  - match:
+      memory_estimation.expected_memory_with_disk: / \d[km]b /

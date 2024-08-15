@@ -1,0 +1,128 @@
+---
+requires:
+  stack: true
+  serverless: false
+---
+setup:
+  - do:
+      indices.create:
+        index: airline-data
+        body:
+          settings:
+            index:
+              number_of_shards: 1
+          mappings:
+            properties:
+              time:
+                type: date
+              airline:
+                type: keyword
+              airport:
+                type: text
+              responsetime:
+                type: float
+  - do:
+      ml.put_job:
+        job_id: set-upgrade-mode-job
+        body:  >
+          {
+            "job_id":"set-upgrade-mode-job",
+            "analysis_config" : {
+                "bucket_span": "1h",
+                "detectors" :[{"function":"count"}]
+            },
+            "data_description" : {
+                "format":"xcontent",
+                "time_field":"time",
+                "time_format":"epoch"
+            }
+          }
+
+  - do:
+      ml.put_datafeed:
+        datafeed_id: set-upgrade-mode-job-datafeed
+        body:  >
+          {
+            "job_id":"set-upgrade-mode-job",
+            "indexes":["airline-data"]
+          }
+
+  - do:
+      ml.open_job:
+        job_id: set-upgrade-mode-job
+
+  - do:
+      cluster.health:
+        index: airline-data
+        wait_for_status: yellow
+  - do:
+      cluster.put_settings:
+        body: >
+          {
+            "persistent": {
+              "logger.org.elasticsearch.xpack.ml.action.TransportSetUpgradeModeAction": "TRACE",
+              "logger.org.elasticsearch.xpack.ml.action.TransportCloseJobAction": "TRACE",
+              "logger.org.elasticsearch.xpack.ml.job.process.autodetect.AutodetectProcessManager": "TRACE"
+            }
+          }
+
+---
+teardown:
+  - do:
+      ml.set_upgrade_mode:
+        enabled: false
+  - do:
+      indices.delete:
+        index: airline-data
+  - do:
+      ml.delete_job:
+        job_id: set-upgrade-mode-job
+        force: true
+---
+"Setting upgrade_mode to enabled":
+  - do:
+      ml.start_datafeed:
+        datafeed_id: set-upgrade-mode-job-datafeed
+
+  - do:
+      cat.tasks: {}
+  - match:
+      $body: |
+        /.+job.+/
+
+  - do:
+      cat.tasks: {}
+  - match:
+      $body: |
+        /.+datafeed.+/
+
+  - do:
+      ml.info: {}
+  - match: { upgrade_mode: false }
+
+  - do:
+      ml.set_upgrade_mode:
+        enabled: true
+  - match: { acknowledged: true }
+
+  - do:
+      ml.get_job_stats:
+        job_id: set-upgrade-mode-job
+  - match: { jobs.0.state: "opened" }
+  - match: { jobs.0.assignment_explanation: "persistent task cannot be assigned while upgrade mode is enabled." }
+
+  - do:
+      ml.get_datafeed_stats:
+        datafeed_id: set-upgrade-mode-job-datafeed
+  - match: { datafeeds.0.state: "started" }
+  - match: { datafeeds.0.assignment_explanation: "persistent task cannot be assigned while upgrade mode is enabled." }
+
+  - do:
+      tasks.list:
+        actions: "xpack/ml/job*,xpack/ml/datafeed*"
+
+  - match: { nodes: { } }
+
+  - do:
+      ml.info: {}
+  - match: { upgrade_mode: true }

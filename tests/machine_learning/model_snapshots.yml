@@ -1,0 +1,157 @@
+---
+requires:
+  stack: true
+  serverless: false
+---
+setup:
+  - do:
+      ml.put_job:
+        job_id: get-model-snapshots
+        body:  >
+          {
+            "analysis_config" : {
+                "detectors" :[{"function":"metric","field_name":"responsetime","by_field_name":"airline"}]
+            },
+            "data_description" : {
+                "format":"xcontent",
+                "time_field":"time"
+            }
+          }
+
+  - do:
+      index:
+        index:  .ml-anomalies-get-model-snapshots
+        id:     "get-model-snapshots-1"
+        body:  >
+          {
+            "job_id": "get-model-snapshots",
+            "snapshot_id": "1",
+            "timestamp": "2016-06-02T00:00:00Z",
+            "snapshot_doc_count": 1
+          }
+
+  - do:
+      index:
+        index:  .ml-state-000001
+        id:     "get-model-snapshots_model_state_1#1"
+        body: {}
+
+  - do:
+      index:
+        index:  .ml-anomalies-get-model-snapshots
+        id:     "get-model-snapshots-2"
+        body:  >
+          {
+            "job_id": "get-model-snapshots",
+            "snapshot_id": "2",
+            "timestamp": "2016-06-01T00:00:00Z",
+            "snapshot_doc_count": 2
+          }
+
+  - do:
+      index:
+        index:  .ml-state-000001
+        id:     "get-model-snapshots_model_state_2#1"
+        body:  {}
+
+  - do:
+      index:
+        index:  .ml-state-000001
+        id:     "get-model-snapshots_model_state_2#2"
+        body:  {}
+  - do:
+      ml.put_job:
+        job_id: upgrade-model-snapshot
+        body:  >
+          {
+            "analysis_config" : {
+                "detectors" :[{"function":"metric","field_name":"responsetime","by_field_name":"airline"}]
+            },
+            "data_description" : {
+                "format":"xcontent",
+                "time_field":"time"
+            },
+            "analysis_limits" : {
+                "model_memory_limit":"20mb"
+            }
+          }
+
+  # It's too hard to create a genuine model snapshot in a YAML test.
+  # All we can do is create the descriptor doc that will allow the
+  # endpoints to get past an existence check. Then the actual snapshot
+  # upgrade will of course fail, but we can test that the stats report
+  # the attempt.
+  - do:
+      index:
+        index: .ml-anomalies-shared
+        id:    upgrade-model-snapshot_model_snapshot_1234567890
+        body:  >
+          {
+            "job_id": "upgrade-model-snapshot",
+            "min_version": "7.15.1",
+            "timestamp": "2021-12-13T03:04:05Z",
+            "description": "just for this test",
+            "snapshot_id": "1234567890",
+            "snapshot_doc_count": 1,
+            "latest_record_timestamp": "2021-12-13T02:03:04Z",
+            "latest_result_timestamp": "2021-12-13T01:02:03Z",
+            "retain":true
+          }
+  - do:
+      index:
+        index: .ml-state-000001
+        id:    "upgrade-model-snapshot_model_state_1234567890#1"
+        body: {}
+
+  - do:
+      indices.refresh:
+        index: [.ml-anomalies-get-model-snapshots,.ml-anomalies-shared,.ml-state*]
+---
+teardown:
+  - do:
+      ml.delete_job:
+        job_id: get-model-snapshots
+  - do:
+      ml.delete_job:
+        job_id: upgrade-model-snapshot
+---
+"Model snapshots":
+  - do:
+      ml.get_model_snapshots:
+        job_id: "get-model-snapshots"
+        snapshot_id: "_all"
+  - match: { count: 2 }
+  - match: { model_snapshots.0.timestamp: 1464825600000 }
+  - match: { model_snapshots.1.timestamp: 1464739200000 }
+
+  - do:
+      ml.get_model_snapshots:
+        job_id: "get-model-snapshots"
+        snapshot_id: "2"
+  - match: { count: 1 }
+  - match: { model_snapshots.0.timestamp: 1464739200000 }
+
+  - do:
+      catch: missing
+      ml.delete_model_snapshot:
+        job_id: "non-existent-job"
+        snapshot_id: "delete-model-snapshot"
+
+  - do:
+      ml.delete_model_snapshot:
+        job_id: "get-model-snapshots"
+        snapshot_id: "2"
+  - do:
+      ml.upgrade_job_snapshot:
+        job_id: "upgrade-model-snapshot"
+        snapshot_id: "1234567890"
+        wait_for_completion: false
+
+  - do:
+      ml.get_model_snapshot_upgrade_stats:
+        job_id: "upgrade-model-snapshot"
+        snapshot_id: "1234567890"
+  - match: { count: 1 }
+  - match: { model_snapshot_upgrades.0.job_id: "upgrade-model-snapshot" }
+  - match: { model_snapshot_upgrades.0.snapshot_id: "1234567890" }
+  - match: { model_snapshot_upgrades.0.state: /failed|loading_old_state/ }

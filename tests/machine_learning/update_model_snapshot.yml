@@ -1,0 +1,19 @@
+---
+requires:
+  stack: true
+  serverless: false
+---
+"ml.update_model_snapshot":
+  - do:
+      catch: missing
+      ml.update_model_snapshot:
+        job_id: "non-existent-job"
+        snapshot_id: "san"
+        body: {"description": "new foo", "retain": true}
+
+  - do:
+      catch: missing
+      ml.update_model_snapshot:
+        job_id: "update-model-snapshot"
+        snapshot_id: "snapshot-9999"
+        body: {"description": "new description for snapshot 9999"}

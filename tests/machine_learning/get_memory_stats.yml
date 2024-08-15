@@ -1,0 +1,14 @@
+---
+requires:
+  stack: true
+  serverless: false
+---
+"ml.get_memory_stats":
+  - do:
+      ml.get_memory_stats: {}
+  # test cluster has 1 node in stateful, 3 in stateless
+  - gte: { _nodes.total: 1 }
+  - lte: { _nodes.total: 3 }
+  - gte: { _nodes.successful: 1 }
+  - lte: { _nodes.successful: 3 }
+  - is_true: cluster_name

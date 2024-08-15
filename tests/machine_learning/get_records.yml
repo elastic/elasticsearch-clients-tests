@@ -1,0 +1,69 @@
+---
+requires:
+  stack: true
+  serverless: false
+---
+setup:
+  - do:
+      ml.put_job:
+        job_id: jobs-get-result-records
+        body:  >
+          {
+            "analysis_config" : {
+                "detectors" :[{"function":"metric","field_name":"responsetime","by_field_name":"airline"}]
+            },
+            "data_description" : {
+                "format":"xcontent",
+                "time_field":"time"
+            }
+          }
+
+  - do:
+      index:
+        index:  .ml-anomalies-jobs-get-result-records
+        id:     jobs-get-result-records_1464739200000_1_1
+        body:
+          {
+            "job_id": "jobs-get-result-records",
+            "result_type": "record",
+            "timestamp": "2016-06-01T00:00:00Z",
+            "record_score": 60.0,
+            "bucket_span": 1
+          }
+
+  - do:
+      index:
+        index:  .ml-anomalies-jobs-get-result-records
+        id:     jobs-get-result-records_1464825600000_1_2
+        body:
+          {
+            "job_id": "jobs-get-result-records",
+            "result_type": "record",
+            "timestamp": "2016-06-02T00:00:00Z",
+            "record_score": 80.0,
+            "bucket_span": 1,
+            "is_interim": true
+          }
+
+  - do:
+      indices.refresh:
+        index: .ml-anomalies-jobs-get-result-records
+
+---
+teardown:
+  - do:
+      ml.delete_job:
+        job_id: jobs-get-result-records
+---
+"ml.get_records":
+  - do:
+      ml.get_records:
+        job_id: "jobs-get-result-records"
+
+  - match: { count: 2 }
+  - match: { records.0.timestamp: 1464825600000 }
+  - match: { records.0.job_id: jobs-get-result-records}
+  - match: { records.0.result_type: record}
+  - match: { records.1.timestamp: 1464739200000 }
+  - match: { records.1.job_id: jobs-get-result-records}
+  - match: { records.1.result_type: record}

@@ -1,0 +1,40 @@
+---
+requires:
+  stack: true
+  serverless: false
+---
+setup:
+  - do:
+      ml.put_job:
+        job_id: revert-model-snapshot
+        body:  >
+          {
+            "job_id":"revert-model-snapshot",
+            "description":"Analysis of response time by airline",
+            "analysis_config" : {
+                "bucket_span": "1h",
+                "detectors" :[{"function":"metric","field_name":"responsetime","by_field_name":"airline"}]
+            },
+            "data_description" : {
+                "time_field":"time",
+                "time_format":"yyyy-MM-dd HH:mm:ssX"
+            }
+          }
+---
+teardown:
+  - do:
+      ml.delete_job:
+        job_id: revert-model-snapshot
+---
+"Test revert model with invalid snapshotId":
+  - do:
+      catch: /resource_not_found_exception/
+      ml.revert_model_snapshot:
+        job_id: "revert-model-snapshot"
+        snapshot_id: "not_exist"
+
+  - do:
+      catch: missing
+      ml.revert_model_snapshot:
+        job_id: "non-existent-job"
+        snapshot_id: "second"

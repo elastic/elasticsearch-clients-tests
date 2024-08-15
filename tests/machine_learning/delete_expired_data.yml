@@ -1,0 +1,60 @@
+---
+requires:
+  stack: true
+  serverless: false
+---
+setup:
+  - do:
+      ml.put_job:
+        job_id: delete-expired-data-a
+        body:  >
+          {
+            "description":"Analysis of response time by airline",
+            "analysis_config" : {
+                "bucket_span" : "1h",
+                "detectors" :[{"function":"metric","field_name":"responsetime","by_field_name":"airline"}]
+            },
+            "data_description" : {
+                "time_field":"time",
+                "time_format":"yyyy-MM-dd HH:mm:ssX"
+            },
+            "results_retention_days" : 1,
+            "model_snapshot_retention_days" : 1
+          }
+
+  - do:
+      ml.put_job:
+        job_id: delete-expired-data-b
+        body:  >
+          {
+            "description":"Analysis of response time by airline",
+            "analysis_config" : {
+                "bucket_span" : "1h",
+                "detectors" :[{"function":"metric","field_name":"responsetime","by_field_name":"airline"}]
+            },
+            "data_description" : {
+                "time_field":"time",
+                "time_format":"yyyy-MM-dd HH:mm:ssX"
+            },
+            "results_retention_days" : 1,
+            "model_snapshot_retention_days" : 1
+          }
+---
+teardown:
+  - do:
+      ml.delete_job:
+        job_id: "delete-expired-data-a"
+  - do:
+      ml.delete_job:
+        job_id: "delete-expired-data-b"
+---
+'ML delete_expired_data':
+  - do:
+      ml.delete_expired_data:
+        body:  >
+           { "timeout": "10h", "requests_per_second": 100000.0 }
+  - match: { deleted: true}
+
+  - do:
+      ml.delete_expired_data: {}
+  - match: { deleted: true}
