@@ -1,0 +1,21 @@
+---
+requires:
+  stack: true
+  serverless: false
+---
+setup:
+  - do:
+      indices.create:
+        index: test_shards
+---
+teardown:
+  - do:
+      indices.delete:
+        index: test_shards
+---
+"_search_shards":
+  - do:
+      search_shards:
+        index:  test_shards
+        routing: foo
+  - match: { shards.0.0.index: test_shards }
