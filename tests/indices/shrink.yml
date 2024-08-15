@@ -7,22 +7,20 @@ setup:
   - do:
       indices.create:
         index: shrink_source
-        wait_for_active_shards: 1
         body:
           settings:
             # ensure everything is allocated on the same data node
-            index.routing.allocation.include._id: $node_id
             index.number_of_shards: 2
             index.number_of_replicas: 0
   - do:
       index:
-        index: shrink_source
+        index: "shrink_source"
         id:    "1"
         body:  { "foo": "hello world" }
   # make it read-only
   - do:
       indices.put_settings:
-        index: shrink_source
+        index: "shrink_source"
         body:
           index.blocks.write: true
           index.number_of_replicas: 0
@@ -30,10 +28,12 @@ setup:
 teardown:
   - do:
       indices.delete:
-        index: shrink_source
+        index: "shrink_source"
+        ignore: 404
   - do:
       indices.delete:
-        index: shrink_target
+        index: "shrink_target"
+        ignore: 404
 ---
 'indices.shrink':
   - do:
