@@ -248,7 +248,7 @@ Endpoints that are currently being tested are marked as done and link to the tes
 | ml.delete_expired_data | 🟢 | [✅](./tests/machine_learning/delete_expired_data.yml#L53)</li></ul> | 🔴 | Not Applicable |
 | ml.delete_filter | 🟢 | [✅](./tests/machine_learning/filter_crud.yml#L37)</li></ul> | 🟢 | [✅](./tests/machine_learning/filter_crud.yml#L37)</li></ul> |
 | ml.delete_forecast | 🟢 | [✅](./tests/machine_learning/forecast.yml#L32)</li></ul> | 🔴 | Not Applicable |
-| ml.delete_job | 🟢 | [✅](./tests/machine_learning/buckets.yml#L66)</li></ul> | 🟢 | [✅](./tests/machine_learning/buckets.yml#L66)</li></ul> |
+| ml.delete_job | 🟢 | [✅](./tests/machine_learning/buckets_stack.yml#L66)</li></ul> | 🟢 | [✅](./tests/machine_learning/buckets_serverless.yml#L39)</li></ul> |
 | ml.delete_model_snapshot | 🟢 | [✅](./tests/machine_learning/model_snapshots.yml#L136)</li></ul> | 🔴 | Not Applicable |
 | ml.delete_trained_model | 🟢 | [✅](./tests/machine_learning/10_trained_model.yml#L36)</li></ul> | 🟢 | [✅](./tests/machine_learning/10_trained_model.yml#L36)</li></ul> |
 | ml.delete_trained_model_alias | 🟢 | [✅](./tests/machine_learning/trained_model_aliases.yml#L40)</li></ul> | 🟢 | [✅](./tests/machine_learning/trained_model_aliases.yml#L40)</li></ul> |
@@ -257,7 +257,7 @@ Endpoints that are currently being tested are marked as done and link to the tes
 | ml.explain_data_frame_analytics | 🟢 | [✅](./tests/machine_learning/explain_data_frame_analytics.yml#L30)</li></ul> | 🔴 | Not Applicable |
 | ml.flush_job | 🟢 | [✅](./tests/machine_learning/post_data.yml#L60)</li></ul> | 🟢 | ❌ |
 | ml.forecast | 🟢 | [✅](./tests/machine_learning/forecast.yml#L29)</li></ul> | 🔴 | Not Applicable |
-| ml.get_buckets | 🟢 | [✅](./tests/machine_learning/buckets.yml#L76)</li></ul> | 🔴 | [✅](./tests/machine_learning/buckets.yml#L76)</li></ul> |
+| ml.get_buckets | 🟢 | [✅](./tests/machine_learning/buckets_stack.yml#L76)</li></ul> | 🔴 | Not Applicable |
 | ml.get_calendar_events | 🟢 | [✅](./tests/machine_learning/calendar_events_crud.yml#L29)</li></ul> | 🟢 | [✅](./tests/machine_learning/calendar_events_crud.yml#L29)</li></ul> |
 | ml.get_calendars | 🟢 | [✅](./tests/machine_learning/calendar_crud.yml#L25)</li></ul> | 🟢 | [✅](./tests/machine_learning/calendar_crud.yml#L25)</li></ul> |
 | ml.get_categories | 🟢 | [✅](./tests/machine_learning/get_categories.yml#L51)</li></ul> | 🔴 | Not Applicable |
@@ -272,7 +272,7 @@ Endpoints that are currently being tested are marked as done and link to the tes
 | ml.get_memory_stats | 🟢 | [✅](./tests/machine_learning/get_memory_stats.yml#L6)</li></ul> | 🔴 | Not Applicable |
 | ml.get_model_snapshot_upgrade_stats | 🟢 | [✅](./tests/machine_learning/model_snapshots.yml#L151)</li></ul> | 🔴 | Not Applicable |
 | ml.get_model_snapshots | 🟢 | [✅](./tests/machine_learning/model_snapshots.yml#L120)</li></ul> | 🔴 | Not Applicable |
-| ml.get_overall_buckets | 🟢 | [✅](./tests/machine_learning/buckets.yml#L71)</li></ul> | 🟢 | [✅](./tests/machine_learning/buckets.yml#L71)</li></ul> |
+| ml.get_overall_buckets | 🟢 | [✅](./tests/machine_learning/buckets_stack.yml#L71)</li></ul> | 🟢 | [✅](./tests/machine_learning/buckets_serverless.yml#L44)</li></ul> |
 | ml.get_records | 🟢 | [✅](./tests/machine_learning/get_records.yml#L58)</li></ul> | 🔴 | Not Applicable |
 | ml.get_trained_models | 🟢 | [✅](./tests/machine_learning/10_trained_model.yml#L31)</li></ul> | 🟢 | [✅](./tests/machine_learning/10_trained_model.yml#L31)</li></ul> |
 | ml.get_trained_models_stats | 🟢 | [✅](./tests/machine_learning/20_trained_model.yml#L47)</li></ul> | 🟢 | [✅](./tests/machine_learning/20_trained_model.yml#L47)</li></ul> |
@@ -288,7 +288,7 @@ Endpoints that are currently being tested are marked as done and link to the tes
 | ml.put_data_frame_analytics | 🟢 | [✅](./tests/machine_learning/data_frame_analytics.yml#L42)</li></ul> | 🟢 | [✅](./tests/machine_learning/data_frame_analytics.yml#L42)</li></ul> |
 | ml.put_datafeed | 🟢 | [✅](./tests/machine_learning/datafeed_crud.yml#L58)</li></ul> | 🟢 | [✅](./tests/machine_learning/datafeed_crud.yml#L58)</li></ul> |
 | ml.put_filter | 🟢 | [✅](./tests/machine_learning/filter_crud.yml#L8)</li></ul> | 🟢 | [✅](./tests/machine_learning/filter_crud.yml#L8)</li></ul> |
-| ml.put_job | 🟢 | [✅](./tests/machine_learning/buckets.yml#L8)</li></ul> | 🟢 | [✅](./tests/machine_learning/buckets.yml#L8)</li></ul> |
+| ml.put_job | 🟢 | [✅](./tests/machine_learning/buckets_stack.yml#L8)</li></ul> | 🟢 | [✅](./tests/machine_learning/buckets_serverless.yml#L8)</li></ul> |
 | ml.put_trained_model | 🟢 | [✅](./tests/machine_learning/10_trained_model.yml#L8)</li></ul> | 🟢 | [✅](./tests/machine_learning/10_trained_model.yml#L8)</li></ul> |
 | ml.put_trained_model_alias | 🟢 | [✅](./tests/machine_learning/trained_model_aliases.yml#L35)</li></ul> | 🟢 | [✅](./tests/machine_learning/trained_model_aliases.yml#L35)</li></ul> |
 | ml.put_trained_model_definition_part | 🟢 | [✅](./tests/machine_learning/20_trained_model.yml#L36)</li></ul> | 🟢 | [✅](./tests/machine_learning/20_trained_model.yml#L36)</li></ul> |
