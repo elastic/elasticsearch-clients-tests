@@ -105,7 +105,7 @@ setup:
 
   - do:
       indices.refresh:
-        index: [.ml-anomalies-get-model-snapshots,.ml-anomalies-shared,.ml-state*]
+        index: [.ml-anomalies-get-model-snapshots, .ml-anomalies-shared, .ml-state*]
 ---
 teardown:
   - do:
