@@ -1,0 +1,46 @@
+---
+requires:
+  serverless: true
+  stack: false
+---
+setup:
+  - do:
+      ml.put_job:
+        job_id: jobs-get-result-buckets
+        body:  >
+          {
+            "analysis_config" : {
+                "detectors" :[{"function":"metric","field_name":"responsetime","by_field_name":"airline"}]
+            },
+            "data_description" : {
+                "format":"xcontent",
+                "time_field":"time"
+            }
+          }
+
+  - do:
+      index:
+        index:  .ml-anomalies-jobs-get-result-buckets
+        id:     "jobs-get-result-buckets_1464739200000_1"
+        body:
+          {
+            "job_id": "jobs-get-result-buckets",
+            "result_type": "bucket",
+            "timestamp": "2016-06-01T00:00:00Z",
+            "anomaly_score": 90.0,
+            "bucket_span":1
+          }
+  - do:
+      indices.refresh:
+        index: .ml-anomalies-jobs-get-result-buckets
+---
+teardown:
+  - do:
+      ml.delete_job:
+        job_id: jobs-get-result-buckets
+---
+"Test buckets":
+  - do:
+      ml.get_overall_buckets:
+        job_id: "jobs-get-result-*"
+  - gte: { count: 1 }
