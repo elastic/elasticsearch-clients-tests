@@ -56,11 +56,12 @@ module Elastic
     private
 
     # For a given flavour (:stack or :serverless), find if there are any tests that call this endpoint.
+    #
     def find_tested(flavour)
       Dir[TESTS_PATH].map do |path|
         relative_path = path[path.index('/tests')..]
         file_content = File.read(path)
-        # Move along if these are not the tests we're looking for
+        # Move along if these aren't the tests we're looking for
         next unless file_content.include?("#{flavour}: true") && file_content.include?(@name)
 
         file_content.split("\n").each_with_index do |line, index|

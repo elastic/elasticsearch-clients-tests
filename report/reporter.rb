@@ -29,6 +29,7 @@ module Elastic
 
     # Serverless APIs are obtained from elastic/elasticsearch-specification.
     # Use `rake download_serverless` to download the files to ../tmp.
+    #
     def setup
       puts '⏳ Reading and parsing specifications...'
       JSON.parse(File.read('./tmp/schema.json'))['endpoints'].map do |spec|
@@ -44,24 +45,35 @@ module Elastic
       end
     end
 
+    # Calculates what percentage of serverless endpoints are being tested
+    #
     def coverage_serverless
       @endpoints.count(&:tested_serverless?) * 100 / @endpoints.count(&:available_serverless?)
     end
 
+    # Calculates what percentage of serverless endpoints are being tested
+    #
     def coverage_stack
       @endpoints.count(&:tested_stack?) * 100 / @endpoints.count(&:available_stack?)
     end
 
+    # Calculates how many stack endpoints are not being tested
+    #
     def untested_stack_count
       @endpoints.count { |api| api.available_stack? && !api.tested_stack? }
     end
 
+    # Calculates how many serverless endpoints are not being tested
+    #
     def untested_serverless_count
       @endpoints.count do |api|
         api.available_serverless? && !api.tested_serverless?
       end
     end
 
+    # Helper for the template
+    # It displays a Markdown table with the information for each endpoint
+    #
     def display_table
       @endpoints.map do |endpoint|
         "| #{endpoint.name} | #{endpoint.available_stack? ? '🟢' : '🔴'} " \
