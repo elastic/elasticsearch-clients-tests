@@ -30,6 +30,7 @@ module Elastic
     # Serverless APIs are obtained from elastic/elasticsearch-specification.
     # Use `rake download_serverless` to download the files to ../tmp.
     def setup
+      puts '⏳ Reading and parsing specifications...'
       JSON.parse(File.read('./tmp/schema.json'))['endpoints'].map do |spec|
         if spec['name'].start_with?('_')
           @internal << { name: spec['name'], reason: 'Internal API' }
@@ -67,6 +68,26 @@ module Elastic
         "| #{endpoint.display_tested_stack} | #{endpoint.available_serverless? ? '🟢' : '🔴'} " \
         "| #{endpoint.display_tested_serverless}"
       end.join("\n")
+    end
+
+    def namespaces_stack
+      @namespaces_stack ||= namespaces(:stack)
+    end
+
+    def namespaces_serverless
+      @namespaces_serverless ||= namespaces(:serverless)
+    end
+
+    def namespaces(flavour = nil)
+      if flavour
+        endpoints.map do |a|
+          a.name.split('.').first if a.name.include?('.') && a.send("available_#{flavour}?")
+        end.compact.uniq
+      else
+        endpoints.map do |a|
+          a.name.split('.').first if a.name.include?('.')
+        end.compact.uniq
+      end
     end
   end
 end
