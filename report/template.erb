@@ -2,9 +2,8 @@
 
 Endpoints that are currently being tested are marked as done and link to the test where they're being used.
 
-* **STACK** - **Total**: <%= @reporter.apis[:specification].count %> | **Tested**: <%= @reporter.stack_tested_count %> | **Untested**: <%= @reporter.stack_untested_count %> ![](https://geps.dev/progress/<%= @reporter.coverage_stack %>)
-* **SERVERLESS** - **Total**: <%= @reporter.serverless_apis.count %> | **Tested** <%= @reporter.serverless_tested_count %> | **Untested**: <%= @reporter.serverless_untested_count %> ![](https://geps.dev/progress/<%= @reporter.coverage_serverless %>)
-* [APIs in JSON spec and not in elasticsearch-specification](#apis-in-json-spec-and-not-elasticsearch-specification)
+* **STACK** - **Total**: <%= @reporter.endpoints.count(&:available_stack?) %> | **Tested**: <%= @reporter.endpoints.count(&:tested_stack?) %> | **Untested**: <%= @reporter.untested_stack_count %> ![](https://geps.dev/progress/<%= @reporter.coverage_stack %>)
+* **SERVERLESS** - **Total**: <%= @reporter.endpoints.count(&:available_serverless?) %> | **Tested**: <%= @reporter.endpoints.count(&:tested_serverless?) %> | **Untested**: <%= @reporter.untested_serverless_count %> ![](https://geps.dev/progress/<%= @reporter.coverage_serverless %>)
 
 ## Endpoints in elasticsearch-specification
 
@@ -12,24 +11,10 @@ Endpoints that are currently being tested are marked as done and link to the tes
 | :------------ | :----------------: | :-------------: | :---------------------: | :------------------: |
 <%= @reporter.display_table -%>
 
-
 ## Internal APIs (Not tracked)
 
 | Endpoint name | Reason |
 | ------------- | ------ |
-<% @reporter.apis[:internal].each do |api| -%>
-| <%= api[:name] -%> | <%= api[:reason] -%> |
-<% end -%>
-
-<details>
-  <summary>Endpoints in stack JSON spec</summary>
-<%=  @reporter.apis[:json].map { |a| "<code>#{a}</code>" }.join(', ') -%>
-</details>
-
-<% difference = @reporter.apis[:json] - @reporter.apis[:specification].map { |a| a['name'] } -%>
-<%  unless difference.empty? -%>
-  <details>
-    <summary id="apis-in-json-spec-and-not-elasticsearch-specification">APIs in JSON spec and not elasticsearch-specification</summary>
-    <%= difference.map { |a| "<code>#{a}</code>" }.join(', ') -%>
-  </details>
+<% @reporter.internal.each do |api| -%>
+  | <%= api[:name] -%> | <%= api[:reason] -%> |
 <% end -%>
