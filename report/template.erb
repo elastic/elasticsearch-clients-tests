@@ -5,10 +5,13 @@ Endpoints that are currently being tested are marked as done and link to the tes
 * **STACK** - **Total**: <%= @reporter.endpoints.count(&:available_stack?) %> | **Tested**: <%= @reporter.endpoints.count(&:tested_stack?) %> | **Untested**: <%= @reporter.untested_stack_count %> ![](https://geps.dev/progress/<%= @reporter.coverage_stack %>)
 * **SERVERLESS** - **Total**: <%= @reporter.endpoints.count(&:available_serverless?) %> | **Tested**: <%= @reporter.endpoints.count(&:tested_serverless?) %> | **Untested**: <%= @reporter.untested_serverless_count %> ![](https://geps.dev/progress/<%= @reporter.coverage_serverless %>)
 
+* [Internal APIs](#internal-apis-not-tracked)
+* [API information from the Elasticsearch JSON specification](#elasticsearch-json-specification)
+
 ## Endpoints in elasticsearch-specification
 
-| Endpoint name | Available in Stack | Tested in Stack | Available in Serverless | Tested in Serverless |
-| :------------ | :----------------: | :-------------: | :---------------------: | :------------------: |
+| Endpoint name | Available in Stack | Tested in Stack | Available in Serverless | Tested in Serverless | Tested in ES |
+| :------------ | :----------------: | :-------------: | :---------------------: | :------------------: | :----------: |
 <%= @reporter.display_table -%>
 
 ## Internal APIs (Not tracked)
@@ -18,3 +21,17 @@ Endpoints that are currently being tested are marked as done and link to the tes
 <% @reporter.internal.each do |api| -%>
   | <%= api[:name] -%> | <%= api[:reason] -%> |
 <% end -%>
+
+## Elasticsearch JSON specification
+
+**Total** <%= @reporter.json_spec[:apis].count %> | **Tested** <%= @reporter.json_spec[:apis].count { |a| a[:tested] } %> | **Untested** <%= @reporter.json_spec[:apis].count { |a| !a[:tested] } %> ![](https://geps.dev/progress/<%= @reporter.coverage_rest_api %>)
+
+<% difference = @reporter.json_spec[:apis].map { |a| a[:name] } - @reporter.endpoints.map { |a| a.name } -%>
+<details>
+  <summary id="apis-in-json-spec-and-not-elasticsearch-specification">APIs in JSON spec and not elasticsearch-specification (excluding internal APIs)</summary>
+  <% if difference.empty? -%>
+    There are currently no APIs in the JSON specification that are not present in the elasticsearch-specification.
+  <% else %>
+    <%= difference.map { |a| "<code>#{a}</code>" }.join(', ') -%>
+  <% end %>
+</details>
