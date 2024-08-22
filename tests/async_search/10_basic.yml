@@ -35,8 +35,8 @@ teardown:
       async_search.submit:
         index: async_search_test_10
         q: 'julio'
-        wait_for_completion_timeout: 0
-  - match: { is_partial: true }
+        keep_on_completion: true
+  - match: { response.hits.hits.0._source.name: 'Bestiario' }
   - set:   { id: id }
 
   - do:
