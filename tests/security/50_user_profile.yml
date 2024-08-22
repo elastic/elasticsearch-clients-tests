@@ -174,3 +174,32 @@ teardown:
                 privileges:
                   - read
   - is_true: has_privilege_uids
+# disable the user
+  - do:
+      security.disable_user:
+        username: "joe"
+
+# validate user cannot login
+  - do:
+      catch: unauthorized
+      headers:
+        Authorization: "Basic am9lOnMza3JpdC1wYXNzd29yZA=="
+      cluster.health: {}
+
+# enable the user
+  - do:
+      security.enable_user:
+        username: "joe"
+
+# validate that the user can login again
+  - do:
+      headers:
+        Authorization: "Basic am9lOnMza3JpdC1wYXNzd29yZA=="
+      cluster.health: {}
+  - match: { timed_out: false }
+
+  - do:
+      security.query_user:
+        body: { }
+  - match: { total: 2 }
+  - match: { count: 2 }
