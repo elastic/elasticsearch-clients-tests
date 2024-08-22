@@ -1,0 +1,21 @@
+---
+requires:
+  stack: true
+  serverless: false
+---
+'secury.get_settings':
+  - do:
+      security.get_settings: {}
+  - is_true: 'security'
+  - is_true: 'security-tokens'
+  - is_true: 'security-profile'
+  - do:
+      security.update_settings:
+        body:
+          security:
+            index.auto_expand_replicas: null
+            index.number_of_replicas: 1
+
+  - do:
+      security.get_settings: { }
+  - match: { "security.index.number_of_replicas": "1" }
