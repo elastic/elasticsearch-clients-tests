@@ -92,3 +92,7 @@ teardown:
         body:
           names: ["test_admin_role"]
   - match: { deleted.0: "test_admin_role" }
+
+  - do:
+      security.clear_cached_roles:
+        name: "admin_role"
