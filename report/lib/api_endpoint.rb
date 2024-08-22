@@ -1,8 +1,10 @@
 module Elastic
   class ApiEndpoint
     TESTS_PATH = File.expand_path('../tests/**/*.yml')
+    REST_API_TESTS_PATH = File.expand_path('./tmp/rest-api-spec/test/')
 
     attr_reader :name
+    attr_writer :test_elasticsearch
 
     def initialize(spec)
       @name = spec['name']
@@ -10,6 +12,7 @@ module Elastic
 
       @test_stack = find_tested(:stack) if available_stack?
       @test_serverless = find_tested(:serverless) if available_serverless?
+      @test_elasticsearch = false
     end
 
     # The absence of an 'availability' field on a property implies that the property is
@@ -33,6 +36,10 @@ module Elastic
       !@test_serverless.nil? && !@test_serverless.empty?
     end
 
+    def tested_elasticsearch?
+      @test_elasticsearch
+    end
+
     def display_tested_stack
       if @test_stack && @test_stack[:file]
         "[✅](#{@test_stack[:file]}\#L#{@test_stack[:line]})</li></ul>"
@@ -50,6 +57,17 @@ module Elastic
         '❌'
       else
         'Not Applicable'
+      end
+    end
+
+    def display_tested_elasticsearch
+      if tested_elasticsearch?
+        '👍'
+      elsif tested_stack? || tested_serverless?
+        # If it's not tested on the Elasticsearch Suite, but it is in ours:
+        '🙌'
+      else
+        '👎'
       end
     end
 
@@ -86,6 +104,11 @@ module Elastic
         end
       end
       {}
+    end
+
+    # Find if the endpoint is being tested in the Elasticsearch YAML test suite
+    def self.find_rest_api_test(endpoint)
+      !`grep -ir #{endpoint}: #{REST_API_TESTS_PATH}`.empty?
     end
   end
 end

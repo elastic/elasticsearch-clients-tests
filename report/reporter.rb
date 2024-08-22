@@ -10,7 +10,6 @@ module Elastic
   #
   class Reporter
     STACK_FILES = "#{File.expand_path('./tmp/rest-api-spec/api')}/*.json".freeze
-    TESTS_PATH = File.expand_path('../tests/**/*.yml')
     # APIs designed for indirect use by ECE/ESS and ECK, direct use is not supported.'
     EXCLUDED_APIS = [
       { name: 'autoscaling', reason: 'Designed for indirect use by ECE/ESS and ECK. Direct use is not supported.' },
@@ -18,20 +17,21 @@ module Elastic
       { name: 'rollup', reason: 'The rollup feature was never GA-ed and is still tech preview. It has been deprecated since 8.11.0 in favor of downsampling.' }
     ].freeze
 
-    attr_reader :endpoints, :internal
+    attr_reader :endpoints, :internal, :json_spec
 
     def initialize
       @endpoints = []
       @internal = []
 
-      setup
+      puts '⏳ Reading and parsing specifications...'
+      build_elasticsearch_specification
+      build_json_apis
     end
 
     # Serverless APIs are obtained from elastic/elasticsearch-specification.
     # Use `rake download_serverless` to download the files to ../tmp.
     #
-    def setup
-      puts '⏳ Reading and parsing specifications...'
+    def build_elasticsearch_specification
       JSON.parse(File.read('./tmp/schema.json'))['endpoints'].map do |spec|
         if spec['name'].start_with?('_')
           @internal << { name: spec['name'], reason: 'Internal API' }
@@ -43,6 +43,40 @@ module Elastic
           @endpoints << ApiEndpoint.new(spec)
         end
       end
+    end
+
+    # Stack APIs are obtained from the Elasticsearch Rest JSON specification.
+    # Use `rake download_stack` to download the spec files to ../tmp.
+    #
+    # It is assumed that all the APIs in elasticsearch-specification are already present in the
+    # Elasticsearch JSON specification.
+    #
+    def build_json_apis
+      @json_spec = {
+        internal: [],
+        apis: [],
+        exclusive: []
+      }
+      # Find all the JSON files with API specifications:
+      apis = Dir[STACK_FILES].map { |path| path.split('/').last.gsub('.json', '') }
+      apis.each do |name|
+        # Skip if it's an internal or excluded API:
+        if name.start_with?('_') || EXCLUDED_APIS.select { |api| name.match? api[:name] }.any?
+          @json_spec[:internal] << name
+        elsif (endpoint = @endpoints.find { |e| e.name == name })
+          tested = ApiEndpoint::find_rest_api_test(name)
+          @json_spec[:apis] << { name: name, tested: tested }
+          # If we find this API in the spec, add the metadata to the object in @endpoints
+          endpoint.test_elasticsearch = tested
+        else
+          # If the API is not in elasticsearch-specification, add it to only ES:
+          @json_spec[:exclusive] << { name: name, tested: ApiEndpoint::find_rest_api_test(name) }
+        end
+      end
+    end
+
+    def coverage_rest_api
+      @json_spec[:apis].count { |a| a[:tested] } * 100 / @json_spec[:apis].count
     end
 
     # Calculates what percentage of serverless endpoints are being tested
@@ -78,7 +112,7 @@ module Elastic
       @endpoints.map do |endpoint|
         "| #{endpoint.name} | #{endpoint.available_stack? ? '🟢' : '🔴'} " \
         "| #{endpoint.display_tested_stack} | #{endpoint.available_serverless? ? '🟢' : '🔴'} " \
-        "| #{endpoint.display_tested_serverless}"
+        "| #{endpoint.display_tested_serverless} | #{endpoint.display_tested_elasticsearch}"
       end.join("\n")
     end
 
