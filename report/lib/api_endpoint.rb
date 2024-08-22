@@ -2,7 +2,7 @@ module Elastic
   class ApiEndpoint
     TESTS_PATH = File.expand_path('../tests/**/*.yml')
 
-    attr_reader :name, :available_stack, :available_serverless
+    attr_reader :name
 
     def initialize(spec)
       @name = spec['name']
@@ -50,6 +50,14 @@ module Elastic
         '❌'
       else
         'Not Applicable'
+      end
+    end
+
+    def namespace
+      if name.include?('.')
+        name.split('.').first
+      else
+        'common'
       end
     end
 
