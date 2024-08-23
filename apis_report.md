@@ -2,7 +2,7 @@
 
 Endpoints that are currently being tested are marked as done and link to the test where they're being used.
 
-* **STACK** - **Total**: 482 | **Tested**: 386 | **Untested**: 96 ![](https://geps.dev/progress/80)
+* **STACK** - **Total**: 482 | **Tested**: 416 | **Untested**: 66 ![](https://geps.dev/progress/86)
 * **SERVERLESS** - **Total**: 236 | **Tested**: 229 | **Untested**: 7 ![](https://geps.dev/progress/97)
 
 * [Internal APIs](#internal-apis-not-tracked)
@@ -350,7 +350,7 @@ Endpoints that are currently being tested are marked as done and link to the tes
 | search_application.render_query | 🟢 | [✅](./tests/search_application/40_render_query.yml#L77)</li></ul> | 🔴 | Not Applicable | 👍
 | search_application.search | 🟢 | [✅](./tests/search_application/10_basic.yml#L52)</li></ul> | 🟢 | [✅](./tests/search_application/10_basic.yml#L52)</li></ul> | 👍
 | search_mvt | 🟢 | [✅](./tests/search_mvt/10_basic.yml#L33)</li></ul> | 🟢 | [✅](./tests/search_mvt/10_basic.yml#L33)</li></ul> | 👍
-| search_shards | 🟢 | ❌ | 🔴 | Not Applicable | 👍
+| search_shards | 🟢 | [✅](./tests/search_shards.yml#L18)</li></ul> | 🔴 | Not Applicable | 👍
 | search_template | 🟢 | [✅](./tests/search_template/10_basic.yml#L38)</li></ul> | 🟢 | [✅](./tests/search_template/10_basic.yml#L38)</li></ul> | 🙌
 | searchable_snapshots.cache_stats | 🟢 | [✅](./tests/searchable_snapshots/10_basic.yml#L70)</li></ul> | 🔴 | Not Applicable | 🙌
 | searchable_snapshots.clear_cache | 🟢 | [✅](./tests/searchable_snapshots/10_basic.yml#L74)</li></ul> | 🔴 | Not Applicable | 👍
@@ -360,54 +360,54 @@ Endpoints that are currently being tested are marked as done and link to the tes
 | security.authenticate | 🟢 | [✅](./tests/security/20_authenticate.yml#L8)</li></ul> | 🟢 | [✅](./tests/security/20_authenticate.yml#L8)</li></ul> | 👍
 | security.bulk_delete_role | 🟢 | [✅](./tests/security/40_roles.yml#L91)</li></ul> | 🔴 | Not Applicable | 👍
 | security.bulk_put_role | 🟢 | [✅](./tests/security/40_roles.yml#L64)</li></ul> | 🔴 | Not Applicable | 👍
-| security.bulk_update_api_keys | 🟢 | ❌ | 🔴 | Not Applicable | 👍
-| security.change_password | 🟢 | ❌ | 🔴 | Not Applicable | 👍
-| security.clear_api_key_cache | 🟢 | ❌ | 🔴 | Not Applicable | 👍
-| security.clear_cached_privileges | 🟢 | ❌ | 🔴 | Not Applicable | 👍
+| security.bulk_update_api_keys | 🟢 | [✅](./tests/security/60_api_key_update.yml#L94)</li></ul> | 🔴 | Not Applicable | 👍
+| security.change_password | 🟢 | [✅](./tests/security/change_password.yml#L55)</li></ul> | 🔴 | Not Applicable | 👍
+| security.clear_api_key_cache | 🟢 | [✅](./tests/security/70_api_key_more.yml#L69)</li></ul> | 🔴 | Not Applicable | 👍
+| security.clear_cached_privileges | 🟢 | [✅](./tests/security/30_privileges_stack.yml#L159)</li></ul> | 🔴 | Not Applicable | 👍
 | security.clear_cached_realms | 🟢 | ❌ | 🔴 | Not Applicable | 👎
-| security.clear_cached_roles | 🟢 | ❌ | 🔴 | Not Applicable | 👍
-| security.clear_cached_service_tokens | 🟢 | ❌ | 🔴 | Not Applicable | 👍
+| security.clear_cached_roles | 🟢 | [✅](./tests/security/40_roles.yml#L97)</li></ul> | 🔴 | Not Applicable | 👍
+| security.clear_cached_service_tokens | 🟢 | [✅](./tests/security/90_service_accounts.yml#L40)</li></ul> | 🔴 | Not Applicable | 👍
 | security.create_api_key | 🟢 | [✅](./tests/security/10_api_key_basic.yml#L8)</li></ul> | 🟢 | [✅](./tests/security/10_api_key_basic.yml#L8)</li></ul> | 👍
-| security.create_cross_cluster_api_key | 🟢 | ❌ | 🔴 | Not Applicable | 👍
-| security.create_service_token | 🟢 | ❌ | 🔴 | Not Applicable | 👍
-| security.delete_privileges | 🟢 | ❌ | 🔴 | Not Applicable | 👍
-| security.delete_role | 🟢 | [✅](./tests/security/40_roles.yml#L23)</li></ul> | 🔴 | Not Applicable | 👍
-| security.delete_role_mapping | 🟢 | ❌ | 🔴 | Not Applicable | 👍
-| security.delete_service_token | 🟢 | ❌ | 🔴 | Not Applicable | 👍
-| security.delete_user | 🟢 | [✅](./tests/security/40_roles.yml#L19)</li></ul> | 🔴 | Not Applicable | 👍
-| security.disable_user | 🟢 | ❌ | 🔴 | Not Applicable | 👍
+| security.create_cross_cluster_api_key | 🟢 | [✅](./tests/security/80_api_key_cross_cluster.yml#L40)</li></ul> | 🔴 | Not Applicable | 👍
+| security.create_service_token | 🟢 | [✅](./tests/security/90_service_accounts.yml#L25)</li></ul> | 🔴 | Not Applicable | 👍
+| security.delete_privileges | 🟢 | [✅](./tests/security/30_privileges_stack.yml#L8)</li></ul> | 🔴 | Not Applicable | 👍
+| security.delete_role | 🟢 | [✅](./tests/security/100_tokens.yml#L28)</li></ul> | 🔴 | Not Applicable | 👍
+| security.delete_role_mapping | 🟢 | [✅](./tests/security/110_role_mapping.yml#L8)</li></ul> | 🔴 | Not Applicable | 👍
+| security.delete_service_token | 🟢 | [✅](./tests/security/90_service_accounts.yml#L8)</li></ul> | 🔴 | Not Applicable | 👍
+| security.delete_user | 🟢 | [✅](./tests/security/100_tokens.yml#L33)</li></ul> | 🔴 | Not Applicable | 👍
+| security.disable_user | 🟢 | [✅](./tests/security/50_user_profile.yml#L179)</li></ul> | 🔴 | Not Applicable | 👍
 | security.disable_user_profile | 🟢 | [✅](./tests/security/50_user_profile.yml#L104)</li></ul> | 🔴 | Not Applicable | 👍
-| security.enable_user | 🟢 | ❌ | 🔴 | Not Applicable | 👍
+| security.enable_user | 🟢 | [✅](./tests/security/50_user_profile.yml#L191)</li></ul> | 🔴 | Not Applicable | 👍
 | security.enable_user_profile | 🟢 | [✅](./tests/security/50_user_profile.yml#L115)</li></ul> | 🔴 | Not Applicable | 👍
 | security.enroll_kibana | 🟢 | ❌ | 🔴 | Not Applicable | 👎
 | security.enroll_node | 🟢 | ❌ | 🔴 | Not Applicable | 👎
 | security.get_api_key | 🟢 | [✅](./tests/security/10_api_key_basic.yml#L19)</li></ul> | 🟢 | [✅](./tests/security/10_api_key_basic.yml#L19)</li></ul> | 👍
-| security.get_builtin_privileges | 🟢 | ❌ | 🔴 | Not Applicable | 👍
-| security.get_privileges | 🟢 | ❌ | 🔴 | Not Applicable | 👍
+| security.get_builtin_privileges | 🟢 | [✅](./tests/security/30_privileges_stack.yml#L169)</li></ul> | 🔴 | Not Applicable | 👍
+| security.get_privileges | 🟢 | [✅](./tests/security/30_privileges_stack.yml#L93)</li></ul> | 🔴 | Not Applicable | 👍
 | security.get_role | 🟢 | [✅](./tests/security/40_roles.yml#L47)</li></ul> | 🔴 | Not Applicable | 👍
-| security.get_role_mapping | 🟢 | ❌ | 🔴 | Not Applicable | 👍
-| security.get_service_accounts | 🟢 | ❌ | 🔴 | Not Applicable | 👍
-| security.get_service_credentials | 🟢 | ❌ | 🔴 | Not Applicable | 👍
-| security.get_settings | 🟢 | ❌ | 🔴 | Not Applicable | 👍
-| security.get_token | 🟢 | ❌ | 🔴 | Not Applicable | 👍
+| security.get_role_mapping | 🟢 | [✅](./tests/security/110_role_mapping.yml#L29)</li></ul> | 🔴 | Not Applicable | 👍
+| security.get_service_accounts | 🟢 | [✅](./tests/security/90_service_accounts.yml#L16)</li></ul> | 🔴 | Not Applicable | 👍
+| security.get_service_credentials | 🟢 | [✅](./tests/security/90_service_accounts.yml#L34)</li></ul> | 🔴 | Not Applicable | 👍
+| security.get_settings | 🟢 | [✅](./tests/security/120_get_settings.yml#L8)</li></ul> | 🔴 | Not Applicable | 👍
+| security.get_token | 🟢 | [✅](./tests/security/100_tokens.yml#L39)</li></ul> | 🔴 | Not Applicable | 👍
 | security.get_user | 🟢 | [✅](./tests/security/50_user_profile.yml#L95)</li></ul> | 🔴 | Not Applicable | 👍
-| security.get_user_privileges | 🟢 | ❌ | 🔴 | Not Applicable | 👍
+| security.get_user_privileges | 🟢 | [✅](./tests/security/30_privileges_stack.yml#L176)</li></ul> | 🔴 | Not Applicable | 👍
 | security.get_user_profile | 🟢 | [✅](./tests/security/50_user_profile.yml#L75)</li></ul> | 🔴 | Not Applicable | 👍
-| security.grant_api_key | 🟢 | ❌ | 🔴 | Not Applicable | 👍
-| security.has_privileges | 🟢 | [✅](./tests/security/30_has_privileges.yml#L8)</li></ul> | 🟢 | [✅](./tests/security/30_has_privileges.yml#L8)</li></ul> | 👍
+| security.grant_api_key | 🟢 | [✅](./tests/security/70_api_key_more.yml#L42)</li></ul> | 🔴 | Not Applicable | 👍
+| security.has_privileges | 🟢 | [✅](./tests/security/30_privileges_stack.yml#L181)</li></ul> | 🟢 | [✅](./tests/security/30_privileges_serverless.yml#L8)</li></ul> | 👍
 | security.has_privileges_user_profile | 🟢 | [✅](./tests/security/50_user_profile.yml#L163)</li></ul> | 🔴 | Not Applicable | 👍
 | security.invalidate_api_key | 🟢 | [✅](./tests/security/10_api_key_basic.yml#L33)</li></ul> | 🟢 | [✅](./tests/security/10_api_key_basic.yml#L33)</li></ul> | 👍
-| security.invalidate_token | 🟢 | ❌ | 🔴 | Not Applicable | 👍
+| security.invalidate_token | 🟢 | [✅](./tests/security/100_tokens.yml#L52)</li></ul> | 🔴 | Not Applicable | 👍
 | security.oidc_authenticate | 🟢 | ❌ | 🔴 | Not Applicable | 👎
 | security.oidc_logout | 🟢 | ❌ | 🔴 | Not Applicable | 👎
 | security.oidc_prepare_authentication | 🟢 | ❌ | 🔴 | Not Applicable | 👎
-| security.put_privileges | 🟢 | ❌ | 🔴 | Not Applicable | 👍
-| security.put_role | 🟢 | [✅](./tests/security/40_roles.yml#L29)</li></ul> | 🔴 | Not Applicable | 👍
-| security.put_role_mapping | 🟢 | ❌ | 🔴 | Not Applicable | 👍
-| security.put_user | 🟢 | [✅](./tests/security/40_roles.yml#L8)</li></ul> | 🔴 | Not Applicable | 👍
+| security.put_privileges | 🟢 | [✅](./tests/security/30_privileges_stack.yml#L21)</li></ul> | 🔴 | Not Applicable | 👍
+| security.put_role | 🟢 | [✅](./tests/security/100_tokens.yml#L8)</li></ul> | 🔴 | Not Applicable | 👍
+| security.put_role_mapping | 🟢 | [✅](./tests/security/110_role_mapping.yml#L14)</li></ul> | 🔴 | Not Applicable | 👍
+| security.put_user | 🟢 | [✅](./tests/security/100_tokens.yml#L16)</li></ul> | 🔴 | Not Applicable | 👍
 | security.query_api_keys | 🟢 | [✅](./tests/security/10_api_key_basic.yml#L24)</li></ul> | 🟢 | [✅](./tests/security/10_api_key_basic.yml#L24)</li></ul> | 👍
 | security.query_role | 🟢 | [✅](./tests/security/40_roles.yml#L55)</li></ul> | 🔴 | Not Applicable | 👍
-| security.query_user | 🟢 | ❌ | 🔴 | Not Applicable | 👍
+| security.query_user | 🟢 | [✅](./tests/security/50_user_profile.yml#L202)</li></ul> | 🔴 | Not Applicable | 👍
 | security.saml_authenticate | 🟢 | ❌ | 🔴 | Not Applicable | 👎
 | security.saml_complete_logout | 🟢 | ❌ | 🔴 | Not Applicable | 👎
 | security.saml_invalidate | 🟢 | ❌ | 🔴 | Not Applicable | 👎
@@ -415,9 +415,9 @@ Endpoints that are currently being tested are marked as done and link to the tes
 | security.saml_prepare_authentication | 🟢 | ❌ | 🔴 | Not Applicable | 👎
 | security.saml_service_provider_metadata | 🟢 | ❌ | 🔴 | Not Applicable | 👎
 | security.suggest_user_profiles | 🟢 | [✅](./tests/security/50_user_profile.yml#L145)</li></ul> | 🔴 | Not Applicable | 👍
-| security.update_api_key | 🟢 | ❌ | 🟢 | ❌ | 👍
-| security.update_cross_cluster_api_key | 🟢 | ❌ | 🔴 | Not Applicable | 👍
-| security.update_settings | 🟢 | ❌ | 🔴 | Not Applicable | 👍
+| security.update_api_key | 🟢 | [✅](./tests/security/60_api_key_update.yml#L67)</li></ul> | 🟢 | ❌ | 👍
+| security.update_cross_cluster_api_key | 🟢 | [✅](./tests/security/80_api_key_cross_cluster.yml#L72)</li></ul> | 🔴 | Not Applicable | 👍
+| security.update_settings | 🟢 | [✅](./tests/security/120_get_settings.yml#L13)</li></ul> | 🔴 | Not Applicable | 👍
 | security.update_user_profile_data | 🟢 | [✅](./tests/security/50_user_profile.yml#L125)</li></ul> | 🔴 | Not Applicable | 👍
 | simulate.ingest | 🟢 | ❌ | 🔴 | Not Applicable | 👍
 | slm.delete_lifecycle | 🟢 | ❌ | 🔴 | Not Applicable | 👎
