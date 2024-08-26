@@ -1,10 +1,6 @@
 # Elasticsearch Clients Tests
 
-This repository holds common tests for Elasticsearch Clients.
-
-## Yaml tests
-
-The tests are specified using the Elasticsearch YAML format reported [here](https://github.com/elastic/elasticsearch/blob/main/rest-api-spec/src/yamlRestTest/resources/rest-api-spec/test/README.asciidoc).
+This repository holds common tests for Elasticsearch Clients. The tests are specified using the Elasticsearch YAML format reported [here](https://github.com/elastic/elasticsearch/blob/main/rest-api-spec/src/yamlRestTest/resources/rest-api-spec/test/README.asciidoc).
 
 All the tests are located in the [tests](tests) folder. Each API endpoint has a folder containing the tests to be executed. All the files must be executed in order, they are enumerated with a digit prefix.
 
@@ -63,38 +59,9 @@ Once in the interactive shell you'll have access to the data. You can run `downl
  @test_stack={:file=>"./tests/async_search/10_basic.yml", :line=>53}>
 3.3.4 :003 > @reporter.namespaces
  =>
-["async_search",
- "cat",
- "ccr",
- "cluster",
- "connector",
- "dangling_indices",
- "enrich",
- "eql",
- "esql",
- "features",
- "fleet",
- "graph",
- "ilm",
- "indices",
- "inference",
- "ingest",
- "license",
- "logstash",
- "migration",
- "ml",
- "monitoring",
- "nodes",
- "query_rules",
- "search_application",
- "searchable_snapshots",
- "security",
- "simulate",
- "slm",
- "synonyms",
- "tasks",
- "text_structure",
- "transform",
- "watcher",
- "xpack"]
+["async_search", "cat", "ccr", "cluster", "connector", "dangling_indices", "enrich", "eql", "esql",
+"features", "fleet", "graph", "ilm", "indices", "inference", "ingest", "license", "logstash",
+"migration", "ml", "monitoring", "nodes", "query_rules", "search_application",
+"searchable_snapshots", "security", "simulate", "slm", "synonyms", "tasks", "text_structure",
+"transform", "watcher", "xpack"]
 ```
