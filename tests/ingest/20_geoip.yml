@@ -1,0 +1,83 @@
+---
+requires:
+  stack: true
+  serverless: false
+---
+'ingest.geo_ip':
+  - do:
+      ingest.geo_ip_stats: {}
+  - gte: { stats.successful_downloads: 0 }
+  - gte: { stats.failed_downloads: 0 }
+  - gte: { stats.skipped_updates: 0 }
+  - gte: { stats.databases_count: 0 }
+  - gte: { stats.total_download_time: 0 }
+  - is_true: nodes
+  - do:
+      ingest.put_geoip_database:
+        id: "my_database_1"
+        body:  >
+          {
+            "name": "GeoIP2-City",
+            "maxmind": {
+              "account_id": "1234"
+            }
+          }
+  - match: { acknowledged: true }
+
+  - do:
+      ingest.put_geoip_database:
+        id: "my_database_1"
+        body:  >
+          {
+            "name": "GeoIP2-Country",
+            "maxmind": {
+              "account_id": "4321"
+            }
+          }
+  - match: { acknowledged: true }
+
+  - do:
+      ingest.put_geoip_database:
+        id: "my_database_2"
+        body:  >
+          {
+            "name": "GeoIP2-City",
+            "maxmind": {
+              "account_id": "1234"
+            }
+          }
+  - match: { acknowledged: true }
+
+  - do:
+      ingest.get_geoip_database:
+        id: "my_database_1"
+  - length: { databases: 1 }
+  - match: { databases.0.id: "my_database_1" }
+  - gte: { databases.0.modified_date_millis: 0 }
+  - match: { databases.0.database.name: "GeoIP2-Country" }
+  - match: { databases.0.database.maxmind.account_id: "4321" }
+
+  - do:
+      ingest.get_geoip_database: {}
+  - length: { databases: 2 }
+
+  - do:
+      ingest.get_geoip_database:
+        id: "my_database_1,my_database_2"
+  - length: { databases: 2 }
+
+  - do:
+      ingest.delete_geoip_database:
+        id: "my_database_1"
+
+  - do:
+      ingest.get_geoip_database: {}
+  - length: { databases: 1 }
+  - match: { databases.0.id: "my_database_2" }
+  - gte: { databases.0.modified_date_millis: 0 }
+  - match: { databases.0.database.name: "GeoIP2-City" }
+  - match: { databases.0.database.maxmind.account_id: "1234" }
+
+  - do:
+      ingest.delete_geoip_database:
+        id: "my_database_2"
