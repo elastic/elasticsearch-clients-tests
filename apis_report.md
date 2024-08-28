@@ -2,7 +2,7 @@
 
 Endpoints that are currently being tested are marked as done and link to the test where they're being used.
 
-* **STACK** - **Total**: 482 | **Tested**: 420 | **Untested**: 62 ![](https://geps.dev/progress/87)
+* **STACK** - **Total**: 482 | **Tested**: 422 | **Untested**: 60 ![](https://geps.dev/progress/87)
 * **SERVERLESS** - **Total**: 236 | **Tested**: 229 | **Untested**: 7 ![](https://geps.dev/progress/97)
 
 * [Internal APIs](#internal-apis-not-tracked)
@@ -167,7 +167,7 @@ Endpoints that are currently being tested are marked as done and link to the tes
 | indices.delete_index_template | 🟢 | [✅](./tests/indices/data_streams.yml#L21)</li></ul> | 🟢 | [✅](./tests/indices/data_streams.yml#L21)</li></ul> | 👍
 | indices.delete_template | 🟢 | [✅](./tests/indices/exists_template.yml#L8)</li></ul> | 🔴 | Not Applicable | 👍
 | indices.disk_usage | 🟢 | [✅](./tests/indices/disk_usage.yml#L47)</li></ul> | 🔴 | Not Applicable | 👍
-| indices.downsample | 🟢 | ❌ | 🔴 | Not Applicable | 👍
+| indices.downsample | 🟢 | [✅](./tests/indices/downsample.yml#L35)</li></ul> | 🔴 | Not Applicable | 👍
 | indices.exists | 🟢 | [✅](./tests/indices/exists.yml#L18)</li></ul> | 🟢 | [✅](./tests/indices/exists.yml#L18)</li></ul> | 👍
 | indices.exists_alias | 🟢 | [✅](./tests/indices/alias.yml#L37)</li></ul> | 🟢 | [✅](./tests/indices/alias.yml#L37)</li></ul> | 👍
 | indices.exists_index_template | 🟢 | [✅](./tests/indices/index_template.yml#L31)</li></ul> | 🟢 | [✅](./tests/indices/index_template.yml#L31)</li></ul> | 🙌
@@ -311,7 +311,7 @@ Endpoints that are currently being tested are marked as done and link to the tes
 | ml.update_model_snapshot | 🟢 | [✅](./tests/machine_learning/update_model_snapshot.yml#L6)</li></ul> | 🔴 | Not Applicable | 👍
 | ml.update_trained_model_deployment | 🟢 | [✅](./tests/machine_learning/20_trained_model.yml#L58)</li></ul> | 🟢 | [✅](./tests/machine_learning/20_trained_model.yml#L58)</li></ul> | 👍
 | ml.upgrade_job_snapshot | 🟢 | [✅](./tests/machine_learning/model_snapshots.yml#L145)</li></ul> | 🔴 | Not Applicable | 👍
-| monitoring.bulk | 🟢 | ❌ | 🔴 | Not Applicable | 👍
+| monitoring.bulk | 🟢 | [✅](./tests/monitoring/bulk.yml#L6)</li></ul> | 🔴 | Not Applicable | 👍
 | msearch | 🟢 | [✅](./tests/msearch.yml#L26)</li></ul> | 🟢 | [✅](./tests/msearch.yml#L26)</li></ul> | 👍
 | msearch_template | 🟢 | [✅](./tests/msearch_template.yml#L29)</li></ul> | 🟢 | [✅](./tests/msearch_template.yml#L29)</li></ul> | 🙌
 | mtermvectors | 🟢 | [✅](./tests/mtermvectors/10_basic.yml#L25)</li></ul> | 🟢 | [✅](./tests/mtermvectors/10_basic.yml#L25)</li></ul> | 👍
