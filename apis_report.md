@@ -2,7 +2,7 @@
 
 Endpoints that are currently being tested are marked as done and link to the test where they're being used.
 
-* **STACK** - **Total**: 482 | **Tested**: 416 | **Untested**: 66 ![](https://geps.dev/progress/86)
+* **STACK** - **Total**: 482 | **Tested**: 420 | **Untested**: 62 ![](https://geps.dev/progress/87)
 * **SERVERLESS** - **Total**: 236 | **Tested**: 229 | **Untested**: 7 ![](https://geps.dev/progress/97)
 
 * [Internal APIs](#internal-apis-not-tracked)
@@ -216,13 +216,13 @@ Endpoints that are currently being tested are marked as done and link to the tes
 | inference.inference | 🟢 | [✅](./tests/inference/10_basic.yml#L31)</li></ul> | 🟢 | [✅](./tests/inference/10_basic.yml#L31)</li></ul> | 👍
 | inference.put | 🟢 | [✅](./tests/inference/10_basic.yml#L8)</li></ul> | 🟢 | [✅](./tests/inference/10_basic.yml#L8)</li></ul> | 👍
 | info | 🟢 | [✅](./tests/info_stack.yml#L8)</li></ul> | 🟢 | [✅](./tests/info_serverless.yml#L8)</li></ul> | 👍
-| ingest.delete_geoip_database | 🟢 | ❌ | 🔴 | Not Applicable | 👎
+| ingest.delete_geoip_database | 🟢 | [✅](./tests/ingest/20_geoip.yml#L70)</li></ul> | 🔴 | Not Applicable | 👍
 | ingest.delete_pipeline | 🟢 | [✅](./tests/ingest/10_basic.yml#L29)</li></ul> | 🟢 | [✅](./tests/ingest/10_basic.yml#L29)</li></ul> | 👍
-| ingest.geo_ip_stats | 🟢 | ❌ | 🔴 | Not Applicable | 👎
-| ingest.get_geoip_database | 🟢 | ❌ | 🔴 | Not Applicable | 👎
+| ingest.geo_ip_stats | 🟢 | [✅](./tests/ingest/20_geoip.yml#L8)</li></ul> | 🔴 | Not Applicable | 👍
+| ingest.get_geoip_database | 🟢 | [✅](./tests/ingest/20_geoip.yml#L52)</li></ul> | 🔴 | Not Applicable | 👍
 | ingest.get_pipeline | 🟢 | [✅](./tests/ingest/10_basic.yml#L16)</li></ul> | 🟢 | [✅](./tests/ingest/10_basic.yml#L16)</li></ul> | 👍
 | ingest.processor_grok | 🟢 | [✅](./tests/ingest/10_basic.yml#L32)</li></ul> | 🟢 | [✅](./tests/ingest/10_basic.yml#L32)</li></ul> | 🙌
-| ingest.put_geoip_database | 🟢 | ❌ | 🔴 | Not Applicable | 👎
+| ingest.put_geoip_database | 🟢 | [✅](./tests/ingest/20_geoip.yml#L16)</li></ul> | 🔴 | Not Applicable | 👍
 | ingest.put_pipeline | 🟢 | [✅](./tests/ingest/10_basic.yml#L8)</li></ul> | 🟢 | [✅](./tests/ingest/10_basic.yml#L8)</li></ul> | 👍
 | ingest.simulate | 🟢 | [✅](./tests/ingest/10_basic.yml#L20)</li></ul> | 🟢 | [✅](./tests/ingest/10_basic.yml#L20)</li></ul> | 👍
 | knn_search | 🟢 | [✅](./tests/knn_search.yml#L68)</li></ul> | 🔴 | Not Applicable | 👍
@@ -537,7 +537,7 @@ Endpoints that are currently being tested are marked as done and link to the tes
 
 ## Elasticsearch JSON specification
 
-**Total** 482 | **Tested** 372 | **Untested** 110 ![](https://geps.dev/progress/77)
+**Total** 482 | **Tested** 376 | **Untested** 106 ![](https://geps.dev/progress/78)
 
 <details>
   <summary id="apis-in-json-spec-and-not-elasticsearch-specification">APIs in JSON spec and not elasticsearch-specification (excluding internal APIs)</summary>
