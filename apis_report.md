@@ -167,7 +167,7 @@ Endpoints that are currently being tested are marked as done and link to the tes
 | indices.delete_index_template | 🟢 | [✅](./tests/indices/data_streams.yml#L21)</li></ul> | 🟢 | [✅](./tests/indices/data_streams.yml#L21)</li></ul> | 👍
 | indices.delete_template | 🟢 | [✅](./tests/indices/exists_template.yml#L8)</li></ul> | 🔴 | Not Applicable | 👍
 | indices.disk_usage | 🟢 | [✅](./tests/indices/disk_usage.yml#L47)</li></ul> | 🔴 | Not Applicable | 👍
-| indices.downsample | 🟢 | [✅](./tests/indices/downsample.yml#L35)</li></ul> | 🔴 | Not Applicable | 👍
+| indices.downsample | 🟢 | [✅](./tests/indices/downsample.yml#L63)</li></ul> | 🔴 | Not Applicable | 👍
 | indices.exists | 🟢 | [✅](./tests/indices/exists.yml#L18)</li></ul> | 🟢 | [✅](./tests/indices/exists.yml#L18)</li></ul> | 👍
 | indices.exists_alias | 🟢 | [✅](./tests/indices/alias.yml#L37)</li></ul> | 🟢 | [✅](./tests/indices/alias.yml#L37)</li></ul> | 👍
 | indices.exists_index_template | 🟢 | [✅](./tests/indices/index_template.yml#L31)</li></ul> | 🟢 | [✅](./tests/indices/index_template.yml#L31)</li></ul> | 🙌
