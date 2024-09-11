@@ -46,22 +46,41 @@ irb -r rubygems -I lib -r ./console.rb
 Once in the interactive shell you'll have access to the data. You can run `download_artifacts` from the console to get the latest specification files. Take a look at [`Elastic::Reporter`](./report/reporter.rb) to learn about the available functions.
 
 ```ruby
-3.3.4 :001 > @reporter.endpoints.count
+# Count all the endpoints
+> @reporter.endpoints.count
  => 482
-3.3.4 :002 > @reporter.endpoints.first
+# Show first endpoint object
+> @reporter.endpoints.first
  =>
-#<Elastic::ApiEndpoint:0x00007f94abe7a698
- @availability={"serverless"=>{"stability"=>"stable", "visibility"=>"public"}, "stack"=>{"since"=>"7.7.0", "stability"=>"stable"}},
+#<Elastic::ApiEndpoint:0x00007f94abe7a698 @availability={"serverless"=>{"stability"=>"stable",
+ "visibility"=>"public"}, "stack"=>{"since"=>"7.7.0", "stability"=>"stable"}} ,
  @available_serverless=true,
  @available_stack=true,
  @name="async_search.delete",
  @test_serverless={:file=>"./tests/async_search/10_basic.yml", :line=>53},
  @test_stack={:file=>"./tests/async_search/10_basic.yml", :line=>53}>
-3.3.4 :003 > @reporter.namespaces
+# Show available namespaces
+> @reporter.namespaces
  =>
-["async_search", "cat", "ccr", "cluster", "connector", "dangling_indices", "enrich", "eql", "esql",
+ ["async_search", "cat", "ccr", "cluster", "connector", "dangling_indices", "enrich", "eql", "esql",
 "features", "fleet", "graph", "ilm", "indices", "inference", "ingest", "license", "logstash",
 "migration", "ml", "monitoring", "nodes", "query_rules", "search_application",
 "searchable_snapshots", "security", "simulate", "slm", "synonyms", "tasks", "text_structure",
 "transform", "watcher", "xpack"]
+# Show experimental endpoints in Stack
+> @reporter.endpoints.select { |e| e.stability_stack == 'experimental' }.map(&:name)
+
+["cat.tasks", "connector.check_in", "connector.sync_job_check_in", "connector.sync_job_claim",
+"connector.sync_job_error", "connector.sync_job_update_stats", "connector.update_active_filtering",
+"connector.update_error", "connector.update_features", "connector.update_filtering_validation",
+"connector.update_status", "features.reset_features", "fleet.msearch", "fleet.search",
+"indices.disk_usage", "indices.downsample", "indices.field_usage_stats", "inference.delete",
+"inference.get", "inference.inference", "inference.put", "knn_search",
+"nodes.clear_repositories_metering_archive", "nodes.get_repositories_metering_info",
+"scripts_painless_execute", "search_application.delete_behavioral_analytics",
+"search_application.get_behavioral_analytics", "search_application.post_behavioral_analytics_event",
+"search_application.put_behavioral_analytics", "search_application.render_query",
+"searchable_snapshots.cache_stats", "searchable_snapshots.clear_cache", "simulate.ingest",
+"tasks.cancel", "tasks.get", "tasks.list"]
+
 ```

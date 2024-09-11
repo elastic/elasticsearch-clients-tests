@@ -96,6 +96,14 @@ module Elastic
       end
     end
 
+    def stability_stack
+      @availability['stack']['stability']
+    end
+
+    def stability_serverless
+      @availability['serverless']['stability']
+    end
+
     private
 
     # For a given flavour (:stack or :serverless), find if there are any tests that call this endpoint.
