@@ -5,7 +5,7 @@ on:
     - cron: "0 6 * * 1"
   push:
     branches:
-      - main
+      - 8.x
 jobs:
   generate_report:
     runs-on: ubuntu-latest
