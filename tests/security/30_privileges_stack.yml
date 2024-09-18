@@ -25,7 +25,7 @@ teardown:
               "p1": {
                 "application": "app",
                 "name": "p1",
-                "actions": [ "data:read/*" , "action:login" ],
+                "actions": ["data:read/*", "action:login"],
                 "metadata": {
                   "key1" : "val1a",
                   "key2" : "val2a"
@@ -44,7 +44,7 @@ teardown:
               "p2": {
                 "application": "app",
                 "name": "p2",
-                "actions": [ "data:read/*" , "action:login" ],
+                "actions": ["data:read/*", "action:login"],
                 "metadata": {
                   "key1" : "val1b",
                   "key2" : "val2b"
@@ -53,7 +53,7 @@ teardown:
               "p3": {
                 "application": "app",
                 "name": "p3",
-                "actions": [ "data:write/*" , "action:login" ],
+                "actions": ["data:write/*", "action:login"],
                 "metadata": {
                   "key1" : "val1c",
                   "key2" : "val2c"
@@ -79,7 +79,7 @@ teardown:
             {
               "app": {
                 "p1": {
-                  "actions": [ "data:read/*" , "action:login" ],
+                  "actions": ["data:read/*", "action:login"],
                   "metadata": {
                     "key3" : "val3"
                   }
@@ -97,7 +97,7 @@ teardown:
     "app.p1" : {
       "application": "app",
       "name": "p1",
-      "actions": [ "data:read/*" , "action:login" ],
+      "actions": ["data:read/*", "action:login"],
       "metadata": {
         "key3" : "val3"
       }
@@ -114,7 +114,7 @@ teardown:
     "app.p1" : {
       "application": "app",
       "name": "p1",
-      "actions": [ "data:read/*" , "action:login" ],
+      "actions": [ "data:read/*", "action:login" ],
       "metadata": {
         "key3" : "val3"
       }
@@ -124,7 +124,7 @@ teardown:
     "app.p2" : {
       "application": "app",
       "name": "p2",
-      "actions": [ "data:read/*" , "action:login" ],
+      "actions": [ "data:read/*", "action:login" ],
       "metadata": {
         "key1" : "val1b",
         "key2" : "val2b"
