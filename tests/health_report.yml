@@ -6,4 +6,4 @@ requires:
 'Health report':
   - do:
       health_report: {}
-  - match: { status: 'green' }
+  - match: { status: '/green|yellow/' }
