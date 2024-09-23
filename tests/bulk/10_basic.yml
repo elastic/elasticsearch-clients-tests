@@ -3,31 +3,27 @@ requires:
   serverless: true
   stack: true
 ---
+teardown:
+  - do:
+      indices.delete:
+        index: bulk_test
+---
 "Basic bulk operation":
-
   - do:
       bulk:
         refresh: true
         body:
           - index:
-              _index: test_serverless_bulk_10
+              _index: bulk_test
               _id:    test_id
-          - f1: v1
-            f2: 42
+          - f1: a value
+            f2: another value
           - index:
-              _index: test_serverless_bulk_10
+              _index: bulk_test
               _id:    test_id2
-          - f1: v2
-            f2: 47
-
+          - f1: something
+            f2: something completely different
   - do:
       count:
-        index: test_serverless_bulk_10
-
+        index: bulk_test
   - match: {count: 2}
-
----
-teardown:
-  - do:
-      indices.delete:
-        index: test_serverless_bulk_10
