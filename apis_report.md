@@ -16,7 +16,7 @@ Endpoints that are currently being tested are marked as done and link to the tes
 | async_search.get | 🟢 | [✅](./tests/async_search/10_basic.yml#L43)</li></ul> | 🟢 | [✅](./tests/async_search/10_basic.yml#L43)</li></ul> | 👍
 | async_search.status | 🟢 | [✅](./tests/async_search/10_basic.yml#L48)</li></ul> | 🟢 | [✅](./tests/async_search/10_basic.yml#L48)</li></ul> | 👍
 | async_search.submit | 🟢 | [✅](./tests/async_search/10_basic.yml#L35)</li></ul> | 🟢 | [✅](./tests/async_search/10_basic.yml#L35)</li></ul> | 👍
-| bulk | 🟢 | [✅](./tests/bulk/10_basic.yml#L9)</li></ul> | 🟢 | [✅](./tests/bulk/10_basic.yml#L9)</li></ul> | 👍
+| bulk | 🟢 | [✅](./tests/bulk/10_basic.yml#L13)</li></ul> | 🟢 | [✅](./tests/bulk/10_basic.yml#L13)</li></ul> | 👍
 | cat.aliases | 🟢 | [✅](./tests/cat/aliases.yml#L20)</li></ul> | 🟢 | [✅](./tests/cat/aliases.yml#L20)</li></ul> | 👍
 | cat.allocation | 🟢 | [✅](./tests/cat/allocation.yml#L6)</li></ul> | 🔴 | Not Applicable | 👍
 | cat.component_templates | 🟢 | [✅](./tests/cat/component_templates.yml#L6)</li></ul> | 🟢 | [✅](./tests/cat/component_templates.yml#L6)</li></ul> | 🙌
@@ -103,7 +103,7 @@ Endpoints that are currently being tested are marked as done and link to the tes
 | connector.update_scheduling | 🟢 | [✅](./tests/entsearch/50_connector_updates.yml#L190)</li></ul> | 🟢 | [✅](./tests/entsearch/50_connector_updates.yml#L190)</li></ul> | 👍
 | connector.update_service_type | 🟢 | [✅](./tests/entsearch/50_connector_updates.yml#L228)</li></ul> | 🟢 | [✅](./tests/entsearch/50_connector_updates.yml#L228)</li></ul> | 👍
 | connector.update_status | 🟢 | [✅](./tests/entsearch/50_connector_updates.yml#L216)</li></ul> | 🟢 | [✅](./tests/entsearch/50_connector_updates.yml#L216)</li></ul> | 👍
-| count | 🟢 | [✅](./tests/bulk/10_basic.yml#L24)</li></ul> | 🟢 | [✅](./tests/bulk/10_basic.yml#L24)</li></ul> | 👍
+| count | 🟢 | [✅](./tests/bulk/10_basic.yml#L27)</li></ul> | 🟢 | [✅](./tests/bulk/10_basic.yml#L27)</li></ul> | 👍
 | create | 🟢 | [✅](./tests/create/10_basic.yml#L18)</li></ul> | 🟢 | [✅](./tests/create/10_basic.yml#L18)</li></ul> | 👍
 | dangling_indices.delete_dangling_index | 🟢 | ❌ | 🔴 | Not Applicable | 👎
 | dangling_indices.import_dangling_index | 🟢 | ❌ | 🔴 | Not Applicable | 👎
