@@ -33,10 +33,6 @@ teardown:
   - match: { data_streams.0.name: logs-test }
 
   - do:
-      indices.data_streams_stats: {}
-  - is_true: data_streams
-
-  - do:
       indices.delete_data_stream:
         name: logs-test
   - is_true: acknowledged
