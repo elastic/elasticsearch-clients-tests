@@ -2,8 +2,8 @@
 
 Endpoints that are currently being tested are marked as done and link to the test where they're being used.
 
-* **STACK** - **Total**: 482 | **Tested**: 410 | **Untested**: 72 ![](https://geps.dev/progress/85)
-* **SERVERLESS** - **Total**: 236 | **Tested**: 229 | **Untested**: 7 ![](https://geps.dev/progress/97)
+* **STACK** - **Total**: 482 | **Tested**: 409 | **Untested**: 73 ![](https://geps.dev/progress/84)
+* **SERVERLESS** - **Total**: 235 | **Tested**: 228 | **Untested**: 7 ![](https://geps.dev/progress/97)
 
 * [Internal APIs](#internal-apis-not-tracked)
 * [API information from the Elasticsearch JSON specification](#elasticsearch-json-specification)
@@ -159,11 +159,11 @@ Endpoints that are currently being tested are marked as done and link to the tes
 | indices.close | 🟢 | [✅](./tests/indices/open_close.yml#L21)</li></ul> | 🔴 | Not Applicable | 👍
 | indices.create | 🟢 | [✅](./tests/cat/aliases.yml#L8)</li></ul> | 🟢 | [✅](./tests/cat/aliases.yml#L8)</li></ul> | 👍
 | indices.create_data_stream | 🟢 | [✅](./tests/ilm/10_basic.yml#L20)</li></ul> | 🟢 | [✅](./tests/indices/data_streams.yml#L26)</li></ul> | 👍
-| indices.data_streams_stats | 🟢 | [✅](./tests/indices/data_streams.yml#L36)</li></ul> | 🟢 | [✅](./tests/indices/data_streams.yml#L36)</li></ul> | 👍
+| indices.data_streams_stats | 🟢 | ❌ | 🔴 | Not Applicable | 👍
 | indices.delete | 🟢 | [✅](./tests/async_search/10_basic.yml#L29)</li></ul> | 🟢 | [✅](./tests/async_search/10_basic.yml#L29)</li></ul> | 👍
 | indices.delete_alias | 🟢 | [✅](./tests/indices/alias.yml#L49)</li></ul> | 🟢 | [✅](./tests/indices/alias.yml#L49)</li></ul> | 👍
 | indices.delete_data_lifecycle | 🟢 | [✅](./tests/indices/20_data_lifecycle.yml#L22)</li></ul> | 🟢 | ❌ | 🙌
-| indices.delete_data_stream | 🟢 | [✅](./tests/ilm/10_basic.yml#L26)</li></ul> | 🟢 | [✅](./tests/indices/data_streams.yml#L40)</li></ul> | 👍
+| indices.delete_data_stream | 🟢 | [✅](./tests/ilm/10_basic.yml#L26)</li></ul> | 🟢 | [✅](./tests/indices/data_streams.yml#L36)</li></ul> | 👍
 | indices.delete_index_template | 🟢 | [✅](./tests/indices/data_streams.yml#L21)</li></ul> | 🟢 | [✅](./tests/indices/data_streams.yml#L21)</li></ul> | 👍
 | indices.delete_template | 🟢 | [✅](./tests/indices/exists_template.yml#L8)</li></ul> | 🔴 | Not Applicable | 👍
 | indices.disk_usage | 🟢 | [✅](./tests/indices/disk_usage.yml#L47)</li></ul> | 🔴 | Not Applicable | 👍
@@ -534,6 +534,7 @@ Endpoints that are currently being tested are marked as done and link to the tes
   | shutdown | Designed for indirect use by ECE/ESS and ECK. Direct use is not supported. |
   | shutdown | Designed for indirect use by ECE/ESS and ECK. Direct use is not supported. |
   | shutdown | Designed for indirect use by ECE/ESS and ECK. Direct use is not supported. |
+  | snapshot.repository_verify_integrity | Private API |
 
 ## Elasticsearch JSON specification
 
