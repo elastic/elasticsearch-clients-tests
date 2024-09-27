@@ -1,6 +1,6 @@
 ---
 requires:
-  serverless: true
+  serverless: false
   stack: true
 ---
 setup:
@@ -31,6 +31,10 @@ teardown:
       indices.get_data_stream:
         name: logs-test
   - match: { data_streams.0.name: logs-test }
+
+  - do:
+      indices.data_streams_stats: {}
+  - is_true: data_streams
 
   - do:
       indices.delete_data_stream:
