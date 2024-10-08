@@ -60,10 +60,10 @@ teardown:
   - match: { jobs.0.job_id: "job-crud-test-apis" }
   - match: { jobs.0.analysis_limits.model_memory_limit: "1024mb" }
 
-  # - do:
-  #     ml.flush_job:
-  #       job_id: "job-crud-test-apis"
-  # - match: { flushed: true }
+  - do:
+      ml.flush_job:
+        job_id: "job-crud-test-apis"
+  - match: { flushed: true }
 
   - do:
       ml.close_job:
