@@ -3,7 +3,7 @@
 Endpoints that are currently being tested are marked as done and link to the test where they're being used.
 
 * **STACK** - **Total**: 482 | **Tested**: 410 | **Untested**: 72 ![](https://geps.dev/progress/85)
-* **SERVERLESS** - **Total**: 235 | **Tested**: 228 | **Untested**: 7 ![](https://geps.dev/progress/97)
+* **SERVERLESS** - **Total**: 235 | **Tested**: 229 | **Untested**: 6 ![](https://geps.dev/progress/97)
 
 * [Internal APIs](#internal-apis-not-tracked)
 * [API information from the Elasticsearch JSON specification](#elasticsearch-json-specification)
@@ -257,7 +257,7 @@ Endpoints that are currently being tested are marked as done and link to the tes
 | ml.estimate_model_memory | 🟢 | [✅](./tests/machine_learning/estimate_model_memory.yml#L8)</li></ul> | 🟢 | [✅](./tests/machine_learning/estimate_model_memory.yml#L8)</li></ul> | 👍
 | ml.evaluate_data_frame | 🟢 | [✅](./tests/machine_learning/data_frame_evaluate.yml#L185)</li></ul> | 🟢 | [✅](./tests/machine_learning/data_frame_evaluate.yml#L185)</li></ul> | 👍
 | ml.explain_data_frame_analytics | 🟢 | [✅](./tests/machine_learning/explain_data_frame_analytics.yml#L30)</li></ul> | 🔴 | Not Applicable | 👍
-| ml.flush_job | 🟢 | [✅](./tests/machine_learning/post_data.yml#L60)</li></ul> | 🟢 | ❌ | 👍
+| ml.flush_job | 🟢 | [✅](./tests/machine_learning/jobs_crud.yml#L64)</li></ul> | 🟢 | [✅](./tests/machine_learning/jobs_crud.yml#L64)</li></ul> | 👍
 | ml.forecast | 🟢 | [✅](./tests/machine_learning/forecast.yml#L29)</li></ul> | 🔴 | Not Applicable | 👍
 | ml.get_buckets | 🟢 | [✅](./tests/machine_learning/buckets_stack.yml#L76)</li></ul> | 🔴 | Not Applicable | 👍
 | ml.get_calendar_events | 🟢 | [✅](./tests/machine_learning/calendar_events_crud.yml#L29)</li></ul> | 🟢 | [✅](./tests/machine_learning/calendar_events_crud.yml#L29)</li></ul> | 👍
