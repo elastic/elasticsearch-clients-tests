@@ -2,7 +2,7 @@
 
 Endpoints that are currently being tested are marked as done and link to the test where they're being used.
 
-* **STACK** - **Total**: 482 | **Tested**: 410 | **Untested**: 72 ![](https://geps.dev/progress/85)
+* **STACK** - **Total**: 483 | **Tested**: 410 | **Untested**: 73 ![](https://geps.dev/progress/84)
 * **SERVERLESS** - **Total**: 235 | **Tested**: 229 | **Untested**: 6 ![](https://geps.dev/progress/97)
 
 * [Internal APIs](#internal-apis-not-tracked)
@@ -215,6 +215,7 @@ Endpoints that are currently being tested are marked as done and link to the tes
 | inference.get | 🟢 | [✅](./tests/inference/10_basic.yml#L25)</li></ul> | 🟢 | [✅](./tests/inference/10_basic.yml#L25)</li></ul> | 👍
 | inference.inference | 🟢 | [✅](./tests/inference/10_basic.yml#L31)</li></ul> | 🟢 | [✅](./tests/inference/10_basic.yml#L31)</li></ul> | 👍
 | inference.put | 🟢 | [✅](./tests/inference/10_basic.yml#L8)</li></ul> | 🟢 | [✅](./tests/inference/10_basic.yml#L8)</li></ul> | 👍
+| inference.stream_inference | 🟢 | ❌ | 🔴 | Not Applicable | 👎
 | info | 🟢 | [✅](./tests/info_stack.yml#L8)</li></ul> | 🟢 | [✅](./tests/info_serverless.yml#L8)</li></ul> | 👍
 | ingest.delete_geoip_database | 🟢 | [✅](./tests/ingest/20_geoip.yml#L70)</li></ul> | 🔴 | Not Applicable | 👍
 | ingest.delete_pipeline | 🟢 | [✅](./tests/ingest/10_basic.yml#L29)</li></ul> | 🟢 | [✅](./tests/ingest/10_basic.yml#L29)</li></ul> | 👍
@@ -538,7 +539,7 @@ Endpoints that are currently being tested are marked as done and link to the tes
 
 ## Elasticsearch JSON specification
 
-**Total** 482 | **Tested** 376 | **Untested** 106 ![](https://geps.dev/progress/78)
+**Total** 483 | **Tested** 376 | **Untested** 107 ![](https://geps.dev/progress/77)
 
 <details>
   <summary id="apis-in-json-spec-and-not-elasticsearch-specification">APIs in JSON spec and not elasticsearch-specification (excluding internal APIs)</summary>
