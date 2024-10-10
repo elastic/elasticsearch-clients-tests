@@ -3,7 +3,7 @@
 Endpoints that are currently being tested are marked as done and link to the test where they're being used.
 
 * **STACK** - **Total**: 483 | **Tested**: 410 | **Untested**: 73 ![](https://geps.dev/progress/84)
-* **SERVERLESS** - **Total**: 235 | **Tested**: 229 | **Untested**: 6 ![](https://geps.dev/progress/97)
+* **SERVERLESS** - **Total**: 233 | **Tested**: 229 | **Untested**: 4 ![](https://geps.dev/progress/98)
 
 * [Internal APIs](#internal-apis-not-tracked)
 * [API information from the Elasticsearch JSON specification](#elasticsearch-json-specification)
@@ -116,7 +116,7 @@ Endpoints that are currently being tested are marked as done and link to the tes
 | enrich.execute_policy | 🟢 | [✅](./tests/enrich/10_basic.yml#L34)</li></ul> | 🟢 | [✅](./tests/enrich/10_basic.yml#L34)</li></ul> | 👍
 | enrich.get_policy | 🟢 | [✅](./tests/enrich/10_basic.yml#L39)</li></ul> | 🟢 | [✅](./tests/enrich/10_basic.yml#L39)</li></ul> | 👍
 | enrich.put_policy | 🟢 | [✅](./tests/enrich/10_basic.yml#L24)</li></ul> | 🟢 | [✅](./tests/enrich/10_basic.yml#L24)</li></ul> | 👍
-| enrich.stats | 🟢 | [✅](./tests/enrich/20_stats.yml#L8)</li></ul> | 🟢 | ❌ | 👍
+| enrich.stats | 🟢 | [✅](./tests/enrich/20_stats.yml#L8)</li></ul> | 🔴 | Not Applicable | 👍
 | eql.delete | 🟢 | [✅](./tests/eql/10_basic.yml#L122)</li></ul> | 🟢 | [✅](./tests/eql/10_basic.yml#L122)</li></ul> | 👍
 | eql.get | 🟢 | [✅](./tests/eql/10_basic.yml#L114)</li></ul> | 🟢 | [✅](./tests/eql/10_basic.yml#L114)</li></ul> | 👍
 | eql.get_status | 🟢 | [✅](./tests/eql/10_basic.yml#L109)</li></ul> | 🟢 | [✅](./tests/eql/10_basic.yml#L109)</li></ul> | 👍
@@ -162,7 +162,7 @@ Endpoints that are currently being tested are marked as done and link to the tes
 | indices.data_streams_stats | 🟢 | [✅](./tests/indices/data_streams_stack.yml#L36)</li></ul> | 🔴 | Not Applicable | 👍
 | indices.delete | 🟢 | [✅](./tests/async_search/10_basic.yml#L29)</li></ul> | 🟢 | [✅](./tests/async_search/10_basic.yml#L29)</li></ul> | 👍
 | indices.delete_alias | 🟢 | [✅](./tests/indices/alias.yml#L49)</li></ul> | 🟢 | [✅](./tests/indices/alias.yml#L49)</li></ul> | 👍
-| indices.delete_data_lifecycle | 🟢 | [✅](./tests/indices/20_data_lifecycle.yml#L22)</li></ul> | 🟢 | ❌ | 🙌
+| indices.delete_data_lifecycle | 🟢 | [✅](./tests/indices/20_data_lifecycle.yml#L22)</li></ul> | 🔴 | Not Applicable | 🙌
 | indices.delete_data_stream | 🟢 | [✅](./tests/ilm/10_basic.yml#L26)</li></ul> | 🟢 | [✅](./tests/indices/data_streams_serverless.yml#L36)</li></ul> | 👍
 | indices.delete_index_template | 🟢 | [✅](./tests/indices/data_streams_stack.yml#L21)</li></ul> | 🟢 | [✅](./tests/indices/data_streams_serverless.yml#L21)</li></ul> | 👍
 | indices.delete_template | 🟢 | [✅](./tests/indices/exists_template.yml#L8)</li></ul> | 🔴 | Not Applicable | 👍
