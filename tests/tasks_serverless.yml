@@ -1,7 +1,7 @@
 ---
 requires:
-  serverless: false
-  stack: true
+  serverless: true
+  stack: false
 ---
 setup:
   - do:
@@ -14,11 +14,7 @@ teardown:
         index: task_test
         ignore: 404
 ---
-"tasks":
-  - do:
-      tasks.get: {}
-  - is_true: nodes
-
+"Task":
   - do:
       update_by_query:
         index: task_test
@@ -33,12 +29,3 @@ teardown:
   - do:
       tasks.get: { task_id: 'node_id:123456' }
       catch: resource_not_found_exception
-
-  - do:
-      tasks.list: {}
-  - is_true: nodes
-
-  - do:
-      tasks.cancel:
-        actions: "unknown_action"
-  - length: { nodes: 0 }
