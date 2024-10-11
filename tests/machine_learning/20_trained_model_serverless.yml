@@ -1,7 +1,7 @@
 ---
 requires:
   serverless: true
-  stack: true
+  stack: false
 ---
 teardown:
   - do:
@@ -63,6 +63,17 @@ teardown:
           }
   - match: { assignment.task_parameters.model_id: test_model }
   - match: { assignment.task_parameters.number_of_allocations: 1 }
+  - do:
+      ml.infer_trained_model:
+        model_id: "test_model"
+        body: >
+          {
+            "docs": [
+              { "input": "words" }
+            ]
+          }
+  - is_true: inference_results
+
   - do:
       ml.stop_trained_model_deployment:
         model_id: test_model
