@@ -1,0 +1,42 @@
+---
+requires:
+  stack: false
+  serverless: true
+---
+"Test put role api":
+  - do:
+      security.put_role:
+        name: "admin_role"
+        body:  >
+            {
+              "metadata": {
+                "key1" : "val1",
+                "key2" : "val2"
+              },
+              "indices": [
+                {
+                  "names": "*",
+                  "privileges": ["all"]
+                }
+              ]
+            }
+  - match: { role: { created: true } }
+
+  - do:
+      security.get_role:
+        name: "admin_role"
+  - match: { admin_role.metadata.key1:  "val1" }
+  - match: { admin_role.metadata.key2:  "val2" }
+  - match: { admin_role.indices.0.names.0: "*" }
+  - match: { admin_role.indices.0.privileges.0:  "all" }
+
+  - do:
+      security.get_builtin_privileges: {}
+  # On the client side we don't really care what the values are, just that we've received a correct
+  # response and parsed it:
+  - is_true: cluster
+  - is_true: index
+
+  - do:
+      security.delete_role:
+        name: "admin_role"
