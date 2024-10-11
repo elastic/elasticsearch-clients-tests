@@ -3,7 +3,7 @@
 Endpoints that are currently being tested are marked as done and link to the test where they're being used.
 
 * **STACK** - **Total**: 483 | **Tested**: 410 | **Untested**: 73 ![](https://geps.dev/progress/84)
-* **SERVERLESS** - **Total**: 236 | **Tested**: 229 | **Untested**: 7 ![](https://geps.dev/progress/97)
+* **SERVERLESS** - **Total**: 236 | **Tested**: 233 | **Untested**: 3 ![](https://geps.dev/progress/98)
 
 * [Internal APIs](#internal-apis-not-tracked)
 * [API information from the Elasticsearch JSON specification](#elasticsearch-json-specification)
@@ -372,7 +372,7 @@ Endpoints that are currently being tested are marked as done and link to the tes
 | security.create_cross_cluster_api_key | 🟢 | [✅](./tests/security/80_api_key_cross_cluster.yml#L40)</li></ul> | 🔴 | Not Applicable | 👍
 | security.create_service_token | 🟢 | [✅](./tests/security/90_service_accounts.yml#L25)</li></ul> | 🔴 | Not Applicable | 👍
 | security.delete_privileges | 🟢 | [✅](./tests/security/30_privileges_stack.yml#L8)</li></ul> | 🔴 | Not Applicable | 👍
-| security.delete_role | 🟢 | [✅](./tests/security/100_tokens.yml#L28)</li></ul> | 🟢 | ❌ | 👍
+| security.delete_role | 🟢 | [✅](./tests/security/100_tokens.yml#L28)</li></ul> | 🟢 | [✅](./tests/security/50_roles_serverless.yml#L41)</li></ul> | 👍
 | security.delete_role_mapping | 🟢 | [✅](./tests/security/110_role_mapping.yml#L8)</li></ul> | 🔴 | Not Applicable | 👍
 | security.delete_service_token | 🟢 | [✅](./tests/security/90_service_accounts.yml#L8)</li></ul> | 🔴 | Not Applicable | 👍
 | security.delete_user | 🟢 | [✅](./tests/security/100_tokens.yml#L33)</li></ul> | 🔴 | Not Applicable | 👍
@@ -383,9 +383,9 @@ Endpoints that are currently being tested are marked as done and link to the tes
 | security.enroll_kibana | 🟢 | ❌ | 🔴 | Not Applicable | 👎
 | security.enroll_node | 🟢 | ❌ | 🔴 | Not Applicable | 👎
 | security.get_api_key | 🟢 | [✅](./tests/security/10_api_key_basic.yml#L19)</li></ul> | 🟢 | [✅](./tests/security/10_api_key_basic.yml#L19)</li></ul> | 👍
-| security.get_builtin_privileges | 🟢 | [✅](./tests/security/30_privileges_stack.yml#L169)</li></ul> | 🟢 | ❌ | 👍
+| security.get_builtin_privileges | 🟢 | [✅](./tests/security/30_privileges_stack.yml#L169)</li></ul> | 🟢 | [✅](./tests/security/50_roles_serverless.yml#L34)</li></ul> | 👍
 | security.get_privileges | 🟢 | [✅](./tests/security/30_privileges_stack.yml#L93)</li></ul> | 🔴 | Not Applicable | 👍
-| security.get_role | 🟢 | [✅](./tests/security/40_roles.yml#L47)</li></ul> | 🟢 | ❌ | 👍
+| security.get_role | 🟢 | [✅](./tests/security/40_roles.yml#L47)</li></ul> | 🟢 | [✅](./tests/security/50_roles_serverless.yml#L26)</li></ul> | 👍
 | security.get_role_mapping | 🟢 | [✅](./tests/security/110_role_mapping.yml#L29)</li></ul> | 🔴 | Not Applicable | 👍
 | security.get_service_accounts | 🟢 | [✅](./tests/security/90_service_accounts.yml#L16)</li></ul> | 🔴 | Not Applicable | 👍
 | security.get_service_credentials | 🟢 | [✅](./tests/security/90_service_accounts.yml#L34)</li></ul> | 🔴 | Not Applicable | 👍
@@ -403,7 +403,7 @@ Endpoints that are currently being tested are marked as done and link to the tes
 | security.oidc_logout | 🟢 | ❌ | 🔴 | Not Applicable | 👎
 | security.oidc_prepare_authentication | 🟢 | ❌ | 🔴 | Not Applicable | 👎
 | security.put_privileges | 🟢 | [✅](./tests/security/30_privileges_stack.yml#L21)</li></ul> | 🔴 | Not Applicable | 👍
-| security.put_role | 🟢 | [✅](./tests/security/100_tokens.yml#L8)</li></ul> | 🟢 | ❌ | 👍
+| security.put_role | 🟢 | [✅](./tests/security/100_tokens.yml#L8)</li></ul> | 🟢 | [✅](./tests/security/50_roles_serverless.yml#L8)</li></ul> | 👍
 | security.put_role_mapping | 🟢 | [✅](./tests/security/110_role_mapping.yml#L14)</li></ul> | 🔴 | Not Applicable | 👍
 | security.put_user | 🟢 | [✅](./tests/security/100_tokens.yml#L16)</li></ul> | 🔴 | Not Applicable | 👍
 | security.query_api_keys | 🟢 | [✅](./tests/security/10_api_key_basic.yml#L24)</li></ul> | 🟢 | [✅](./tests/security/10_api_key_basic.yml#L24)</li></ul> | 👍
