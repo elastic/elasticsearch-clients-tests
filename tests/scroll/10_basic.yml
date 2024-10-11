@@ -21,10 +21,12 @@ teardown:
   - set: { _scroll_id: id }
   - do:
       scroll:
-        scroll_id: $id
         scroll: '1m'
+        body:
+          scroll_id: $id
   - match: { _scroll_id: $id }
   - do:
       clear_scroll:
-        scroll_id: $id
+        body:
+          scroll_id: $id
   - match { succeeded: true }
