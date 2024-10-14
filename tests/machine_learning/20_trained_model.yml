@@ -52,7 +52,8 @@ teardown:
       ml.start_trained_model_deployment:
         model_id: test_model
         priority: "low"
-        wait_for: started
+        wait_for: fully_allocated
+        timeout: "60s"
   - match: { assignment.task_parameters.model_id: test_model }
   - do:
       ml.update_trained_model_deployment:
