@@ -128,8 +128,9 @@ module Elastic
     def display_table
       @endpoints.map do |endpoint|
         "| #{endpoint.name} | #{endpoint.available_stack? ? '🟢' : '🔴'} " \
-        "| #{endpoint.display_tested_stack} | #{endpoint.available_serverless? ? '🟢' : '🔴'} " \
-        "| #{endpoint.display_tested_serverless} | #{endpoint.display_tested_elasticsearch}"
+        "| #{endpoint.display_tested_stack} | #{endpoint.display_tested_elasticsearch}" \
+        "| #{endpoint.available_serverless? ? '🟢' : '🔴'} " \
+        "| #{endpoint.display_tested_serverless}"
       end.join("\n")
     end
 
