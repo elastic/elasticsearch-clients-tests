@@ -1,0 +1,88 @@
+---
+requires:
+  serverless: true
+  stack: true
+---
+setup:
+  - do:
+      query_rules.put_ruleset:
+        ruleset_id: test-ruleset
+        body:
+          rules:
+            - rule_id: rule1
+              type: pinned
+              criteria:
+                - type: exact
+                  metadata: query_string
+                  values: [ search ]
+              actions:
+                ids:
+                  - 'doc1'
+            - rule_id: rule2
+              type: pinned
+              criteria:
+                - type: exact
+                  metadata: query_string
+                  values: [ ui ]
+              actions:
+                docs:
+                  - '_index': 'test-index1'
+                    '_id': 'doc2'
+            - rule_id: rule3
+              type: pinned
+              criteria:
+                - type: contains
+                  metadata: query_string
+                  values: [ kibana, logstash ]
+              actions:
+                ids:
+                  - 'doc2'
+                  - 'doc3'
+            - rule_id: rule4
+              type: pinned
+              criteria:
+                - type: exact
+                  metadata: query_string
+                  values: [ ops ]
+              actions:
+                ids:
+                  - 'doc7'
+            - rule_id: rule5
+              type: exclude
+              criteria:
+                - type: exact
+                  metadata: query_string
+                  values: [ search ]
+              actions:
+                ids:
+                  - 'doc8'
+---
+teardown:
+  - do:
+      query_rules.delete_ruleset:
+        ruleset_id: test-ruleset
+        ignore: 404
+---
+"Test query rules, specifying a ruleset that does not exist":
+  - do:
+      catch: /resource_not_found_exception/
+      query_rules.test:
+        ruleset_id: nonexistent-ruleset
+        body:
+          match_criteria:
+            foo: bar
+  - do:
+      catch: bad_request
+      query_rules.test:
+        ruleset_id: nonexistent-ruleset
+        body: { }
+  - do:
+      query_rules.test:
+        ruleset_id: test-ruleset
+        body:
+          match_criteria:
+            query_string: search
+
+  - match: { total_matched_rules: 2 }
+  - match: { matched_rules.0.rule_id: 'rule1' }
+  - match: { matched_rules.1.rule_id: 'rule5' }
