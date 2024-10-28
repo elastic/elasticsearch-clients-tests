@@ -2,8 +2,8 @@
 
 Endpoints that are currently being tested are marked as done and link to the test where they're being used.
 
-* **STACK** - **Total**: 483 | **Tested**: 410 | **Untested**: 73 ![](https://geps.dev/progress/84)
-* **SERVERLESS** - **Total**: 236 | **Tested**: 235 | **Untested**: 1 ![](https://geps.dev/progress/99)
+* **STACK** - **Total**: 484 | **Tested**: 410 | **Untested**: 74 ![](https://geps.dev/progress/84)
+* **SERVERLESS** - **Total**: 237 | **Tested**: 235 | **Untested**: 2 ![](https://geps.dev/progress/99)
 
 * [Internal APIs](#internal-apis-not-tracked)
 * [API information from the Elasticsearch JSON specification](#elasticsearch-json-specification)
@@ -333,6 +333,7 @@ Endpoints that are currently being tested are marked as done and link to the tes
 | query_rules.list_rulesets | 🟢 | [✅](./tests/query_rules/20_rulesets.yml#L33)</li></ul> | 👍| 🟢 | [✅](./tests/query_rules/20_rulesets.yml#L33)</li></ul>
 | query_rules.put_rule | 🟢 | [✅](./tests/query_rules/10_query_rules.yml#L27)</li></ul> | 👍| 🟢 | [✅](./tests/query_rules/10_query_rules.yml#L27)</li></ul>
 | query_rules.put_ruleset | 🟢 | [✅](./tests/query_rules/10_query_rules.yml#L8)</li></ul> | 👍| 🟢 | [✅](./tests/query_rules/10_query_rules.yml#L8)</li></ul>
+| query_rules.test | 🟢 | ❌ | 👍| 🟢 | ❌
 | rank_eval | 🟢 | [✅](./tests/rank_eval.yml#L20)</li></ul> | 🙌| 🟢 | [✅](./tests/rank_eval.yml#L20)</li></ul>
 | reindex | 🟢 | [✅](./tests/reindex/stack.yml#L23)</li></ul> | 🙌| 🟢 | [✅](./tests/reindex/serverless.yml#L23)</li></ul>
 | reindex_rethrottle | 🟢 | [✅](./tests/reindex/stack.yml#L33)</li></ul> | 🙌| 🔴 | Not Applicable
@@ -539,7 +540,7 @@ Endpoints that are currently being tested are marked as done and link to the tes
 
 ## Elasticsearch JSON specification
 
-**Total** 483 | **Tested** 376 | **Untested** 107 ![](https://geps.dev/progress/77)
+**Total** 484 | **Tested** 377 | **Untested** 107 ![](https://geps.dev/progress/77)
 
 <details>
   <summary id="apis-in-json-spec-and-not-elasticsearch-specification">APIs in JSON spec and not elasticsearch-specification (excluding internal APIs)</summary>
