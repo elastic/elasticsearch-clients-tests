@@ -63,7 +63,7 @@ teardown:
         ruleset_id: test-ruleset
         ignore: 404
 ---
-"Test query rules, specifying a ruleset that does not exist":
+"Test query rules":
   - do:
       catch: /resource_not_found_exception/
       query_rules.test:
