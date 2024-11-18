@@ -2,7 +2,7 @@
 
 Endpoints that are currently being tested are marked as done and link to the test where they're being used.
 
-* **STACK** - **Total**: 487 | **Tested**: 411 | **Untested**: 76 ![](https://geps.dev/progress/84)
+* **STACK** - **Total**: 487 | **Tested**: 414 | **Untested**: 73 ![](https://geps.dev/progress/85)
 * **SERVERLESS** - **Total**: 237 | **Tested**: 236 | **Untested**: 1 ![](https://geps.dev/progress/99)
 
 * [Internal APIs](#internal-apis-not-tracked)
@@ -218,15 +218,15 @@ Endpoints that are currently being tested are marked as done and link to the tes
 | inference.stream_inference | 🟢 | ❌ | 👎| 🔴 | Not Applicable
 | info | 🟢 | [✅](./tests/info_stack.yml#L8)</li></ul> | 👍| 🟢 | [✅](./tests/info_serverless.yml#L8)</li></ul>
 | ingest.delete_geoip_database | 🟢 | [✅](./tests/ingest/20_geoip.yml#L70)</li></ul> | 👍| 🔴 | Not Applicable
-| ingest.delete_ip_location_database | 🟢 | ❌ | 👍| 🔴 | Not Applicable
+| ingest.delete_ip_location_database | 🟢 | [✅](./tests/ingest/30_ip_location_database.yml#L69)</li></ul> | 👍| 🔴 | Not Applicable
 | ingest.delete_pipeline | 🟢 | [✅](./tests/ingest/10_basic.yml#L29)</li></ul> | 👍| 🟢 | [✅](./tests/ingest/10_basic.yml#L29)</li></ul>
 | ingest.geo_ip_stats | 🟢 | [✅](./tests/ingest/20_geoip.yml#L8)</li></ul> | 👍| 🔴 | Not Applicable
 | ingest.get_geoip_database | 🟢 | [✅](./tests/ingest/20_geoip.yml#L52)</li></ul> | 👍| 🔴 | Not Applicable
-| ingest.get_ip_location_database | 🟢 | ❌ | 👍| 🔴 | Not Applicable
+| ingest.get_ip_location_database | 🟢 | [✅](./tests/ingest/30_ip_location_database.yml#L55)</li></ul> | 👍| 🔴 | Not Applicable
 | ingest.get_pipeline | 🟢 | [✅](./tests/ingest/10_basic.yml#L16)</li></ul> | 👍| 🟢 | [✅](./tests/ingest/10_basic.yml#L16)</li></ul>
 | ingest.processor_grok | 🟢 | [✅](./tests/ingest/10_basic.yml#L32)</li></ul> | 🙌| 🟢 | [✅](./tests/ingest/10_basic.yml#L32)</li></ul>
 | ingest.put_geoip_database | 🟢 | [✅](./tests/ingest/20_geoip.yml#L16)</li></ul> | 👍| 🔴 | Not Applicable
-| ingest.put_ip_location_database | 🟢 | ❌ | 👍| 🔴 | Not Applicable
+| ingest.put_ip_location_database | 🟢 | [✅](./tests/ingest/30_ip_location_database.yml#L8)</li></ul> | 👍| 🔴 | Not Applicable
 | ingest.put_pipeline | 🟢 | [✅](./tests/ingest/10_basic.yml#L8)</li></ul> | 👍| 🟢 | [✅](./tests/ingest/10_basic.yml#L8)</li></ul>
 | ingest.simulate | 🟢 | [✅](./tests/ingest/10_basic.yml#L20)</li></ul> | 👍| 🟢 | [✅](./tests/ingest/10_basic.yml#L20)</li></ul>
 | knn_search | 🟢 | [✅](./tests/knn_search.yml#L68)</li></ul> | 👍| 🔴 | Not Applicable
