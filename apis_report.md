@@ -90,19 +90,19 @@ Endpoints that are currently being tested are marked as done and link to the tes
 | connector.sync_job_post | 🟢 | [✅](./tests/entsearch/30_sync_jobs_stack.yml#L19)</li></ul> | 👍| 🟢 | [✅](./tests/entsearch/30_sync_jobs_serverless.yml#L24)</li></ul>
 | connector.sync_job_update_stats | 🟢 | [✅](./tests/entsearch/30_sync_jobs_stack.yml#L44)</li></ul> | 👍| 🔴 | Not Applicable
 | connector.update_active_filtering | 🟢 | [✅](./tests/entsearch/50_connector_updates.yml#L63)</li></ul> | 👍| 🟢 | [✅](./tests/entsearch/50_connector_updates.yml#L63)</li></ul>
-| connector.update_api_key_id | 🟢 | [✅](./tests/entsearch/50_connector_updates.yml#L240)</li></ul> | 👍| 🟢 | [✅](./tests/entsearch/50_connector_updates.yml#L240)</li></ul>
+| connector.update_api_key_id | 🟢 | [✅](./tests/entsearch/50_connector_updates.yml#L238)</li></ul> | 👍| 🟢 | [✅](./tests/entsearch/50_connector_updates.yml#L238)</li></ul>
 | connector.update_configuration | 🟢 | [✅](./tests/entsearch/50_connector_updates.yml#L85)</li></ul> | 👍| 🟢 | [✅](./tests/entsearch/50_connector_updates.yml#L85)</li></ul>
 | connector.update_error | 🟢 | [✅](./tests/entsearch/50_connector_updates.yml#L78)</li></ul> | 👍| 🟢 | [✅](./tests/entsearch/50_connector_updates.yml#L78)</li></ul>
 | connector.update_features | 🟢 | [✅](./tests/entsearch/60_connector_updates_stack.yml#L24)</li></ul> | 👍| 🔴 | Not Applicable
 | connector.update_filtering | 🟢 | [✅](./tests/entsearch/50_connector_updates.yml#L31)</li></ul> | 👍| 🟢 | [✅](./tests/entsearch/50_connector_updates.yml#L31)</li></ul>
 | connector.update_filtering_validation | 🟢 | [✅](./tests/entsearch/50_connector_updates.yml#L53)</li></ul> | 👍| 🟢 | [✅](./tests/entsearch/50_connector_updates.yml#L53)</li></ul>
-| connector.update_index_name | 🟢 | [✅](./tests/entsearch/50_connector_updates.yml#L136)</li></ul> | 👍| 🟢 | [✅](./tests/entsearch/50_connector_updates.yml#L136)</li></ul>
+| connector.update_index_name | 🟢 | [✅](./tests/entsearch/50_connector_updates.yml#L135)</li></ul> | 👍| 🟢 | [✅](./tests/entsearch/50_connector_updates.yml#L135)</li></ul>
 | connector.update_name | 🟢 | [✅](./tests/entsearch/50_connector_updates.yml#L24)</li></ul> | 👍| 🟢 | [✅](./tests/entsearch/50_connector_updates.yml#L24)</li></ul>
-| connector.update_native | 🟢 | [✅](./tests/entsearch/50_connector_updates.yml#L158)</li></ul> | 👍| 🟢 | [✅](./tests/entsearch/50_connector_updates.yml#L158)</li></ul>
-| connector.update_pipeline | 🟢 | [✅](./tests/entsearch/50_connector_updates.yml#L171)</li></ul> | 👍| 🟢 | [✅](./tests/entsearch/50_connector_updates.yml#L171)</li></ul>
-| connector.update_scheduling | 🟢 | [✅](./tests/entsearch/50_connector_updates.yml#L190)</li></ul> | 👍| 🟢 | [✅](./tests/entsearch/50_connector_updates.yml#L190)</li></ul>
-| connector.update_service_type | 🟢 | [✅](./tests/entsearch/50_connector_updates.yml#L228)</li></ul> | 👍| 🟢 | [✅](./tests/entsearch/50_connector_updates.yml#L228)</li></ul>
-| connector.update_status | 🟢 | [✅](./tests/entsearch/50_connector_updates.yml#L216)</li></ul> | 👍| 🟢 | [✅](./tests/entsearch/50_connector_updates.yml#L216)</li></ul>
+| connector.update_native | 🟢 | [✅](./tests/entsearch/50_connector_updates.yml#L157)</li></ul> | 👍| 🟢 | [✅](./tests/entsearch/50_connector_updates.yml#L157)</li></ul>
+| connector.update_pipeline | 🟢 | [✅](./tests/entsearch/50_connector_updates.yml#L169)</li></ul> | 👍| 🟢 | [✅](./tests/entsearch/50_connector_updates.yml#L169)</li></ul>
+| connector.update_scheduling | 🟢 | [✅](./tests/entsearch/50_connector_updates.yml#L188)</li></ul> | 👍| 🟢 | [✅](./tests/entsearch/50_connector_updates.yml#L188)</li></ul>
+| connector.update_service_type | 🟢 | [✅](./tests/entsearch/50_connector_updates.yml#L226)</li></ul> | 👍| 🟢 | [✅](./tests/entsearch/50_connector_updates.yml#L226)</li></ul>
+| connector.update_status | 🟢 | [✅](./tests/entsearch/50_connector_updates.yml#L214)</li></ul> | 👍| 🟢 | [✅](./tests/entsearch/50_connector_updates.yml#L214)</li></ul>
 | count | 🟢 | [✅](./tests/bulk/10_basic.yml#L27)</li></ul> | 👍| 🟢 | [✅](./tests/bulk/10_basic.yml#L27)</li></ul>
 | create | 🟢 | [✅](./tests/create/10_basic.yml#L18)</li></ul> | 👍| 🟢 | [✅](./tests/create/10_basic.yml#L18)</li></ul>
 | dangling_indices.delete_dangling_index | 🟢 | ❌ | 👎| 🔴 | Not Applicable
