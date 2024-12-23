@@ -2,7 +2,7 @@
 
 Endpoints that are currently being tested are marked as done and link to the test where they're being used.
 
-* **STACK** - **Total**: 487 | **Tested**: 414 | **Untested**: 73 ![](https://geps.dev/progress/85)
+* **STACK** - **Total**: 486 | **Tested**: 414 | **Untested**: 72 ![](https://geps.dev/progress/85)
 * **SERVERLESS** - **Total**: 237 | **Tested**: 236 | **Untested**: 1 ![](https://geps.dev/progress/99)
 
 * [Internal APIs](#internal-apis-not-tracked)
@@ -315,7 +315,6 @@ Endpoints that are currently being tested are marked as done and link to the tes
 | ml.update_model_snapshot | 🟢 | [✅](./tests/machine_learning/update_model_snapshot.yml#L6)</li></ul> | 👍| 🔴 | Not Applicable
 | ml.update_trained_model_deployment | 🟢 | [✅](./tests/machine_learning/30_trained_model_stack.yml#L58)</li></ul> | 👍| 🟢 | [✅](./tests/machine_learning/20_trained_model_serverless.yml#L59)</li></ul>
 | ml.upgrade_job_snapshot | 🟢 | [✅](./tests/machine_learning/model_snapshots.yml#L145)</li></ul> | 👍| 🔴 | Not Applicable
-| monitoring.bulk | 🟢 | ❌ | 👍| 🔴 | Not Applicable
 | msearch | 🟢 | [✅](./tests/msearch.yml#L26)</li></ul> | 👍| 🟢 | [✅](./tests/msearch.yml#L26)</li></ul>
 | msearch_template | 🟢 | [✅](./tests/msearch_template.yml#L29)</li></ul> | 🙌| 🟢 | [✅](./tests/msearch_template.yml#L29)</li></ul>
 | mtermvectors | 🟢 | [✅](./tests/mtermvectors/10_basic.yml#L25)</li></ul> | 👍| 🟢 | [✅](./tests/mtermvectors/10_basic.yml#L25)</li></ul>
@@ -524,6 +523,7 @@ Endpoints that are currently being tested are marked as done and link to the tes
   | fleet.post_secret | Private API |
   | ml.validate | Private API |
   | ml.validate_detector | Private API |
+  | monitoring.bulk | Private API |
   | profiling.flamegraph | Private API |
   | profiling.stacktraces | Private API |
   | profiling.status | Private API |
@@ -543,7 +543,7 @@ Endpoints that are currently being tested are marked as done and link to the tes
 
 ## Elasticsearch JSON specification
 
-**Total** 487 | **Tested** 381 | **Untested** 106 ![](https://geps.dev/progress/78)
+**Total** 486 | **Tested** 380 | **Untested** 106 ![](https://geps.dev/progress/78)
 
 <details>
   <summary id="apis-in-json-spec-and-not-elasticsearch-specification">APIs in JSON spec and not elasticsearch-specification (excluding internal APIs)</summary>
