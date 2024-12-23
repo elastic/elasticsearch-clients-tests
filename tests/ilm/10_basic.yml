@@ -72,13 +72,11 @@ teardown:
   - is_true: 'operation_mode'
 
   - do:
-      ilm.start:
-        policy: "my_lifecycle"
+      ilm.start: {}
   - is_true: 'acknowledged'
 
   - do:
-      ilm.stop:
-        index: logs-foobar
+      ilm.stop: {}
   - is_false: 'dry_run'
 
   - do:
