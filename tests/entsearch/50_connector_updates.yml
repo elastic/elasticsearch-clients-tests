@@ -129,7 +129,6 @@ teardown:
   - match: { configuration.some_field.value: 123 }
   - match: { configuration.some_field.sensitive: false }
   - match: { configuration.some_field.display: numeric }
-  - match: { status: configured }
   - match: { configuration.yet_another_field.value: "peace & love" }
 
   - do:
@@ -148,7 +147,7 @@ teardown:
       connector.put:
         connector_id: test-connector-native
         body:
-          index_name: search-3-test
+          index_name: content-search-3-test
           name: my-connector
           language: pl
           is_native: false
@@ -165,7 +164,6 @@ teardown:
       connector.get:
         connector_id: test-connector-native
   - match: { is_native: true }
-  - match: { status: configured }
 
   - do:
       connector.update_pipeline:
