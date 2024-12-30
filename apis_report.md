@@ -2,8 +2,8 @@
 
 Endpoints that are currently being tested are marked as done and link to the test where they're being used.
 
-* **STACK** - **Total**: 482 | **Tested**: 422 | **Untested**: 60 ![](https://geps.dev/progress/87)
-* **SERVERLESS** - **Total**: 236 | **Tested**: 229 | **Untested**: 7 ![](https://geps.dev/progress/97)
+* **STACK** - **Total**: 486 | **Tested**: 421 | **Untested**: 65 ![](https://geps.dev/progress/86)
+* **SERVERLESS** - **Total**: 237 | **Tested**: 228 | **Untested**: 9 ![](https://geps.dev/progress/96)
 
 * [Internal APIs](#internal-apis-not-tracked)
 * [API information from the Elasticsearch JSON specification](#elasticsearch-json-specification)
@@ -56,7 +56,7 @@ Endpoints that are currently being tested are marked as done and link to the tes
 | ccr.resume_follow | 🟢 | ❌ | 🔴 | Not Applicable | 👎
 | ccr.stats | 🟢 | ❌ | 🔴 | Not Applicable | 👎
 | ccr.unfollow | 🟢 | ❌ | 🔴 | Not Applicable | 👎
-| clear_scroll | 🟢 | [✅](./tests/scroll/10_basic.yml#L28)</li></ul> | 🟢 | [✅](./tests/scroll/10_basic.yml#L28)</li></ul> | 👍
+| clear_scroll | 🟢 | [✅](./tests/scroll/10_basic.yml#L29)</li></ul> | 🟢 | [✅](./tests/scroll/10_basic.yml#L29)</li></ul> | 👍
 | close_point_in_time | 🟢 | [✅](./tests/point_in_time/10_basic.yml#L30)</li></ul> | 🟢 | [✅](./tests/point_in_time/10_basic.yml#L30)</li></ul> | 👍
 | cluster.allocation_explain | 🟢 | [✅](./tests/cluster/allocation_explain.yml#L18)</li></ul> | 🔴 | Not Applicable | 👍
 | cluster.delete_component_template | 🟢 | [✅](./tests/cluster/component_templates.yml#L29)</li></ul> | 🟢 | [✅](./tests/cluster/component_templates.yml#L29)</li></ul> | 👍
@@ -116,7 +116,7 @@ Endpoints that are currently being tested are marked as done and link to the tes
 | enrich.execute_policy | 🟢 | [✅](./tests/enrich/10_basic.yml#L34)</li></ul> | 🟢 | [✅](./tests/enrich/10_basic.yml#L34)</li></ul> | 👍
 | enrich.get_policy | 🟢 | [✅](./tests/enrich/10_basic.yml#L39)</li></ul> | 🟢 | [✅](./tests/enrich/10_basic.yml#L39)</li></ul> | 👍
 | enrich.put_policy | 🟢 | [✅](./tests/enrich/10_basic.yml#L24)</li></ul> | 🟢 | [✅](./tests/enrich/10_basic.yml#L24)</li></ul> | 👍
-| enrich.stats | 🟢 | [✅](./tests/enrich/20_stats.yml#L8)</li></ul> | 🟢 | ❌ | 👍
+| enrich.stats | 🟢 | [✅](./tests/enrich/20_stats.yml#L8)</li></ul> | 🔴 | Not Applicable | 👍
 | eql.delete | 🟢 | [✅](./tests/eql/10_basic.yml#L122)</li></ul> | 🟢 | [✅](./tests/eql/10_basic.yml#L122)</li></ul> | 👍
 | eql.get | 🟢 | [✅](./tests/eql/10_basic.yml#L114)</li></ul> | 🟢 | [✅](./tests/eql/10_basic.yml#L114)</li></ul> | 👍
 | eql.get_status | 🟢 | [✅](./tests/eql/10_basic.yml#L109)</li></ul> | 🟢 | [✅](./tests/eql/10_basic.yml#L109)</li></ul> | 👍
@@ -159,10 +159,10 @@ Endpoints that are currently being tested are marked as done and link to the tes
 | indices.close | 🟢 | [✅](./tests/indices/open_close.yml#L21)</li></ul> | 🔴 | Not Applicable | 👍
 | indices.create | 🟢 | [✅](./tests/cat/aliases.yml#L8)</li></ul> | 🟢 | [✅](./tests/cat/aliases.yml#L8)</li></ul> | 👍
 | indices.create_data_stream | 🟢 | [✅](./tests/ilm/10_basic.yml#L20)</li></ul> | 🟢 | [✅](./tests/indices/data_streams.yml#L26)</li></ul> | 👍
-| indices.data_streams_stats | 🟢 | [✅](./tests/indices/data_streams.yml#L36)</li></ul> | 🟢 | [✅](./tests/indices/data_streams.yml#L36)</li></ul> | 👍
+| indices.data_streams_stats | 🟢 | [✅](./tests/indices/data_streams.yml#L36)</li></ul> | 🔴 | Not Applicable | 👍
 | indices.delete | 🟢 | [✅](./tests/async_search/10_basic.yml#L29)</li></ul> | 🟢 | [✅](./tests/async_search/10_basic.yml#L29)</li></ul> | 👍
 | indices.delete_alias | 🟢 | [✅](./tests/indices/alias.yml#L49)</li></ul> | 🟢 | [✅](./tests/indices/alias.yml#L49)</li></ul> | 👍
-| indices.delete_data_lifecycle | 🟢 | [✅](./tests/indices/20_data_lifecycle.yml#L22)</li></ul> | 🟢 | ❌ | 🙌
+| indices.delete_data_lifecycle | 🟢 | [✅](./tests/indices/20_data_lifecycle.yml#L22)</li></ul> | 🔴 | Not Applicable | 🙌
 | indices.delete_data_stream | 🟢 | [✅](./tests/ilm/10_basic.yml#L26)</li></ul> | 🟢 | [✅](./tests/indices/data_streams.yml#L40)</li></ul> | 👍
 | indices.delete_index_template | 🟢 | [✅](./tests/indices/data_streams.yml#L21)</li></ul> | 🟢 | [✅](./tests/indices/data_streams.yml#L21)</li></ul> | 👍
 | indices.delete_template | 🟢 | [✅](./tests/indices/exists_template.yml#L8)</li></ul> | 🔴 | Not Applicable | 👍
@@ -194,7 +194,7 @@ Endpoints that are currently being tested are marked as done and link to the tes
 | indices.put_index_template | 🟢 | [✅](./tests/ilm/10_basic.yml#L8)</li></ul> | 🟢 | [✅](./tests/indices/data_streams.yml#L8)</li></ul> | 👍
 | indices.put_mapping | 🟢 | [✅](./tests/indices/mapping.yml#L18)</li></ul> | 🟢 | [✅](./tests/indices/mapping.yml#L18)</li></ul> | 👍
 | indices.put_settings | 🟢 | [✅](./tests/indices/clone.yml#L39)</li></ul> | 🟢 | [✅](./tests/indices/settings.yml#L27)</li></ul> | 👍
-| indices.put_template | 🟢 | [✅](./tests/indices/exists_template.yml#L24)</li></ul> | 🟢 | ❌ | 👍
+| indices.put_template | 🟢 | [✅](./tests/indices/exists_template.yml#L24)</li></ul> | 🔴 | Not Applicable | 👍
 | indices.recovery | 🟢 | [✅](./tests/indices/recovery.yml#L22)</li></ul> | 🔴 | Not Applicable | 👍
 | indices.refresh | 🟢 | [✅](./tests/graph/explore.yml#L24)</li></ul> | 🟢 | [✅](./tests/graph/explore.yml#L24)</li></ul> | 👍
 | indices.reload_search_analyzers | 🟢 | [✅](./tests/ilm/10_basic.yml#L55)</li></ul> | 🔴 | Not Applicable | 👍
@@ -215,14 +215,18 @@ Endpoints that are currently being tested are marked as done and link to the tes
 | inference.get | 🟢 | [✅](./tests/inference/10_basic.yml#L25)</li></ul> | 🟢 | [✅](./tests/inference/10_basic.yml#L25)</li></ul> | 👍
 | inference.inference | 🟢 | [✅](./tests/inference/10_basic.yml#L31)</li></ul> | 🟢 | [✅](./tests/inference/10_basic.yml#L31)</li></ul> | 👍
 | inference.put | 🟢 | [✅](./tests/inference/10_basic.yml#L8)</li></ul> | 🟢 | [✅](./tests/inference/10_basic.yml#L8)</li></ul> | 👍
+| inference.stream_inference | 🟢 | ❌ | 🔴 | Not Applicable | 👎
 | info | 🟢 | [✅](./tests/info_stack.yml#L8)</li></ul> | 🟢 | [✅](./tests/info_serverless.yml#L8)</li></ul> | 👍
 | ingest.delete_geoip_database | 🟢 | [✅](./tests/ingest/20_geoip.yml#L70)</li></ul> | 🔴 | Not Applicable | 👍
+| ingest.delete_ip_location_database | 🟢 | ❌ | 🔴 | Not Applicable | 👍
 | ingest.delete_pipeline | 🟢 | [✅](./tests/ingest/10_basic.yml#L29)</li></ul> | 🟢 | [✅](./tests/ingest/10_basic.yml#L29)</li></ul> | 👍
 | ingest.geo_ip_stats | 🟢 | [✅](./tests/ingest/20_geoip.yml#L8)</li></ul> | 🔴 | Not Applicable | 👍
 | ingest.get_geoip_database | 🟢 | [✅](./tests/ingest/20_geoip.yml#L52)</li></ul> | 🔴 | Not Applicable | 👍
+| ingest.get_ip_location_database | 🟢 | ❌ | 🔴 | Not Applicable | 👍
 | ingest.get_pipeline | 🟢 | [✅](./tests/ingest/10_basic.yml#L16)</li></ul> | 🟢 | [✅](./tests/ingest/10_basic.yml#L16)</li></ul> | 👍
 | ingest.processor_grok | 🟢 | [✅](./tests/ingest/10_basic.yml#L32)</li></ul> | 🟢 | [✅](./tests/ingest/10_basic.yml#L32)</li></ul> | 🙌
 | ingest.put_geoip_database | 🟢 | [✅](./tests/ingest/20_geoip.yml#L16)</li></ul> | 🔴 | Not Applicable | 👍
+| ingest.put_ip_location_database | 🟢 | ❌ | 🔴 | Not Applicable | 👍
 | ingest.put_pipeline | 🟢 | [✅](./tests/ingest/10_basic.yml#L8)</li></ul> | 🟢 | [✅](./tests/ingest/10_basic.yml#L8)</li></ul> | 👍
 | ingest.simulate | 🟢 | [✅](./tests/ingest/10_basic.yml#L20)</li></ul> | 🟢 | [✅](./tests/ingest/10_basic.yml#L20)</li></ul> | 👍
 | knn_search | 🟢 | [✅](./tests/knn_search.yml#L68)</li></ul> | 🔴 | Not Applicable | 👍
@@ -303,15 +307,14 @@ Endpoints that are currently being tested are marked as done and link to the tes
 | ml.start_trained_model_deployment | 🟢 | [✅](./tests/machine_learning/20_trained_model.yml#L52)</li></ul> | 🟢 | [✅](./tests/machine_learning/20_trained_model.yml#L52)</li></ul> | 👍
 | ml.stop_data_frame_analytics | 🟢 | [✅](./tests/machine_learning/data_frame_analytics.yml#L71)</li></ul> | 🟢 | [✅](./tests/machine_learning/data_frame_analytics.yml#L71)</li></ul> | 👍
 | ml.stop_datafeed | 🟢 | [✅](./tests/machine_learning/start_stop_datafeed.yml#L70)</li></ul> | 🟢 | [✅](./tests/machine_learning/start_stop_datafeed.yml#L70)</li></ul> | 👍
-| ml.stop_trained_model_deployment | 🟢 | [✅](./tests/machine_learning/20_trained_model.yml#L67)</li></ul> | 🟢 | [✅](./tests/machine_learning/20_trained_model.yml#L67)</li></ul> | 👍
+| ml.stop_trained_model_deployment | 🟢 | [✅](./tests/machine_learning/20_trained_model.yml#L68)</li></ul> | 🟢 | [✅](./tests/machine_learning/20_trained_model.yml#L68)</li></ul> | 👍
 | ml.update_data_frame_analytics | 🟢 | [✅](./tests/machine_learning/data_frame_analytics.yml#L74)</li></ul> | 🟢 | [✅](./tests/machine_learning/data_frame_analytics.yml#L74)</li></ul> | 👍
 | ml.update_datafeed | 🟢 | [✅](./tests/machine_learning/datafeed_crud.yml#L72)</li></ul> | 🟢 | [✅](./tests/machine_learning/datafeed_crud.yml#L72)</li></ul> | 👍
 | ml.update_filter | 🟢 | [✅](./tests/machine_learning/filter_crud.yml#L25)</li></ul> | 🟢 | [✅](./tests/machine_learning/filter_crud.yml#L25)</li></ul> | 👍
 | ml.update_job | 🟢 | [✅](./tests/machine_learning/jobs_crud.yml#L75)</li></ul> | 🟢 | [✅](./tests/machine_learning/jobs_crud.yml#L75)</li></ul> | 👍
 | ml.update_model_snapshot | 🟢 | [✅](./tests/machine_learning/update_model_snapshot.yml#L6)</li></ul> | 🔴 | Not Applicable | 👍
-| ml.update_trained_model_deployment | 🟢 | [✅](./tests/machine_learning/20_trained_model.yml#L58)</li></ul> | 🟢 | [✅](./tests/machine_learning/20_trained_model.yml#L58)</li></ul> | 👍
+| ml.update_trained_model_deployment | 🟢 | [✅](./tests/machine_learning/20_trained_model.yml#L59)</li></ul> | 🟢 | [✅](./tests/machine_learning/20_trained_model.yml#L59)</li></ul> | 👍
 | ml.upgrade_job_snapshot | 🟢 | [✅](./tests/machine_learning/model_snapshots.yml#L145)</li></ul> | 🔴 | Not Applicable | 👍
-| monitoring.bulk | 🟢 | [✅](./tests/monitoring/bulk.yml#L6)</li></ul> | 🔴 | Not Applicable | 👍
 | msearch | 🟢 | [✅](./tests/msearch.yml#L26)</li></ul> | 🟢 | [✅](./tests/msearch.yml#L26)</li></ul> | 👍
 | msearch_template | 🟢 | [✅](./tests/msearch_template.yml#L29)</li></ul> | 🟢 | [✅](./tests/msearch_template.yml#L29)</li></ul> | 🙌
 | mtermvectors | 🟢 | [✅](./tests/mtermvectors/10_basic.yml#L25)</li></ul> | 🟢 | [✅](./tests/mtermvectors/10_basic.yml#L25)</li></ul> | 👍
@@ -332,6 +335,7 @@ Endpoints that are currently being tested are marked as done and link to the tes
 | query_rules.list_rulesets | 🟢 | [✅](./tests/query_rules/20_rulesets.yml#L33)</li></ul> | 🟢 | [✅](./tests/query_rules/20_rulesets.yml#L33)</li></ul> | 👍
 | query_rules.put_rule | 🟢 | [✅](./tests/query_rules/10_query_rules.yml#L27)</li></ul> | 🟢 | [✅](./tests/query_rules/10_query_rules.yml#L27)</li></ul> | 👍
 | query_rules.put_ruleset | 🟢 | [✅](./tests/query_rules/10_query_rules.yml#L8)</li></ul> | 🟢 | [✅](./tests/query_rules/10_query_rules.yml#L8)</li></ul> | 👍
+| query_rules.test | 🟢 | ❌ | 🟢 | ❌ | 👍
 | rank_eval | 🟢 | [✅](./tests/rank_eval.yml#L20)</li></ul> | 🟢 | [✅](./tests/rank_eval.yml#L20)</li></ul> | 🙌
 | reindex | 🟢 | [✅](./tests/reindex/stack.yml#L23)</li></ul> | 🟢 | [✅](./tests/reindex/serverless.yml#L23)</li></ul> | 🙌
 | reindex_rethrottle | 🟢 | [✅](./tests/reindex/stack.yml#L33)</li></ul> | 🔴 | Not Applicable | 🙌
@@ -371,7 +375,7 @@ Endpoints that are currently being tested are marked as done and link to the tes
 | security.create_cross_cluster_api_key | 🟢 | [✅](./tests/security/80_api_key_cross_cluster.yml#L40)</li></ul> | 🔴 | Not Applicable | 👍
 | security.create_service_token | 🟢 | [✅](./tests/security/90_service_accounts.yml#L25)</li></ul> | 🔴 | Not Applicable | 👍
 | security.delete_privileges | 🟢 | [✅](./tests/security/30_privileges_stack.yml#L8)</li></ul> | 🔴 | Not Applicable | 👍
-| security.delete_role | 🟢 | [✅](./tests/security/100_tokens.yml#L28)</li></ul> | 🔴 | Not Applicable | 👍
+| security.delete_role | 🟢 | [✅](./tests/security/100_tokens.yml#L28)</li></ul> | 🟢 | ❌ | 👍
 | security.delete_role_mapping | 🟢 | [✅](./tests/security/110_role_mapping.yml#L8)</li></ul> | 🔴 | Not Applicable | 👍
 | security.delete_service_token | 🟢 | [✅](./tests/security/90_service_accounts.yml#L8)</li></ul> | 🔴 | Not Applicable | 👍
 | security.delete_user | 🟢 | [✅](./tests/security/100_tokens.yml#L33)</li></ul> | 🔴 | Not Applicable | 👍
@@ -382,9 +386,9 @@ Endpoints that are currently being tested are marked as done and link to the tes
 | security.enroll_kibana | 🟢 | ❌ | 🔴 | Not Applicable | 👎
 | security.enroll_node | 🟢 | ❌ | 🔴 | Not Applicable | 👎
 | security.get_api_key | 🟢 | [✅](./tests/security/10_api_key_basic.yml#L19)</li></ul> | 🟢 | [✅](./tests/security/10_api_key_basic.yml#L19)</li></ul> | 👍
-| security.get_builtin_privileges | 🟢 | [✅](./tests/security/30_privileges_stack.yml#L169)</li></ul> | 🔴 | Not Applicable | 👍
+| security.get_builtin_privileges | 🟢 | [✅](./tests/security/30_privileges_stack.yml#L169)</li></ul> | 🟢 | ❌ | 👍
 | security.get_privileges | 🟢 | [✅](./tests/security/30_privileges_stack.yml#L93)</li></ul> | 🔴 | Not Applicable | 👍
-| security.get_role | 🟢 | [✅](./tests/security/40_roles.yml#L47)</li></ul> | 🔴 | Not Applicable | 👍
+| security.get_role | 🟢 | [✅](./tests/security/40_roles.yml#L47)</li></ul> | 🟢 | ❌ | 👍
 | security.get_role_mapping | 🟢 | [✅](./tests/security/110_role_mapping.yml#L29)</li></ul> | 🔴 | Not Applicable | 👍
 | security.get_service_accounts | 🟢 | [✅](./tests/security/90_service_accounts.yml#L16)</li></ul> | 🔴 | Not Applicable | 👍
 | security.get_service_credentials | 🟢 | [✅](./tests/security/90_service_accounts.yml#L34)</li></ul> | 🔴 | Not Applicable | 👍
@@ -402,7 +406,7 @@ Endpoints that are currently being tested are marked as done and link to the tes
 | security.oidc_logout | 🟢 | ❌ | 🔴 | Not Applicable | 👎
 | security.oidc_prepare_authentication | 🟢 | ❌ | 🔴 | Not Applicable | 👎
 | security.put_privileges | 🟢 | [✅](./tests/security/30_privileges_stack.yml#L21)</li></ul> | 🔴 | Not Applicable | 👍
-| security.put_role | 🟢 | [✅](./tests/security/100_tokens.yml#L8)</li></ul> | 🔴 | Not Applicable | 👍
+| security.put_role | 🟢 | [✅](./tests/security/100_tokens.yml#L8)</li></ul> | 🟢 | ❌ | 👍
 | security.put_role_mapping | 🟢 | [✅](./tests/security/110_role_mapping.yml#L14)</li></ul> | 🔴 | Not Applicable | 👍
 | security.put_user | 🟢 | [✅](./tests/security/100_tokens.yml#L16)</li></ul> | 🔴 | Not Applicable | 👍
 | security.query_api_keys | 🟢 | [✅](./tests/security/10_api_key_basic.yml#L24)</li></ul> | 🟢 | [✅](./tests/security/10_api_key_basic.yml#L24)</li></ul> | 👍
@@ -519,6 +523,7 @@ Endpoints that are currently being tested are marked as done and link to the tes
   | fleet.post_secret | Private API |
   | ml.validate | Private API |
   | ml.validate_detector | Private API |
+  | monitoring.bulk | Private API |
   | profiling.flamegraph | Private API |
   | profiling.stacktraces | Private API |
   | profiling.status | Private API |
@@ -534,10 +539,11 @@ Endpoints that are currently being tested are marked as done and link to the tes
   | shutdown | Designed for indirect use by ECE/ESS and ECK. Direct use is not supported. |
   | shutdown | Designed for indirect use by ECE/ESS and ECK. Direct use is not supported. |
   | shutdown | Designed for indirect use by ECE/ESS and ECK. Direct use is not supported. |
+  | snapshot.repository_verify_integrity | Private API |
 
 ## Elasticsearch JSON specification
 
-**Total** 482 | **Tested** 376 | **Untested** 106 ![](https://geps.dev/progress/78)
+**Total** 486 | **Tested** 379 | **Untested** 107 ![](https://geps.dev/progress/77)
 
 <details>
   <summary id="apis-in-json-spec-and-not-elasticsearch-specification">APIs in JSON spec and not elasticsearch-specification (excluding internal APIs)</summary>
