@@ -56,7 +56,7 @@ Endpoints that are currently being tested are marked as done and link to the tes
 | ccr.resume_follow | 🟢 | ❌ | 🔴 | Not Applicable | 👎
 | ccr.stats | 🟢 | ❌ | 🔴 | Not Applicable | 👎
 | ccr.unfollow | 🟢 | ❌ | 🔴 | Not Applicable | 👎
-| clear_scroll | 🟢 | [✅](./tests/scroll/10_basic.yml#L28)</li></ul> | 🟢 | [✅](./tests/scroll/10_basic.yml#L28)</li></ul> | 👍
+| clear_scroll | 🟢 | [✅](./tests/scroll/10_basic.yml#L29)</li></ul> | 🟢 | [✅](./tests/scroll/10_basic.yml#L29)</li></ul> | 👍
 | close_point_in_time | 🟢 | [✅](./tests/point_in_time/10_basic.yml#L30)</li></ul> | 🟢 | [✅](./tests/point_in_time/10_basic.yml#L30)</li></ul> | 👍
 | cluster.allocation_explain | 🟢 | [✅](./tests/cluster/allocation_explain.yml#L18)</li></ul> | 🔴 | Not Applicable | 👍
 | cluster.delete_component_template | 🟢 | [✅](./tests/cluster/component_templates.yml#L29)</li></ul> | 🟢 | [✅](./tests/cluster/component_templates.yml#L29)</li></ul> | 👍
@@ -307,13 +307,13 @@ Endpoints that are currently being tested are marked as done and link to the tes
 | ml.start_trained_model_deployment | 🟢 | [✅](./tests/machine_learning/20_trained_model.yml#L52)</li></ul> | 🟢 | [✅](./tests/machine_learning/20_trained_model.yml#L52)</li></ul> | 👍
 | ml.stop_data_frame_analytics | 🟢 | [✅](./tests/machine_learning/data_frame_analytics.yml#L71)</li></ul> | 🟢 | [✅](./tests/machine_learning/data_frame_analytics.yml#L71)</li></ul> | 👍
 | ml.stop_datafeed | 🟢 | [✅](./tests/machine_learning/start_stop_datafeed.yml#L70)</li></ul> | 🟢 | [✅](./tests/machine_learning/start_stop_datafeed.yml#L70)</li></ul> | 👍
-| ml.stop_trained_model_deployment | 🟢 | [✅](./tests/machine_learning/20_trained_model.yml#L67)</li></ul> | 🟢 | [✅](./tests/machine_learning/20_trained_model.yml#L67)</li></ul> | 👍
+| ml.stop_trained_model_deployment | 🟢 | [✅](./tests/machine_learning/20_trained_model.yml#L68)</li></ul> | 🟢 | [✅](./tests/machine_learning/20_trained_model.yml#L68)</li></ul> | 👍
 | ml.update_data_frame_analytics | 🟢 | [✅](./tests/machine_learning/data_frame_analytics.yml#L74)</li></ul> | 🟢 | [✅](./tests/machine_learning/data_frame_analytics.yml#L74)</li></ul> | 👍
 | ml.update_datafeed | 🟢 | [✅](./tests/machine_learning/datafeed_crud.yml#L72)</li></ul> | 🟢 | [✅](./tests/machine_learning/datafeed_crud.yml#L72)</li></ul> | 👍
 | ml.update_filter | 🟢 | [✅](./tests/machine_learning/filter_crud.yml#L25)</li></ul> | 🟢 | [✅](./tests/machine_learning/filter_crud.yml#L25)</li></ul> | 👍
 | ml.update_job | 🟢 | [✅](./tests/machine_learning/jobs_crud.yml#L75)</li></ul> | 🟢 | [✅](./tests/machine_learning/jobs_crud.yml#L75)</li></ul> | 👍
 | ml.update_model_snapshot | 🟢 | [✅](./tests/machine_learning/update_model_snapshot.yml#L6)</li></ul> | 🔴 | Not Applicable | 👍
-| ml.update_trained_model_deployment | 🟢 | [✅](./tests/machine_learning/20_trained_model.yml#L58)</li></ul> | 🟢 | [✅](./tests/machine_learning/20_trained_model.yml#L58)</li></ul> | 👍
+| ml.update_trained_model_deployment | 🟢 | [✅](./tests/machine_learning/20_trained_model.yml#L59)</li></ul> | 🟢 | [✅](./tests/machine_learning/20_trained_model.yml#L59)</li></ul> | 👍
 | ml.upgrade_job_snapshot | 🟢 | [✅](./tests/machine_learning/model_snapshots.yml#L145)</li></ul> | 🔴 | Not Applicable | 👍
 | msearch | 🟢 | [✅](./tests/msearch.yml#L26)</li></ul> | 🟢 | [✅](./tests/msearch.yml#L26)</li></ul> | 👍
 | msearch_template | 🟢 | [✅](./tests/msearch_template.yml#L29)</li></ul> | 🟢 | [✅](./tests/msearch_template.yml#L29)</li></ul> | 🙌
@@ -337,7 +337,7 @@ Endpoints that are currently being tested are marked as done and link to the tes
 | query_rules.put_ruleset | 🟢 | [✅](./tests/query_rules/10_query_rules.yml#L8)</li></ul> | 🟢 | [✅](./tests/query_rules/10_query_rules.yml#L8)</li></ul> | 👍
 | query_rules.test | 🟢 | ❌ | 🟢 | ❌ | 👍
 | rank_eval | 🟢 | [✅](./tests/rank_eval.yml#L20)</li></ul> | 🟢 | [✅](./tests/rank_eval.yml#L20)</li></ul> | 🙌
-| reindex | 🟢 | [✅](./tests/reindex/stack.yml#L23)</li></ul> | 🟢 | [✅](./tests/reindex/serverless.yml#L23)</li></ul> | 🙌
+| reindex | 🟢 | [✅](./tests/reindex/stack.yml#L23)</li></ul> | 🟢 | [✅](./tests/reindex/serverless.yml#L23)</li></ul> | 👍
 | reindex_rethrottle | 🟢 | [✅](./tests/reindex/stack.yml#L33)</li></ul> | 🔴 | Not Applicable | 🙌
 | render_search_template | 🟢 | [✅](./tests/search_template/10_basic.yml#L29)</li></ul> | 🟢 | [✅](./tests/search_template/10_basic.yml#L29)</li></ul> | 🙌
 | scripts_painless_execute | 🟢 | [✅](./tests/script/10_basic.yml#L36)</li></ul> | 🟢 | [✅](./tests/script/10_basic.yml#L36)</li></ul> | 👍
