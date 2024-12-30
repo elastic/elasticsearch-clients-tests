@@ -337,7 +337,7 @@ Endpoints that are currently being tested are marked as done and link to the tes
 | query_rules.put_ruleset | 🟢 | [✅](./tests/query_rules/10_query_rules.yml#L8)</li></ul> | 🟢 | [✅](./tests/query_rules/10_query_rules.yml#L8)</li></ul> | 👍
 | query_rules.test | 🟢 | ❌ | 🟢 | ❌ | 👍
 | rank_eval | 🟢 | [✅](./tests/rank_eval.yml#L20)</li></ul> | 🟢 | [✅](./tests/rank_eval.yml#L20)</li></ul> | 🙌
-| reindex | 🟢 | [✅](./tests/reindex/stack.yml#L23)</li></ul> | 🟢 | [✅](./tests/reindex/serverless.yml#L23)</li></ul> | 👍
+| reindex | 🟢 | [✅](./tests/reindex/stack.yml#L23)</li></ul> | 🟢 | [✅](./tests/reindex/serverless.yml#L23)</li></ul> | 🙌
 | reindex_rethrottle | 🟢 | [✅](./tests/reindex/stack.yml#L33)</li></ul> | 🔴 | Not Applicable | 🙌
 | render_search_template | 🟢 | [✅](./tests/search_template/10_basic.yml#L29)</li></ul> | 🟢 | [✅](./tests/search_template/10_basic.yml#L29)</li></ul> | 🙌
 | scripts_painless_execute | 🟢 | [✅](./tests/script/10_basic.yml#L36)</li></ul> | 🟢 | [✅](./tests/script/10_basic.yml#L36)</li></ul> | 👍
