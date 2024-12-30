@@ -6,16 +6,13 @@ on:
   push:
     branches:
       - main
-      - '8.x'
-      - '8.17'
-      - '8.16'
 jobs:
   generate_report:
     runs-on: ubuntu-latest
     strategy:
       matrix:
         branch:
-          - main
+          - 'main'
           - '8.x'
           - '8.17'
           - '8.16'
@@ -38,11 +35,19 @@ jobs:
         run: cd report && bundle exec rake download_all
       - name: Generate report
         run: cd report && bundle exec rake report
-      - uses: gr2m/create-or-update-pull-request-action@v1
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Create Pull Request
+        uses: peter-evans/create-pull-request@v6
+        id: cpr
         with:
+          token: ${{ secrets.GITHUB_TOKEN }}
           commit-message: Updates API report ${{env.REPORT_DATE}} ${{ matrix.branch }}
-          title: Updates API report
+          branch: update_report_${{ matrix.branch }}
+          title: Updates API report ${{ matrix.branch }}
+          body: 'As titled'
+          base: ${{ matrix.branch }}
+          committer: 'Elastic Machine <elasticmachine@users.noreply.github.com>'
           author: 'Elastic Machine <elasticmachine@users.noreply.github.com>'
-          branch: ${{ matrix.branch }}
+      - name: Pull Request Summary
+        if: ${{ steps.cpr.outputs.pull-request-url }}
+        run: |
+          echo "${{ matrix.branch }} - ${{ steps.cpr.outputs.pull-request-url }}" >> $GITHUB_STEP_SUMMARY
