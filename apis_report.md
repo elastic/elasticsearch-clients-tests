@@ -140,17 +140,17 @@ Endpoints that are currently being tested are marked as done and link to the tes
 | get_source | 🟢 | [✅](./tests/get_source/10_basic.yml#L20)</li></ul> | 🟢 | [✅](./tests/get_source/10_basic.yml#L20)</li></ul> | 👍
 | graph.explore | 🟢 | [✅](./tests/graph/explore.yml#L33)</li></ul> | 🟢 | [✅](./tests/graph/explore.yml#L33)</li></ul> | 👍
 | health_report | 🟢 | [✅](./tests/health_report.yml#L8)</li></ul> | 🔴 | Not Applicable | 👍
-| ilm.delete_lifecycle | 🟢 | [✅](./tests/ilm/10_basic.yml#L90)</li></ul> | 🔴 | Not Applicable | 🙌
+| ilm.delete_lifecycle | 🟢 | [✅](./tests/ilm/10_basic.yml#L88)</li></ul> | 🔴 | Not Applicable | 🙌
 | ilm.explain_lifecycle | 🟢 | [✅](./tests/ilm/10_basic.yml#L65)</li></ul> | 🔴 | Not Applicable | 👍
 | ilm.get_lifecycle | 🟢 | [✅](./tests/ilm/10_basic.yml#L60)</li></ul> | 🔴 | Not Applicable | 🙌
 | ilm.get_status | 🟢 | [✅](./tests/ilm/10_basic.yml#L70)</li></ul> | 🔴 | Not Applicable | 🙌
 | ilm.migrate_to_data_tiers | 🟢 | ❌ | 🔴 | Not Applicable | 👎
 | ilm.move_to_step | 🟢 | ❌ | 🔴 | Not Applicable | 👎
 | ilm.put_lifecycle | 🟢 | [✅](./tests/ilm/10_basic.yml#L31)</li></ul> | 🔴 | Not Applicable | 👍
-| ilm.remove_policy | 🟢 | [✅](./tests/ilm/10_basic.yml#L85)</li></ul> | 🔴 | Not Applicable | 👍
+| ilm.remove_policy | 🟢 | [✅](./tests/ilm/10_basic.yml#L83)</li></ul> | 🔴 | Not Applicable | 👍
 | ilm.retry | 🟢 | ❌ | 🔴 | Not Applicable | 👎
 | ilm.start | 🟢 | [✅](./tests/ilm/10_basic.yml#L75)</li></ul> | 🔴 | Not Applicable | 🙌
-| ilm.stop | 🟢 | [✅](./tests/ilm/10_basic.yml#L80)</li></ul> | 🔴 | Not Applicable | 🙌
+| ilm.stop | 🟢 | [✅](./tests/ilm/10_basic.yml#L79)</li></ul> | 🔴 | Not Applicable | 🙌
 | index | 🟢 | [✅](./tests/async_search/10_basic.yml#L8)</li></ul> | 🟢 | [✅](./tests/async_search/10_basic.yml#L8)</li></ul> | 👍
 | indices.add_block | 🟢 | [✅](./tests/indices/block.yml#L16)</li></ul> | 🟢 | [✅](./tests/indices/block.yml#L16)</li></ul> | 👍
 | indices.analyze | 🟢 | [✅](./tests/indices/analyze.yml#L19)</li></ul> | 🟢 | [✅](./tests/indices/analyze.yml#L19)</li></ul> | 👍
