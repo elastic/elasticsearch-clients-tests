@@ -6,6 +6,7 @@ on:
   push:
     branches:
       - main
+      - 8.x
 jobs:
   generate_report:
     runs-on: ubuntu-latest
