@@ -18,6 +18,11 @@ teardown:
         body:
           data_retention: '7d'
   - is_true: 'acknowledged'
+
+  - do:
+      indices.get_data_lifecycle_stats: {}
+  - match: { data_streams: [] }
+
   - do:
       indices.delete_data_lifecycle:
         name: 'my-data-stream'
