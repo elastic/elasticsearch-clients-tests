@@ -65,3 +65,8 @@ teardown:
   - match: { columns.3.type: "keyword" }
   - match: { columns.4.name: "duration_ms" }
   - match: { columns.4.type: "double" }
+
+  - do:
+      esql.async_query_delete:
+        id: $id
+  - match: { acknowledged: true }
