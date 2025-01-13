@@ -2,8 +2,8 @@
 
 Endpoints that are currently being tested are marked as done and link to the test where they're being used.
 
-* **STACK** - **Total**: 486 | **Tested**: 414 | **Untested**: 72 ![](https://geps.dev/progress/85)
-* **SERVERLESS** - **Total**: 237 | **Tested**: 236 | **Untested**: 1 ![](https://geps.dev/progress/99)
+* **STACK** - **Total**: 488 | **Tested**: 414 | **Untested**: 74 ![](https://geps.dev/progress/84)
+* **SERVERLESS** - **Total**: 238 | **Tested**: 236 | **Untested**: 2 ![](https://geps.dev/progress/99)
 
 * [Internal APIs](#internal-apis-not-tracked)
 * [API information from the Elasticsearch JSON specification](#elasticsearch-json-specification)
@@ -19,7 +19,7 @@ Endpoints that are currently being tested are marked as done and link to the tes
 | bulk | 🟢 | [✅](./tests/bulk/10_basic.yml#L13)</li></ul> | 👍| 🟢 | [✅](./tests/bulk/10_basic.yml#L13)</li></ul>
 | cat.aliases | 🟢 | [✅](./tests/cat/aliases.yml#L20)</li></ul> | 👍| 🟢 | [✅](./tests/cat/aliases.yml#L20)</li></ul>
 | cat.allocation | 🟢 | [✅](./tests/cat/allocation.yml#L6)</li></ul> | 👍| 🔴 | Not Applicable
-| cat.component_templates | 🟢 | [✅](./tests/cat/component_templates.yml#L6)</li></ul> | 🙌| 🟢 | [✅](./tests/cat/component_templates.yml#L6)</li></ul>
+| cat.component_templates | 🟢 | [✅](./tests/cat/component_templates.yml#L6)</li></ul> | 👍| 🟢 | [✅](./tests/cat/component_templates.yml#L6)</li></ul>
 | cat.count | 🟢 | [✅](./tests/cat/count.yml#L17)</li></ul> | 👍| 🟢 | [✅](./tests/cat/count.yml#L17)</li></ul>
 | cat.fielddata | 🟢 | [✅](./tests/cat/fielddata.yml#L6)</li></ul> | 👍| 🔴 | Not Applicable
 | cat.health | 🟢 | [✅](./tests/cat/health.yml#L8)</li></ul> | 👍| 🔴 | Not Applicable
@@ -179,6 +179,7 @@ Endpoints that are currently being tested are marked as done and link to the tes
 | indices.get | 🟢 | [✅](./tests/indices/get.yml#L17)</li></ul> | 👍| 🟢 | [✅](./tests/indices/get.yml#L17)</li></ul>
 | indices.get_alias | 🟢 | [✅](./tests/indices/alias.yml#L31)</li></ul> | 👍| 🟢 | [✅](./tests/indices/alias.yml#L31)</li></ul>
 | indices.get_data_lifecycle | 🟢 | [✅](./tests/indices/10_data_lifecycle.yml#L22)</li></ul> | 🙌| 🟢 | [✅](./tests/indices/10_data_lifecycle.yml#L22)</li></ul>
+| indices.get_data_lifecycle_stats | 🟢 | ❌ | 👎| 🔴 | Not Applicable
 | indices.get_data_stream | 🟢 | [✅](./tests/indices/data_streams_stack.yml#L31)</li></ul> | 👍| 🟢 | [✅](./tests/indices/data_streams_serverless.yml#L31)</li></ul>
 | indices.get_field_mapping | 🟢 | [✅](./tests/indices/get_field_mapping.yml#L23)</li></ul> | 👍| 🔴 | Not Applicable
 | indices.get_index_template | 🟢 | [✅](./tests/indices/index_template.yml#L24)</li></ul> | 👍| 🟢 | [✅](./tests/indices/index_template.yml#L24)</li></ul>
@@ -374,6 +375,7 @@ Endpoints that are currently being tested are marked as done and link to the tes
 | security.create_api_key | 🟢 | [✅](./tests/security/10_api_key_basic.yml#L8)</li></ul> | 👍| 🟢 | [✅](./tests/security/10_api_key_basic.yml#L8)</li></ul>
 | security.create_cross_cluster_api_key | 🟢 | [✅](./tests/security/80_api_key_cross_cluster.yml#L40)</li></ul> | 👍| 🔴 | Not Applicable
 | security.create_service_token | 🟢 | [✅](./tests/security/90_service_accounts.yml#L25)</li></ul> | 👍| 🔴 | Not Applicable
+| security.delegate_pki | 🟢 | ❌ | 👎| 🔴 | Not Applicable
 | security.delete_privileges | 🟢 | [✅](./tests/security/30_privileges_stack.yml#L8)</li></ul> | 👍| 🔴 | Not Applicable
 | security.delete_role | 🟢 | [✅](./tests/security/100_tokens.yml#L28)</li></ul> | 👍| 🟢 | [✅](./tests/security/50_roles_serverless.yml#L41)</li></ul>
 | security.delete_role_mapping | 🟢 | [✅](./tests/security/110_role_mapping.yml#L8)</li></ul> | 👍| 🔴 | Not Applicable
@@ -410,7 +412,7 @@ Endpoints that are currently being tested are marked as done and link to the tes
 | security.put_role_mapping | 🟢 | [✅](./tests/security/110_role_mapping.yml#L14)</li></ul> | 👍| 🔴 | Not Applicable
 | security.put_user | 🟢 | [✅](./tests/security/100_tokens.yml#L16)</li></ul> | 👍| 🔴 | Not Applicable
 | security.query_api_keys | 🟢 | [✅](./tests/security/10_api_key_basic.yml#L24)</li></ul> | 👍| 🟢 | [✅](./tests/security/10_api_key_basic.yml#L24)</li></ul>
-| security.query_role | 🟢 | [✅](./tests/security/40_roles.yml#L55)</li></ul> | 👍| 🔴 | Not Applicable
+| security.query_role | 🟢 | [✅](./tests/security/40_roles.yml#L55)</li></ul> | 👍| 🟢 | ❌
 | security.query_user | 🟢 | ❌ | 👍| 🔴 | Not Applicable
 | security.saml_authenticate | 🟢 | ❌ | 👎| 🔴 | Not Applicable
 | security.saml_complete_logout | 🟢 | ❌ | 👎| 🔴 | Not Applicable
@@ -543,7 +545,7 @@ Endpoints that are currently being tested are marked as done and link to the tes
 
 ## Elasticsearch JSON specification
 
-**Total** 486 | **Tested** 380 | **Untested** 106 ![](https://geps.dev/progress/78)
+**Total** 488 | **Tested** 381 | **Untested** 107 ![](https://geps.dev/progress/78)
 
 <details>
   <summary id="apis-in-json-spec-and-not-elasticsearch-specification">APIs in JSON spec and not elasticsearch-specification (excluding internal APIs)</summary>
