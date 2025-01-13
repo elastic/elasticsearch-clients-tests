@@ -2,7 +2,7 @@
 
 Endpoints that are currently being tested are marked as done and link to the test where they're being used.
 
-* **STACK** - **Total**: 488 | **Tested**: 414 | **Untested**: 74 ![](https://geps.dev/progress/84)
+* **STACK** - **Total**: 488 | **Tested**: 415 | **Untested**: 73 ![](https://geps.dev/progress/85)
 * **SERVERLESS** - **Total**: 238 | **Tested**: 236 | **Untested**: 2 ![](https://geps.dev/progress/99)
 
 * [Internal APIs](#internal-apis-not-tracked)
@@ -162,7 +162,7 @@ Endpoints that are currently being tested are marked as done and link to the tes
 | indices.data_streams_stats | 🟢 | [✅](./tests/indices/data_streams_stack.yml#L36)</li></ul> | 👍| 🔴 | Not Applicable
 | indices.delete | 🟢 | [✅](./tests/async_search/10_basic.yml#L29)</li></ul> | 👍| 🟢 | [✅](./tests/async_search/10_basic.yml#L29)</li></ul>
 | indices.delete_alias | 🟢 | [✅](./tests/indices/alias.yml#L49)</li></ul> | 👍| 🟢 | [✅](./tests/indices/alias.yml#L49)</li></ul>
-| indices.delete_data_lifecycle | 🟢 | [✅](./tests/indices/20_data_lifecycle.yml#L22)</li></ul> | 🙌| 🔴 | Not Applicable
+| indices.delete_data_lifecycle | 🟢 | [✅](./tests/indices/20_data_lifecycle.yml#L27)</li></ul> | 🙌| 🔴 | Not Applicable
 | indices.delete_data_stream | 🟢 | [✅](./tests/ilm/10_basic.yml#L26)</li></ul> | 👍| 🟢 | [✅](./tests/indices/data_streams_serverless.yml#L36)</li></ul>
 | indices.delete_index_template | 🟢 | [✅](./tests/indices/data_streams_stack.yml#L21)</li></ul> | 👍| 🟢 | [✅](./tests/indices/data_streams_serverless.yml#L21)</li></ul>
 | indices.delete_template | 🟢 | [✅](./tests/indices/exists_template.yml#L8)</li></ul> | 👍| 🔴 | Not Applicable
@@ -179,7 +179,7 @@ Endpoints that are currently being tested are marked as done and link to the tes
 | indices.get | 🟢 | [✅](./tests/indices/get.yml#L17)</li></ul> | 👍| 🟢 | [✅](./tests/indices/get.yml#L17)</li></ul>
 | indices.get_alias | 🟢 | [✅](./tests/indices/alias.yml#L31)</li></ul> | 👍| 🟢 | [✅](./tests/indices/alias.yml#L31)</li></ul>
 | indices.get_data_lifecycle | 🟢 | [✅](./tests/indices/10_data_lifecycle.yml#L22)</li></ul> | 🙌| 🟢 | [✅](./tests/indices/10_data_lifecycle.yml#L22)</li></ul>
-| indices.get_data_lifecycle_stats | 🟢 | ❌ | 👎| 🔴 | Not Applicable
+| indices.get_data_lifecycle_stats | 🟢 | [✅](./tests/indices/20_data_lifecycle.yml#L23)</li></ul> | 🙌| 🔴 | Not Applicable
 | indices.get_data_stream | 🟢 | [✅](./tests/indices/data_streams_stack.yml#L31)</li></ul> | 👍| 🟢 | [✅](./tests/indices/data_streams_serverless.yml#L31)</li></ul>
 | indices.get_field_mapping | 🟢 | [✅](./tests/indices/get_field_mapping.yml#L23)</li></ul> | 👍| 🔴 | Not Applicable
 | indices.get_index_template | 🟢 | [✅](./tests/indices/index_template.yml#L24)</li></ul> | 👍| 🟢 | [✅](./tests/indices/index_template.yml#L24)</li></ul>
