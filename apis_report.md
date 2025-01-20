@@ -2,8 +2,8 @@
 
 Endpoints that are currently being tested are marked as done and link to the test where they're being used.
 
-* **STACK** - **Total**: 488 | **Tested**: 425 | **Untested**: 63 ![](https://geps.dev/progress/87)
-* **SERVERLESS** - **Total**: 238 | **Tested**: 229 | **Untested**: 9 ![](https://geps.dev/progress/96)
+* **STACK** - **Total**: 495 | **Tested**: 425 | **Untested**: 70 ![](https://geps.dev/progress/85)
+* **SERVERLESS** - **Total**: 239 | **Tested**: 229 | **Untested**: 10 ![](https://geps.dev/progress/95)
 
 * [Internal APIs](#internal-apis-not-tracked)
 * [API information from the Elasticsearch JSON specification](#elasticsearch-json-specification)
@@ -122,6 +122,7 @@ Endpoints that are currently being tested are marked as done and link to the tes
 | eql.get_status | 🟢 | [✅](./tests/eql/10_basic.yml#L109)</li></ul> | 🟢 | [✅](./tests/eql/10_basic.yml#L109)</li></ul> | 👍
 | eql.search | 🟢 | [✅](./tests/eql/10_basic.yml#L99)</li></ul> | 🟢 | [✅](./tests/eql/10_basic.yml#L99)</li></ul> | 👍
 | esql.async_query | 🟢 | [✅](./tests/esql/20_async.yml#L40)</li></ul> | 🔴 | Not Applicable | 🙌
+| esql.async_query_delete | 🟢 | ❌ | 🔴 | Not Applicable | 👎
 | esql.async_query_get | 🟢 | [✅](./tests/esql/20_async.yml#L56)</li></ul> | 🔴 | Not Applicable | 🙌
 | esql.query | 🟢 | [✅](./tests/esql/10_query.yml#L40)</li></ul> | 🔴 | Not Applicable | 👍
 | exists | 🟢 | [✅](./tests/exists/10_basic.yml#L19)</li></ul> | 🟢 | [✅](./tests/exists/10_basic.yml#L19)</li></ul> | 👍
@@ -217,6 +218,8 @@ Endpoints that are currently being tested are marked as done and link to the tes
 | inference.inference | 🟢 | [✅](./tests/inference/10_basic.yml#L31)</li></ul> | 🟢 | [✅](./tests/inference/10_basic.yml#L31)</li></ul> | 👍
 | inference.put | 🟢 | [✅](./tests/inference/10_basic.yml#L8)</li></ul> | 🟢 | [✅](./tests/inference/10_basic.yml#L8)</li></ul> | 👍
 | inference.stream_inference | 🟢 | ❌ | 🔴 | Not Applicable | 👎
+| inference.unified_inference | 🟢 | ❌ | 🟢 | ❌ | 👎
+| inference.update | 🟢 | ❌ | 🔴 | Not Applicable | 👎
 | info | 🟢 | [✅](./tests/info_stack.yml#L8)</li></ul> | 🟢 | [✅](./tests/info_serverless.yml#L8)</li></ul> | 👍
 | ingest.delete_geoip_database | 🟢 | [✅](./tests/ingest/20_geoip.yml#L70)</li></ul> | 🔴 | Not Applicable | 👍
 | ingest.delete_ip_location_database | 🟢 | [✅](./tests/ingest/30_ip_location_database.yml#L69)</li></ul> | 🔴 | Not Applicable | 👍
@@ -242,6 +245,10 @@ Endpoints that are currently being tested are marked as done and link to the tes
 | logstash.get_pipeline | 🟢 | [✅](./tests/logstash/10_basic.yml#L26)</li></ul> | 🟢 | [✅](./tests/logstash/10_basic.yml#L26)</li></ul> | 🙌
 | logstash.put_pipeline | 🟢 | [✅](./tests/logstash/10_basic.yml#L8)</li></ul> | 🟢 | [✅](./tests/logstash/10_basic.yml#L8)</li></ul> | 🙌
 | mget | 🟢 | [✅](./tests/mget.yml#L24)</li></ul> | 🟢 | [✅](./tests/mget.yml#L24)</li></ul> | 👍
+| migrate.cancel_reindex | 🟢 | ❌ | 🔴 | Not Applicable | 👍
+| migrate.create_from | 🟢 | ❌ | 🔴 | Not Applicable | 👍
+| migrate.get_reindex_status | 🟢 | ❌ | 🔴 | Not Applicable | 👍
+| migrate.reindex | 🟢 | ❌ | 🔴 | Not Applicable | 👍
 | migration.deprecations | 🟢 | [✅](./tests/migration/10_basic.yml#L13)</li></ul> | 🔴 | Not Applicable | 👍
 | migration.get_feature_upgrade_status | 🟢 | [✅](./tests/migration/10_basic.yml#L8)</li></ul> | 🔴 | Not Applicable | 👍
 | migration.post_feature_upgrade | 🟢 | ❌ | 🔴 | Not Applicable | 👎
@@ -545,7 +552,7 @@ Endpoints that are currently being tested are marked as done and link to the tes
 
 ## Elasticsearch JSON specification
 
-**Total** 488 | **Tested** 380 | **Untested** 108 ![](https://geps.dev/progress/77)
+**Total** 494 | **Tested** 384 | **Untested** 110 ![](https://geps.dev/progress/77)
 
 <details>
   <summary id="apis-in-json-spec-and-not-elasticsearch-specification">APIs in JSON spec and not elasticsearch-specification (excluding internal APIs)</summary>
