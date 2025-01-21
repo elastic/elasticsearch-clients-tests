@@ -2,7 +2,7 @@
 
 Endpoints that are currently being tested are marked as done and link to the test where they're being used.
 
-* **STACK** - **Total**: 495 | **Tested**: 421 | **Untested**: 74 ![](https://geps.dev/progress/85)
+* **STACK** - **Total**: 494 | **Tested**: 421 | **Untested**: 73 ![](https://geps.dev/progress/85)
 * **SERVERLESS** - **Total**: 239 | **Tested**: 228 | **Untested**: 11 ![](https://geps.dev/progress/95)
 
 * [Internal APIs](#internal-apis-not-tracked)
@@ -210,7 +210,6 @@ Endpoints that are currently being tested are marked as done and link to the tes
 | indices.simulate_template | 🟢 | [✅](./tests/indices/simulate_index_template.yml#L38)</li></ul> | 🟢 | [✅](./tests/indices/simulate_index_template.yml#L38)</li></ul> | 👍
 | indices.split | 🟢 | [✅](./tests/indices/split.yml#L49)</li></ul> | 🔴 | Not Applicable | 👍
 | indices.stats | 🟢 | [✅](./tests/indices/flush.yml#L25)</li></ul> | 🔴 | Not Applicable | 👍
-| indices.unfreeze | 🟢 | ❌ | 🔴 | Not Applicable | 👎
 | indices.update_aliases | 🟢 | [✅](./tests/indices/alias.yml#L41)</li></ul> | 🟢 | [✅](./tests/indices/alias.yml#L41)</li></ul> | 👍
 | indices.validate_query | 🟢 | [✅](./tests/validate_query/10_basic.yml#L16)</li></ul> | 🟢 | [✅](./tests/validate_query/10_basic.yml#L16)</li></ul> | 👍
 | inference.delete | 🟢 | [✅](./tests/inference/10_basic.yml#L38)</li></ul> | 🟢 | [✅](./tests/inference/10_basic.yml#L38)</li></ul> | 🙌
@@ -552,7 +551,7 @@ Endpoints that are currently being tested are marked as done and link to the tes
 
 ## Elasticsearch JSON specification
 
-**Total** 486 | **Tested** 379 | **Untested** 107 ![](https://geps.dev/progress/77)
+**Total** 485 | **Tested** 379 | **Untested** 106 ![](https://geps.dev/progress/78)
 
 <details>
   <summary id="apis-in-json-spec-and-not-elasticsearch-specification">APIs in JSON spec and not elasticsearch-specification (excluding internal APIs)</summary>
