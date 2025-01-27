@@ -40,3 +40,6 @@ teardown:
       indices.delete_data_stream:
         name: logs-test
   - is_true: acknowledged
+  - do:
+      cluster.health:
+        wait_for_status: green
