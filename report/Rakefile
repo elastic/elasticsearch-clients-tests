@@ -28,14 +28,7 @@ end
 
 desc 'Download Elasticsearch Stack artifacts'
 task :download_json do
-  version = ENV['STACK_VERSION'] || read_version_from_github
-  Elastic::download_json_spec(version)
-end
-
-def read_version_from_github
-  yml = File.read(File.expand_path('../.github/workflows/report.yml', __dir__))
-  regexp = /[0-9.]+(-SNAPSHOT)?/
-  yml.split("\n").select { |l| l.match?('STACK_VERSION') }.first.strip.match(regexp)[0]
+  Elastic::download_json_spec
 end
 
 desc 'Download Elasticsearch Serverless artifacts'
