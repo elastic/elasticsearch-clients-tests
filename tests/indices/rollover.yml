@@ -5,55 +5,55 @@ requires:
 ---
 teardown:
   - do:
-      indices.delete: { index: logs-1, ignore: 404 }
+      indices.delete: { index: test-logs-1, ignore: 404 }
   - do:
-      indices.delete: { index: logs-000002, ignore: 404 }
+      indices.delete: { index: test-logs-000002, ignore: 404 }
 ---
 "Rollover index via API":
   # create index with alias
   - do:
       indices.create:
-        index: logs-1
+        index: test-logs-1
         body:
           aliases:
-            logs_index: {}
-            logs_search: {}
+            test_logs_index: {}
+            test_logs_search: {}
 
   # index document
   - do:
       index:
-        index: logs-1
+        index: test-logs-1
         id:    "1"
         body:  { "foo": "hello world" }
         # make this doc visible in index stats
         refresh: true
   - do:
       get:
-        index: logs_search
+        index: test_logs_search
         id:    "1"
-  - match: { _index:   logs-1 }
+  - match: { _index:   test-logs-1 }
   - match: { _id:      "1"     }
   - match: { _source:  { foo: "hello world" } }
 
   # perform alias rollover
   - do:
       indices.rollover:
-        alias: "logs_search"
-  - match: { old_index: logs-1 }
-  - match: { new_index: logs-000002 }
+        alias: "test_logs_search"
+  - match: { old_index: test-logs-1 }
+  - match: { new_index: test-logs-000002 }
   - match: { rolled_over: true }
   - match: { dry_run: false }
 
   # ensure new index is created
   - do:
       indices.exists:
-        index: logs-000002
+        index: test-logs-000002
   - is_true: ''
 
   # index into new index
   - do:
       index:
-        index: logs-000002
+        index: test-logs-000002
         id:    "2"
         body:  { "foo": "hello world" }
   - do:
@@ -63,6 +63,6 @@ teardown:
   - do:
       search:
         rest_total_hits_as_int: true
-        index: logs_search
+        index: test_logs_search
   - match: { hits.total: 1 }
-  - match: { hits.hits.0._index: "logs-000002"}
+  - match: { hits.hits.0._index: "test-logs-000002"}
