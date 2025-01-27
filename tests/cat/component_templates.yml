@@ -8,4 +8,4 @@ requires:
   - do:
       cat.component_templates: {}
   - match:
-      $body: '/elastic/'
+      $body: '/metrics/'
