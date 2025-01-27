@@ -1,14 +1,15 @@
 name: report
 on:
   workflow_dispatch:
-  schedule:
-    - cron: "0 6 * * 1"
   push:
     branches:
-      - main
+      - 8.17
 jobs:
   generate_report:
     runs-on: ubuntu-latest
+    env:
+      STACK_VERSION: 8.17.2-SNAPSHOT
+      BRANCH: 8.17 # Branch for downloading the specs
     steps:
       - uses: actions/checkout@v4
         with:
@@ -16,8 +17,6 @@ jobs:
       - uses: ruby/setup-ruby@v1
         with:
           ruby-version: 3.3
-        env:
-          STACK_VERSION: 8.17.1-SNAPSHOT
       - name: Build
         run: |
           cd report && bundle install
@@ -26,10 +25,19 @@ jobs:
         run: cd report && bundle exec rake download_all
       - name: Generate report
         run: cd report && bundle exec rake report
-      - uses: gr2m/create-or-update-pull-request-action@v1
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Create Pull Request
+        uses: peter-evans/create-pull-request@v6
+        id: cpr
         with:
-          commit-message: Updates API report ${{env.REPORT_DATE}}
-          title: Updates API report
+          token: ${{ secrets.GITHUB_TOKEN }}
+          commit-message: Updates API report ${{env.REPORT_DATE}} ${{ env.BRANCH }}
+          branch: update_report_${{ env.BRANCH }}
+          title: Updates API report ${{ env.BRANCH }}
+          body: 'As titled'
+          base: ${{ env.BRANCH }}
+          committer: 'Elastic Machine <elasticmachine@users.noreply.github.com>'
           author: 'Elastic Machine <elasticmachine@users.noreply.github.com>'
+      - name: Pull Request Summary
+        if: ${{ steps.cpr.outputs.pull-request-url }}
+        run: |
+          echo "${{ env.BRANCH }} - ${{ steps.cpr.outputs.pull-request-url }}" >> $GITHUB_STEP_SUMMARY

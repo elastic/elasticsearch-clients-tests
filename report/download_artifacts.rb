@@ -22,7 +22,40 @@ require 'json'
 module Elastic
   CURRENT_PATH = Pathname(File.expand_path(__dir__))
   class << self
-    def download_json_spec(version)
+    #
+    # Defines the version to download. Useful for different branches. It uses the BRANCH env
+    # variable, STACK_VERSION env variable or reads the version from the report GitHub Actions yaml
+    # file in that order.
+    # When using branch, it will get the latest version for that branch from snapshots.elastic.co.
+    # This is useful for the Elasticsearch JSON artifacts. For the elasticsearch-specification, we
+    # download the branch.
+    #
+    def version
+      if ENV['BRANCH']
+        require 'open-uri'
+        require 'yaml'
+
+        versions = URI.open("https://snapshots.elastic.co/latest/#{ENV['BRANCH']}.json").read
+        YAML.safe_load(versions)['version']
+      else
+        ENV['STACK_VERSION'] || read_version_from_github
+      end
+    end
+
+    #
+    # If there's no STACK_VERSION or BRANCH specified, this function will read the version to
+    # download from the GitHub Actions yaml file which specifies STACK_VERSION.
+    #
+    def read_version_from_github
+      yml = File.read(File.expand_path('../.github/workflows/report.yml', __dir__))
+      regexp = /[0-9.]+(-SNAPSHOT)?/
+      yml.split("\n").select { |l| l.match?('STACK_VERSION') }.first.strip.match(regexp)[0]
+    end
+
+    #
+    # Downloads the JSON spec from Elasticsearch.
+    #
+    def download_json_spec
       json_filename = CURRENT_PATH.join('tmp/artifacts.json')
 
       # Create ./tmp if it doesn't exist
@@ -31,7 +64,6 @@ module Elastic
       # Download json file with package information for version:
       json_url = "https://artifacts-api.elastic.co/v1/versions/#{version}"
       download_file!(json_url, json_filename)
-
       # Parse the downloaded JSON
       begin
         artifacts = JSON.parse(File.read(json_filename))
@@ -62,16 +94,25 @@ module Elastic
       File.write(CURRENT_PATH.join('tmp/rest-api-spec/build_hash'), @build_hash)
     end
 
-    def download_es_specification(branch = 'main')
+    #
+    # Downloads the specification from github.com/elastic/elasticsearch-specification
+    # If a branch is specified with an env variable, it uses that, downloads `main` otherwise.
+    #
+    def download_es_specification
+      branch = ENV['BRANCH'] || 'main'
       filename = CURRENT_PATH.join('tmp/schema.json')
+
       url = "https://github.com/elastic/elasticsearch-specification/raw/#{branch}/output/schema/schema.json"
       download_file!(url, filename)
     end
 
+    #
+    # Helper function to download files
+    #
     def download_file!(url, filename)
       puts "Downloading #{filename} from #{url}"
-      File.open(filename, "w") do |downloaded_file|
-        URI.open(url, "rb") do |artifact_file|
+      File.open(filename, 'w') do |downloaded_file|
+        URI.open(url, 'rb') do |artifact_file|
           downloaded_file.write(artifact_file.read)
         end
       end
