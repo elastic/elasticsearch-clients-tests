@@ -48,6 +48,10 @@ teardown:
         repository: repository-test
         snapshot: snapshot
         ignore: 404
+  - do:
+      indices.delete:
+        index: test_snapshots_searchable
+        ignore: 404
 ---
 'Searchable Snapshots':
   - do:
