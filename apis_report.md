@@ -2,7 +2,7 @@
 
 Endpoints that are currently being tested are marked as done and link to the test where they're being used.
 
-* **STACK** - **Total**: 495 | **Tested**: 421 | **Untested**: 74 ![](https://geps.dev/progress/85)
+* **STACK** - **Total**: 494 | **Tested**: 421 | **Untested**: 73 ![](https://geps.dev/progress/85)
 * **SERVERLESS** - **Total**: 239 | **Tested**: 228 | **Untested**: 11 ![](https://geps.dev/progress/95)
 
 * [Internal APIs](#internal-apis-not-tracked)
@@ -141,25 +141,27 @@ Endpoints that are currently being tested are marked as done and link to the tes
 | get_source | 🟢 | [✅](./tests/get_source/10_basic.yml#L20)</li></ul> | 🟢 | [✅](./tests/get_source/10_basic.yml#L20)</li></ul> | 👍
 | graph.explore | 🟢 | [✅](./tests/graph/explore.yml#L33)</li></ul> | 🟢 | [✅](./tests/graph/explore.yml#L33)</li></ul> | 👍
 | health_report | 🟢 | [✅](./tests/health_report.yml#L8)</li></ul> | 🔴 | Not Applicable | 👍
-| ilm.delete_lifecycle | 🟢 | [✅](./tests/ilm/10_basic.yml#L90)</li></ul> | 🔴 | Not Applicable | 🙌
+| ilm.delete_lifecycle | 🟢 | [✅](./tests/ilm/10_basic.yml#L88)</li></ul> | 🔴 | Not Applicable | 🙌
 | ilm.explain_lifecycle | 🟢 | [✅](./tests/ilm/10_basic.yml#L65)</li></ul> | 🔴 | Not Applicable | 👍
 | ilm.get_lifecycle | 🟢 | [✅](./tests/ilm/10_basic.yml#L60)</li></ul> | 🔴 | Not Applicable | 🙌
 | ilm.get_status | 🟢 | [✅](./tests/ilm/10_basic.yml#L70)</li></ul> | 🔴 | Not Applicable | 🙌
 | ilm.migrate_to_data_tiers | 🟢 | ❌ | 🔴 | Not Applicable | 👎
 | ilm.move_to_step | 🟢 | ❌ | 🔴 | Not Applicable | 👎
 | ilm.put_lifecycle | 🟢 | [✅](./tests/ilm/10_basic.yml#L31)</li></ul> | 🔴 | Not Applicable | 👍
-| ilm.remove_policy | 🟢 | [✅](./tests/ilm/10_basic.yml#L85)</li></ul> | 🔴 | Not Applicable | 👍
+| ilm.remove_policy | 🟢 | [✅](./tests/ilm/10_basic.yml#L83)</li></ul> | 🔴 | Not Applicable | 👍
 | ilm.retry | 🟢 | ❌ | 🔴 | Not Applicable | 👎
 | ilm.start | 🟢 | [✅](./tests/ilm/10_basic.yml#L75)</li></ul> | 🔴 | Not Applicable | 🙌
-| ilm.stop | 🟢 | [✅](./tests/ilm/10_basic.yml#L80)</li></ul> | 🔴 | Not Applicable | 🙌
+| ilm.stop | 🟢 | [✅](./tests/ilm/10_basic.yml#L79)</li></ul> | 🔴 | Not Applicable | 🙌
 | index | 🟢 | [✅](./tests/async_search/10_basic.yml#L8)</li></ul> | 🟢 | [✅](./tests/async_search/10_basic.yml#L8)</li></ul> | 👍
 | indices.add_block | 🟢 | [✅](./tests/indices/block.yml#L16)</li></ul> | 🟢 | [✅](./tests/indices/block.yml#L16)</li></ul> | 👍
 | indices.analyze | 🟢 | [✅](./tests/indices/analyze.yml#L19)</li></ul> | 🟢 | [✅](./tests/indices/analyze.yml#L19)</li></ul> | 👍
+| indices.cancel_migrate_reindex | 🟢 | ❌ | 🔴 | Not Applicable | 👎
 | indices.clear_cache | 🟢 | [✅](./tests/indices/clear_cache.yml#L8)</li></ul> | 🔴 | Not Applicable | 👍
 | indices.clone | 🟢 | [✅](./tests/indices/clone.yml#L50)</li></ul> | 🔴 | Not Applicable | 👍
 | indices.close | 🟢 | [✅](./tests/indices/open_close.yml#L21)</li></ul> | 🔴 | Not Applicable | 👍
 | indices.create | 🟢 | [✅](./tests/cat/aliases.yml#L8)</li></ul> | 🟢 | [✅](./tests/cat/aliases.yml#L8)</li></ul> | 👍
 | indices.create_data_stream | 🟢 | [✅](./tests/ilm/10_basic.yml#L20)</li></ul> | 🟢 | [✅](./tests/indices/data_streams.yml#L26)</li></ul> | 👍
+| indices.create_from | 🟢 | ❌ | 🔴 | Not Applicable | 👎
 | indices.data_streams_stats | 🟢 | [✅](./tests/indices/data_streams.yml#L36)</li></ul> | 🔴 | Not Applicable | 👍
 | indices.delete | 🟢 | [✅](./tests/async_search/10_basic.yml#L29)</li></ul> | 🟢 | [✅](./tests/async_search/10_basic.yml#L29)</li></ul> | 👍
 | indices.delete_alias | 🟢 | [✅](./tests/indices/alias.yml#L49)</li></ul> | 🟢 | [✅](./tests/indices/alias.yml#L49)</li></ul> | 👍
@@ -185,8 +187,10 @@ Endpoints that are currently being tested are marked as done and link to the tes
 | indices.get_field_mapping | 🟢 | [✅](./tests/indices/get_field_mapping.yml#L23)</li></ul> | 🔴 | Not Applicable | 👍
 | indices.get_index_template | 🟢 | [✅](./tests/indices/index_template.yml#L24)</li></ul> | 🟢 | [✅](./tests/indices/index_template.yml#L24)</li></ul> | 👍
 | indices.get_mapping | 🟢 | [✅](./tests/indices/mapping.yml#L32)</li></ul> | 🟢 | [✅](./tests/indices/mapping.yml#L32)</li></ul> | 👍
+| indices.get_migrate_reindex_status | 🟢 | ❌ | 🔴 | Not Applicable | 👎
 | indices.get_settings | 🟢 | [✅](./tests/indices/settings.yml#L21)</li></ul> | 🟢 | [✅](./tests/indices/settings.yml#L21)</li></ul> | 👍
 | indices.get_template | 🟢 | [✅](./tests/indices/template.yml#L21)</li></ul> | 🔴 | Not Applicable | 👍
+| indices.migrate_reindex | 🟢 | ❌ | 🔴 | Not Applicable | 👎
 | indices.migrate_to_data_stream | 🟢 | [✅](./tests/indices/migrate_modify_data_stream.yml#L39)</li></ul> | 🟢 | [✅](./tests/indices/migrate_modify_data_stream.yml#L39)</li></ul> | 🙌
 | indices.modify_data_stream | 🟢 | [✅](./tests/indices/migrate_modify_data_stream.yml#L43)</li></ul> | 🟢 | [✅](./tests/indices/migrate_modify_data_stream.yml#L43)</li></ul> | 🙌
 | indices.open | 🟢 | [✅](./tests/indices/open_close.yml#L29)</li></ul> | 🔴 | Not Applicable | 👍
@@ -210,7 +214,6 @@ Endpoints that are currently being tested are marked as done and link to the tes
 | indices.simulate_template | 🟢 | [✅](./tests/indices/simulate_index_template.yml#L38)</li></ul> | 🟢 | [✅](./tests/indices/simulate_index_template.yml#L38)</li></ul> | 👍
 | indices.split | 🟢 | [✅](./tests/indices/split.yml#L49)</li></ul> | 🔴 | Not Applicable | 👍
 | indices.stats | 🟢 | [✅](./tests/indices/flush.yml#L25)</li></ul> | 🔴 | Not Applicable | 👍
-| indices.unfreeze | 🟢 | ❌ | 🔴 | Not Applicable | 👎
 | indices.update_aliases | 🟢 | [✅](./tests/indices/alias.yml#L41)</li></ul> | 🟢 | [✅](./tests/indices/alias.yml#L41)</li></ul> | 👍
 | indices.validate_query | 🟢 | [✅](./tests/validate_query/10_basic.yml#L16)</li></ul> | 🟢 | [✅](./tests/validate_query/10_basic.yml#L16)</li></ul> | 👍
 | inference.delete | 🟢 | [✅](./tests/inference/10_basic.yml#L38)</li></ul> | 🟢 | [✅](./tests/inference/10_basic.yml#L38)</li></ul> | 🙌
@@ -245,10 +248,6 @@ Endpoints that are currently being tested are marked as done and link to the tes
 | logstash.get_pipeline | 🟢 | [✅](./tests/logstash/10_basic.yml#L26)</li></ul> | 🟢 | [✅](./tests/logstash/10_basic.yml#L26)</li></ul> | 🙌
 | logstash.put_pipeline | 🟢 | [✅](./tests/logstash/10_basic.yml#L8)</li></ul> | 🟢 | [✅](./tests/logstash/10_basic.yml#L8)</li></ul> | 🙌
 | mget | 🟢 | [✅](./tests/mget.yml#L24)</li></ul> | 🟢 | [✅](./tests/mget.yml#L24)</li></ul> | 👍
-| migrate.cancel_reindex | 🟢 | ❌ | 🔴 | Not Applicable | 👎
-| migrate.create_from | 🟢 | ❌ | 🔴 | Not Applicable | 👎
-| migrate.get_reindex_status | 🟢 | ❌ | 🔴 | Not Applicable | 👎
-| migrate.reindex | 🟢 | ❌ | 🔴 | Not Applicable | 👎
 | migration.deprecations | 🟢 | [✅](./tests/migration/10_basic.yml#L13)</li></ul> | 🔴 | Not Applicable | 👍
 | migration.get_feature_upgrade_status | 🟢 | [✅](./tests/migration/10_basic.yml#L8)</li></ul> | 🔴 | Not Applicable | 👍
 | migration.post_feature_upgrade | 🟢 | ❌ | 🔴 | Not Applicable | 👎
@@ -552,7 +551,7 @@ Endpoints that are currently being tested are marked as done and link to the tes
 
 ## Elasticsearch JSON specification
 
-**Total** 486 | **Tested** 379 | **Untested** 107 ![](https://geps.dev/progress/77)
+**Total** 485 | **Tested** 379 | **Untested** 106 ![](https://geps.dev/progress/78)
 
 <details>
   <summary id="apis-in-json-spec-and-not-elasticsearch-specification">APIs in JSON spec and not elasticsearch-specification (excluding internal APIs)</summary>
