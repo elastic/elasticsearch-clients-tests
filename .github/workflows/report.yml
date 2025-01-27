@@ -16,12 +16,13 @@ jobs:
       - uses: ruby/setup-ruby@v1
         with:
           ruby-version: 3.3
-        env:
-          STACK_VERSION: 8.16.3-SNAPSHOT
       - name: Build
         run: |
           cd report && bundle install
           echo "REPORT_DATE=`date "+%Y-%m-%d|%H:%M:%S"`" >> $GITHUB_ENV
+        env:
+          STACK_VERSION: 8.17.1-SNAPSHOT
+          BRANCH: ${{ matrix.branch }} # Branch for downloading the specs
       - name: Download Artifacts
         run: cd report && bundle exec rake download_all
       - name: Generate report
