@@ -7,6 +7,10 @@ on:
 jobs:
   generate_report:
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        branch:
+          - '8.16'
     steps:
       - uses: actions/checkout@v4
         with:
@@ -19,7 +23,7 @@ jobs:
           cd report && bundle install
           echo "REPORT_DATE=`date "+%Y-%m-%d|%H:%M:%S"`" >> $GITHUB_ENV
         env:
-          STACK_VERSION: 8.17.1-SNAPSHOT
+          STACK_VERSION: 8.16.4-SNAPSHOT
           BRANCH: ${{ matrix.branch }} # Branch for downloading the specs
       - name: Download Artifacts
         run: cd report && bundle exec rake download_all
