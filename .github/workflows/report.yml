@@ -7,10 +7,6 @@ on:
 jobs:
   generate_report:
     runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        branch:
-          - '8.16'
     steps:
       - uses: actions/checkout@v4
         with:
@@ -24,7 +20,7 @@ jobs:
           echo "REPORT_DATE=`date "+%Y-%m-%d|%H:%M:%S"`" >> $GITHUB_ENV
         env:
           STACK_VERSION: 8.16.4-SNAPSHOT
-          BRANCH: ${{ matrix.branch }} # Branch for downloading the specs
+          BRANCH: '8.16' # Branch for downloading the specs
       - name: Download Artifacts
         run: cd report && bundle exec rake download_all
       - name: Generate report
@@ -34,14 +30,14 @@ jobs:
         id: cpr
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
-          commit-message: Updates API report ${{env.REPORT_DATE}} ${{ matrix.branch }}
-          branch: update_report_${{ matrix.branch }}
-          title: Updates API report ${{ matrix.branch }}
+          commit-message: Updates API report ${{env.REPORT_DATE}} ${{ env.BRANCH }}
+          branch: update_report_${{ env.BRANCH }}
+          title: Updates API report ${{ env.BRANCH }}
           body: 'As titled'
-          base: ${{ matrix.branch }}
+          base: ${{ env.BRANCH }}
           committer: 'Elastic Machine <elasticmachine@users.noreply.github.com>'
           author: 'Elastic Machine <elasticmachine@users.noreply.github.com>'
       - name: Pull Request Summary
         if: ${{ steps.cpr.outputs.pull-request-url }}
         run: |
-          echo "${{ matrix.branch }} - ${{ steps.cpr.outputs.pull-request-url }}" >> $GITHUB_STEP_SUMMARY
+          echo "${{ env.BRANCH }} - ${{ steps.cpr.outputs.pull-request-url }}" >> $GITHUB_STEP_SUMMARY
