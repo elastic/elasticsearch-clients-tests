@@ -31,14 +31,16 @@ module Elastic
     # download the branch.
     #
     def version
-      if ENV['BRANCH']
+      if ENV['STACK_VERSION']
+        ENV['STACK_VERSION']
+      elsif (branch = ENV['BRANCH'])
         require 'open-uri'
         require 'yaml'
-
-        versions = URI.open("https://snapshots.elastic.co/latest/#{ENV['BRANCH']}.json").read
+        branch = 'master' if branch == 'main' # main is 404 for now
+        versions = URI.open("https://snapshots.elastic.co/latest/#{branch}.json").read
         YAML.safe_load(versions)['version']
       else
-        ENV['STACK_VERSION'] || read_version_from_github
+        read_version_from_github
       end
     end
 
