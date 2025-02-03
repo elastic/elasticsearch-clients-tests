@@ -2,7 +2,7 @@
 
 Endpoints that are currently being tested are marked as done and link to the test where they're being used.
 
-* **STACK** - **Total**: 494 | **Tested**: 416 | **Untested**: 78 ![](https://geps.dev/progress/84)
+* **STACK** - **Total**: 495 | **Tested**: 416 | **Untested**: 79 ![](https://geps.dev/progress/84)
 * **SERVERLESS** - **Total**: 239 | **Tested**: 236 | **Untested**: 3 ![](https://geps.dev/progress/98)
 
 * [Internal APIs](#internal-apis-not-tracked)
@@ -124,6 +124,7 @@ Endpoints that are currently being tested are marked as done and link to the tes
 | esql.async_query | 🟢 | [✅](./tests/esql/20_async.yml#L40)</li></ul> | 🙌| 🔴 | Not Applicable
 | esql.async_query_delete | 🟢 | [✅](./tests/esql/20_async.yml#L70)</li></ul> | 🙌| 🔴 | Not Applicable
 | esql.async_query_get | 🟢 | [✅](./tests/esql/20_async.yml#L56)</li></ul> | 🙌| 🔴 | Not Applicable
+| esql.async_query_stop | 🟢 | ❌ | 👎| 🔴 | Not Applicable
 | esql.query | 🟢 | [✅](./tests/esql/10_query.yml#L40)</li></ul> | 👍| 🔴 | Not Applicable
 | exists | 🟢 | [✅](./tests/exists/10_basic.yml#L19)</li></ul> | 👍| 🟢 | [✅](./tests/exists/10_basic.yml#L19)</li></ul>
 | exists_source | 🟢 | [✅](./tests/exists_source/10_basic.yml#L19)</li></ul> | 🙌| 🟢 | [✅](./tests/exists_source/10_basic.yml#L19)</li></ul>
@@ -551,7 +552,7 @@ Endpoints that are currently being tested are marked as done and link to the tes
 
 ## Elasticsearch JSON specification
 
-**Total** 494 | **Tested** 385 | **Untested** 109 ![](https://geps.dev/progress/77)
+**Total** 495 | **Tested** 385 | **Untested** 110 ![](https://geps.dev/progress/77)
 
 <details>
   <summary id="apis-in-json-spec-and-not-elasticsearch-specification">APIs in JSON spec and not elasticsearch-specification (excluding internal APIs)</summary>
