@@ -1,6 +1,5 @@
 ---
 requires:
-  serverless: true
   stack: true
 ---
 setup:
