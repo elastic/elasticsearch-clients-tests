@@ -3,7 +3,7 @@
 Endpoints that are currently being tested are marked as done and link to the test where they're being used.
 
 * **STACK** - **Total**: 495 | **Tested**: 416 | **Untested**: 79 ![](https://geps.dev/progress/84)
-* **SERVERLESS** - **Total**: 239 | **Tested**: 236 | **Untested**: 3 ![](https://geps.dev/progress/98)
+* **SERVERLESS** - **Total**: 239 | **Tested**: 235 | **Untested**: 4 ![](https://geps.dev/progress/98)
 
 * [Internal APIs](#internal-apis-not-tracked)
 * [API information from the Elasticsearch JSON specification](#elasticsearch-json-specification)
@@ -140,7 +140,7 @@ Endpoints that are currently being tested are marked as done and link to the tes
 | get_script_context | 🟢 | [✅](./tests/script/20_script_context_languages.yml#L8)</li></ul> | 👍| 🔴 | Not Applicable
 | get_script_languages | 🟢 | [✅](./tests/script/20_script_context_languages.yml#L14)</li></ul> | 👍| 🔴 | Not Applicable
 | get_source | 🟢 | [✅](./tests/get_source/10_basic.yml#L20)</li></ul> | 👍| 🟢 | [✅](./tests/get_source/10_basic.yml#L20)</li></ul>
-| graph.explore | 🟢 | [✅](./tests/graph/explore.yml#L33)</li></ul> | 👍| 🟢 | [✅](./tests/graph/explore.yml#L33)</li></ul>
+| graph.explore | 🟢 | [✅](./tests/graph/explore.yml#L33)</li></ul> | 👍| 🟢 | ❌
 | health_report | 🟢 | [✅](./tests/health_report.yml#L8)</li></ul> | 👍| 🔴 | Not Applicable
 | ilm.delete_lifecycle | 🟢 | [✅](./tests/ilm/10_basic.yml#L88)</li></ul> | 🙌| 🔴 | Not Applicable
 | ilm.explain_lifecycle | 🟢 | [✅](./tests/ilm/10_basic.yml#L65)</li></ul> | 👍| 🔴 | Not Applicable
@@ -203,7 +203,7 @@ Endpoints that are currently being tested are marked as done and link to the tes
 | indices.put_settings | 🟢 | [✅](./tests/indices/clone.yml#L42)</li></ul> | 👍| 🟢 | [✅](./tests/indices/settings.yml#L27)</li></ul>
 | indices.put_template | 🟢 | [✅](./tests/indices/exists_template.yml#L24)</li></ul> | 👍| 🔴 | Not Applicable
 | indices.recovery | 🟢 | [✅](./tests/indices/recovery.yml#L22)</li></ul> | 👍| 🔴 | Not Applicable
-| indices.refresh | 🟢 | [✅](./tests/graph/explore.yml#L24)</li></ul> | 👍| 🟢 | [✅](./tests/graph/explore.yml#L24)</li></ul>
+| indices.refresh | 🟢 | [✅](./tests/graph/explore.yml#L24)</li></ul> | 👍| 🟢 | [✅](./tests/indices/refresh.yml#L17)</li></ul>
 | indices.reload_search_analyzers | 🟢 | [✅](./tests/ilm/10_basic.yml#L55)</li></ul> | 👍| 🔴 | Not Applicable
 | indices.resolve_cluster | 🟢 | [✅](./tests/indices/resolve_cluster.yml#L31)</li></ul> | 👍| 🔴 | Not Applicable
 | indices.resolve_index | 🟢 | [✅](./tests/indices/resolve.yml#L22)</li></ul> | 👍| 🟢 | [✅](./tests/indices/resolve.yml#L22)</li></ul>
