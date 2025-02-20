@@ -1,0 +1,56 @@
+---
+requires:
+  stack: true
+  serverless: false
+---
+teardown:
+  - do:
+      indices.delete_data_stream:
+        name: test-reindex-datastream
+---
+"Test migrate_reindex, get_migrate_reindex_status, cancel_migrate_reindex":
+  - do:
+      indices.put_index_template:
+        name: test-reindex-template
+        body:
+          index_patterns: [test-reindex-datastream*]
+          template:
+            mappings:
+              properties:
+                '@timestamp':
+                  type: date
+                'foo':
+                  type: keyword
+          data_stream: {}
+
+  - do:
+      indices.create_data_stream:
+        name: test-reindex-datastream
+  - is_true: acknowledged
+
+  - do:
+      indices.migrate_reindex:
+        body: |
+          {
+            "mode": "upgrade",
+            "source": {
+              "index": "test-reindex-datastream"
+            }
+          }
+  - is_true: acknowledged
+
+  - do:
+      indices.get_migrate_reindex_status:
+        index: "test-reindex-datastream"
+  - match: { complete: true }
+
+
+  - do:
+      indices.cancel_migrate_reindex:
+        index: "test-reindex-datastream"
+  - match: { acknowledged: true }
+
+  - do:
+      catch: /resource_not_found_exception/
+      indices.cancel_migrate_reindex:
+        index: "test-reindex-datastream"

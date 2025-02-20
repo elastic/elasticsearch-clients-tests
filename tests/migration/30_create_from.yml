@@ -1,0 +1,43 @@
+---
+requires:
+  stack: true
+  serverless: false
+---
+teardown:
+  - do:
+      indices.delete:
+        index: test-source-index-1
+        ignore: 404
+  - do:
+      indices.delete:
+        index: test-dest-index-1
+        ignore: 404
+---
+"Test migrate.create_from":
+  - do:
+      indices.create:
+        index: test-source-index-1
+        body:
+          settings:
+            index:
+              number_of_shards: 3
+              number_of_replicas: 5
+          mappings:
+            dynamic: strict
+            properties:
+              bar:
+                type: text
+  - do:
+      indices.create_from:
+        source: "test-source-index-1"
+        dest: "test-dest-index-1"
+        body: {}
+  - do:
+      indices.get_settings:
+        index: test-dest-index-1
+  - match: { test-dest-index-1.settings.index.number_of_shards: "3" }
+  - match: { test-dest-index-1.settings.index.number_of_replicas: "5" }
+  - do:
+      indices.get_mapping:
+        index: test-dest-index-1
+  - match: {test-dest-index-1.mappings.properties.bar.type: text}
