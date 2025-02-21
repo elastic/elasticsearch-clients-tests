@@ -2,7 +2,7 @@
 
 Endpoints that are currently being tested are marked as done and link to the test where they're being used.
 
-* **STACK** - **Total**: 495 | **Tested**: 416 | **Untested**: 79 ![](https://geps.dev/progress/84)
+* **STACK** - **Total**: 495 | **Tested**: 420 | **Untested**: 75 ![](https://geps.dev/progress/84)
 * **SERVERLESS** - **Total**: 239 | **Tested**: 236 | **Untested**: 3 ![](https://geps.dev/progress/98)
 
 * [Internal APIs](#internal-apis-not-tracked)
@@ -140,7 +140,7 @@ Endpoints that are currently being tested are marked as done and link to the tes
 | get_script_context | 🟢 | [✅](./tests/script/20_script_context_languages.yml#L8)</li></ul> | 👍| 🔴 | Not Applicable
 | get_script_languages | 🟢 | [✅](./tests/script/20_script_context_languages.yml#L14)</li></ul> | 👍| 🔴 | Not Applicable
 | get_source | 🟢 | [✅](./tests/get_source/10_basic.yml#L20)</li></ul> | 👍| 🟢 | [✅](./tests/get_source/10_basic.yml#L20)</li></ul>
-| graph.explore | 🟢 | [✅](./tests/graph/explore.yml#L33)</li></ul> | 👍| 🟢 | [✅](./tests/graph/explore.yml#L33)</li></ul>
+| graph.explore | 🟢 | [✅](./tests/graph/explore.yml#L33)</li></ul> | 👍| 🟢 | ❌
 | health_report | 🟢 | [✅](./tests/health_report.yml#L8)</li></ul> | 👍| 🔴 | Not Applicable
 | ilm.delete_lifecycle | 🟢 | [✅](./tests/ilm/10_basic.yml#L88)</li></ul> | 🙌| 🔴 | Not Applicable
 | ilm.explain_lifecycle | 🟢 | [✅](./tests/ilm/10_basic.yml#L65)</li></ul> | 👍| 🔴 | Not Applicable
@@ -156,13 +156,13 @@ Endpoints that are currently being tested are marked as done and link to the tes
 | index | 🟢 | [✅](./tests/async_search/10_basic.yml#L8)</li></ul> | 👍| 🟢 | [✅](./tests/async_search/10_basic.yml#L8)</li></ul>
 | indices.add_block | 🟢 | [✅](./tests/indices/block.yml#L16)</li></ul> | 👍| 🟢 | [✅](./tests/indices/block.yml#L16)</li></ul>
 | indices.analyze | 🟢 | [✅](./tests/indices/analyze.yml#L19)</li></ul> | 👍| 🟢 | [✅](./tests/indices/analyze.yml#L19)</li></ul>
-| indices.cancel_migrate_reindex | 🟢 | ❌ | 👍| 🔴 | Not Applicable
+| indices.cancel_migrate_reindex | 🟢 | [✅](./tests/migration/20_reindex.yml#L49)</li></ul> | 👍| 🔴 | Not Applicable
 | indices.clear_cache | 🟢 | [✅](./tests/indices/clear_cache.yml#L8)</li></ul> | 👍| 🔴 | Not Applicable
 | indices.clone | 🟢 | [✅](./tests/indices/clone.yml#L53)</li></ul> | 👍| 🔴 | Not Applicable
 | indices.close | 🟢 | [✅](./tests/indices/open_close.yml#L21)</li></ul> | 👍| 🔴 | Not Applicable
 | indices.create | 🟢 | [✅](./tests/cat/aliases.yml#L8)</li></ul> | 👍| 🟢 | [✅](./tests/cat/aliases.yml#L8)</li></ul>
 | indices.create_data_stream | 🟢 | [✅](./tests/ilm/10_basic.yml#L20)</li></ul> | 👍| 🟢 | [✅](./tests/indices/data_streams_serverless.yml#L26)</li></ul>
-| indices.create_from | 🟢 | ❌ | 👍| 🔴 | Not Applicable
+| indices.create_from | 🟢 | [✅](./tests/migration/30_create_from.yml#L31)</li></ul> | 👍| 🔴 | Not Applicable
 | indices.data_streams_stats | 🟢 | [✅](./tests/indices/data_streams_stack.yml#L36)</li></ul> | 👍| 🔴 | Not Applicable
 | indices.delete | 🟢 | [✅](./tests/async_search/10_basic.yml#L29)</li></ul> | 👍| 🟢 | [✅](./tests/async_search/10_basic.yml#L29)</li></ul>
 | indices.delete_alias | 🟢 | [✅](./tests/indices/alias.yml#L49)</li></ul> | 👍| 🟢 | [✅](./tests/indices/alias.yml#L49)</li></ul>
@@ -188,10 +188,10 @@ Endpoints that are currently being tested are marked as done and link to the tes
 | indices.get_field_mapping | 🟢 | [✅](./tests/indices/get_field_mapping.yml#L23)</li></ul> | 👍| 🔴 | Not Applicable
 | indices.get_index_template | 🟢 | [✅](./tests/indices/index_template.yml#L24)</li></ul> | 👍| 🟢 | [✅](./tests/indices/index_template.yml#L24)</li></ul>
 | indices.get_mapping | 🟢 | [✅](./tests/indices/mapping.yml#L32)</li></ul> | 👍| 🟢 | [✅](./tests/indices/mapping.yml#L32)</li></ul>
-| indices.get_migrate_reindex_status | 🟢 | ❌ | 👍| 🔴 | Not Applicable
+| indices.get_migrate_reindex_status | 🟢 | [✅](./tests/migration/20_reindex.yml#L43)</li></ul> | 👍| 🔴 | Not Applicable
 | indices.get_settings | 🟢 | [✅](./tests/indices/settings.yml#L21)</li></ul> | 👍| 🟢 | [✅](./tests/indices/settings.yml#L21)</li></ul>
 | indices.get_template | 🟢 | [✅](./tests/indices/template.yml#L21)</li></ul> | 👍| 🔴 | Not Applicable
-| indices.migrate_reindex | 🟢 | ❌ | 👍| 🔴 | Not Applicable
+| indices.migrate_reindex | 🟢 | [✅](./tests/migration/20_reindex.yml#L32)</li></ul> | 👍| 🔴 | Not Applicable
 | indices.migrate_to_data_stream | 🟢 | [✅](./tests/indices/migrate_modify_data_stream.yml#L39)</li></ul> | 🙌| 🟢 | [✅](./tests/indices/migrate_modify_data_stream.yml#L39)</li></ul>
 | indices.modify_data_stream | 🟢 | [✅](./tests/indices/migrate_modify_data_stream.yml#L43)</li></ul> | 🙌| 🟢 | [✅](./tests/indices/migrate_modify_data_stream.yml#L43)</li></ul>
 | indices.open | 🟢 | [✅](./tests/indices/open_close.yml#L29)</li></ul> | 👍| 🔴 | Not Applicable
@@ -203,7 +203,7 @@ Endpoints that are currently being tested are marked as done and link to the tes
 | indices.put_settings | 🟢 | [✅](./tests/indices/clone.yml#L42)</li></ul> | 👍| 🟢 | [✅](./tests/indices/settings.yml#L27)</li></ul>
 | indices.put_template | 🟢 | [✅](./tests/indices/exists_template.yml#L24)</li></ul> | 👍| 🔴 | Not Applicable
 | indices.recovery | 🟢 | [✅](./tests/indices/recovery.yml#L22)</li></ul> | 👍| 🔴 | Not Applicable
-| indices.refresh | 🟢 | [✅](./tests/graph/explore.yml#L24)</li></ul> | 👍| 🟢 | [✅](./tests/graph/explore.yml#L24)</li></ul>
+| indices.refresh | 🟢 | [✅](./tests/graph/explore.yml#L24)</li></ul> | 👍| 🟢 | [✅](./tests/indices/refresh.yml#L17)</li></ul>
 | indices.reload_search_analyzers | 🟢 | [✅](./tests/ilm/10_basic.yml#L55)</li></ul> | 👍| 🔴 | Not Applicable
 | indices.resolve_cluster | 🟢 | [✅](./tests/indices/resolve_cluster.yml#L31)</li></ul> | 👍| 🔴 | Not Applicable
 | indices.resolve_index | 🟢 | [✅](./tests/indices/resolve.yml#L22)</li></ul> | 👍| 🟢 | [✅](./tests/indices/resolve.yml#L22)</li></ul>
@@ -384,7 +384,7 @@ Endpoints that are currently being tested are marked as done and link to the tes
 | security.create_service_token | 🟢 | [✅](./tests/security/90_service_accounts.yml#L25)</li></ul> | 👍| 🔴 | Not Applicable
 | security.delegate_pki | 🟢 | ❌ | 👎| 🔴 | Not Applicable
 | security.delete_privileges | 🟢 | [✅](./tests/security/30_privileges_stack.yml#L8)</li></ul> | 👍| 🔴 | Not Applicable
-| security.delete_role | 🟢 | [✅](./tests/security/100_tokens.yml#L28)</li></ul> | 👍| 🟢 | [✅](./tests/security/50_roles_serverless.yml#L41)</li></ul>
+| security.delete_role | 🟢 | [✅](./tests/security/100_tokens.yml#L28)</li></ul> | 👍| 🟢 | [✅](./tests/security/40_roles_serverless.yml#L8)</li></ul>
 | security.delete_role_mapping | 🟢 | [✅](./tests/security/110_role_mapping.yml#L8)</li></ul> | 👍| 🔴 | Not Applicable
 | security.delete_service_token | 🟢 | [✅](./tests/security/90_service_accounts.yml#L8)</li></ul> | 👍| 🔴 | Not Applicable
 | security.delete_user | 🟢 | [✅](./tests/security/100_tokens.yml#L33)</li></ul> | 👍| 🔴 | Not Applicable
@@ -397,7 +397,7 @@ Endpoints that are currently being tested are marked as done and link to the tes
 | security.get_api_key | 🟢 | [✅](./tests/security/10_api_key_basic.yml#L19)</li></ul> | 👍| 🟢 | [✅](./tests/security/10_api_key_basic.yml#L19)</li></ul>
 | security.get_builtin_privileges | 🟢 | [✅](./tests/security/30_privileges_stack.yml#L169)</li></ul> | 👍| 🟢 | [✅](./tests/security/50_roles_serverless.yml#L34)</li></ul>
 | security.get_privileges | 🟢 | [✅](./tests/security/30_privileges_stack.yml#L93)</li></ul> | 👍| 🔴 | Not Applicable
-| security.get_role | 🟢 | [✅](./tests/security/40_roles.yml#L47)</li></ul> | 👍| 🟢 | [✅](./tests/security/50_roles_serverless.yml#L26)</li></ul>
+| security.get_role | 🟢 | [✅](./tests/security/40_roles.yml#L47)</li></ul> | 👍| 🟢 | [✅](./tests/security/40_roles_serverless.yml#L32)</li></ul>
 | security.get_role_mapping | 🟢 | [✅](./tests/security/110_role_mapping.yml#L29)</li></ul> | 👍| 🔴 | Not Applicable
 | security.get_service_accounts | 🟢 | [✅](./tests/security/90_service_accounts.yml#L16)</li></ul> | 👍| 🔴 | Not Applicable
 | security.get_service_credentials | 🟢 | [✅](./tests/security/90_service_accounts.yml#L34)</li></ul> | 👍| 🔴 | Not Applicable
@@ -415,11 +415,11 @@ Endpoints that are currently being tested are marked as done and link to the tes
 | security.oidc_logout | 🟢 | ❌ | 👎| 🔴 | Not Applicable
 | security.oidc_prepare_authentication | 🟢 | ❌ | 👎| 🔴 | Not Applicable
 | security.put_privileges | 🟢 | [✅](./tests/security/30_privileges_stack.yml#L21)</li></ul> | 👍| 🔴 | Not Applicable
-| security.put_role | 🟢 | [✅](./tests/security/100_tokens.yml#L8)</li></ul> | 👍| 🟢 | [✅](./tests/security/50_roles_serverless.yml#L8)</li></ul>
+| security.put_role | 🟢 | [✅](./tests/security/100_tokens.yml#L8)</li></ul> | 👍| 🟢 | [✅](./tests/security/40_roles_serverless.yml#L14)</li></ul>
 | security.put_role_mapping | 🟢 | [✅](./tests/security/110_role_mapping.yml#L14)</li></ul> | 👍| 🔴 | Not Applicable
 | security.put_user | 🟢 | [✅](./tests/security/100_tokens.yml#L16)</li></ul> | 👍| 🔴 | Not Applicable
 | security.query_api_keys | 🟢 | [✅](./tests/security/10_api_key_basic.yml#L24)</li></ul> | 👍| 🟢 | [✅](./tests/security/10_api_key_basic.yml#L24)</li></ul>
-| security.query_role | 🟢 | [✅](./tests/security/40_roles.yml#L55)</li></ul> | 👍| 🟢 | ❌
+| security.query_role | 🟢 | [✅](./tests/security/40_roles.yml#L55)</li></ul> | 👍| 🟢 | [✅](./tests/security/40_roles_serverless.yml#L40)</li></ul>
 | security.query_user | 🟢 | ❌ | 👍| 🔴 | Not Applicable
 | security.saml_authenticate | 🟢 | ❌ | 👎| 🔴 | Not Applicable
 | security.saml_complete_logout | 🟢 | ❌ | 👎| 🔴 | Not Applicable
