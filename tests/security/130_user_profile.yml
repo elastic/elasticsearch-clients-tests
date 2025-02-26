@@ -1,0 +1,101 @@
+---
+requires:
+  stack: true
+  serverless: false
+---
+setup:
+  - do:
+      security.put_user:
+        username: "juan"
+        body:  >
+          {
+            "password" : "s3krit-password",
+            "roles" : [ "superuser" ],
+            "full_name" : "Juan Pérez",
+            "email" : "juan@bazooka.gum"
+          }
+---
+teardown:
+  - do:
+      security.delete_user:
+        username: "juan"
+        ignore: 404
+---
+"Security User Profiles":
+  - do:
+      security.activate_user_profile:
+        body: >
+          {
+            "grant_type": "password",
+            "username": "juan",
+            "password" : "s3krit-password"
+          }
+  - set: { uid: profile_uid }
+
+  # enabled right after activation
+  - do:
+      security.get_user_profile:
+        uid: "$profile_uid"
+  - set: { profiles.0: profile }
+  - is_true: "$profile.enabled"
+
+  # disable the profile
+  - do:
+      security.disable_user_profile:
+        uid: "$profile_uid"
+  - do:
+      security.get_user_profile:
+        uid: "$profile_uid"
+  - set: { profiles.0: profile }
+  - is_false: "$profile.enabled"
+
+  # enable again
+  - do:
+      security.enable_user_profile:
+        uid: "$profile_uid"
+  - do:
+      security.get_user_profile:
+        uid: "$profile_uid"
+  - set: { profiles.0: profile }
+  - is_true: "$profile.enabled"
+
+  - do:
+      security.has_privileges_user_profile:
+        body:
+          uids:
+            - $profile_uid
+          privileges:
+            index:
+              - names:
+                  - index1*
+                privileges:
+                  - read
+  - is_true: has_privilege_uids
+
+  - do:
+      security.suggest_user_profiles:
+        body: >
+          {
+            "name": "juan",
+            "size": 5,
+            "hint": {
+              "labels": {
+                "direction": ["north", "east"]
+              }
+            }
+          }
+  # None of the hints matches. But name match is sufficient
+  - length: { profiles: 1 }
+
+  - do:
+      security.update_user_profile_data:
+        uid: "$profile_uid"
+        body: >
+          {
+            "labels": {
+              "kibana": {
+                "spaces": "demo"
+              }
+            }
+          }
+  - is_true: acknowledged
