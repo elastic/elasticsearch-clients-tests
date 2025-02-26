@@ -211,8 +211,8 @@ Endpoints that are currently being tested are marked as done and link to the tes
 | indices.segments | 🟢 | [✅](./tests/indices/segments.yml#L27)</li></ul> | 👍| 🔴 | Not Applicable
 | indices.shard_stores | 🟢 | [✅](./tests/indices/shard_stores.yml#L27)</li></ul> | 👍| 🔴 | Not Applicable
 | indices.shrink | 🟢 | [✅](./tests/indices/shrink.yml#L40)</li></ul> | 👍| 🔴 | Not Applicable
-| indices.simulate_index_template | 🟢 | [✅](./tests/indices/simulate_template_stack.yml#L37)</li></ul> | 👍| 🟢 | [✅](./tests/indices/simulate_template_serverless.yml#L37)</li></ul>
-| indices.simulate_template | 🟢 | [✅](./tests/indices/simulate_index_template.yml#L38)</li></ul> | 👍| 🟢 | [✅](./tests/indices/simulate_index_template.yml#L38)</li></ul>
+| indices.simulate_index_template | 🟢 | [✅](./tests/indices/simulate_index_template.yml#L37)</li></ul> | 👍| 🟢 | [✅](./tests/indices/simulate_index_template.yml#L37)</li></ul>
+| indices.simulate_template | 🟢 | [✅](./tests/indices/simulate_template.yml#L38)</li></ul> | 👍| 🟢 | [✅](./tests/indices/simulate_template.yml#L38)</li></ul>
 | indices.split | 🟢 | [✅](./tests/indices/split.yml#L52)</li></ul> | 👍| 🔴 | Not Applicable
 | indices.stats | 🟢 | [✅](./tests/indices/flush.yml#L25)</li></ul> | 👍| 🔴 | Not Applicable
 | indices.update_aliases | 🟢 | [✅](./tests/indices/alias.yml#L41)</li></ul> | 👍| 🟢 | [✅](./tests/indices/alias.yml#L41)</li></ul>
