@@ -67,6 +67,10 @@ teardown:
   - match: { columns.4.type: "double" }
 
   - do:
+      esql.async_query_stop: { id: $id }
+  - match: { id: $id }
+
+  - do:
       esql.async_query_delete:
         id: $id
   - match: { acknowledged: true }
