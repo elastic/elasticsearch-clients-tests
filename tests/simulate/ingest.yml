@@ -1,0 +1,36 @@
+---
+requires:
+  stack: true
+  serverless: false
+---
+"simulate.ingest":
+  - do:
+      headers:
+        Content-Type: application/json
+      simulate.ingest:
+        body: >
+          {
+            "docs": [
+              {
+                "_index": "index-1",
+                "_id": "id",
+                "_source": {
+                  "foo": "bar"
+                }
+              },
+              {
+                "_index": "index-2",
+                "_id": "id",
+                "_source": {
+                  "foo": "rab"
+                }
+              }
+            ]
+          }
+  - length: { docs: 2 }
+  - match: { docs.0.doc._index: "index-1" }
+  - match: { docs.0.doc._source.foo: "bar" }
+  - match: { docs.0.doc.executed_pipelines: [] }
+  - match: { docs.1.doc._index: "index-2" }
+  - match: { docs.1.doc._source.foo: "rab" }
+  - match: { docs.1.doc.executed_pipelines: [] }

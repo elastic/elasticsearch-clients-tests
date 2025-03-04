@@ -1,0 +1,63 @@
+---
+requires:
+  stack: true
+  serverless: false
+---
+setup:
+  - do:
+      security.put_user:
+        username: "juan"
+        body:  >
+            {
+              "password": "s3krit-password",
+              "roles" : [ "superuser" ]
+            }
+
+---
+teardown:
+  - do:
+      security.delete_user:
+        username: "juan"
+        ignore: 404
+---
+"security.user":
+  - do:
+      security.get_user:
+        username: "juan"
+  - match: { juan.username:  "juan" }
+  - do:
+      headers:
+        Authorization: "Basic anVhbjpzM2tyaXQtcGFzc3dvcmQ="
+      cluster.health: {}
+  - match: { timed_out: false }
+
+# disable the user
+  - do:
+      security.disable_user:
+        username: "juan"
+
+# validate user cannot login
+  - do:
+      catch: unauthorized
+      headers:
+        Authorization: "Basic anVhbjpzM2tyaXQtcGFzc3dvcmQ="
+      cluster.health: {}
+
+# enable the user
+  - do:
+      security.enable_user:
+        username: "juan"
+
+# validate that the user can login again
+  - do:
+      headers:
+        Authorization: "Basic anVhbjpzM2tyaXQtcGFzc3dvcmQ="
+      cluster.health: {}
+  - match: { timed_out: false }
+
+  - do:
+      headers:
+        Authorization: "Basic anVhbjpzM2tyaXQtcGFzc3dvcmQ="
+      security.query_user:
+        body: { }
+  - match: { total: 1 }
