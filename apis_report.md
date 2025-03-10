@@ -2,8 +2,8 @@
 
 Endpoints that are currently being tested are marked as done and link to the test where they're being used.
 
-* **STACK** - **Total**: 496 | **Tested**: 425 | **Untested**: 71 ![](https://geps.dev/progress/85)
-* **SERVERLESS** - **Total**: 238 | **Tested**: 230 | **Untested**: 8 ![](https://geps.dev/progress/96)
+* **STACK** - **Total**: 500 | **Tested**: 424 | **Untested**: 76 ![](https://geps.dev/progress/84)
+* **SERVERLESS** - **Total**: 242 | **Tested**: 229 | **Untested**: 13 ![](https://geps.dev/progress/94)
 
 * [Internal APIs](#internal-apis-not-tracked)
 * [API information from the Elasticsearch JSON specification](#elasticsearch-json-specification)
@@ -218,12 +218,16 @@ Endpoints that are currently being tested are marked as done and link to the tes
 | indices.unfreeze | 🟢 | ❌ | 🔴 | Not Applicable | 👎
 | indices.update_aliases | 🟢 | [✅](./tests/indices/alias.yml#L41)</li></ul> | 🟢 | [✅](./tests/indices/alias.yml#L41)</li></ul> | 👍
 | indices.validate_query | 🟢 | [✅](./tests/validate_query/10_basic.yml#L16)</li></ul> | 🟢 | [✅](./tests/validate_query/10_basic.yml#L16)</li></ul> | 👍
+| inference.chat_completion_unified | 🟢 | ❌ | 🟢 | ❌ | 👎
+| inference.completion | 🟢 | ❌ | 🟢 | ❌ | 👎
 | inference.delete | 🟢 | [✅](./tests/inference/10_basic.yml#L38)</li></ul> | 🟢 | [✅](./tests/inference/10_basic.yml#L38)</li></ul> | 🙌
 | inference.get | 🟢 | [✅](./tests/inference/10_basic.yml#L25)</li></ul> | 🟢 | [✅](./tests/inference/10_basic.yml#L25)</li></ul> | 👍
-| inference.inference | 🟢 | [✅](./tests/inference/10_basic.yml#L31)</li></ul> | 🟢 | [✅](./tests/inference/10_basic.yml#L31)</li></ul> | 👍
 | inference.put | 🟢 | [✅](./tests/inference/10_basic.yml#L8)</li></ul> | 🟢 | [✅](./tests/inference/10_basic.yml#L8)</li></ul> | 👍
-| inference.stream_inference | 🟢 | ❌ | 🔴 | Not Applicable | 👎
-| inference.unified_inference | 🟢 | ❌ | 🟢 | ❌ | 👎
+| inference.put_watsonx | 🟢 | ❌ | 🟢 | ❌ | 👎
+| inference.rerank | 🟢 | ❌ | 🟢 | ❌ | 👎
+| inference.sparse_embedding | 🟢 | ❌ | 🟢 | ❌ | 👎
+| inference.stream_completion | 🟢 | ❌ | 🔴 | Not Applicable | 👎
+| inference.text_embedding | 🟢 | ❌ | 🟢 | ❌ | 👎
 | inference.update | 🟢 | ❌ | 🔴 | Not Applicable | 👎
 | info | 🟢 | [✅](./tests/info_stack.yml#L8)</li></ul> | 🟢 | [✅](./tests/info_serverless.yml#L8)</li></ul> | 👍
 | ingest.delete_geoip_database | 🟢 | [✅](./tests/ingest/20_geoip.yml#L70)</li></ul> | 🔴 | Not Applicable | 👍
@@ -252,7 +256,7 @@ Endpoints that are currently being tested are marked as done and link to the tes
 | mget | 🟢 | [✅](./tests/mget.yml#L24)</li></ul> | 🟢 | [✅](./tests/mget.yml#L24)</li></ul> | 👍
 | migration.deprecations | 🟢 | [✅](./tests/migration/10_basic.yml#L13)</li></ul> | 🔴 | Not Applicable | 👍
 | migration.get_feature_upgrade_status | 🟢 | [✅](./tests/migration/10_basic.yml#L8)</li></ul> | 🔴 | Not Applicable | 👍
-| migration.post_feature_upgrade | 🟢 | ❌ | 🔴 | Not Applicable | 👎
+| migration.post_feature_upgrade | 🟢 | ❌ | 🔴 | Not Applicable | 👍
 | ml.clear_trained_model_deployment_cache | 🟢 | [✅](./tests/machine_learning/clear_tm_deployment_cache.yml#L90)</li></ul> | 🔴 | Not Applicable | 👍
 | ml.close_job | 🟢 | [✅](./tests/machine_learning/jobs_crud.yml#L69)</li></ul> | 🟢 | [✅](./tests/machine_learning/jobs_crud.yml#L69)</li></ul> | 👍
 | ml.delete_calendar | 🟢 | [✅](./tests/machine_learning/calendar_crud.yml#L8)</li></ul> | 🟢 | [✅](./tests/machine_learning/calendar_crud.yml#L8)</li></ul> | 👍
@@ -553,7 +557,7 @@ Endpoints that are currently being tested are marked as done and link to the tes
 
 ## Elasticsearch JSON specification
 
-**Total** 496 | **Tested** 384 | **Untested** 112 ![](https://geps.dev/progress/77)
+**Total** 499 | **Tested** 384 | **Untested** 115 ![](https://geps.dev/progress/76)
 
 <details>
   <summary id="apis-in-json-spec-and-not-elasticsearch-specification">APIs in JSON spec and not elasticsearch-specification (excluding internal APIs)</summary>
