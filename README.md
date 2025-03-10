@@ -1,5 +1,7 @@
 # Elasticsearch Clients Tests
 
+📊 [Test coverage **main**](https://github.com/elastic/elasticsearch-clients-tests/blob/main/apis_report.md#elasticsearch-tests-report) | 📊 [Test coverage **9.x**](https://github.com/elastic/elasticsearch-clients-tests/blob/9.x/apis_report.md#elasticsearch-tests-report) | 📊 [Test coverage **8.x**](https://github.com/elastic/elasticsearch-clients-tests/blob/8.x/apis_report.md#elasticsearch-tests-report)
+
 This repository holds common tests for Elasticsearch Clients. The tests are specified using the Elasticsearch YAML format reported [here](https://github.com/elastic/elasticsearch/blob/main/rest-api-spec/src/yamlRestTest/resources/rest-api-spec/test/README.asciidoc).
 
 All the tests are located in the [tests](tests) folder. Each API endpoint has a folder containing the tests to be executed. All the files must be executed in order, they are enumerated with a digit prefix.
