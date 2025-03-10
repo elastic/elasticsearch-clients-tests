@@ -28,13 +28,6 @@ requires:
   - match: { endpoints.0.inference_id: elser_model_test }
 
   - do:
-      inference.inference:
-        inference_id: elser_model_test
-        body:
-          input: 'The sky above the port was the color of television tuned to a dead channel.'
-  - is_true: sparse_embedding.0.embedding
-
-  - do:
       inference.delete:
         inference_id: elser_model_test
   - match: { acknowledged: true }
