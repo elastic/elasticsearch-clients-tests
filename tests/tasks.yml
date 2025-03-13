@@ -16,10 +16,6 @@ teardown:
 ---
 "tasks":
   - do:
-      tasks.get: {}
-  - is_true: nodes
-
-  - do:
       update_by_query:
         index: task_test
         wait_for_completion: false
