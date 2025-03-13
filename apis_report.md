@@ -2,8 +2,8 @@
 
 Endpoints that are currently being tested are marked as done and link to the test where they're being used.
 
-* **STACK** - **Total**: 499 | **Tested**: 432 | **Untested**: 67 ![](https://geps.dev/progress/86)
-* **SERVERLESS** - **Total**: 243 | **Tested**: 235 | **Untested**: 8 ![](https://geps.dev/progress/96)
+* **STACK** - **Total**: 500 | **Tested**: 432 | **Untested**: 68 ![](https://geps.dev/progress/86)
+* **SERVERLESS** - **Total**: 244 | **Tested**: 235 | **Untested**: 9 ![](https://geps.dev/progress/96)
 
 * [Internal APIs](#internal-apis-not-tracked)
 * [API information from the Elasticsearch JSON specification](#elasticsearch-json-specification)
@@ -222,6 +222,7 @@ Endpoints that are currently being tested are marked as done and link to the tes
 | inference.delete | 🟢 | [✅](./tests/inference/10_basic.yml#L38)</li></ul> | 🙌| 🟢 | [✅](./tests/inference/10_basic.yml#L38)</li></ul>
 | inference.get | 🟢 | [✅](./tests/inference/10_basic.yml#L25)</li></ul> | 👍| 🟢 | [✅](./tests/inference/10_basic.yml#L25)</li></ul>
 | inference.put | 🟢 | [✅](./tests/inference/10_basic.yml#L8)</li></ul> | 👍| 🟢 | [✅](./tests/inference/10_basic.yml#L8)</li></ul>
+| inference.put_openai | 🟢 | ❌ | 👎| 🟢 | ❌
 | inference.put_watsonx | 🟢 | ❌ | 👎| 🟢 | ❌
 | inference.rerank | 🟢 | ❌ | 👎| 🟢 | ❌
 | inference.sparse_embedding | 🟢 | ❌ | 👎| 🟢 | ❌
@@ -472,8 +473,8 @@ Endpoints that are currently being tested are marked as done and link to the tes
 | synonyms.get_synonyms_sets | 🟢 | [✅](./tests/synonyms/10_basic.yml#L36)</li></ul> | 👍| 🟢 | [✅](./tests/synonyms/10_basic.yml#L36)</li></ul>
 | synonyms.put_synonym | 🟢 | [✅](./tests/synonyms/10_basic.yml#L16)</li></ul> | 👍| 🟢 | [✅](./tests/synonyms/10_basic.yml#L16)</li></ul>
 | synonyms.put_synonym_rule | 🟢 | [✅](./tests/synonyms/10_basic.yml#L25)</li></ul> | 👍| 🟢 | [✅](./tests/synonyms/10_basic.yml#L25)</li></ul>
-| tasks.cancel | 🟢 | [✅](./tests/tasks.yml#L42)</li></ul> | 👍| 🔴 | Not Applicable
-| tasks.get | 🟢 | [✅](./tests/tasks.yml#L19)</li></ul> | 👍| 🟢 | [✅](./tests/tasks_serverless.yml#L26)</li></ul>
+| tasks.cancel | 🟢 | [✅](./tests/tasks.yml#L38)</li></ul> | 👍| 🔴 | Not Applicable
+| tasks.get | 🟢 | [✅](./tests/tasks.yml#L26)</li></ul> | 👍| 🟢 | [✅](./tests/tasks_serverless.yml#L26)</li></ul>
 | tasks.list | 🟢 | [✅](./tests/machine_learning/set_upgrade_mode.yml#L121)</li></ul> | 👍| 🔴 | Not Applicable
 | terms_enum | 🟢 | [✅](./tests/terms_enum/10_basic.yml#L21)</li></ul> | 👍| 🟢 | [✅](./tests/terms_enum/10_basic.yml#L21)</li></ul>
 | termvectors | 🟢 | [✅](./tests/termvectors/10_basic.yml#L24)</li></ul> | 👍| 🟢 | [✅](./tests/termvectors/10_basic.yml#L24)</li></ul>
@@ -494,7 +495,7 @@ Endpoints that are currently being tested are marked as done and link to the tes
 | transform.update_transform | 🟢 | [✅](./tests/transform/10_basic.yml#L35)</li></ul> | 👍| 🟢 | [✅](./tests/transform/10_basic.yml#L35)</li></ul>
 | transform.upgrade_transforms | 🟢 | [✅](./tests/transform/20_upgrade.yml#L52)</li></ul> | 👍| 🔴 | Not Applicable
 | update | 🟢 | [✅](./tests/update/10_partial_update.yml#L18)</li></ul> | 👍| 🟢 | [✅](./tests/update/10_partial_update.yml#L18)</li></ul>
-| update_by_query | 🟢 | [✅](./tests/tasks.yml#L23)</li></ul> | 🙌| 🟢 | [✅](./tests/tasks_serverless.yml#L19)</li></ul>
+| update_by_query | 🟢 | [✅](./tests/tasks.yml#L19)</li></ul> | 🙌| 🟢 | [✅](./tests/tasks_serverless.yml#L19)</li></ul>
 | update_by_query_rethrottle | 🟢 | ❌ | 👎| 🔴 | Not Applicable
 | watcher.ack_watch | 🟢 | ❌ | 👎| 🔴 | Not Applicable
 | watcher.activate_watch | 🟢 | ❌ | 👎| 🔴 | Not Applicable
@@ -556,7 +557,7 @@ Endpoints that are currently being tested are marked as done and link to the tes
 
 ## Elasticsearch JSON specification
 
-**Total** 492 | **Tested** 384 | **Untested** 108 ![](https://geps.dev/progress/78)
+**Total** 498 | **Tested** 384 | **Untested** 114 ![](https://geps.dev/progress/77)
 
 <details>
   <summary id="apis-in-json-spec-and-not-elasticsearch-specification">APIs in JSON spec and not elasticsearch-specification (excluding internal APIs)</summary>
