@@ -31,7 +31,7 @@ jobs:
       - name: Generate report
         run: cd report && bundle exec rake report
       - name: Create Pull Request
-        uses: peter-evans/create-pull-request@v6
+        uses: peter-evans/create-pull-request@b1ddad2c994a25fbc81a28b3ec0e368bb2021c50  # v6.0.0
         id: cpr
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
