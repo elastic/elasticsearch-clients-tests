@@ -2,8 +2,8 @@
 
 Endpoints that are currently being tested are marked as done and link to the test where they're being used.
 
-* **STACK** - **Total**: 500 | **Tested**: 432 | **Untested**: 68 ![](https://geps.dev/progress/86)
-* **SERVERLESS** - **Total**: 244 | **Tested**: 235 | **Untested**: 9 ![](https://geps.dev/progress/96)
+* **STACK** - **Total**: 503 | **Tested**: 432 | **Untested**: 71 ![](https://geps.dev/progress/85)
+* **SERVERLESS** - **Total**: 246 | **Tested**: 235 | **Untested**: 11 ![](https://geps.dev/progress/95)
 
 * [Internal APIs](#internal-apis-not-tracked)
 * [API information from the Elasticsearch JSON specification](#elasticsearch-json-specification)
@@ -222,7 +222,10 @@ Endpoints that are currently being tested are marked as done and link to the tes
 | inference.delete | 🟢 | [✅](./tests/inference/10_basic.yml#L38)</li></ul> | 🙌| 🟢 | [✅](./tests/inference/10_basic.yml#L38)</li></ul>
 | inference.get | 🟢 | [✅](./tests/inference/10_basic.yml#L25)</li></ul> | 👍| 🟢 | [✅](./tests/inference/10_basic.yml#L25)</li></ul>
 | inference.put | 🟢 | [✅](./tests/inference/10_basic.yml#L8)</li></ul> | 👍| 🟢 | [✅](./tests/inference/10_basic.yml#L8)</li></ul>
+| inference.put_eis | 🟢 | ❌ | 👎| 🟢 | ❌
+| inference.put_mistral | 🟢 | ❌ | 👎| 🔴 | Not Applicable
 | inference.put_openai | 🟢 | ❌ | 👎| 🟢 | ❌
+| inference.put_voyageai | 🟢 | ❌ | 👎| 🟢 | ❌
 | inference.put_watsonx | 🟢 | ❌ | 👎| 🟢 | ❌
 | inference.rerank | 🟢 | ❌ | 👎| 🟢 | ❌
 | inference.sparse_embedding | 🟢 | ❌ | 👎| 🟢 | ❌
@@ -557,7 +560,7 @@ Endpoints that are currently being tested are marked as done and link to the tes
 
 ## Elasticsearch JSON specification
 
-**Total** 498 | **Tested** 384 | **Untested** 114 ![](https://geps.dev/progress/77)
+**Total** 503 | **Tested** 384 | **Untested** 119 ![](https://geps.dev/progress/76)
 
 <details>
   <summary id="apis-in-json-spec-and-not-elasticsearch-specification">APIs in JSON spec and not elasticsearch-specification (excluding internal APIs)</summary>
