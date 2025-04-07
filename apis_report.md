@@ -272,7 +272,7 @@ Endpoints that are currently being tested are marked as done and link to the tes
 | mget | 🟢 | [✅](./tests/mget.yml#L24)</li></ul> | 👍| 🟢 | [✅](./tests/mget.yml#L24)</li></ul>
 | migration.deprecations | 🟢 | [✅](./tests/migration/10_basic.yml#L13)</li></ul> | 👍| 🔴 | Not Applicable
 | migration.get_feature_upgrade_status | 🟢 | [✅](./tests/migration/10_basic.yml#L8)</li></ul> | 👍| 🔴 | Not Applicable
-| migration.post_feature_upgrade | 🟢 | ❌ | 👎| 🔴 | Not Applicable
+| migration.post_feature_upgrade | 🟢 | ❌ | 👍| 🔴 | Not Applicable
 | ml.clear_trained_model_deployment_cache | 🟢 | [✅](./tests/machine_learning/clear_tm_deployment_cache.yml#L90)</li></ul> | 👍| 🔴 | Not Applicable
 | ml.close_job | 🟢 | [✅](./tests/machine_learning/jobs_crud.yml#L69)</li></ul> | 👍| 🟢 | [✅](./tests/machine_learning/jobs_crud.yml#L69)</li></ul>
 | ml.delete_calendar | 🟢 | [✅](./tests/machine_learning/calendar_crud.yml#L8)</li></ul> | 👍| 🟢 | [✅](./tests/machine_learning/calendar_crud.yml#L8)</li></ul>
@@ -573,7 +573,7 @@ Endpoints that are currently being tested are marked as done and link to the tes
 
 ## Elasticsearch JSON specification
 
-**Total** 515 | **Tested** 384 | **Untested** 131 ![](https://geps.dev/progress/74)
+**Total** 515 | **Tested** 385 | **Untested** 130 ![](https://geps.dev/progress/74)
 
 <details>
   <summary id="apis-in-json-spec-and-not-elasticsearch-specification">APIs in JSON spec and not elasticsearch-specification (excluding internal APIs)</summary>
