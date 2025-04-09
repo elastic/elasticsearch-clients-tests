@@ -2,8 +2,8 @@
 
 Endpoints that are currently being tested are marked as done and link to the test where they're being used.
 
-* **STACK** - **Total**: 495 | **Tested**: 427 | **Untested**: 68 ![](https://geps.dev/progress/86)
-* **SERVERLESS** - **Total**: 239 | **Tested**: 236 | **Untested**: 3 ![](https://geps.dev/progress/98)
+* **STACK** - **Total**: 514 | **Tested**: 426 | **Untested**: 88 ![](https://geps.dev/progress/82)
+* **SERVERLESS** - **Total**: 258 | **Tested**: 235 | **Untested**: 23 ![](https://geps.dev/progress/91)
 
 * [Internal APIs](#internal-apis-not-tracked)
 * [API information from the Elasticsearch JSON specification](#elasticsearch-json-specification)
@@ -217,12 +217,31 @@ Endpoints that are currently being tested are marked as done and link to the tes
 | indices.stats | 🟢 | [✅](./tests/indices/flush.yml#L25)</li></ul> | 👍| 🔴 | Not Applicable
 | indices.update_aliases | 🟢 | [✅](./tests/indices/alias.yml#L41)</li></ul> | 👍| 🟢 | [✅](./tests/indices/alias.yml#L41)</li></ul>
 | indices.validate_query | 🟢 | [✅](./tests/validate_query/10_basic.yml#L16)</li></ul> | 👍| 🟢 | [✅](./tests/validate_query/10_basic.yml#L16)</li></ul>
+| inference.chat_completion_unified | 🟢 | ❌ | 👎| 🟢 | ❌
+| inference.completion | 🟢 | ❌ | 👎| 🟢 | ❌
 | inference.delete | 🟢 | [✅](./tests/inference/10_basic.yml#L38)</li></ul> | 🙌| 🟢 | [✅](./tests/inference/10_basic.yml#L38)</li></ul>
 | inference.get | 🟢 | [✅](./tests/inference/10_basic.yml#L25)</li></ul> | 👍| 🟢 | [✅](./tests/inference/10_basic.yml#L25)</li></ul>
-| inference.inference | 🟢 | [✅](./tests/inference/10_basic.yml#L31)</li></ul> | 👍| 🟢 | [✅](./tests/inference/10_basic.yml#L31)</li></ul>
 | inference.put | 🟢 | [✅](./tests/inference/10_basic.yml#L8)</li></ul> | 👍| 🟢 | [✅](./tests/inference/10_basic.yml#L8)</li></ul>
-| inference.stream_inference | 🟢 | ❌ | 👎| 🔴 | Not Applicable
-| inference.unified_inference | 🟢 | ❌ | 👎| 🟢 | ❌
+| inference.put_alibabacloud | 🟢 | ❌ | 👎| 🟢 | ❌
+| inference.put_amazonbedrock | 🟢 | ❌ | 👎| 🟢 | ❌
+| inference.put_anthropic | 🟢 | ❌ | 👎| 🟢 | ❌
+| inference.put_azureaistudio | 🟢 | ❌ | 👎| 🟢 | ❌
+| inference.put_azureopenai | 🟢 | ❌ | 👎| 🟢 | ❌
+| inference.put_cohere | 🟢 | ❌ | 👎| 🟢 | ❌
+| inference.put_elasticsearch | 🟢 | ❌ | 👎| 🟢 | ❌
+| inference.put_elser | 🟢 | ❌ | 👎| 🟢 | ❌
+| inference.put_googleaistudio | 🟢 | ❌ | 👎| 🟢 | ❌
+| inference.put_googlevertexai | 🟢 | ❌ | 👎| 🟢 | ❌
+| inference.put_hugging_face | 🟢 | ❌ | 👎| 🟢 | ❌
+| inference.put_jinaai | 🟢 | ❌ | 👎| 🟢 | ❌
+| inference.put_mistral | 🟢 | ❌ | 👎| 🟢 | ❌
+| inference.put_openai | 🟢 | ❌ | 👎| 🟢 | ❌
+| inference.put_voyageai | 🟢 | ❌ | 👎| 🟢 | ❌
+| inference.put_watsonx | 🟢 | ❌ | 👎| 🟢 | ❌
+| inference.rerank | 🟢 | ❌ | 👎| 🟢 | ❌
+| inference.sparse_embedding | 🟢 | ❌ | 👎| 🟢 | ❌
+| inference.stream_completion | 🟢 | ❌ | 👎| 🔴 | Not Applicable
+| inference.text_embedding | 🟢 | ❌ | 👎| 🟢 | ❌
 | inference.update | 🟢 | ❌ | 👎| 🔴 | Not Applicable
 | info | 🟢 | [✅](./tests/info_stack.yml#L8)</li></ul> | 👍| 🟢 | [✅](./tests/info_serverless.yml#L8)</li></ul>
 | ingest.delete_geoip_database | 🟢 | [✅](./tests/ingest/20_geoip.yml#L70)</li></ul> | 👍| 🔴 | Not Applicable
@@ -251,7 +270,7 @@ Endpoints that are currently being tested are marked as done and link to the tes
 | mget | 🟢 | [✅](./tests/mget.yml#L24)</li></ul> | 👍| 🟢 | [✅](./tests/mget.yml#L24)</li></ul>
 | migration.deprecations | 🟢 | [✅](./tests/migration/10_basic.yml#L13)</li></ul> | 👍| 🔴 | Not Applicable
 | migration.get_feature_upgrade_status | 🟢 | [✅](./tests/migration/10_basic.yml#L8)</li></ul> | 👍| 🔴 | Not Applicable
-| migration.post_feature_upgrade | 🟢 | ❌ | 👎| 🔴 | Not Applicable
+| migration.post_feature_upgrade | 🟢 | ❌ | 👍| 🔴 | Not Applicable
 | ml.clear_trained_model_deployment_cache | 🟢 | [✅](./tests/machine_learning/clear_tm_deployment_cache.yml#L90)</li></ul> | 👍| 🔴 | Not Applicable
 | ml.close_job | 🟢 | [✅](./tests/machine_learning/jobs_crud.yml#L69)</li></ul> | 👍| 🟢 | [✅](./tests/machine_learning/jobs_crud.yml#L69)</li></ul>
 | ml.delete_calendar | 🟢 | [✅](./tests/machine_learning/calendar_crud.yml#L8)</li></ul> | 👍| 🟢 | [✅](./tests/machine_learning/calendar_crud.yml#L8)</li></ul>
@@ -552,7 +571,7 @@ Endpoints that are currently being tested are marked as done and link to the tes
 
 ## Elasticsearch JSON specification
 
-**Total** 495 | **Tested** 385 | **Untested** 110 ![](https://geps.dev/progress/77)
+**Total** 514 | **Tested** 385 | **Untested** 129 ![](https://geps.dev/progress/74)
 
 <details>
   <summary id="apis-in-json-spec-and-not-elasticsearch-specification">APIs in JSON spec and not elasticsearch-specification (excluding internal APIs)</summary>
