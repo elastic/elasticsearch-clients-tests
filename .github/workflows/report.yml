@@ -5,14 +5,13 @@ on:
     - cron: "0 6 * * 1"
   push:
     branches:
-      - main
-      - 8.x
+      - '9.0'
 jobs:
   generate_report:
     runs-on: ubuntu-latest
     env:
-      STACK_VERSION: 9.1.0-SNAPSHOT
-      BRANCH: 'main' # Branch for downloading the specs
+      STACK_VERSION: 9.0.0-SNAPSHOT
+      BRANCH: '9.0' # Branch for downloading the specs
     steps:
       - uses: actions/checkout@v4
         with:
