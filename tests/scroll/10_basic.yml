@@ -27,4 +27,4 @@ teardown:
   - do:
       clear_scroll:
         scroll_id: $id
-  - match { succeeded: true }
+  - match: { succeeded: true }
