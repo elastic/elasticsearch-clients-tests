@@ -2,7 +2,7 @@
 
 Endpoints that are currently being tested are marked as done and link to the test where they're being used.
 
-* **STACK** - **Total**: 517 | **Tested**: 432 | **Untested**: 85 ![](https://geps.dev/progress/83)
+* **STACK** - **Total**: 519 | **Tested**: 433 | **Untested**: 86 ![](https://geps.dev/progress/83)
 * **SERVERLESS** - **Total**: 258 | **Tested**: 235 | **Untested**: 23 ![](https://geps.dev/progress/91)
 
 * [Internal APIs](#internal-apis-not-tracked)
@@ -125,6 +125,8 @@ Endpoints that are currently being tested are marked as done and link to the tes
 | esql.async_query_delete | 🟢 | [✅](./tests/esql/20_async.yml#L74)</li></ul> | 🙌| 🔴 | Not Applicable
 | esql.async_query_get | 🟢 | [✅](./tests/esql/20_async.yml#L56)</li></ul> | 🙌| 🔴 | Not Applicable
 | esql.async_query_stop | 🟢 | [✅](./tests/esql/20_async.yml#L70)</li></ul> | 🙌| 🔴 | Not Applicable
+| esql.get_query | 🟢 | ❌ | 👍| 🔴 | Not Applicable
+| esql.list_queries | 🟢 | ❌ | 👍| 🔴 | Not Applicable
 | esql.query | 🟢 | [✅](./tests/esql/10_query.yml#L40)</li></ul> | 👍| 🔴 | Not Applicable
 | exists | 🟢 | [✅](./tests/exists/10_basic.yml#L19)</li></ul> | 👍| 🟢 | [✅](./tests/exists/10_basic.yml#L19)</li></ul>
 | exists_source | 🟢 | [✅](./tests/exists_source/10_basic.yml#L19)</li></ul> | 🙌| 🟢 | [✅](./tests/exists_source/10_basic.yml#L19)</li></ul>
@@ -273,7 +275,7 @@ Endpoints that are currently being tested are marked as done and link to the tes
 | mget | 🟢 | [✅](./tests/mget.yml#L24)</li></ul> | 👍| 🟢 | [✅](./tests/mget.yml#L24)</li></ul>
 | migration.deprecations | 🟢 | [✅](./tests/migration/10_basic.yml#L13)</li></ul> | 👍| 🔴 | Not Applicable
 | migration.get_feature_upgrade_status | 🟢 | [✅](./tests/migration/10_basic.yml#L8)</li></ul> | 👍| 🔴 | Not Applicable
-| migration.post_feature_upgrade | 🟢 | ❌ | 👍| 🔴 | Not Applicable
+| migration.post_feature_upgrade | 🟢 | [✅](./tests/migration/40_post_feature_upgrade.yml#L8)</li></ul> | 👍| 🔴 | Not Applicable
 | ml.clear_trained_model_deployment_cache | 🟢 | [✅](./tests/machine_learning/clear_tm_deployment_cache.yml#L90)</li></ul> | 👍| 🔴 | Not Applicable
 | ml.close_job | 🟢 | [✅](./tests/machine_learning/jobs_crud.yml#L69)</li></ul> | 👍| 🟢 | [✅](./tests/machine_learning/jobs_crud.yml#L69)</li></ul>
 | ml.delete_calendar | 🟢 | [✅](./tests/machine_learning/calendar_crud.yml#L8)</li></ul> | 👍| 🟢 | [✅](./tests/machine_learning/calendar_crud.yml#L8)</li></ul>
@@ -574,7 +576,7 @@ Endpoints that are currently being tested are marked as done and link to the tes
 
 ## Elasticsearch JSON specification
 
-**Total** 514 | **Tested** 385 | **Untested** 129 ![](https://geps.dev/progress/74)
+**Total** 519 | **Tested** 387 | **Untested** 132 ![](https://geps.dev/progress/74)
 
 <details>
   <summary id="apis-in-json-spec-and-not-elasticsearch-specification">APIs in JSON spec and not elasticsearch-specification (excluding internal APIs)</summary>
