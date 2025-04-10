@@ -2,7 +2,7 @@
 
 Endpoints that are currently being tested are marked as done and link to the test where they're being used.
 
-* **STACK** - **Total**: 514 | **Tested**: 426 | **Untested**: 88 ![](https://geps.dev/progress/82)
+* **STACK** - **Total**: 514 | **Tested**: 427 | **Untested**: 87 ![](https://geps.dev/progress/83)
 * **SERVERLESS** - **Total**: 258 | **Tested**: 235 | **Untested**: 23 ![](https://geps.dev/progress/91)
 
 * [Internal APIs](#internal-apis-not-tracked)
@@ -270,7 +270,7 @@ Endpoints that are currently being tested are marked as done and link to the tes
 | mget | 🟢 | [✅](./tests/mget.yml#L24)</li></ul> | 👍| 🟢 | [✅](./tests/mget.yml#L24)</li></ul>
 | migration.deprecations | 🟢 | [✅](./tests/migration/10_basic.yml#L13)</li></ul> | 👍| 🔴 | Not Applicable
 | migration.get_feature_upgrade_status | 🟢 | [✅](./tests/migration/10_basic.yml#L8)</li></ul> | 👍| 🔴 | Not Applicable
-| migration.post_feature_upgrade | 🟢 | ❌ | 👍| 🔴 | Not Applicable
+| migration.post_feature_upgrade | 🟢 | [✅](./tests/migration/40_post_feature_upgrade.yml#L8)</li></ul> | 👍| 🔴 | Not Applicable
 | ml.clear_trained_model_deployment_cache | 🟢 | [✅](./tests/machine_learning/clear_tm_deployment_cache.yml#L90)</li></ul> | 👍| 🔴 | Not Applicable
 | ml.close_job | 🟢 | [✅](./tests/machine_learning/jobs_crud.yml#L69)</li></ul> | 👍| 🟢 | [✅](./tests/machine_learning/jobs_crud.yml#L69)</li></ul>
 | ml.delete_calendar | 🟢 | [✅](./tests/machine_learning/calendar_crud.yml#L8)</li></ul> | 👍| 🟢 | [✅](./tests/machine_learning/calendar_crud.yml#L8)</li></ul>
