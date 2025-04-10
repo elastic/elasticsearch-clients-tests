@@ -1,0 +1,9 @@
+---
+requires:
+  stack: true
+  serverless: false
+---
+'migration.post_feature_upgrade':
+  - do:
+      migration.post_feature_upgrade: {}
+  - is_false: accepted
