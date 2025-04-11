@@ -2,8 +2,8 @@
 
 Endpoints that are currently being tested are marked as done and link to the test where they're being used.
 
-* **STACK** - **Total**: 517 | **Tested**: 424 | **Untested**: 93 ![](https://geps.dev/progress/82)
-* **SERVERLESS** - **Total**: 259 | **Tested**: 229 | **Untested**: 30 ![](https://geps.dev/progress/88)
+* **STACK** - **Total**: 518 | **Tested**: 424 | **Untested**: 94 ![](https://geps.dev/progress/81)
+* **SERVERLESS** - **Total**: 257 | **Tested**: 229 | **Untested**: 28 ![](https://geps.dev/progress/89)
 
 * [Internal APIs](#internal-apis-not-tracked)
 * [API information from the Elasticsearch JSON specification](#elasticsearch-json-specification)
@@ -168,6 +168,7 @@ Endpoints that are currently being tested are marked as done and link to the tes
 | indices.delete_alias | 🟢 | [✅](./tests/indices/alias.yml#L49)</li></ul> | 🟢 | [✅](./tests/indices/alias.yml#L49)</li></ul> | 👍
 | indices.delete_data_lifecycle | 🟢 | [✅](./tests/indices/20_data_lifecycle.yml#L22)</li></ul> | 🟢 | ❌ | 🙌
 | indices.delete_data_stream | 🟢 | [✅](./tests/ilm/10_basic.yml#L26)</li></ul> | 🟢 | [✅](./tests/indices/data_streams.yml#L40)</li></ul> | 👍
+| indices.delete_data_stream_options | 🟢 | ❌ | 🔴 | Not Applicable | 👎
 | indices.delete_index_template | 🟢 | [✅](./tests/indices/data_streams.yml#L21)</li></ul> | 🟢 | [✅](./tests/indices/data_streams.yml#L21)</li></ul> | 👍
 | indices.delete_template | 🟢 | [✅](./tests/indices/exists_template.yml#L8)</li></ul> | 🔴 | Not Applicable | 👍
 | indices.disk_usage | 🟢 | [✅](./tests/indices/disk_usage.yml#L47)</li></ul> | 🔴 | Not Applicable | 👍
@@ -185,6 +186,7 @@ Endpoints that are currently being tested are marked as done and link to the tes
 | indices.get_data_lifecycle | 🟢 | [✅](./tests/indices/10_data_lifecycle.yml#L22)</li></ul> | 🟢 | [✅](./tests/indices/10_data_lifecycle.yml#L22)</li></ul> | 🙌
 | indices.get_data_lifecycle_stats | 🟢 | ❌ | 🔴 | Not Applicable | 👎
 | indices.get_data_stream | 🟢 | [✅](./tests/indices/data_streams.yml#L31)</li></ul> | 🟢 | [✅](./tests/indices/data_streams.yml#L31)</li></ul> | 👍
+| indices.get_data_stream_options | 🟢 | ❌ | 🔴 | Not Applicable | 👎
 | indices.get_field_mapping | 🟢 | [✅](./tests/indices/get_field_mapping.yml#L23)</li></ul> | 🔴 | Not Applicable | 👍
 | indices.get_index_template | 🟢 | [✅](./tests/indices/index_template.yml#L24)</li></ul> | 🟢 | [✅](./tests/indices/index_template.yml#L24)</li></ul> | 👍
 | indices.get_mapping | 🟢 | [✅](./tests/indices/mapping.yml#L32)</li></ul> | 🟢 | [✅](./tests/indices/mapping.yml#L32)</li></ul> | 👍
@@ -198,6 +200,7 @@ Endpoints that are currently being tested are marked as done and link to the tes
 | indices.promote_data_stream | 🟢 | ❌ | 🔴 | Not Applicable | 👎
 | indices.put_alias | 🟢 | [✅](./tests/cat/aliases.yml#L11)</li></ul> | 🟢 | [✅](./tests/cat/aliases.yml#L11)</li></ul> | 👍
 | indices.put_data_lifecycle | 🟢 | [✅](./tests/indices/10_data_lifecycle.yml#L16)</li></ul> | 🟢 | [✅](./tests/indices/10_data_lifecycle.yml#L16)</li></ul> | 🙌
+| indices.put_data_stream_options | 🟢 | ❌ | 🔴 | Not Applicable | 👎
 | indices.put_index_template | 🟢 | [✅](./tests/ilm/10_basic.yml#L8)</li></ul> | 🟢 | [✅](./tests/indices/data_streams.yml#L8)</li></ul> | 👍
 | indices.put_mapping | 🟢 | [✅](./tests/indices/mapping.yml#L18)</li></ul> | 🟢 | [✅](./tests/indices/mapping.yml#L18)</li></ul> | 👍
 | indices.put_settings | 🟢 | [✅](./tests/indices/clone.yml#L39)</li></ul> | 🟢 | [✅](./tests/indices/settings.yml#L27)</li></ul> | 👍
@@ -222,7 +225,6 @@ Endpoints that are currently being tested are marked as done and link to the tes
 | inference.completion | 🟢 | ❌ | 🟢 | ❌ | 👎
 | inference.delete | 🟢 | [✅](./tests/inference/10_basic.yml#L31)</li></ul> | 🟢 | [✅](./tests/inference/10_basic.yml#L31)</li></ul> | 🙌
 | inference.get | 🟢 | [✅](./tests/inference/10_basic.yml#L25)</li></ul> | 🟢 | [✅](./tests/inference/10_basic.yml#L25)</li></ul> | 👍
-| inference.post_eis_chat_completion | 🟢 | ❌ | 🟢 | ❌ | 👎
 | inference.put | 🟢 | [✅](./tests/inference/10_basic.yml#L8)</li></ul> | 🟢 | [✅](./tests/inference/10_basic.yml#L8)</li></ul> | 👍
 | inference.put_alibabacloud | 🟢 | ❌ | 🟢 | ❌ | 👎
 | inference.put_amazonbedrock | 🟢 | ❌ | 🟢 | ❌ | 👎
@@ -230,7 +232,6 @@ Endpoints that are currently being tested are marked as done and link to the tes
 | inference.put_azureaistudio | 🟢 | ❌ | 🟢 | ❌ | 👎
 | inference.put_azureopenai | 🟢 | ❌ | 🟢 | ❌ | 👎
 | inference.put_cohere | 🟢 | ❌ | 🟢 | ❌ | 👎
-| inference.put_eis | 🟢 | ❌ | 🟢 | ❌ | 👎
 | inference.put_elasticsearch | 🟢 | ❌ | 🟢 | ❌ | 👎
 | inference.put_elser | 🟢 | ❌ | 🟢 | ❌ | 👎
 | inference.put_googleaistudio | 🟢 | ❌ | 🟢 | ❌ | 👎
@@ -574,7 +575,7 @@ Endpoints that are currently being tested are marked as done and link to the tes
 
 ## Elasticsearch JSON specification
 
-**Total** 516 | **Tested** 384 | **Untested** 132 ![](https://geps.dev/progress/74)
+**Total** 518 | **Tested** 384 | **Untested** 134 ![](https://geps.dev/progress/74)
 
 <details>
   <summary id="apis-in-json-spec-and-not-elasticsearch-specification">APIs in JSON spec and not elasticsearch-specification (excluding internal APIs)</summary>
