@@ -2,8 +2,8 @@
 
 Endpoints that are currently being tested are marked as done and link to the test where they're being used.
 
-* **STACK** - **Total**: 518 | **Tested**: 424 | **Untested**: 94 ![](https://geps.dev/progress/81)
-* **SERVERLESS** - **Total**: 257 | **Tested**: 229 | **Untested**: 28 ![](https://geps.dev/progress/89)
+* **STACK** - **Total**: 519 | **Tested**: 425 | **Untested**: 94 ![](https://geps.dev/progress/81)
+* **SERVERLESS** - **Total**: 258 | **Tested**: 230 | **Untested**: 28 ![](https://geps.dev/progress/89)
 
 * [Internal APIs](#internal-apis-not-tracked)
 * [API information from the Elasticsearch JSON specification](#elasticsearch-json-specification)
@@ -223,8 +223,9 @@ Endpoints that are currently being tested are marked as done and link to the tes
 | indices.validate_query | 🟢 | [✅](./tests/validate_query/10_basic.yml#L16)</li></ul> | 🟢 | [✅](./tests/validate_query/10_basic.yml#L16)</li></ul> | 👍
 | inference.chat_completion_unified | 🟢 | ❌ | 🟢 | ❌ | 👎
 | inference.completion | 🟢 | ❌ | 🟢 | ❌ | 👎
-| inference.delete | 🟢 | [✅](./tests/inference/10_basic.yml#L31)</li></ul> | 🟢 | [✅](./tests/inference/10_basic.yml#L31)</li></ul> | 🙌
+| inference.delete | 🟢 | [✅](./tests/inference/10_basic.yml#L38)</li></ul> | 🟢 | [✅](./tests/inference/10_basic.yml#L38)</li></ul> | 🙌
 | inference.get | 🟢 | [✅](./tests/inference/10_basic.yml#L25)</li></ul> | 🟢 | [✅](./tests/inference/10_basic.yml#L25)</li></ul> | 👍
+| inference.inference | 🟢 | [✅](./tests/inference/10_basic.yml#L31)</li></ul> | 🟢 | [✅](./tests/inference/10_basic.yml#L31)</li></ul> | 🙌
 | inference.put | 🟢 | [✅](./tests/inference/10_basic.yml#L8)</li></ul> | 🟢 | [✅](./tests/inference/10_basic.yml#L8)</li></ul> | 👍
 | inference.put_alibabacloud | 🟢 | ❌ | 🟢 | ❌ | 👎
 | inference.put_amazonbedrock | 🟢 | ❌ | 🟢 | ❌ | 👎
@@ -575,7 +576,7 @@ Endpoints that are currently being tested are marked as done and link to the tes
 
 ## Elasticsearch JSON specification
 
-**Total** 518 | **Tested** 384 | **Untested** 134 ![](https://geps.dev/progress/74)
+**Total** 519 | **Tested** 384 | **Untested** 135 ![](https://geps.dev/progress/73)
 
 <details>
   <summary id="apis-in-json-spec-and-not-elasticsearch-specification">APIs in JSON spec and not elasticsearch-specification (excluding internal APIs)</summary>
