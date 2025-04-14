@@ -2,8 +2,8 @@
 
 Endpoints that are currently being tested are marked as done and link to the test where they're being used.
 
-* **STACK** - **Total**: 519 | **Tested**: 433 | **Untested**: 86 ![](https://geps.dev/progress/83)
-* **SERVERLESS** - **Total**: 258 | **Tested**: 235 | **Untested**: 23 ![](https://geps.dev/progress/91)
+* **STACK** - **Total**: 520 | **Tested**: 433 | **Untested**: 87 ![](https://geps.dev/progress/83)
+* **SERVERLESS** - **Total**: 259 | **Tested**: 235 | **Untested**: 24 ![](https://geps.dev/progress/90)
 
 * [Internal APIs](#internal-apis-not-tracked)
 * [API information from the Elasticsearch JSON specification](#elasticsearch-json-specification)
@@ -226,6 +226,7 @@ Endpoints that are currently being tested are marked as done and link to the tes
 | inference.completion | 🟢 | ❌ | 👎| 🟢 | ❌
 | inference.delete | 🟢 | [✅](./tests/inference/10_basic.yml#L31)</li></ul> | 🙌| 🟢 | [✅](./tests/inference/10_basic.yml#L31)</li></ul>
 | inference.get | 🟢 | [✅](./tests/inference/10_basic.yml#L25)</li></ul> | 👍| 🟢 | [✅](./tests/inference/10_basic.yml#L25)</li></ul>
+| inference.inference | 🟢 | ❌ | 👎| 🟢 | ❌
 | inference.put | 🟢 | [✅](./tests/inference/10_basic.yml#L8)</li></ul> | 👍| 🟢 | [✅](./tests/inference/10_basic.yml#L8)</li></ul>
 | inference.put_alibabacloud | 🟢 | ❌ | 👎| 🟢 | ❌
 | inference.put_amazonbedrock | 🟢 | ❌ | 👎| 🟢 | ❌
@@ -576,7 +577,7 @@ Endpoints that are currently being tested are marked as done and link to the tes
 
 ## Elasticsearch JSON specification
 
-**Total** 519 | **Tested** 387 | **Untested** 132 ![](https://geps.dev/progress/74)
+**Total** 520 | **Tested** 387 | **Untested** 133 ![](https://geps.dev/progress/74)
 
 <details>
   <summary id="apis-in-json-spec-and-not-elasticsearch-specification">APIs in JSON spec and not elasticsearch-specification (excluding internal APIs)</summary>
