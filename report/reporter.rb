@@ -31,7 +31,9 @@ module Elastic
     EXCLUDED_APIS = [
       { name: 'autoscaling', reason: 'Designed for indirect use by ECE/ESS and ECK. Direct use is not supported.' },
       { name: 'shutdown', reason: 'Designed for indirect use by ECE/ESS and ECK. Direct use is not supported.' },
-      { name: 'rollup', reason: 'The rollup feature was never GA-ed and is still tech preview. It has been deprecated since 8.11.0 in favor of downsampling.' }
+      { name: 'rollup', reason: 'The rollup feature was never GA-ed and is still tech preview. It has been deprecated since 8.11.0 in favor of downsampling.' },
+      { name: 'knn_search', reason: 'It was only ever experimental and was deprecated in v`8.4`. It isn\'t supported in 9.0, and only works when the header `compatible-with=8` is set.' }
+
     ].freeze
 
     attr_reader :endpoints, :internal, :json_spec
