@@ -2,7 +2,7 @@
 
 Endpoints that are currently being tested are marked as done and link to the test where they're being used.
 
-* **STACK** - **Total**: 520 | **Tested**: 433 | **Untested**: 87 ![](https://geps.dev/progress/83)
+* **STACK** - **Total**: 520 | **Tested**: 432 | **Untested**: 88 ![](https://geps.dev/progress/83)
 * **SERVERLESS** - **Total**: 259 | **Tested**: 235 | **Untested**: 24 ![](https://geps.dev/progress/90)
 
 * [Internal APIs](#internal-apis-not-tracked)
@@ -262,7 +262,7 @@ Endpoints that are currently being tested are marked as done and link to the tes
 | ingest.put_ip_location_database | 🟢 | [✅](./tests/ingest/30_ip_location_database.yml#L8)</li></ul> | 👍| 🔴 | Not Applicable
 | ingest.put_pipeline | 🟢 | [✅](./tests/ingest/10_basic.yml#L8)</li></ul> | 👍| 🟢 | [✅](./tests/ingest/10_basic.yml#L8)</li></ul>
 | ingest.simulate | 🟢 | [✅](./tests/ingest/10_basic.yml#L20)</li></ul> | 👍| 🟢 | [✅](./tests/ingest/10_basic.yml#L20)</li></ul>
-| knn_search | 🟢 | [✅](./tests/knn_search.yml#L68)</li></ul> | 👍| 🔴 | Not Applicable
+| knn_search | 🟢 | ❌ | 👍| 🔴 | Not Applicable
 | license.delete | 🟢 | [✅](./tests/license/10_stack.yml#L28)</li></ul> | 👍| 🔴 | Not Applicable
 | license.get | 🟢 | [✅](./tests/license/10_stack.yml#L23)</li></ul> | 👍| 🟢 | [✅](./tests/license/10_serverless.yml#L8)</li></ul>
 | license.get_basic_status | 🟢 | [✅](./tests/license/10_stack.yml#L43)</li></ul> | 👍| 🔴 | Not Applicable
