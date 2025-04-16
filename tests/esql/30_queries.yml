@@ -1,0 +1,13 @@
+requires:
+  serverless: true
+  stack: true
+---
+"ES|QL queries":
+  - do:
+      esql.list_queries: { }
+  - match: { queries: { } }
+
+  - do:
+      catch: /illegal_argument_exception/
+      esql.get_query:
+        id: "foobar"
