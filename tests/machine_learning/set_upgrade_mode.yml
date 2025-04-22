@@ -85,13 +85,15 @@ teardown:
         datafeed_id: set-upgrade-mode-job-datafeed
 
   - do:
-      cat.tasks: {}
+      cat.tasks:
+        format: text
   - match:
       $body: |
         /.+job.+/
 
   - do:
-      cat.tasks: {}
+      cat.tasks:
+        format: text
   - match:
       $body: |
         /.+datafeed.+/

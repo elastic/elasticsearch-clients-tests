@@ -17,6 +17,19 @@ teardown:
 "cat.count":
 
   - do:
-      cat.count: {}
+      cat.count:
+        format: text
   - match:
       $body: "/\n/"
+
+  - do:
+      cat.count:
+        format: yaml
+  - match:
+      $body: "- epoch"
+
+  - do:
+      cat.count:
+        format: json
+  - match:
+      0.count: /[0-9]+/
