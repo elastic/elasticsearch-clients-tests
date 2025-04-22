@@ -7,6 +7,9 @@ teardown:
   - do:
       indices.delete_data_stream:
         name: test-reindex-datastream
+  - do:
+      indices.delete_index_template:
+        name: test-reindex-template
 ---
 "Test migrate_reindex, get_migrate_reindex_status, cancel_migrate_reindex":
   - do:
