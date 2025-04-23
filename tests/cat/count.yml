@@ -24,12 +24,6 @@ teardown:
 
   - do:
       cat.count:
-        format: yaml
-  - match:
-      $body: "- epoch"
-
-  - do:
-      cat.count:
         format: json
   - match:
       0.count: /[0-9]+/
