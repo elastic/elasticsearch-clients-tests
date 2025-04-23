@@ -158,7 +158,7 @@ Endpoints that are currently being tested are marked as done and link to the tes
 | index | 🟢 | [✅](./tests/async_search/10_basic.yml#L8)</li></ul> | 👍| 🟢 | [✅](./tests/async_search/10_basic.yml#L8)</li></ul>
 | indices.add_block | 🟢 | [✅](./tests/indices/block.yml#L16)</li></ul> | 👍| 🟢 | [✅](./tests/indices/block.yml#L16)</li></ul>
 | indices.analyze | 🟢 | [✅](./tests/indices/analyze.yml#L19)</li></ul> | 👍| 🟢 | [✅](./tests/indices/analyze.yml#L19)</li></ul>
-| indices.cancel_migrate_reindex | 🟢 | [✅](./tests/migration/20_reindex.yml#L49)</li></ul> | 👍| 🔴 | Not Applicable
+| indices.cancel_migrate_reindex | 🟢 | [✅](./tests/migration/20_reindex.yml#L52)</li></ul> | 👍| 🔴 | Not Applicable
 | indices.clear_cache | 🟢 | [✅](./tests/indices/clear_cache.yml#L8)</li></ul> | 👍| 🔴 | Not Applicable
 | indices.clone | 🟢 | [✅](./tests/indices/clone.yml#L53)</li></ul> | 👍| 🔴 | Not Applicable
 | indices.close | 🟢 | [✅](./tests/indices/open_close.yml#L21)</li></ul> | 👍| 🔴 | Not Applicable
@@ -192,10 +192,10 @@ Endpoints that are currently being tested are marked as done and link to the tes
 | indices.get_field_mapping | 🟢 | [✅](./tests/indices/get_field_mapping.yml#L23)</li></ul> | 👍| 🔴 | Not Applicable
 | indices.get_index_template | 🟢 | [✅](./tests/indices/index_template.yml#L24)</li></ul> | 👍| 🟢 | [✅](./tests/indices/index_template.yml#L24)</li></ul>
 | indices.get_mapping | 🟢 | [✅](./tests/indices/mapping.yml#L32)</li></ul> | 👍| 🟢 | [✅](./tests/indices/mapping.yml#L32)</li></ul>
-| indices.get_migrate_reindex_status | 🟢 | [✅](./tests/migration/20_reindex.yml#L43)</li></ul> | 👍| 🔴 | Not Applicable
+| indices.get_migrate_reindex_status | 🟢 | [✅](./tests/migration/20_reindex.yml#L46)</li></ul> | 👍| 🔴 | Not Applicable
 | indices.get_settings | 🟢 | [✅](./tests/indices/settings.yml#L21)</li></ul> | 👍| 🟢 | [✅](./tests/indices/settings.yml#L21)</li></ul>
 | indices.get_template | 🟢 | [✅](./tests/indices/template.yml#L21)</li></ul> | 👍| 🔴 | Not Applicable
-| indices.migrate_reindex | 🟢 | [✅](./tests/migration/20_reindex.yml#L32)</li></ul> | 👍| 🔴 | Not Applicable
+| indices.migrate_reindex | 🟢 | [✅](./tests/migration/20_reindex.yml#L35)</li></ul> | 👍| 🔴 | Not Applicable
 | indices.migrate_to_data_stream | 🟢 | [✅](./tests/indices/migrate_modify_data_stream.yml#L39)</li></ul> | 🙌| 🟢 | [✅](./tests/indices/migrate_modify_data_stream.yml#L39)</li></ul>
 | indices.modify_data_stream | 🟢 | [✅](./tests/indices/migrate_modify_data_stream.yml#L43)</li></ul> | 🙌| 🟢 | [✅](./tests/indices/migrate_modify_data_stream.yml#L43)</li></ul>
 | indices.open | 🟢 | [✅](./tests/indices/open_close.yml#L29)</li></ul> | 👍| 🔴 | Not Applicable
@@ -494,7 +494,7 @@ Endpoints that are currently being tested are marked as done and link to the tes
 | synonyms.put_synonym_rule | 🟢 | [✅](./tests/synonyms/10_basic.yml#L25)</li></ul> | 👍| 🟢 | [✅](./tests/synonyms/10_basic.yml#L25)</li></ul>
 | tasks.cancel | 🟢 | [✅](./tests/tasks.yml#L38)</li></ul> | 👍| 🔴 | Not Applicable
 | tasks.get | 🟢 | [✅](./tests/tasks.yml#L26)</li></ul> | 👍| 🟢 | [✅](./tests/tasks_serverless.yml#L26)</li></ul>
-| tasks.list | 🟢 | [✅](./tests/machine_learning/set_upgrade_mode.yml#L121)</li></ul> | 👍| 🔴 | Not Applicable
+| tasks.list | 🟢 | [✅](./tests/machine_learning/set_upgrade_mode.yml#L123)</li></ul> | 👍| 🔴 | Not Applicable
 | terms_enum | 🟢 | [✅](./tests/terms_enum/10_basic.yml#L21)</li></ul> | 👍| 🟢 | [✅](./tests/terms_enum/10_basic.yml#L21)</li></ul>
 | termvectors | 🟢 | [✅](./tests/termvectors/10_basic.yml#L24)</li></ul> | 👍| 🟢 | [✅](./tests/termvectors/10_basic.yml#L24)</li></ul>
 | text_structure.find_field_structure | 🟢 | [✅](./tests/text_structure/10_basic.yml#L36)</li></ul> | 👍| 🔴 | Not Applicable
