@@ -67,8 +67,7 @@ teardown:
   - is_true: 'indices'
 
   - do:
-      ilm.get_status:
-        policy: "my_lifecycle"
+      ilm.get_status: {}
   - is_true: 'operation_mode'
 
   - do:
