@@ -2,7 +2,7 @@
 
 Endpoints that are currently being tested are marked as done and link to the test where they're being used.
 
-* **STACK** - **Total**: 519 | **Tested**: 434 | **Untested**: 85 ![](https://geps.dev/progress/83)
+* **STACK** - **Total**: 522 | **Tested**: 434 | **Untested**: 88 ![](https://geps.dev/progress/83)
 * **SERVERLESS** - **Total**: 261 | **Tested**: 237 | **Untested**: 24 ![](https://geps.dev/progress/90)
 
 * [Internal APIs](#internal-apis-not-tracked)
@@ -189,6 +189,7 @@ Endpoints that are currently being tested are marked as done and link to the tes
 | indices.get_data_lifecycle_stats | 🟢 | [✅](./tests/indices/20_data_lifecycle.yml#L23)</li></ul> | 🙌| 🔴 | Not Applicable
 | indices.get_data_stream | 🟢 | [✅](./tests/indices/data_streams_stack.yml#L31)</li></ul> | 👍| 🟢 | [✅](./tests/indices/data_streams_serverless.yml#L31)</li></ul>
 | indices.get_data_stream_options | 🟢 | ❌ | 👎| 🔴 | Not Applicable
+| indices.get_data_stream_settings | 🟢 | ❌ | 👎| 🔴 | Not Applicable
 | indices.get_field_mapping | 🟢 | [✅](./tests/indices/get_field_mapping.yml#L23)</li></ul> | 👍| 🔴 | Not Applicable
 | indices.get_index_template | 🟢 | [✅](./tests/indices/index_template.yml#L24)</li></ul> | 👍| 🟢 | [✅](./tests/indices/index_template.yml#L24)</li></ul>
 | indices.get_mapping | 🟢 | [✅](./tests/indices/mapping.yml#L32)</li></ul> | 👍| 🟢 | [✅](./tests/indices/mapping.yml#L32)</li></ul>
@@ -203,6 +204,7 @@ Endpoints that are currently being tested are marked as done and link to the tes
 | indices.put_alias | 🟢 | [✅](./tests/cat/aliases.yml#L11)</li></ul> | 👍| 🟢 | [✅](./tests/cat/aliases.yml#L11)</li></ul>
 | indices.put_data_lifecycle | 🟢 | [✅](./tests/indices/10_data_lifecycle.yml#L16)</li></ul> | 🙌| 🟢 | [✅](./tests/indices/10_data_lifecycle.yml#L16)</li></ul>
 | indices.put_data_stream_options | 🟢 | ❌ | 👎| 🔴 | Not Applicable
+| indices.put_data_stream_settings | 🟢 | ❌ | 👎| 🔴 | Not Applicable
 | indices.put_index_template | 🟢 | [✅](./tests/ilm/10_basic.yml#L8)</li></ul> | 👍| 🟢 | [✅](./tests/indices/data_streams_serverless.yml#L8)</li></ul>
 | indices.put_mapping | 🟢 | [✅](./tests/indices/mapping.yml#L18)</li></ul> | 👍| 🟢 | [✅](./tests/indices/mapping.yml#L18)</li></ul>
 | indices.put_settings | 🟢 | [✅](./tests/indices/clone.yml#L42)</li></ul> | 👍| 🟢 | [✅](./tests/indices/settings.yml#L27)</li></ul>
@@ -402,10 +404,10 @@ Endpoints that are currently being tested are marked as done and link to the tes
 | security.clear_cached_privileges | 🟢 | [✅](./tests/security/30_privileges_stack.yml#L159)</li></ul> | 👍| 🔴 | Not Applicable
 | security.clear_cached_realms | 🟢 | ❌ | 👎| 🔴 | Not Applicable
 | security.clear_cached_roles | 🟢 | [✅](./tests/security/40_roles.yml#L97)</li></ul> | 👍| 🔴 | Not Applicable
-| security.clear_cached_service_tokens | 🟢 | [✅](./tests/security/90_service_accounts.yml#L40)</li></ul> | 👍| 🔴 | Not Applicable
+| security.clear_cached_service_tokens | 🟢 | [✅](./tests/security/90_service_accounts.yml#L39)</li></ul> | 👍| 🔴 | Not Applicable
 | security.create_api_key | 🟢 | [✅](./tests/security/10_api_key_basic.yml#L8)</li></ul> | 👍| 🟢 | [✅](./tests/security/10_api_key_basic.yml#L8)</li></ul>
 | security.create_cross_cluster_api_key | 🟢 | [✅](./tests/security/80_api_key_cross_cluster.yml#L40)</li></ul> | 👍| 🔴 | Not Applicable
-| security.create_service_token | 🟢 | [✅](./tests/security/90_service_accounts.yml#L25)</li></ul> | 👍| 🔴 | Not Applicable
+| security.create_service_token | 🟢 | [✅](./tests/security/90_service_accounts.yml#L24)</li></ul> | 👍| 🔴 | Not Applicable
 | security.delegate_pki | 🟢 | ❌ | 👎| 🔴 | Not Applicable
 | security.delete_privileges | 🟢 | [✅](./tests/security/30_privileges_stack.yml#L8)</li></ul> | 👍| 🔴 | Not Applicable
 | security.delete_role | 🟢 | [✅](./tests/security/100_tokens.yml#L28)</li></ul> | 👍| 🟢 | [✅](./tests/security/40_roles_serverless.yml#L8)</li></ul>
@@ -424,7 +426,7 @@ Endpoints that are currently being tested are marked as done and link to the tes
 | security.get_role | 🟢 | [✅](./tests/security/40_roles.yml#L47)</li></ul> | 👍| 🟢 | [✅](./tests/security/40_roles_serverless.yml#L32)</li></ul>
 | security.get_role_mapping | 🟢 | [✅](./tests/security/110_role_mapping.yml#L29)</li></ul> | 👍| 🔴 | Not Applicable
 | security.get_service_accounts | 🟢 | [✅](./tests/security/90_service_accounts.yml#L16)</li></ul> | 👍| 🔴 | Not Applicable
-| security.get_service_credentials | 🟢 | [✅](./tests/security/90_service_accounts.yml#L34)</li></ul> | 👍| 🔴 | Not Applicable
+| security.get_service_credentials | 🟢 | [✅](./tests/security/90_service_accounts.yml#L33)</li></ul> | 👍| 🔴 | Not Applicable
 | security.get_settings | 🟢 | [✅](./tests/security/120_get_settings.yml#L8)</li></ul> | 👍| 🔴 | Not Applicable
 | security.get_token | 🟢 | [✅](./tests/security/100_tokens.yml#L39)</li></ul> | 👍| 🔴 | Not Applicable
 | security.get_user | 🟢 | [✅](./tests/security/140_user.yml#L25)</li></ul> | 👍| 🔴 | Not Applicable
@@ -475,6 +477,7 @@ Endpoints that are currently being tested are marked as done and link to the tes
 | snapshot.get | 🟢 | [✅](./tests/snapshot/10_basic.yml#L46)</li></ul> | 👍| 🔴 | Not Applicable
 | snapshot.get_repository | 🟢 | [✅](./tests/snapshot/10_basic.yml#L100)</li></ul> | 👍| 🔴 | Not Applicable
 | snapshot.repository_analyze | 🟢 | [✅](./tests/snapshot/10_basic.yml#L104)</li></ul> | 🙌| 🔴 | Not Applicable
+| snapshot.repository_verify_integrity | 🟢 | ❌ | 👎| 🔴 | Not Applicable
 | snapshot.restore | 🟢 | [✅](./tests/snapshot/10_basic.yml#L65)</li></ul> | 👍| 🔴 | Not Applicable
 | snapshot.status | 🟢 | [✅](./tests/snapshot/10_basic.yml#L53)</li></ul> | 👍| 🔴 | Not Applicable
 | snapshot.verify_repository | 🟢 | [✅](./tests/snapshot/10_basic.yml#L109)</li></ul> | 👍| 🔴 | Not Applicable
@@ -573,11 +576,10 @@ Endpoints that are currently being tested are marked as done and link to the tes
   | shutdown | Designed for indirect use by ECE/ESS and ECK. Direct use is not supported. |
   | shutdown | Designed for indirect use by ECE/ESS and ECK. Direct use is not supported. |
   | shutdown | Designed for indirect use by ECE/ESS and ECK. Direct use is not supported. |
-  | snapshot.repository_verify_integrity | Private API |
 
 ## Elasticsearch JSON specification
 
-**Total** 519 | **Tested** 386 | **Untested** 133 ![](https://geps.dev/progress/74)
+**Total** 522 | **Tested** 386 | **Untested** 136 ![](https://geps.dev/progress/73)
 
 <details>
   <summary id="apis-in-json-spec-and-not-elasticsearch-specification">APIs in JSON spec and not elasticsearch-specification (excluding internal APIs)</summary>
