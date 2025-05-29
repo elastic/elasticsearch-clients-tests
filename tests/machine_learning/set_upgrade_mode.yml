@@ -78,6 +78,7 @@ teardown:
       ml.delete_job:
         job_id: set-upgrade-mode-job
         force: true
+        wait_for_completion: false
 ---
 "Setting upgrade_mode to enabled":
   - do:
