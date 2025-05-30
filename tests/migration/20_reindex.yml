@@ -45,8 +45,8 @@ teardown:
   - do:
       indices.get_migrate_reindex_status:
         index: "test-reindex-datastream"
-  - match: { complete: true }
-
+  - is_true: start_time_millis
+  - gte: { total_indices_in_data_stream: 1 }
 
   - do:
       indices.cancel_migrate_reindex:
