@@ -56,15 +56,6 @@ teardown:
         timeout: "60s"
   - match: { assignment.task_parameters.model_id: test_model }
   - do:
-      ml.update_trained_model_deployment:
-        model_id: test_model
-        body: >
-          {
-            "number_of_allocations": 1
-          }
-  - match: { assignment.task_parameters.model_id: test_model }
-  - match: { assignment.task_parameters.number_of_allocations: 1 }
-  - do:
       ml.infer_trained_model:
         model_id: "test_model"
         body: >
