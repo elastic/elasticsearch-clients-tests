@@ -3,7 +3,7 @@
 Endpoints that are currently being tested are marked as done and link to the test where they're being used.
 
 * **STACK** - **Total**: 522 | **Tested**: 434 | **Untested**: 88 ![](https://geps.dev/progress/83)
-* **SERVERLESS** - **Total**: 261 | **Tested**: 236 | **Untested**: 25 ![](https://geps.dev/progress/90)
+* **SERVERLESS** - **Total**: 263 | **Tested**: 236 | **Untested**: 27 ![](https://geps.dev/progress/89)
 
 * [Internal APIs](#internal-apis-not-tracked)
 * [API information from the Elasticsearch JSON specification](#elasticsearch-json-specification)
@@ -188,7 +188,7 @@ Endpoints that are currently being tested are marked as done and link to the tes
 | indices.get_data_lifecycle | 🟢 | [✅](./tests/indices/10_data_lifecycle.yml#L22)</li></ul> | 🙌| 🟢 | [✅](./tests/indices/10_data_lifecycle.yml#L22)</li></ul>
 | indices.get_data_lifecycle_stats | 🟢 | [✅](./tests/indices/20_data_lifecycle.yml#L23)</li></ul> | 🙌| 🔴 | Not Applicable
 | indices.get_data_stream | 🟢 | [✅](./tests/indices/data_streams_stack.yml#L31)</li></ul> | 👍| 🟢 | [✅](./tests/indices/data_streams_serverless.yml#L31)</li></ul>
-| indices.get_data_stream_options | 🟢 | ❌ | 👎| 🔴 | Not Applicable
+| indices.get_data_stream_options | 🟢 | ❌ | 👎| 🟢 | ❌
 | indices.get_data_stream_settings | 🟢 | ❌ | 👎| 🔴 | Not Applicable
 | indices.get_field_mapping | 🟢 | [✅](./tests/indices/get_field_mapping.yml#L23)</li></ul> | 👍| 🔴 | Not Applicable
 | indices.get_index_template | 🟢 | [✅](./tests/indices/index_template.yml#L24)</li></ul> | 👍| 🟢 | [✅](./tests/indices/index_template.yml#L24)</li></ul>
@@ -203,7 +203,7 @@ Endpoints that are currently being tested are marked as done and link to the tes
 | indices.promote_data_stream | 🟢 | ❌ | 👎| 🔴 | Not Applicable
 | indices.put_alias | 🟢 | [✅](./tests/cat/aliases.yml#L11)</li></ul> | 👍| 🟢 | [✅](./tests/cat/aliases.yml#L11)</li></ul>
 | indices.put_data_lifecycle | 🟢 | [✅](./tests/indices/10_data_lifecycle.yml#L16)</li></ul> | 🙌| 🟢 | [✅](./tests/indices/10_data_lifecycle.yml#L16)</li></ul>
-| indices.put_data_stream_options | 🟢 | ❌ | 👎| 🔴 | Not Applicable
+| indices.put_data_stream_options | 🟢 | ❌ | 👎| 🟢 | ❌
 | indices.put_data_stream_settings | 🟢 | ❌ | 👎| 🔴 | Not Applicable
 | indices.put_index_template | 🟢 | [✅](./tests/ilm/10_basic.yml#L8)</li></ul> | 👍| 🟢 | [✅](./tests/indices/data_streams_serverless.yml#L8)</li></ul>
 | indices.put_mapping | 🟢 | [✅](./tests/indices/mapping.yml#L18)</li></ul> | 👍| 🟢 | [✅](./tests/indices/mapping.yml#L18)</li></ul>
