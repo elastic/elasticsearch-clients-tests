@@ -3,13 +3,13 @@ on:
   workflow_dispatch:
   push:
     branches:
-      - 8.x
+      - '8.19'
 jobs:
   generate_report:
     runs-on: ubuntu-latest
     env:
-      STACK_VERSION: 8.18.0-SNAPSHOT
-      BRANCH: '8.x' # Branch for downloading the specs
+      STACK_VERSION: 8.19.0-SNAPSHOT
+      BRANCH: '8.19' # Branch for downloading the specs
     steps:
       - uses: actions/checkout@v4
         with:
