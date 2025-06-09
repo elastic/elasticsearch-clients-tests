@@ -335,7 +335,7 @@ Endpoints that are currently being tested are marked as done and link to the tes
 | ml.revert_model_snapshot | 🟢 | [✅](./tests/machine_learning/revert_model_snapshot.yml#L32)</li></ul> | 🔴 | Not Applicable | 👍
 | ml.set_upgrade_mode | 🟢 | [✅](./tests/machine_learning/set_upgrade_mode.yml#L72)</li></ul> | 🔴 | Not Applicable | 👍
 | ml.start_data_frame_analytics | 🟢 | [✅](./tests/machine_learning/data_frame_analytics.yml#L68)</li></ul> | 🟢 | [✅](./tests/machine_learning/data_frame_analytics.yml#L68)</li></ul> | 👍
-| ml.start_datafeed | 🟢 | [✅](./tests/machine_learning/set_upgrade_mode.yml#L84)</li></ul> | 🟢 | [✅](./tests/machine_learning/start_stop_datafeed.yml#L62)</li></ul> | 👍
+| ml.start_datafeed | 🟢 | [✅](./tests/machine_learning/set_upgrade_mode.yml#L85)</li></ul> | 🟢 | [✅](./tests/machine_learning/start_stop_datafeed.yml#L62)</li></ul> | 👍
 | ml.start_trained_model_deployment | 🟢 | [✅](./tests/machine_learning/20_trained_model.yml#L52)</li></ul> | 🟢 | [✅](./tests/machine_learning/20_trained_model.yml#L52)</li></ul> | 👍
 | ml.stop_data_frame_analytics | 🟢 | [✅](./tests/machine_learning/data_frame_analytics.yml#L71)</li></ul> | 🟢 | [✅](./tests/machine_learning/data_frame_analytics.yml#L71)</li></ul> | 👍
 | ml.stop_datafeed | 🟢 | [✅](./tests/machine_learning/start_stop_datafeed.yml#L70)</li></ul> | 🟢 | [✅](./tests/machine_learning/start_stop_datafeed.yml#L70)</li></ul> | 👍
@@ -494,7 +494,7 @@ Endpoints that are currently being tested are marked as done and link to the tes
 | synonyms.put_synonym_rule | 🟢 | [✅](./tests/synonyms/10_basic.yml#L25)</li></ul> | 🟢 | [✅](./tests/synonyms/10_basic.yml#L25)</li></ul> | 👍
 | tasks.cancel | 🟢 | [✅](./tests/tasks.yml#L16)</li></ul> | 🔴 | Not Applicable | 👍
 | tasks.get | 🟢 | [✅](./tests/tasks.yml#L8)</li></ul> | 🟢 | ❌ | 👍
-| tasks.list | 🟢 | [✅](./tests/machine_learning/set_upgrade_mode.yml#L121)</li></ul> | 🔴 | Not Applicable | 👍
+| tasks.list | 🟢 | [✅](./tests/machine_learning/set_upgrade_mode.yml#L122)</li></ul> | 🔴 | Not Applicable | 👍
 | terms_enum | 🟢 | [✅](./tests/terms_enum/10_basic.yml#L21)</li></ul> | 🟢 | [✅](./tests/terms_enum/10_basic.yml#L21)</li></ul> | 👍
 | termvectors | 🟢 | [✅](./tests/termvectors/10_basic.yml#L24)</li></ul> | 🟢 | [✅](./tests/termvectors/10_basic.yml#L24)</li></ul> | 👍
 | text_structure.find_field_structure | 🟢 | [✅](./tests/text_structure/10_basic.yml#L36)</li></ul> | 🔴 | Not Applicable | 👍
