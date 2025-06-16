@@ -10,7 +10,7 @@ jobs:
   generate_report:
     runs-on: ubuntu-latest
     env:
-      STACK_VERSION: 9.0.0-SNAPSHOT
+      STACK_VERSION: 9.0.3-SNAPSHOT
       BRANCH: '9.0' # Branch for downloading the specs
     steps:
       - uses: actions/checkout@v4
