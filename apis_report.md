@@ -2,7 +2,7 @@
 
 Endpoints that are currently being tested are marked as done and link to the test where they're being used.
 
-* **STACK** - **Total**: 522 | **Tested**: 434 | **Untested**: 88 ![](https://geps.dev/progress/83)
+* **STACK** - **Total**: 526 | **Tested**: 434 | **Untested**: 92 ![](https://geps.dev/progress/82)
 * **SERVERLESS** - **Total**: 265 | **Tested**: 236 | **Untested**: 29 ![](https://geps.dev/progress/89)
 
 * [Internal APIs](#internal-apis-not-tracked)
@@ -212,6 +212,7 @@ Endpoints that are currently being tested are marked as done and link to the tes
 | indices.recovery | 🟢 | [✅](./tests/indices/recovery.yml#L22)</li></ul> | 👍| 🔴 | Not Applicable
 | indices.refresh | 🟢 | [✅](./tests/graph/explore.yml#L24)</li></ul> | 👍| 🟢 | [✅](./tests/indices/refresh.yml#L17)</li></ul>
 | indices.reload_search_analyzers | 🟢 | [✅](./tests/ilm/10_basic.yml#L55)</li></ul> | 👍| 🔴 | Not Applicable
+| indices.remove_block | 🟢 | ❌ | 👍| 🔴 | Not Applicable
 | indices.resolve_cluster | 🟢 | [✅](./tests/indices/resolve_cluster.yml#L31)</li></ul> | 👍| 🔴 | Not Applicable
 | indices.resolve_index | 🟢 | [✅](./tests/indices/resolve.yml#L22)</li></ul> | 👍| 🟢 | [✅](./tests/indices/resolve.yml#L22)</li></ul>
 | indices.rollover | 🟢 | [✅](./tests/indices/rollover.yml#L40)</li></ul> | 👍| 🟢 | [✅](./tests/indices/rollover.yml#L40)</li></ul>
@@ -488,6 +489,9 @@ Endpoints that are currently being tested are marked as done and link to the tes
 | sql.query | 🟢 | [✅](./tests/sql/10_basic.yml#L26)</li></ul> | 👍| 🟢 | [✅](./tests/sql/10_basic.yml#L26)</li></ul>
 | sql.translate | 🟢 | [✅](./tests/sql/10_basic.yml#L33)</li></ul> | 👍| 🟢 | [✅](./tests/sql/10_basic.yml#L33)</li></ul>
 | ssl.certificates | 🟢 | [✅](./tests/ssl.yml#L8)</li></ul> | 👍| 🔴 | Not Applicable
+| streams.logs_disable | 🟢 | ❌ | 👎| 🔴 | Not Applicable
+| streams.logs_enable | 🟢 | ❌ | 👎| 🔴 | Not Applicable
+| streams.status | 🟢 | ❌ | 👎| 🔴 | Not Applicable
 | synonyms.delete_synonym | 🟢 | [✅](./tests/synonyms/10_basic.yml#L44)</li></ul> | 👍| 🟢 | [✅](./tests/synonyms/10_basic.yml#L44)</li></ul>
 | synonyms.delete_synonym_rule | 🟢 | [✅](./tests/synonyms/10_basic.yml#L39)</li></ul> | 👍| 🟢 | [✅](./tests/synonyms/10_basic.yml#L39)</li></ul>
 | synonyms.get_synonym | 🟢 | [✅](./tests/synonyms/10_basic.yml#L21)</li></ul> | 👍| 🟢 | [✅](./tests/synonyms/10_basic.yml#L21)</li></ul>
@@ -579,7 +583,7 @@ Endpoints that are currently being tested are marked as done and link to the tes
 
 ## Elasticsearch JSON specification
 
-**Total** 522 | **Tested** 386 | **Untested** 136 ![](https://geps.dev/progress/73)
+**Total** 526 | **Tested** 387 | **Untested** 139 ![](https://geps.dev/progress/73)
 
 <details>
   <summary id="apis-in-json-spec-and-not-elasticsearch-specification">APIs in JSON spec and not elasticsearch-specification (excluding internal APIs)</summary>
