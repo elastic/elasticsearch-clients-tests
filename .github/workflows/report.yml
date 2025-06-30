@@ -8,12 +8,13 @@ on:
       - main
       - 8.19
       - 9.0
+      - 9.1
 jobs:
   generate_report:
     runs-on: ubuntu-latest
     env:
       STACK_VERSION: 9.1.0-SNAPSHOT
-      BRANCH: 'main' # Branch for downloading the specs
+      BRANCH: '9.1' # Branch for downloading the specs
     steps:
       - uses: actions/checkout@v4
         with:
