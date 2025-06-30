@@ -8,6 +8,7 @@ on:
       - main
       - 8.19
       - 9.0
+      - 9.1
 jobs:
   generate_report:
     runs-on: ubuntu-latest
