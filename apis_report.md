@@ -2,7 +2,7 @@
 
 Endpoints that are currently being tested are marked as done and link to the test where they're being used.
 
-* **STACK** - **Total**: 526 | **Tested**: 434 | **Untested**: 92 ![](https://geps.dev/progress/82)
+* **STACK** - **Total**: 528 | **Tested**: 434 | **Untested**: 94 ![](https://geps.dev/progress/82)
 * **SERVERLESS** - **Total**: 265 | **Tested**: 236 | **Untested**: 29 ![](https://geps.dev/progress/89)
 
 * [Internal APIs](#internal-apis-not-tracked)
@@ -233,10 +233,12 @@ Endpoints that are currently being tested are marked as done and link to the tes
 | inference.put | 🟢 | [✅](./tests/inference/10_basic.yml#L8)</li></ul> | 👍| 🟢 | [✅](./tests/inference/10_basic.yml#L8)</li></ul>
 | inference.put_alibabacloud | 🟢 | ❌ | 👎| 🟢 | ❌
 | inference.put_amazonbedrock | 🟢 | ❌ | 👎| 🟢 | ❌
+| inference.put_amazonsagemaker | 🟢 | ❌ | 👎| 🔴 | Not Applicable
 | inference.put_anthropic | 🟢 | ❌ | 👎| 🟢 | ❌
 | inference.put_azureaistudio | 🟢 | ❌ | 👎| 🟢 | ❌
 | inference.put_azureopenai | 🟢 | ❌ | 👎| 🟢 | ❌
 | inference.put_cohere | 🟢 | ❌ | 👎| 🟢 | ❌
+| inference.put_deepseek | 🟢 | ❌ | 👎| 🔴 | Not Applicable
 | inference.put_elasticsearch | 🟢 | ❌ | 👎| 🟢 | ❌
 | inference.put_elser | 🟢 | ❌ | 👎| 🟢 | ❌
 | inference.put_googleaistudio | 🟢 | ❌ | 👎| 🟢 | ❌
