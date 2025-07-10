@@ -1,0 +1,139 @@
+---
+requires:
+  serverless: false
+  stack: true
+---
+"ack_watch":
+  - do:
+      cluster.health:
+        wait_for_status: yellow
+  - do:
+      watcher.stats: {}
+  - match: { "manually_stopped": false }
+  - match: { "stats.0.watcher_state": "started" }
+
+  - do:
+      watcher.put_watch:
+        id: "my_watch"
+        body:  >
+          {
+            "trigger" : {
+              "schedule" : { "cron" : "0 0 0 1 * ? 2099" }
+            },
+            "input": {
+              "simple": {
+                "payload": {
+                  "send": "yes"
+                }
+              }
+            },
+            "condition": {
+              "always": {}
+            },
+            "actions": {
+              "test_index": {
+                "index": {
+                  "index": "test"
+                }
+              }
+            }
+          }
+  - match: { _id: "my_watch" }
+
+  - do:
+      watcher.query_watches:
+        body: {}
+  - match: { count: 1 }
+
+  - do:
+      watcher.execute_watch:
+        id: "my_watch"
+        body: >
+          {
+            "trigger_data" : {
+              "triggered_time" : "2012-12-12T12:12:12.120Z",
+              "scheduled_time" : "2000-12-12T12:12:12.120Z"
+            }
+          }
+
+  - match: { watch_record.watch_id: "my_watch" }
+  - match: { watch_record.trigger_event.type: "manual" }
+  - match: { watch_record.trigger_event.triggered_time: "2012-12-12T12:12:12.120Z" }
+  - match: { watch_record.trigger_event.manual.schedule.scheduled_time: "2000-12-12T12:12:12.120Z" }
+  - match: { watch_record.state: "executed" }
+  - match: { watch_record.status.execution_state: "executed" }
+  - match: { watch_record.status.state.active: true }
+  - is_true: watch_record.node
+  - gt: { watch_record.result.execution_duration: 0 }
+
+  - do:
+      cluster.health:
+        wait_for_status: yellow
+  - do:
+      watcher.ack_watch:
+        watch_id: "my_watch"
+  - match: { "status.actions.test_index.ack.state" : "awaits_successful_execution" }
+
+  - do:
+      watcher.get_watch:
+        id: "my_watch"
+  - match: { found: true }
+  - match: { _id: "my_watch" }
+  - match: { status.actions.test_index.ack.state: "awaits_successful_execution" }
+
+  - do:
+      watcher.deactivate_watch:
+        watch_id: "my_watch"
+
+  - match: { status.state.active : false }
+
+  - do:
+      watcher.get_watch:
+        id: "my_watch"
+  - match: { found : true}
+  - match: { _id: "my_watch" }
+  - match: { status.state.active: false }
+
+  - do:
+      watcher.activate_watch:
+        watch_id: "my_watch"
+
+  - match: { status.state.active : true }
+
+  - do:
+      watcher.get_settings: { }
+  - match: { index.auto_expand_replicas: "0-1" }
+  - match: { index.number_of_replicas: "0" }
+
+  - do:
+      cluster.health:
+        wait_for_status: yellow
+
+  - do: {watcher.stop: {}}
+  - match: { acknowledged: true }
+
+  - do: {watcher.start: {}}
+  - match: { acknowledged: true }
+
+  - do:
+      watcher.update_settings:
+        body:
+          index.auto_expand_replicas: "0-all"
+  - do:
+      cluster.health:
+        wait_for_status: yellow
+
+  - do:
+      watcher.get_settings: { }
+  - match: { index.auto_expand_replicas: "0-all" }
+  - is_false: index.routing.allocation.include._tier_preference
+
+  - do:
+      watcher.update_settings:
+        body:
+          index.auto_expand_replicas: "0-1"
+
+  - do:
+      watcher.delete_watch:
+        id: "my_watch"
+  - match: { found: true }
