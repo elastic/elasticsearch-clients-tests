@@ -527,19 +527,19 @@ Endpoints that are currently being tested are marked as done and link to the tes
 | update | 🟢 | [✅](./tests/update/10_partial_update.yml#L18)</li></ul> | 👍| 🟢 | [✅](./tests/update/10_partial_update.yml#L18)</li></ul>
 | update_by_query | 🟢 | [✅](./tests/tasks.yml#L19)</li></ul> | 👍| 🟢 | [✅](./tests/tasks_serverless.yml#L19)</li></ul>
 | update_by_query_rethrottle | 🟢 | ❌ | 👎| 🔴 | Not Applicable
-| watcher.ack_watch | 🟢 | ❌ | 👎| 🔴 | Not Applicable
-| watcher.activate_watch | 🟢 | ❌ | 👎| 🔴 | Not Applicable
-| watcher.deactivate_watch | 🟢 | ❌ | 👎| 🔴 | Not Applicable
-| watcher.delete_watch | 🟢 | ❌ | 👎| 🔴 | Not Applicable
-| watcher.execute_watch | 🟢 | ❌ | 👎| 🔴 | Not Applicable
-| watcher.get_settings | 🟢 | ❌ | 👎| 🔴 | Not Applicable
-| watcher.get_watch | 🟢 | ❌ | 👎| 🔴 | Not Applicable
-| watcher.put_watch | 🟢 | ❌ | 👎| 🔴 | Not Applicable
-| watcher.query_watches | 🟢 | ❌ | 👎| 🔴 | Not Applicable
-| watcher.start | 🟢 | ❌ | 👎| 🔴 | Not Applicable
-| watcher.stats | 🟢 | ❌ | 👎| 🔴 | Not Applicable
-| watcher.stop | 🟢 | ❌ | 👎| 🔴 | Not Applicable
-| watcher.update_settings | 🟢 | ❌ | 👎| 🔴 | Not Applicable
+| watcher.ack_watch | 🟢 | ❌ | 👍| 🔴 | Not Applicable
+| watcher.activate_watch | 🟢 | ❌ | 👍| 🔴 | Not Applicable
+| watcher.deactivate_watch | 🟢 | ❌ | 👍| 🔴 | Not Applicable
+| watcher.delete_watch | 🟢 | ❌ | 👍| 🔴 | Not Applicable
+| watcher.execute_watch | 🟢 | ❌ | 👍| 🔴 | Not Applicable
+| watcher.get_settings | 🟢 | ❌ | 👍| 🔴 | Not Applicable
+| watcher.get_watch | 🟢 | ❌ | 👍| 🔴 | Not Applicable
+| watcher.put_watch | 🟢 | ❌ | 👍| 🔴 | Not Applicable
+| watcher.query_watches | 🟢 | ❌ | 👍| 🔴 | Not Applicable
+| watcher.start | 🟢 | ❌ | 👍| 🔴 | Not Applicable
+| watcher.stats | 🟢 | ❌ | 👍| 🔴 | Not Applicable
+| watcher.stop | 🟢 | ❌ | 👍| 🔴 | Not Applicable
+| watcher.update_settings | 🟢 | ❌ | 👍| 🔴 | Not Applicable
 | xpack.info | 🟢 | [✅](./tests/xpack_info.yml#L8)</li></ul> | 👍| 🔴 | Not Applicable
 | xpack.usage | 🟢 | [✅](./tests/entsearch/10_basic.yml#L16)</li></ul> | 👍| 🔴 | Not Applicable
 ## Internal APIs (Not tracked)
@@ -587,7 +587,7 @@ Endpoints that are currently being tested are marked as done and link to the tes
 
 ## Elasticsearch JSON specification
 
-**Total** 530 | **Tested** 404 | **Untested** 126 ![](https://geps.dev/progress/76)
+**Total** 530 | **Tested** 417 | **Untested** 113 ![](https://geps.dev/progress/78)
 
 <details>
   <summary id="apis-in-json-spec-and-not-elasticsearch-specification">APIs in JSON spec and not elasticsearch-specification (excluding internal APIs)</summary>
