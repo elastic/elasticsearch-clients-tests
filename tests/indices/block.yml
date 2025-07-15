@@ -17,3 +17,8 @@ teardown:
         index: block_test_index
         block: write
   - is_true: acknowledged
+  - do:
+      indices.remove_block:
+        index: block_test_index
+        block: write
+  - is_true: acknowledged
