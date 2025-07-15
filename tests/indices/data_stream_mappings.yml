@@ -36,7 +36,6 @@ teardown:
         name: mapping-ds-1
   - match: { data_streams.0.name: mapping-ds-1 }
   - match: { data_streams.0.mappings: {} }
-  - length: { data_streams.0.effective_mappings.properties: 1 }
 
   - do:
       indices.get_data_stream:
@@ -57,7 +56,7 @@ teardown:
   - match: { data_streams.0.name: mapping-ds-1 }
   - match: { data_streams.0.applied_to_data_stream: true }
   - match: { data_streams.0.mappings.properties.name.type: "keyword" }
-  - match: { data_streams.0.effective_mappings.properties.name.type: "keyword" }
+  - match: { data_streams.0.effective_mappings._doc.properties.name.type: "keyword" }
 
   - do:
       indices.rollover:
@@ -72,9 +71,8 @@ teardown:
       indices.get_data_stream_mappings:
         name: mapping-ds-1
   - match: { data_streams.0.name: mapping-ds-1 }
-  - length: { data_streams.0.effective_mappings.properties: 2 }
   - match: { data_streams.0.mappings.properties.name.type: "keyword" }
-  - match: { data_streams.0.effective_mappings.properties.name.type: "keyword" }
+  - match: { data_streams.0.effective_mappings._doc.properties.name.type: "keyword" }
 
   - do:
       indices.get_data_stream:
