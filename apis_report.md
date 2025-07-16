@@ -2,8 +2,8 @@
 
 Endpoints that are currently being tested are marked as done and link to the test where they're being used.
 
-* **STACK** - **Total**: 530 | **Tested**: 450 | **Untested**: 80 ![](https://geps.dev/progress/84)
-* **SERVERLESS** - **Total**: 269 | **Tested**: 240 | **Untested**: 29 ![](https://geps.dev/progress/89)
+* **STACK** - **Total**: 530 | **Tested**: 451 | **Untested**: 79 ![](https://geps.dev/progress/85)
+* **SERVERLESS** - **Total**: 269 | **Tested**: 241 | **Untested**: 28 ![](https://geps.dev/progress/89)
 
 * [Internal APIs](#internal-apis-not-tracked)
 * [API information from the Elasticsearch JSON specification](#elasticsearch-json-specification)
@@ -214,7 +214,7 @@ Endpoints that are currently being tested are marked as done and link to the tes
 | indices.recovery | 🟢 | [✅](./tests/indices/recovery.yml#L22)</li></ul> | 👍| 🔴 | Not Applicable
 | indices.refresh | 🟢 | [✅](./tests/graph/explore.yml#L24)</li></ul> | 👍| 🟢 | [✅](./tests/indices/refresh.yml#L17)</li></ul>
 | indices.reload_search_analyzers | 🟢 | [✅](./tests/ilm/10_basic.yml#L55)</li></ul> | 👍| 🔴 | Not Applicable
-| indices.remove_block | 🟢 | ❌ | 👍| 🟢 | ❌
+| indices.remove_block | 🟢 | [✅](./tests/indices/block.yml#L21)</li></ul> | 👍| 🟢 | [✅](./tests/indices/block.yml#L21)</li></ul>
 | indices.resolve_cluster | 🟢 | [✅](./tests/indices/resolve_cluster.yml#L31)</li></ul> | 👍| 🔴 | Not Applicable
 | indices.resolve_index | 🟢 | [✅](./tests/indices/resolve.yml#L22)</li></ul> | 👍| 🟢 | [✅](./tests/indices/resolve.yml#L22)</li></ul>
 | indices.rollover | 🟢 | [✅](./tests/indices/data_stream_mappings.yml#L62)</li></ul> | 👍| 🟢 | [✅](./tests/indices/data_stream_mappings.yml#L62)</li></ul>
