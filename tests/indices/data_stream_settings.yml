@@ -1,0 +1,61 @@
+---
+requires:
+  serverless: true
+  stack: true
+---
+teardown:
+  - do:
+      indices.delete_data_stream:
+        name: ds-settings-testing-1
+  - do:
+      indices.delete_index_template:
+        name: ds-settings-template
+        ignore: 404
+---
+'Data stream settings':
+  - do:
+      indices.put_index_template:
+        name: ds-settings-template
+        body:
+          index_patterns: [ ds-settings-testing-* ]
+          data_stream: { }
+          template:
+            settings:
+              number_of_replicas: 0
+              lifecycle.name: ds-policy-testing
+
+  - do:
+      indices.create_data_stream:
+        name: ds-settings-testing-1
+
+  - do:
+      cluster.health:
+        index: "ds-settings-testing-1"
+        wait_for_status: green
+
+  - do:
+      indices.get_data_stream_settings:
+        name: ds-settings-testing-1
+  - match: { data_streams.0.name: ds-settings-testing-1 }
+  - match: { data_streams.0.settings: {} }
+  - match: { data_streams.0.effective_settings.index.number_of_replicas: "0" }
+  - match: { data_streams.0.effective_settings.index.lifecycle.name: "ds-policy-testing" }
+
+  - do:
+      indices.get_data_stream:
+        name: ds-settings-testing-1
+  - match: { data_streams.0.name: ds-settings-testing-1 }
+  - match: { data_streams.0.settings: {} }
+
+  - do:
+      indices.put_data_stream_settings:
+        name: ds-settings-testing-1
+        body:
+          index:
+            number_of_shards: 2
+            lifecycle:
+              name: ds-policy-testing
+              prefer_ilm: true
+  - match: { data_streams.0.name: ds-settings-testing-1 }
+  - match: { data_streams.0.applied_to_data_stream: true }
+  - match: { data_streams.0.settings.index.lifecycle.name: "ds-policy-testing" }
