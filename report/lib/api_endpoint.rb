@@ -117,8 +117,12 @@ module Elastic
 
         file_content.split("\n").each_with_index do |line, index|
           next if line.empty?
+          next unless line.match?(@name)
 
-          api_mention = line.split(':')[0].strip.gsub('"', '')
+          # For tests in the format of `do: {watcher.stop: {}}`, we want what's after `do:`
+          line = line.split('do:')[1] if line.match?(/do:/)
+
+          api_mention = line.split(':')[0].strip.gsub('"', '').gsub('{','').gsub('}','')
           next unless api_mention == @name
           next unless Regexp.new(/^#{api_mention}/) =~ @name
 
