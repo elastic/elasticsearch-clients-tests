@@ -2,8 +2,8 @@
 
 Endpoints that are currently being tested are marked as done and link to the test where they're being used.
 
-* **STACK** - **Total**: 530 | **Tested**: 455 | **Untested**: 75 ![](https://geps.dev/progress/85)
-* **SERVERLESS** - **Total**: 269 | **Tested**: 243 | **Untested**: 26 ![](https://geps.dev/progress/90)
+* **STACK** - **Total**: 531 | **Tested**: 455 | **Untested**: 76 ![](https://geps.dev/progress/85)
+* **SERVERLESS** - **Total**: 270 | **Tested**: 243 | **Untested**: 27 ![](https://geps.dev/progress/90)
 
 * [Internal APIs](#internal-apis-not-tracked)
 * [API information from the Elasticsearch JSON specification](#elasticsearch-json-specification)
@@ -240,6 +240,7 @@ Endpoints that are currently being tested are marked as done and link to the tes
 | inference.put_azureaistudio | 🟢 | ❌ | 👎| 🟢 | ❌
 | inference.put_azureopenai | 🟢 | ❌ | 👎| 🟢 | ❌
 | inference.put_cohere | 🟢 | ❌ | 👎| 🟢 | ❌
+| inference.put_custom | 🟢 | ❌ | 👎| 🟢 | ❌
 | inference.put_deepseek | 🟢 | ❌ | 👎| 🟢 | ❌
 | inference.put_elasticsearch | 🟢 | ❌ | 👎| 🟢 | ❌
 | inference.put_elser | 🟢 | ❌ | 👎| 🟢 | ❌
