@@ -588,7 +588,7 @@ Endpoints that are currently being tested are marked as done and link to the tes
 
 ## Elasticsearch JSON specification
 
-**Total** 530 | **Tested** 417 | **Untested** 113 ![](https://geps.dev/progress/78)
+**Total** 531 | **Tested** 417 | **Untested** 114 ![](https://geps.dev/progress/78)
 
 <details>
   <summary id="apis-in-json-spec-and-not-elasticsearch-specification">APIs in JSON spec and not elasticsearch-specification (excluding internal APIs)</summary>
