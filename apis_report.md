@@ -3,7 +3,7 @@
 Endpoints that are currently being tested are marked as done and link to the test where they're being used.
 
 * **STACK** - **Total**: 531 | **Tested**: 455 | **Untested**: 76 ![](https://geps.dev/progress/85)
-* **SERVERLESS** - **Total**: 270 | **Tested**: 243 | **Untested**: 27 ![](https://geps.dev/progress/90)
+* **SERVERLESS** - **Total**: 271 | **Tested**: 243 | **Untested**: 28 ![](https://geps.dev/progress/89)
 
 * [Internal APIs](#internal-apis-not-tracked)
 * [API information from the Elasticsearch JSON specification](#elasticsearch-json-specification)
@@ -235,7 +235,7 @@ Endpoints that are currently being tested are marked as done and link to the tes
 | inference.put | 🟢 | [✅](./tests/inference/10_basic.yml#L8)</li></ul> | 👍| 🟢 | [✅](./tests/inference/10_basic.yml#L8)</li></ul>
 | inference.put_alibabacloud | 🟢 | ❌ | 👎| 🟢 | ❌
 | inference.put_amazonbedrock | 🟢 | ❌ | 👎| 🟢 | ❌
-| inference.put_amazonsagemaker | 🟢 | ❌ | 👎| 🔴 | Not Applicable
+| inference.put_amazonsagemaker | 🟢 | ❌ | 👎| 🟢 | ❌
 | inference.put_anthropic | 🟢 | ❌ | 👎| 🟢 | ❌
 | inference.put_azureaistudio | 🟢 | ❌ | 👎| 🟢 | ❌
 | inference.put_azureopenai | 🟢 | ❌ | 👎| 🟢 | ❌
@@ -588,7 +588,7 @@ Endpoints that are currently being tested are marked as done and link to the tes
 
 ## Elasticsearch JSON specification
 
-**Total** 530 | **Tested** 417 | **Untested** 113 ![](https://geps.dev/progress/78)
+**Total** 531 | **Tested** 417 | **Untested** 114 ![](https://geps.dev/progress/78)
 
 <details>
   <summary id="apis-in-json-spec-and-not-elasticsearch-specification">APIs in JSON spec and not elasticsearch-specification (excluding internal APIs)</summary>
