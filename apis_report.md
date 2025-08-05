@@ -2,8 +2,8 @@
 
 Endpoints that are currently being tested are marked as done and link to the test where they're being used.
 
-* **STACK** - **Total**: 531 | **Tested**: 455 | **Untested**: 76 ![](https://geps.dev/progress/85)
-* **SERVERLESS** - **Total**: 271 | **Tested**: 243 | **Untested**: 28 ![](https://geps.dev/progress/89)
+* **STACK** - **Total**: 533 | **Tested**: 455 | **Untested**: 78 ![](https://geps.dev/progress/85)
+* **SERVERLESS** - **Total**: 273 | **Tested**: 243 | **Untested**: 30 ![](https://geps.dev/progress/89)
 
 * [Internal APIs](#internal-apis-not-tracked)
 * [API information from the Elasticsearch JSON specification](#elasticsearch-json-specification)
@@ -233,6 +233,7 @@ Endpoints that are currently being tested are marked as done and link to the tes
 | inference.get | 🟢 | [✅](./tests/inference/10_basic.yml#L25)</li></ul> | 👍| 🟢 | [✅](./tests/inference/10_basic.yml#L25)</li></ul>
 | inference.inference | 🟢 | ❌ | 👎| 🟢 | ❌
 | inference.put | 🟢 | [✅](./tests/inference/10_basic.yml#L8)</li></ul> | 👍| 🟢 | [✅](./tests/inference/10_basic.yml#L8)</li></ul>
+| inference.put_ai21 | 🟢 | ❌ | 👎| 🟢 | ❌
 | inference.put_alibabacloud | 🟢 | ❌ | 👎| 🟢 | ❌
 | inference.put_amazonbedrock | 🟢 | ❌ | 👎| 🟢 | ❌
 | inference.put_amazonsagemaker | 🟢 | ❌ | 👎| 🟢 | ❌
@@ -248,6 +249,7 @@ Endpoints that are currently being tested are marked as done and link to the tes
 | inference.put_googlevertexai | 🟢 | ❌ | 👎| 🟢 | ❌
 | inference.put_hugging_face | 🟢 | ❌ | 👎| 🟢 | ❌
 | inference.put_jinaai | 🟢 | ❌ | 👎| 🟢 | ❌
+| inference.put_llama | 🟢 | ❌ | 👎| 🟢 | ❌
 | inference.put_mistral | 🟢 | ❌ | 👎| 🟢 | ❌
 | inference.put_openai | 🟢 | ❌ | 👎| 🟢 | ❌
 | inference.put_voyageai | 🟢 | ❌ | 👎| 🟢 | ❌
