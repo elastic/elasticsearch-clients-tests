@@ -2,7 +2,7 @@
 
 Endpoints that are currently being tested are marked as done and link to the test where they're being used.
 
-* **STACK** - **Total**: 533 | **Tested**: 455 | **Untested**: 78 ![](https://geps.dev/progress/85)
+* **STACK** - **Total**: 534 | **Tested**: 455 | **Untested**: 79 ![](https://geps.dev/progress/85)
 * **SERVERLESS** - **Total**: 273 | **Tested**: 243 | **Untested**: 30 ![](https://geps.dev/progress/89)
 
 * [Internal APIs](#internal-apis-not-tracked)
@@ -523,6 +523,7 @@ Endpoints that are currently being tested are marked as done and link to the tes
 | transform.put_transform | 🟢 | [✅](./tests/cat/transform.yml#L12)</li></ul> | 👍| 🟢 | [✅](./tests/cat/transform.yml#L12)</li></ul>
 | transform.reset_transform | 🟢 | [✅](./tests/transform/10_basic.yml#L58)</li></ul> | 👍| 🟢 | [✅](./tests/transform/10_basic.yml#L58)</li></ul>
 | transform.schedule_now_transform | 🟢 | [✅](./tests/transform/10_basic.yml#L52)</li></ul> | 👍| 🟢 | [✅](./tests/transform/10_basic.yml#L52)</li></ul>
+| transform.set_upgrade_mode | 🟢 | ❌ | 👎| 🔴 | Not Applicable
 | transform.start_transform | 🟢 | [✅](./tests/transform/10_basic.yml#L49)</li></ul> | 👍| 🟢 | [✅](./tests/transform/10_basic.yml#L49)</li></ul>
 | transform.stop_transform | 🟢 | [✅](./tests/transform/10_basic.yml#L55)</li></ul> | 👍| 🟢 | [✅](./tests/transform/10_basic.yml#L55)</li></ul>
 | transform.update_transform | 🟢 | [✅](./tests/transform/10_basic.yml#L35)</li></ul> | 👍| 🟢 | [✅](./tests/transform/10_basic.yml#L35)</li></ul>
@@ -590,7 +591,7 @@ Endpoints that are currently being tested are marked as done and link to the tes
 
 ## Elasticsearch JSON specification
 
-**Total** 533 | **Tested** 417 | **Untested** 116 ![](https://geps.dev/progress/78)
+**Total** 534 | **Tested** 417 | **Untested** 117 ![](https://geps.dev/progress/78)
 
 <details>
   <summary id="apis-in-json-spec-and-not-elasticsearch-specification">APIs in JSON spec and not elasticsearch-specification (excluding internal APIs)</summary>
