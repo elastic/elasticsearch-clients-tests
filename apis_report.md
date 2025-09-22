@@ -3,7 +3,7 @@
 Endpoints that are currently being tested are marked as done and link to the test where they're being used.
 
 * **STACK** - **Total**: 534 | **Tested**: 455 | **Untested**: 79 ![](https://geps.dev/progress/85)
-* **SERVERLESS** - **Total**: 273 | **Tested**: 243 | **Untested**: 30 ![](https://geps.dev/progress/89)
+* **SERVERLESS** - **Total**: 274 | **Tested**: 243 | **Untested**: 31 ![](https://geps.dev/progress/88)
 
 * [Internal APIs](#internal-apis-not-tracked)
 * [API information from the Elasticsearch JSON specification](#elasticsearch-json-specification)
@@ -164,7 +164,7 @@ Endpoints that are currently being tested are marked as done and link to the tes
 | indices.close | 🟢 | [✅](./tests/indices/open_close.yml#L21)</li></ul> | 👍| 🔴 | Not Applicable
 | indices.create | 🟢 | [✅](./tests/cat/aliases.yml#L8)</li></ul> | 👍| 🟢 | [✅](./tests/cat/aliases.yml#L8)</li></ul>
 | indices.create_data_stream | 🟢 | [✅](./tests/ilm/10_basic.yml#L20)</li></ul> | 👍| 🟢 | [✅](./tests/indices/data_stream_mappings.yml#L28)</li></ul>
-| indices.create_from | 🟢 | [✅](./tests/migration/30_create_from.yml#L31)</li></ul> | 👍| 🔴 | Not Applicable
+| indices.create_from | 🟢 | [✅](./tests/migration/30_create_from.yml#L31)</li></ul> | 👍| 🟢 | ❌
 | indices.data_streams_stats | 🟢 | [✅](./tests/indices/data_streams_stack.yml#L36)</li></ul> | 👍| 🔴 | Not Applicable
 | indices.delete | 🟢 | [✅](./tests/async_search/10_basic.yml#L29)</li></ul> | 👍| 🟢 | [✅](./tests/async_search/10_basic.yml#L29)</li></ul>
 | indices.delete_alias | 🟢 | [✅](./tests/indices/alias.yml#L49)</li></ul> | 👍| 🟢 | [✅](./tests/indices/alias.yml#L49)</li></ul>
@@ -496,9 +496,9 @@ Endpoints that are currently being tested are marked as done and link to the tes
 | sql.query | 🟢 | [✅](./tests/sql/10_basic.yml#L26)</li></ul> | 👍| 🟢 | [✅](./tests/sql/10_basic.yml#L26)</li></ul>
 | sql.translate | 🟢 | [✅](./tests/sql/10_basic.yml#L33)</li></ul> | 👍| 🟢 | [✅](./tests/sql/10_basic.yml#L33)</li></ul>
 | ssl.certificates | 🟢 | [✅](./tests/ssl.yml#L8)</li></ul> | 👍| 🔴 | Not Applicable
-| streams.logs_disable | 🟢 | ❌ | 👎| 🔴 | Not Applicable
-| streams.logs_enable | 🟢 | ❌ | 👎| 🔴 | Not Applicable
-| streams.status | 🟢 | ❌ | 👎| 🔴 | Not Applicable
+| streams.logs_disable | 🟢 | ❌ | 👍| 🔴 | Not Applicable
+| streams.logs_enable | 🟢 | ❌ | 👍| 🔴 | Not Applicable
+| streams.status | 🟢 | ❌ | 👍| 🔴 | Not Applicable
 | synonyms.delete_synonym | 🟢 | [✅](./tests/synonyms/10_basic.yml#L44)</li></ul> | 👍| 🟢 | [✅](./tests/synonyms/10_basic.yml#L44)</li></ul>
 | synonyms.delete_synonym_rule | 🟢 | [✅](./tests/synonyms/10_basic.yml#L39)</li></ul> | 👍| 🟢 | [✅](./tests/synonyms/10_basic.yml#L39)</li></ul>
 | synonyms.get_synonym | 🟢 | [✅](./tests/synonyms/10_basic.yml#L21)</li></ul> | 👍| 🟢 | [✅](./tests/synonyms/10_basic.yml#L21)</li></ul>
@@ -591,7 +591,7 @@ Endpoints that are currently being tested are marked as done and link to the tes
 
 ## Elasticsearch JSON specification
 
-**Total** 534 | **Tested** 417 | **Untested** 117 ![](https://geps.dev/progress/78)
+**Total** 534 | **Tested** 420 | **Untested** 114 ![](https://geps.dev/progress/78)
 
 <details>
   <summary id="apis-in-json-spec-and-not-elasticsearch-specification">APIs in JSON spec and not elasticsearch-specification (excluding internal APIs)</summary>
