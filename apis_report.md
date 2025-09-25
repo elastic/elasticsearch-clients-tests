@@ -2,7 +2,7 @@
 
 Endpoints that are currently being tested are marked as done and link to the test where they're being used.
 
-* **STACK** - **Total**: 534 | **Tested**: 455 | **Untested**: 79 ![](https://geps.dev/progress/85)
+* **STACK** - **Total**: 535 | **Tested**: 455 | **Untested**: 80 ![](https://geps.dev/progress/85)
 * **SERVERLESS** - **Total**: 274 | **Tested**: 243 | **Untested**: 31 ![](https://geps.dev/progress/88)
 
 * [Internal APIs](#internal-apis-not-tracked)
@@ -436,6 +436,7 @@ Endpoints that are currently being tested are marked as done and link to the tes
 | security.get_service_accounts | 🟢 | [✅](./tests/security/90_service_accounts.yml#L16)</li></ul> | 👍| 🔴 | Not Applicable
 | security.get_service_credentials | 🟢 | [✅](./tests/security/90_service_accounts.yml#L33)</li></ul> | 👍| 🔴 | Not Applicable
 | security.get_settings | 🟢 | [✅](./tests/security/120_get_settings.yml#L8)</li></ul> | 👍| 🔴 | Not Applicable
+| security.get_stats | 🟢 | ❌ | 👍| 🔴 | Not Applicable
 | security.get_token | 🟢 | [✅](./tests/security/100_tokens.yml#L39)</li></ul> | 👍| 🔴 | Not Applicable
 | security.get_user | 🟢 | [✅](./tests/security/140_user.yml#L25)</li></ul> | 👍| 🔴 | Not Applicable
 | security.get_user_privileges | 🟢 | [✅](./tests/security/30_privileges_stack.yml#L176)</li></ul> | 👍| 🔴 | Not Applicable
@@ -591,7 +592,7 @@ Endpoints that are currently being tested are marked as done and link to the tes
 
 ## Elasticsearch JSON specification
 
-**Total** 534 | **Tested** 420 | **Untested** 114 ![](https://geps.dev/progress/78)
+**Total** 535 | **Tested** 421 | **Untested** 114 ![](https://geps.dev/progress/78)
 
 <details>
   <summary id="apis-in-json-spec-and-not-elasticsearch-specification">APIs in JSON spec and not elasticsearch-specification (excluding internal APIs)</summary>
