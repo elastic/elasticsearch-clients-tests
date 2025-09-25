@@ -2,8 +2,8 @@
 
 Endpoints that are currently being tested are marked as done and link to the test where they're being used.
 
-* **STACK** - **Total**: 527 | **Tested**: 424 | **Untested**: 103 ![](https://geps.dev/progress/80)
-* **SERVERLESS** - **Total**: 260 | **Tested**: 229 | **Untested**: 31 ![](https://geps.dev/progress/88)
+* **STACK** - **Total**: 528 | **Tested**: 424 | **Untested**: 104 ![](https://geps.dev/progress/80)
+* **SERVERLESS** - **Total**: 261 | **Tested**: 229 | **Untested**: 32 ![](https://geps.dev/progress/87)
 
 * [Internal APIs](#internal-apis-not-tracked)
 * [API information from the Elasticsearch JSON specification](#elasticsearch-json-specification)
@@ -231,7 +231,7 @@ Endpoints that are currently being tested are marked as done and link to the tes
 | inference.put | 🟢 | [✅](./tests/inference/10_basic.yml#L8)</li></ul> | 🟢 | [✅](./tests/inference/10_basic.yml#L8)</li></ul> | 👍
 | inference.put_alibabacloud | 🟢 | ❌ | 🟢 | ❌ | 👎
 | inference.put_amazonbedrock | 🟢 | ❌ | 🟢 | ❌ | 👎
-| inference.put_amazonsagemaker | 🟢 | ❌ | 🔴 | Not Applicable | 👎
+| inference.put_amazonsagemaker | 🟢 | ❌ | 🟢 | ❌ | 👎
 | inference.put_anthropic | 🟢 | ❌ | 🟢 | ❌ | 👎
 | inference.put_azureaistudio | 🟢 | ❌ | 🟢 | ❌ | 👎
 | inference.put_azureopenai | 🟢 | ❌ | 🟢 | ❌ | 👎
@@ -517,6 +517,7 @@ Endpoints that are currently being tested are marked as done and link to the tes
 | transform.put_transform | 🟢 | [✅](./tests/cat/transform.yml#L12)</li></ul> | 🟢 | [✅](./tests/cat/transform.yml#L12)</li></ul> | 👍
 | transform.reset_transform | 🟢 | [✅](./tests/transform/10_basic.yml#L58)</li></ul> | 🟢 | [✅](./tests/transform/10_basic.yml#L58)</li></ul> | 👍
 | transform.schedule_now_transform | 🟢 | [✅](./tests/transform/10_basic.yml#L52)</li></ul> | 🟢 | [✅](./tests/transform/10_basic.yml#L52)</li></ul> | 👍
+| transform.set_upgrade_mode | 🟢 | ❌ | 🔴 | Not Applicable | 👎
 | transform.start_transform | 🟢 | [✅](./tests/transform/10_basic.yml#L49)</li></ul> | 🟢 | [✅](./tests/transform/10_basic.yml#L49)</li></ul> | 👍
 | transform.stop_transform | 🟢 | [✅](./tests/transform/10_basic.yml#L55)</li></ul> | 🟢 | [✅](./tests/transform/10_basic.yml#L55)</li></ul> | 👍
 | transform.update_transform | 🟢 | [✅](./tests/transform/10_basic.yml#L35)</li></ul> | 🟢 | [✅](./tests/transform/10_basic.yml#L35)</li></ul> | 👍
@@ -584,7 +585,7 @@ Endpoints that are currently being tested are marked as done and link to the tes
 
 ## Elasticsearch JSON specification
 
-**Total** 527 | **Tested** 412 | **Untested** 115 ![](https://geps.dev/progress/78)
+**Total** 528 | **Tested** 412 | **Untested** 116 ![](https://geps.dev/progress/78)
 
 <details>
   <summary id="apis-in-json-spec-and-not-elasticsearch-specification">APIs in JSON spec and not elasticsearch-specification (excluding internal APIs)</summary>
