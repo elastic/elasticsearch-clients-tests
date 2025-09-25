@@ -3,7 +3,7 @@
 Endpoints that are currently being tested are marked as done and link to the test where they're being used.
 
 * **STACK** - **Total**: 535 | **Tested**: 455 | **Untested**: 80 ![](https://geps.dev/progress/85)
-* **SERVERLESS** - **Total**: 274 | **Tested**: 243 | **Untested**: 31 ![](https://geps.dev/progress/88)
+* **SERVERLESS** - **Total**: 273 | **Tested**: 243 | **Untested**: 30 ![](https://geps.dev/progress/89)
 
 * [Internal APIs](#internal-apis-not-tracked)
 * [API information from the Elasticsearch JSON specification](#elasticsearch-json-specification)
@@ -142,7 +142,7 @@ Endpoints that are currently being tested are marked as done and link to the tes
 | get_script_context | 🟢 | [✅](./tests/script/20_script_context_languages.yml#L8)</li></ul> | 👍| 🔴 | Not Applicable
 | get_script_languages | 🟢 | [✅](./tests/script/20_script_context_languages.yml#L14)</li></ul> | 👍| 🔴 | Not Applicable
 | get_source | 🟢 | [✅](./tests/get_source/10_basic.yml#L20)</li></ul> | 👍| 🟢 | [✅](./tests/get_source/10_basic.yml#L20)</li></ul>
-| graph.explore | 🟢 | [✅](./tests/graph/explore.yml#L33)</li></ul> | 👍| 🟢 | ❌
+| graph.explore | 🟢 | [✅](./tests/graph/explore.yml#L33)</li></ul> | 👍| 🔴 | Not Applicable
 | health_report | 🟢 | [✅](./tests/health_report.yml#L8)</li></ul> | 👍| 🔴 | Not Applicable
 | ilm.delete_lifecycle | 🟢 | [✅](./tests/ilm/10_basic.yml#L87)</li></ul> | 🙌| 🔴 | Not Applicable
 | ilm.explain_lifecycle | 🟢 | [✅](./tests/ilm/10_basic.yml#L65)</li></ul> | 👍| 🔴 | Not Applicable
