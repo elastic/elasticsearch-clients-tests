@@ -1,0 +1,9 @@
+---
+requires:
+  stack: true
+  serverless: false
+---
+'security.get_stats':
+  - do:
+      security.get_stats: {}
+  - is_true: nodes
