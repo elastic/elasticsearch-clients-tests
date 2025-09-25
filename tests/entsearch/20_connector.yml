@@ -39,4 +39,5 @@ teardown:
   - do:
       connector.delete:
         connector_id: test-connector-1
+        hard: true
   - match: { acknowledged: true }
