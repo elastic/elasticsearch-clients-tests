@@ -2,7 +2,7 @@
 
 Endpoints that are currently being tested are marked as done and link to the test where they're being used.
 
-* **STACK** - **Total**: 535 | **Tested**: 455 | **Untested**: 80 ![](https://geps.dev/progress/85)
+* **STACK** - **Total**: 535 | **Tested**: 459 | **Untested**: 76 ![](https://geps.dev/progress/85)
 * **SERVERLESS** - **Total**: 273 | **Tested**: 243 | **Untested**: 30 ![](https://geps.dev/progress/89)
 
 * [Internal APIs](#internal-apis-not-tracked)
@@ -436,7 +436,7 @@ Endpoints that are currently being tested are marked as done and link to the tes
 | security.get_service_accounts | 🟢 | [✅](./tests/security/90_service_accounts.yml#L16)</li></ul> | 👍| 🔴 | Not Applicable
 | security.get_service_credentials | 🟢 | [✅](./tests/security/90_service_accounts.yml#L33)</li></ul> | 👍| 🔴 | Not Applicable
 | security.get_settings | 🟢 | [✅](./tests/security/120_get_settings.yml#L8)</li></ul> | 👍| 🔴 | Not Applicable
-| security.get_stats | 🟢 | ❌ | 👍| 🔴 | Not Applicable
+| security.get_stats | 🟢 | [✅](./tests/security/150_stats.yml#L8)</li></ul> | 👍| 🔴 | Not Applicable
 | security.get_token | 🟢 | [✅](./tests/security/100_tokens.yml#L39)</li></ul> | 👍| 🔴 | Not Applicable
 | security.get_user | 🟢 | [✅](./tests/security/140_user.yml#L25)</li></ul> | 👍| 🔴 | Not Applicable
 | security.get_user_privileges | 🟢 | [✅](./tests/security/30_privileges_stack.yml#L176)</li></ul> | 👍| 🔴 | Not Applicable
@@ -497,9 +497,9 @@ Endpoints that are currently being tested are marked as done and link to the tes
 | sql.query | 🟢 | [✅](./tests/sql/10_basic.yml#L26)</li></ul> | 👍| 🟢 | [✅](./tests/sql/10_basic.yml#L26)</li></ul>
 | sql.translate | 🟢 | [✅](./tests/sql/10_basic.yml#L33)</li></ul> | 👍| 🟢 | [✅](./tests/sql/10_basic.yml#L33)</li></ul>
 | ssl.certificates | 🟢 | [✅](./tests/ssl.yml#L8)</li></ul> | 👍| 🔴 | Not Applicable
-| streams.logs_disable | 🟢 | ❌ | 👍| 🔴 | Not Applicable
-| streams.logs_enable | 🟢 | ❌ | 👍| 🔴 | Not Applicable
-| streams.status | 🟢 | ❌ | 👍| 🔴 | Not Applicable
+| streams.logs_disable | 🟢 | [✅](./tests/streams/10_basic.yml#L16)</li></ul> | 👍| 🔴 | Not Applicable
+| streams.logs_enable | 🟢 | [✅](./tests/streams/10_basic.yml#L8)</li></ul> | 👍| 🔴 | Not Applicable
+| streams.status | 🟢 | [✅](./tests/streams/10_basic.yml#L12)</li></ul> | 👍| 🔴 | Not Applicable
 | synonyms.delete_synonym | 🟢 | [✅](./tests/synonyms/10_basic.yml#L44)</li></ul> | 👍| 🟢 | [✅](./tests/synonyms/10_basic.yml#L44)</li></ul>
 | synonyms.delete_synonym_rule | 🟢 | [✅](./tests/synonyms/10_basic.yml#L39)</li></ul> | 👍| 🟢 | [✅](./tests/synonyms/10_basic.yml#L39)</li></ul>
 | synonyms.get_synonym | 🟢 | [✅](./tests/synonyms/10_basic.yml#L21)</li></ul> | 👍| 🟢 | [✅](./tests/synonyms/10_basic.yml#L21)</li></ul>
