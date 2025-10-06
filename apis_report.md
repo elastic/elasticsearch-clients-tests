@@ -2,8 +2,8 @@
 
 Endpoints that are currently being tested are marked as done and link to the test where they're being used.
 
-* **STACK** - **Total**: 535 | **Tested**: 459 | **Untested**: 76 ![](https://geps.dev/progress/85)
-* **SERVERLESS** - **Total**: 273 | **Tested**: 243 | **Untested**: 30 ![](https://geps.dev/progress/89)
+* **STACK** - **Total**: 537 | **Tested**: 459 | **Untested**: 78 ![](https://geps.dev/progress/85)
+* **SERVERLESS** - **Total**: 275 | **Tested**: 243 | **Untested**: 32 ![](https://geps.dev/progress/88)
 
 * [Internal APIs](#internal-apis-not-tracked)
 * [API information from the Elasticsearch JSON specification](#elasticsearch-json-specification)
@@ -241,6 +241,7 @@ Endpoints that are currently being tested are marked as done and link to the tes
 | inference.put_azureaistudio | 🟢 | ❌ | 👎| 🟢 | ❌
 | inference.put_azureopenai | 🟢 | ❌ | 👎| 🟢 | ❌
 | inference.put_cohere | 🟢 | ❌ | 👎| 🟢 | ❌
+| inference.put_contextualai | 🟢 | ❌ | 👎| 🟢 | ❌
 | inference.put_custom | 🟢 | ❌ | 👎| 🟢 | ❌
 | inference.put_deepseek | 🟢 | ❌ | 👎| 🟢 | ❌
 | inference.put_elasticsearch | 🟢 | ❌ | 👎| 🟢 | ❌
@@ -369,6 +370,7 @@ Endpoints that are currently being tested are marked as done and link to the tes
 | nodes.usage | 🟢 | [✅](./tests/nodes/10_basic.yml#L18)</li></ul> | 🙌| 🔴 | Not Applicable
 | open_point_in_time | 🟢 | [✅](./tests/point_in_time/10_basic.yml#L16)</li></ul> | 👍| 🟢 | [✅](./tests/point_in_time/10_basic.yml#L16)</li></ul>
 | ping | 🟢 | [✅](./tests/ping/ping.yml#L8)</li></ul> | 👍| 🟢 | [✅](./tests/ping/ping.yml#L8)</li></ul>
+| project.tags | 🟢 | ❌ | 👎| 🟢 | ❌
 | put_script | 🟢 | [✅](./tests/msearch_template.yml#L10)</li></ul> | 👍| 🟢 | [✅](./tests/msearch_template.yml#L10)</li></ul>
 | query_rules.delete_rule | 🟢 | [✅](./tests/query_rules/10_query_rules.yml#L46)</li></ul> | 👍| 🟢 | [✅](./tests/query_rules/10_query_rules.yml#L46)</li></ul>
 | query_rules.delete_ruleset | 🟢 | [✅](./tests/query_rules/10_query_rules.yml#L22)</li></ul> | 👍| 🟢 | [✅](./tests/query_rules/10_query_rules.yml#L22)</li></ul>
@@ -592,7 +594,7 @@ Endpoints that are currently being tested are marked as done and link to the tes
 
 ## Elasticsearch JSON specification
 
-**Total** 535 | **Tested** 421 | **Untested** 114 ![](https://geps.dev/progress/78)
+**Total** 536 | **Tested** 421 | **Untested** 115 ![](https://geps.dev/progress/78)
 
 <details>
   <summary id="apis-in-json-spec-and-not-elasticsearch-specification">APIs in JSON spec and not elasticsearch-specification (excluding internal APIs)</summary>
