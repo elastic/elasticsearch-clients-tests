@@ -3,7 +3,7 @@
 Endpoints that are currently being tested are marked as done and link to the test where they're being used.
 
 * **STACK** - **Total**: 528 | **Tested**: 424 | **Untested**: 104 ![](https://geps.dev/progress/80)
-* **SERVERLESS** - **Total**: 261 | **Tested**: 229 | **Untested**: 32 ![](https://geps.dev/progress/87)
+* **SERVERLESS** - **Total**: 263 | **Tested**: 229 | **Untested**: 34 ![](https://geps.dev/progress/87)
 
 * [Internal APIs](#internal-apis-not-tracked)
 * [API information from the Elasticsearch JSON specification](#elasticsearch-json-specification)
@@ -187,7 +187,7 @@ Endpoints that are currently being tested are marked as done and link to the tes
 | indices.get_data_lifecycle_stats | 🟢 | ❌ | 🔴 | Not Applicable | 👎
 | indices.get_data_stream | 🟢 | [✅](./tests/indices/data_streams.yml#L31)</li></ul> | 🟢 | [✅](./tests/indices/data_streams.yml#L31)</li></ul> | 👍
 | indices.get_data_stream_options | 🟢 | ❌ | 🔴 | Not Applicable | 👍
-| indices.get_data_stream_settings | 🟢 | ❌ | 🔴 | Not Applicable | 👍
+| indices.get_data_stream_settings | 🟢 | ❌ | 🟢 | ❌ | 👍
 | indices.get_field_mapping | 🟢 | [✅](./tests/indices/get_field_mapping.yml#L23)</li></ul> | 🔴 | Not Applicable | 👍
 | indices.get_index_template | 🟢 | [✅](./tests/indices/index_template.yml#L24)</li></ul> | 🟢 | [✅](./tests/indices/index_template.yml#L24)</li></ul> | 👍
 | indices.get_mapping | 🟢 | [✅](./tests/indices/mapping.yml#L32)</li></ul> | 🟢 | [✅](./tests/indices/mapping.yml#L32)</li></ul> | 👍
@@ -202,7 +202,7 @@ Endpoints that are currently being tested are marked as done and link to the tes
 | indices.put_alias | 🟢 | [✅](./tests/cat/aliases.yml#L11)</li></ul> | 🟢 | [✅](./tests/cat/aliases.yml#L11)</li></ul> | 👍
 | indices.put_data_lifecycle | 🟢 | [✅](./tests/indices/10_data_lifecycle.yml#L16)</li></ul> | 🟢 | [✅](./tests/indices/10_data_lifecycle.yml#L16)</li></ul> | 👍
 | indices.put_data_stream_options | 🟢 | ❌ | 🔴 | Not Applicable | 👍
-| indices.put_data_stream_settings | 🟢 | ❌ | 🔴 | Not Applicable | 👍
+| indices.put_data_stream_settings | 🟢 | ❌ | 🟢 | ❌ | 👍
 | indices.put_index_template | 🟢 | [✅](./tests/ilm/10_basic.yml#L8)</li></ul> | 🟢 | [✅](./tests/indices/data_streams.yml#L8)</li></ul> | 👍
 | indices.put_mapping | 🟢 | [✅](./tests/indices/mapping.yml#L18)</li></ul> | 🟢 | [✅](./tests/indices/mapping.yml#L18)</li></ul> | 👍
 | indices.put_settings | 🟢 | [✅](./tests/indices/clone.yml#L39)</li></ul> | 🟢 | [✅](./tests/indices/settings.yml#L27)</li></ul> | 👍
@@ -490,9 +490,9 @@ Endpoints that are currently being tested are marked as done and link to the tes
 | sql.query | 🟢 | [✅](./tests/sql/10_basic.yml#L26)</li></ul> | 🟢 | [✅](./tests/sql/10_basic.yml#L26)</li></ul> | 👍
 | sql.translate | 🟢 | [✅](./tests/sql/10_basic.yml#L33)</li></ul> | 🟢 | [✅](./tests/sql/10_basic.yml#L33)</li></ul> | 👍
 | ssl.certificates | 🟢 | [✅](./tests/ssl.yml#L8)</li></ul> | 🔴 | Not Applicable | 👍
-| streams.logs_disable | 🟢 | ❌ | 🔴 | Not Applicable | 👎
-| streams.logs_enable | 🟢 | ❌ | 🔴 | Not Applicable | 👎
-| streams.status | 🟢 | ❌ | 🔴 | Not Applicable | 👎
+| streams.logs_disable | 🟢 | ❌ | 🔴 | Not Applicable | 👍
+| streams.logs_enable | 🟢 | ❌ | 🔴 | Not Applicable | 👍
+| streams.status | 🟢 | ❌ | 🔴 | Not Applicable | 👍
 | synonyms.delete_synonym | 🟢 | [✅](./tests/synonyms/10_basic.yml#L44)</li></ul> | 🟢 | [✅](./tests/synonyms/10_basic.yml#L44)</li></ul> | 👍
 | synonyms.delete_synonym_rule | 🟢 | [✅](./tests/synonyms/10_basic.yml#L39)</li></ul> | 🟢 | [✅](./tests/synonyms/10_basic.yml#L39)</li></ul> | 👍
 | synonyms.get_synonym | 🟢 | [✅](./tests/synonyms/10_basic.yml#L21)</li></ul> | 🟢 | [✅](./tests/synonyms/10_basic.yml#L21)</li></ul> | 👍
@@ -585,7 +585,7 @@ Endpoints that are currently being tested are marked as done and link to the tes
 
 ## Elasticsearch JSON specification
 
-**Total** 528 | **Tested** 412 | **Untested** 116 ![](https://geps.dev/progress/78)
+**Total** 528 | **Tested** 415 | **Untested** 113 ![](https://geps.dev/progress/78)
 
 <details>
   <summary id="apis-in-json-spec-and-not-elasticsearch-specification">APIs in JSON spec and not elasticsearch-specification (excluding internal APIs)</summary>
