@@ -1,0 +1,47 @@
+---
+requires:
+  serverless: false
+  stack: true
+---
+teardown:
+  - do:
+      indices.delete:
+        index: test-config-index
+        ignore: 404
+---
+"indices Sampling configuration":
+  - do:
+      indices.create:
+        index: test-config-index
+        body:
+          settings:
+            number_of_shards: 1
+  - do:
+      indices.put_sample_configuration:
+        index: test-config-index
+        body:
+          rate: 0.5
+          max_samples: 100
+          max_size: "10mb"
+          time_to_live: "1h"
+  - match: { acknowledged: true }
+
+  - do:
+      indices.get_sample_configuration:
+        index: test-config-index
+        human: true
+  - match: { configuration.rate: 0.5 }
+  - match: { configuration.max_samples: 100 }
+  - match: { configuration.max_size: "10mb" }
+  - match: { configuration.time_to_live: "1h" }
+
+  - do:
+      indices.get_all_sample_configuration:
+        human: true
+  - length: { configurations: 1 }
+  - match: { configurations.0.index: "test-config-index" }
+
+  - do:
+      indices.delete_sample_configuration:
+        index: test-config-index
+  - match: { acknowledged: true }
