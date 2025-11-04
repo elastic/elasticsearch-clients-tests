@@ -2,7 +2,7 @@
 
 Endpoints that are currently being tested are marked as done and link to the test where they're being used.
 
-* **STACK** - **Total**: 544 | **Tested**: 459 | **Untested**: 85 ![](https://geps.dev/progress/84)
+* **STACK** - **Total**: 544 | **Tested**: 465 | **Untested**: 79 ![](https://geps.dev/progress/85)
 * **SERVERLESS** - **Total**: 275 | **Tested**: 243 | **Untested**: 32 ![](https://geps.dev/progress/88)
 
 * [Internal APIs](#internal-apis-not-tracked)
@@ -173,7 +173,7 @@ Endpoints that are currently being tested are marked as done and link to the tes
 | indices.delete_data_stream | 🟢 | [✅](./tests/ilm/10_basic.yml#L26)</li></ul> | 👍| 🟢 | [✅](./tests/indices/data_stream_mappings.yml#L8)</li></ul>
 | indices.delete_data_stream_options | 🟢 | [✅](./tests/indices/data_streams_options.yml#L70)</li></ul> | 👍| 🔴 | Not Applicable
 | indices.delete_index_template | 🟢 | [✅](./tests/indices/data_stream_settings.yml#L11)</li></ul> | 👍| 🟢 | [✅](./tests/indices/data_stream_settings.yml#L11)</li></ul>
-| indices.delete_sample_configuration | 🟢 | ❌ | 👍| 🔴 | Not Applicable
+| indices.delete_sample_configuration | 🟢 | [✅](./tests/indices/sample_configuration.yml#L45)</li></ul> | 👍| 🔴 | Not Applicable
 | indices.delete_template | 🟢 | [✅](./tests/indices/exists_template.yml#L8)</li></ul> | 👍| 🔴 | Not Applicable
 | indices.disk_usage | 🟢 | [✅](./tests/indices/disk_usage.yml#L47)</li></ul> | 👍| 🔴 | Not Applicable
 | indices.downsample | 🟢 | [✅](./tests/indices/downsample.yml#L63)</li></ul> | 👍| 🔴 | Not Applicable
@@ -187,7 +187,7 @@ Endpoints that are currently being tested are marked as done and link to the tes
 | indices.forcemerge | 🟢 | [✅](./tests/indices/forcemerge.yml#L18)</li></ul> | 👍| 🔴 | Not Applicable
 | indices.get | 🟢 | [✅](./tests/indices/get.yml#L17)</li></ul> | 👍| 🟢 | [✅](./tests/indices/get.yml#L17)</li></ul>
 | indices.get_alias | 🟢 | [✅](./tests/indices/alias.yml#L31)</li></ul> | 👍| 🟢 | [✅](./tests/indices/alias.yml#L31)</li></ul>
-| indices.get_all_sample_configuration | 🟢 | ❌ | 👍| 🔴 | Not Applicable
+| indices.get_all_sample_configuration | 🟢 | [✅](./tests/indices/sample_configuration.yml#L39)</li></ul> | 👍| 🔴 | Not Applicable
 | indices.get_data_lifecycle | 🟢 | [✅](./tests/indices/10_data_lifecycle.yml#L22)</li></ul> | 👍| 🟢 | [✅](./tests/indices/10_data_lifecycle.yml#L22)</li></ul>
 | indices.get_data_lifecycle_stats | 🟢 | [✅](./tests/indices/20_data_lifecycle.yml#L23)</li></ul> | 🙌| 🔴 | Not Applicable
 | indices.get_data_stream | 🟢 | [✅](./tests/indices/data_stream_mappings.yml#L41)</li></ul> | 👍| 🟢 | [✅](./tests/indices/data_stream_mappings.yml#L41)</li></ul>
@@ -198,9 +198,9 @@ Endpoints that are currently being tested are marked as done and link to the tes
 | indices.get_index_template | 🟢 | [✅](./tests/indices/index_template.yml#L24)</li></ul> | 👍| 🟢 | [✅](./tests/indices/index_template.yml#L24)</li></ul>
 | indices.get_mapping | 🟢 | [✅](./tests/indices/mapping.yml#L32)</li></ul> | 👍| 🟢 | [✅](./tests/indices/mapping.yml#L32)</li></ul>
 | indices.get_migrate_reindex_status | 🟢 | [✅](./tests/migration/20_reindex.yml#L46)</li></ul> | 👍| 🔴 | Not Applicable
-| indices.get_sample | 🟢 | ❌ | 👍| 🔴 | Not Applicable
-| indices.get_sample_configuration | 🟢 | ❌ | 👍| 🔴 | Not Applicable
-| indices.get_sample_stats | 🟢 | ❌ | 👍| 🔴 | Not Applicable
+| indices.get_sample | 🟢 | [✅](./tests/indices/sample.yml#L14)</li></ul> | 👍| 🔴 | Not Applicable
+| indices.get_sample_configuration | 🟢 | [✅](./tests/indices/sample_configuration.yml#L30)</li></ul> | 👍| 🔴 | Not Applicable
+| indices.get_sample_stats | 🟢 | [✅](./tests/indices/sample.yml#L38)</li></ul> | 👍| 🔴 | Not Applicable
 | indices.get_settings | 🟢 | [✅](./tests/indices/settings.yml#L21)</li></ul> | 👍| 🟢 | [✅](./tests/indices/settings.yml#L21)</li></ul>
 | indices.get_template | 🟢 | [✅](./tests/indices/template.yml#L21)</li></ul> | 👍| 🔴 | Not Applicable
 | indices.migrate_reindex | 🟢 | [✅](./tests/migration/20_reindex.yml#L35)</li></ul> | 👍| 🔴 | Not Applicable
@@ -215,7 +215,7 @@ Endpoints that are currently being tested are marked as done and link to the tes
 | indices.put_data_stream_settings | 🟢 | [✅](./tests/indices/data_stream_settings.yml#L51)</li></ul> | 👍| 🟢 | [✅](./tests/indices/data_stream_settings.yml#L51)</li></ul>
 | indices.put_index_template | 🟢 | [✅](./tests/ilm/10_basic.yml#L8)</li></ul> | 👍| 🟢 | [✅](./tests/indices/data_stream_mappings.yml#L14)</li></ul>
 | indices.put_mapping | 🟢 | [✅](./tests/indices/mapping.yml#L18)</li></ul> | 👍| 🟢 | [✅](./tests/indices/mapping.yml#L18)</li></ul>
-| indices.put_sample_configuration | 🟢 | ❌ | 👍| 🔴 | Not Applicable
+| indices.put_sample_configuration | 🟢 | [✅](./tests/indices/sample.yml#L26)</li></ul> | 👍| 🔴 | Not Applicable
 | indices.put_settings | 🟢 | [✅](./tests/indices/clone.yml#L42)</li></ul> | 👍| 🟢 | [✅](./tests/indices/settings.yml#L27)</li></ul>
 | indices.put_template | 🟢 | [✅](./tests/indices/exists_template.yml#L24)</li></ul> | 👍| 🔴 | Not Applicable
 | indices.recovery | 🟢 | [✅](./tests/indices/recovery.yml#L22)</li></ul> | 👍| 🔴 | Not Applicable
