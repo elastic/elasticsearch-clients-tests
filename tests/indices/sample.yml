@@ -1,0 +1,46 @@
+---
+requires:
+  serverless: false
+  stack: true
+---
+teardown:
+  - do:
+      indices.delete:
+        index: sample_test
+        ignore: 404
+---
+'indices.get_sample indices.get_sample_stats':
+  - do:
+      indices.get_sample:
+        index: non_existent
+      catch: missing
+
+  - do:
+      indices.create:
+        index: sample_test
+        body:
+          settings:
+            number_of_shards: 1
+
+  - do:
+      indices.put_sample_configuration:
+        index: sample_test
+        body:
+          rate: 1.0
+          max_samples: 100
+
+  - do:
+      indices.get_sample:
+        index: sample_test
+  - match: { sample: [] }
+
+  - do:
+      indices.get_sample_stats:
+        index: sample_test
+        human: true
+  - match: { potential_samples: 0 }
+
+  - do:
+      indices.get_sample_stats:
+        index: no_config
+      catch: missing
