@@ -1,0 +1,9 @@
+---
+requires:
+  serverless: false
+  stack: true
+---
+'cat.circuit_breaker':
+  - do:
+      cat.circuit_breaker: {}
+  - is_true: 0.node_id
