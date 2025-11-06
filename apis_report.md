@@ -3,7 +3,7 @@
 Endpoints that are currently being tested are marked as done and link to the test where they're being used.
 
 * **STACK** - **Total**: 544 | **Tested**: 465 | **Untested**: 79 ![](https://geps.dev/progress/85)
-* **SERVERLESS** - **Total**: 275 | **Tested**: 243 | **Untested**: 32 ![](https://geps.dev/progress/88)
+* **SERVERLESS** - **Total**: 277 | **Tested**: 243 | **Untested**: 34 ![](https://geps.dev/progress/87)
 
 * [Internal APIs](#internal-apis-not-tracked)
 * [API information from the Elasticsearch JSON specification](#elasticsearch-json-specification)
@@ -159,7 +159,7 @@ Endpoints that are currently being tested are marked as done and link to the tes
 | index | 🟢 | [✅](./tests/async_search/10_basic.yml#L8)</li></ul> | 👍| 🟢 | [✅](./tests/async_search/10_basic.yml#L8)</li></ul>
 | indices.add_block | 🟢 | [✅](./tests/indices/block.yml#L16)</li></ul> | 👍| 🟢 | [✅](./tests/indices/block.yml#L16)</li></ul>
 | indices.analyze | 🟢 | [✅](./tests/indices/analyze.yml#L19)</li></ul> | 👍| 🟢 | [✅](./tests/indices/analyze.yml#L19)</li></ul>
-| indices.cancel_migrate_reindex | 🟢 | [✅](./tests/migration/20_reindex.yml#L52)</li></ul> | 👍| 🔴 | Not Applicable
+| indices.cancel_migrate_reindex | 🟢 | [✅](./tests/migration/20_reindex.yml#L52)</li></ul> | 👍| 🟢 | ❌
 | indices.clear_cache | 🟢 | [✅](./tests/indices/clear_cache.yml#L8)</li></ul> | 👍| 🔴 | Not Applicable
 | indices.clone | 🟢 | [✅](./tests/indices/clone.yml#L53)</li></ul> | 👍| 🔴 | Not Applicable
 | indices.close | 🟢 | [✅](./tests/indices/open_close.yml#L21)</li></ul> | 👍| 🔴 | Not Applicable
@@ -197,7 +197,7 @@ Endpoints that are currently being tested are marked as done and link to the tes
 | indices.get_field_mapping | 🟢 | [✅](./tests/indices/get_field_mapping.yml#L23)</li></ul> | 👍| 🔴 | Not Applicable
 | indices.get_index_template | 🟢 | [✅](./tests/indices/index_template.yml#L24)</li></ul> | 👍| 🟢 | [✅](./tests/indices/index_template.yml#L24)</li></ul>
 | indices.get_mapping | 🟢 | [✅](./tests/indices/mapping.yml#L32)</li></ul> | 👍| 🟢 | [✅](./tests/indices/mapping.yml#L32)</li></ul>
-| indices.get_migrate_reindex_status | 🟢 | [✅](./tests/migration/20_reindex.yml#L46)</li></ul> | 👍| 🔴 | Not Applicable
+| indices.get_migrate_reindex_status | 🟢 | [✅](./tests/migration/20_reindex.yml#L46)</li></ul> | 👍| 🟢 | ❌
 | indices.get_sample | 🟢 | [✅](./tests/indices/sample.yml#L14)</li></ul> | 👍| 🔴 | Not Applicable
 | indices.get_sample_configuration | 🟢 | [✅](./tests/indices/sample_configuration.yml#L30)</li></ul> | 👍| 🔴 | Not Applicable
 | indices.get_sample_stats | 🟢 | [✅](./tests/indices/sample.yml#L38)</li></ul> | 👍| 🔴 | Not Applicable
