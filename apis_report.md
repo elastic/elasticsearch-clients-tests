@@ -364,7 +364,7 @@ Endpoints that are currently being tested are marked as done and link to the tes
 | ml.update_job | 🟢 | [✅](./tests/machine_learning/jobs_crud.yml#L75)</li></ul> | 👍| 🟢 | [✅](./tests/machine_learning/jobs_crud.yml#L75)</li></ul>
 | ml.update_model_snapshot | 🟢 | [✅](./tests/machine_learning/update_model_snapshot.yml#L6)</li></ul> | 👍| 🔴 | Not Applicable
 | ml.update_trained_model_deployment | 🟢 | [✅](./tests/machine_learning/30_trained_model_stack.yml#L58)</li></ul> | 👍| 🟢 | ❌
-| ml.upgrade_job_snapshot | 🟢 | [✅](./tests/machine_learning/upgrade_job_snapshot.yml#L64)</li></ul> | 👍| 🔴 | Not Applicable
+| ml.upgrade_job_snapshot | 🟢 | [✅](./tests/machine_learning/upgrade_job_snapshot.yml#L61)</li></ul> | 👍| 🔴 | Not Applicable
 | msearch | 🟢 | [✅](./tests/msearch.yml#L26)</li></ul> | 👍| 🟢 | [✅](./tests/msearch.yml#L26)</li></ul>
 | msearch_template | 🟢 | [✅](./tests/msearch_template.yml#L29)</li></ul> | 🙌| 🟢 | [✅](./tests/msearch_template.yml#L29)</li></ul>
 | mtermvectors | 🟢 | [✅](./tests/mtermvectors/10_basic.yml#L25)</li></ul> | 👍| 🟢 | [✅](./tests/mtermvectors/10_basic.yml#L25)</li></ul>
