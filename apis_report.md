@@ -292,7 +292,7 @@ Endpoints that are currently being tested are marked as done and link to the tes
 | ml.delete_filter | 🟢 | [✅](./tests/machine_learning/filter_crud.yml#L37)</li></ul> | 🟢 | [✅](./tests/machine_learning/filter_crud.yml#L37)</li></ul> | 👍
 | ml.delete_forecast | 🟢 | [✅](./tests/machine_learning/forecast.yml#L32)</li></ul> | 🔴 | Not Applicable | 👍
 | ml.delete_job | 🟢 | [✅](./tests/machine_learning/buckets_stack.yml#L66)</li></ul> | 🟢 | [✅](./tests/machine_learning/buckets_serverless.yml#L39)</li></ul> | 👍
-| ml.delete_model_snapshot | 🟢 | [✅](./tests/machine_learning/model_snapshots.yml#L136)</li></ul> | 🔴 | Not Applicable | 👍
+| ml.delete_model_snapshot | 🟢 | [✅](./tests/machine_learning/model_snapshots.yml#L89)</li></ul> | 🔴 | Not Applicable | 👍
 | ml.delete_trained_model | 🟢 | [✅](./tests/machine_learning/10_trained_model.yml#L36)</li></ul> | 🟢 | [✅](./tests/machine_learning/10_trained_model.yml#L36)</li></ul> | 👍
 | ml.delete_trained_model_alias | 🟢 | [✅](./tests/machine_learning/trained_model_aliases.yml#L40)</li></ul> | 🟢 | [✅](./tests/machine_learning/trained_model_aliases.yml#L40)</li></ul> | 👍
 | ml.estimate_model_memory | 🟢 | [✅](./tests/machine_learning/estimate_model_memory.yml#L8)</li></ul> | 🟢 | [✅](./tests/machine_learning/estimate_model_memory.yml#L8)</li></ul> | 👍
@@ -313,8 +313,8 @@ Endpoints that are currently being tested are marked as done and link to the tes
 | ml.get_job_stats | 🟢 | [✅](./tests/machine_learning/jobs_crud.yml#L21)</li></ul> | 🟢 | [✅](./tests/machine_learning/jobs_crud.yml#L21)</li></ul> | 👍
 | ml.get_jobs | 🟢 | [✅](./tests/machine_learning/jobs_crud.yml#L15)</li></ul> | 🟢 | [✅](./tests/machine_learning/jobs_crud.yml#L15)</li></ul> | 👍
 | ml.get_memory_stats | 🟢 | [✅](./tests/machine_learning/get_memory_stats.yml#L6)</li></ul> | 🔴 | Not Applicable | 👍
-| ml.get_model_snapshot_upgrade_stats | 🟢 | [✅](./tests/machine_learning/model_snapshots.yml#L151)</li></ul> | 🔴 | Not Applicable | 👍
-| ml.get_model_snapshots | 🟢 | [✅](./tests/machine_learning/model_snapshots.yml#L120)</li></ul> | 🔴 | Not Applicable | 👍
+| ml.get_model_snapshot_upgrade_stats | 🟢 | [✅](./tests/machine_learning/upgrade_job_snapshot.yml#L68)</li></ul> | 🔴 | Not Applicable | 👍
+| ml.get_model_snapshots | 🟢 | [✅](./tests/machine_learning/model_snapshots.yml#L73)</li></ul> | 🔴 | Not Applicable | 👍
 | ml.get_overall_buckets | 🟢 | [✅](./tests/machine_learning/buckets_stack.yml#L71)</li></ul> | 🟢 | [✅](./tests/machine_learning/buckets_serverless.yml#L44)</li></ul> | 👍
 | ml.get_records | 🟢 | [✅](./tests/machine_learning/get_records.yml#L58)</li></ul> | 🔴 | Not Applicable | 👍
 | ml.get_trained_models | 🟢 | [✅](./tests/machine_learning/10_trained_model.yml#L31)</li></ul> | 🟢 | [✅](./tests/machine_learning/10_trained_model.yml#L31)</li></ul> | 👍
@@ -351,7 +351,7 @@ Endpoints that are currently being tested are marked as done and link to the tes
 | ml.update_job | 🟢 | [✅](./tests/machine_learning/jobs_crud.yml#L75)</li></ul> | 🟢 | [✅](./tests/machine_learning/jobs_crud.yml#L75)</li></ul> | 👍
 | ml.update_model_snapshot | 🟢 | [✅](./tests/machine_learning/update_model_snapshot.yml#L6)</li></ul> | 🔴 | Not Applicable | 👍
 | ml.update_trained_model_deployment | 🟢 | [✅](./tests/machine_learning/20_trained_model.yml#L59)</li></ul> | 🟢 | [✅](./tests/machine_learning/20_trained_model.yml#L59)</li></ul> | 👍
-| ml.upgrade_job_snapshot | 🟢 | [✅](./tests/machine_learning/model_snapshots.yml#L145)</li></ul> | 🔴 | Not Applicable | 👍
+| ml.upgrade_job_snapshot | 🟢 | [✅](./tests/machine_learning/upgrade_job_snapshot.yml#L61)</li></ul> | 🔴 | Not Applicable | 👍
 | msearch | 🟢 | [✅](./tests/msearch.yml#L26)</li></ul> | 🟢 | [✅](./tests/msearch.yml#L26)</li></ul> | 👍
 | msearch_template | 🟢 | [✅](./tests/msearch_template.yml#L29)</li></ul> | 🟢 | [✅](./tests/msearch_template.yml#L29)</li></ul> | 🙌
 | mtermvectors | 🟢 | [✅](./tests/mtermvectors/10_basic.yml#L25)</li></ul> | 🟢 | [✅](./tests/mtermvectors/10_basic.yml#L25)</li></ul> | 👍
