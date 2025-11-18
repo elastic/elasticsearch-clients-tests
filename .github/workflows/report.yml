@@ -14,7 +14,7 @@ jobs:
     runs-on: ubuntu-latest
     env:
       STACK_VERSION: 9.2.2-SNAPSHOT
-      BRANCH: 'main' # Branch for downloading the specs
+      BRANCH: '9.2' # Branch for downloading the specs
     steps:
       - uses: actions/checkout@v4
         with:
