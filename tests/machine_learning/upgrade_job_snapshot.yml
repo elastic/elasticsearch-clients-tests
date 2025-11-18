@@ -28,7 +28,7 @@ setup:
   # the attempt.
   - do:
       index:
-        index: .ml-anomalies-shared-000001
+        index: .ml-anomalies-shared
         id:    upgrade-model-snapshot_model_snapshot_1234567890
         body:  >
           {
@@ -51,7 +51,7 @@ setup:
 
   - do:
       indices.refresh:
-        index: [.ml-anomalies*,.ml-state-000001]
+        index: [.ml-anomalies*,.ml-state-000001,.ml-anomalies-shared]
 ---
 teardown:
   - do:
