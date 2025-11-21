@@ -35,6 +35,9 @@ teardown:
   - do:
       indices.delete:
         index: split_index_source
+  - do:
+      indices.delete:
+        index: split_index_target
 ---
 "Split index via API":
   # make it read-only

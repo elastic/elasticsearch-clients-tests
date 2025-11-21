@@ -32,6 +32,9 @@ teardown:
   - do:
       indices.delete:
         index: clone_source
+  - do:
+      indices.delete:
+        index: clone_target
 ---
 "Clone index via API":
   # make it read-only
