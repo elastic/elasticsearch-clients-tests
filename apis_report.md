@@ -2,8 +2,8 @@
 
 Endpoints that are currently being tested are marked as done and link to the test where they're being used.
 
-* **STACK** - **Total**: 544 | **Tested**: 465 | **Untested**: 79 ![](https://geps.dev/progress/85)
-* **SERVERLESS** - **Total**: 277 | **Tested**: 243 | **Untested**: 34 ![](https://geps.dev/progress/87)
+* **STACK** - **Total**: 545 | **Tested**: 465 | **Untested**: 80 ![](https://geps.dev/progress/85)
+* **SERVERLESS** - **Total**: 278 | **Tested**: 243 | **Untested**: 35 ![](https://geps.dev/progress/87)
 
 * [Internal APIs](#internal-apis-not-tracked)
 * [API information from the Elasticsearch JSON specification](#elasticsearch-json-specification)
@@ -260,6 +260,7 @@ Endpoints that are currently being tested are marked as done and link to the tes
 | inference.put_llama | 🟢 | ❌ | 👎| 🟢 | ❌
 | inference.put_mistral | 🟢 | ❌ | 👎| 🟢 | ❌
 | inference.put_openai | 🟢 | ❌ | 👎| 🟢 | ❌
+| inference.put_openshift_ai | 🟢 | ❌ | 👎| 🟢 | ❌
 | inference.put_voyageai | 🟢 | ❌ | 👎| 🟢 | ❌
 | inference.put_watsonx | 🟢 | ❌ | 👎| 🟢 | ❌
 | inference.rerank | 🟢 | ❌ | 👎| 🟢 | ❌
@@ -601,7 +602,7 @@ Endpoints that are currently being tested are marked as done and link to the tes
 
 ## Elasticsearch JSON specification
 
-**Total** 544 | **Tested** 428 | **Untested** 116 ![](https://geps.dev/progress/78)
+**Total** 545 | **Tested** 428 | **Untested** 117 ![](https://geps.dev/progress/78)
 
 <details>
   <summary id="apis-in-json-spec-and-not-elasticsearch-specification">APIs in JSON spec and not elasticsearch-specification (excluding internal APIs)</summary>
