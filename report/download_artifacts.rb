@@ -33,7 +33,8 @@ module Elastic
     #
     def version
       if (branch = ENV['BRANCH'])
-        branch = 'master' if branch == 'main' # main is 404 for now
+        return 'master' if branch == 'main' # main is 404 for now
+
         versions = URI.open("https://snapshots.elastic.co/latest/#{branch}.json").read
         YAML.safe_load(versions)['version']
       else
@@ -60,17 +61,10 @@ module Elastic
       require 'net/http'
 
       json_filename = CURRENT_PATH.join('tmp/artifacts.json')
-
       # Create ./tmp if it doesn't exist
       Dir.mkdir(CURRENT_PATH.join('tmp'), 0700) unless File.directory?(CURRENT_PATH.join('tmp'))
 
-      # Download json file with package information for version:
-      major_minor = if version == 'main'
-                      'master'
-                    else
-                      version.split('.')[0..1].join('.')
-                    end
-      url = URI("https://artifacts-snapshot.elastic.co/elasticsearch/latest/#{major_minor}.json")
+      url = URI("https://artifacts-snapshot.elastic.co/elasticsearch/latest/#{version}.json")
       manifest_url = JSON.parse(Net::HTTP.get(url))['manifest_url']
       download_file!(manifest_url, json_filename)
       begin
