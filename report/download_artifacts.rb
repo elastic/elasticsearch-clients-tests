@@ -18,6 +18,7 @@
 require 'pathname'
 require 'open-uri'
 require 'json'
+require 'yaml'
 
 module Elastic
   CURRENT_PATH = Pathname(File.expand_path(__dir__))
@@ -31,11 +32,9 @@ module Elastic
     # download the branch.
     #
     def version
-      if ENV['BRANCH']
-        require 'open-uri'
-        require 'yaml'
-
-        versions = URI.open("https://snapshots.elastic.co/latest/#{ENV['BRANCH']}.json").read
+      if (branch = ENV['BRANCH'])
+        branch = 'master' if branch == 'main' # main is 404 for now
+        versions = URI.open("https://snapshots.elastic.co/latest/#{branch}.json").read
         YAML.safe_load(versions)['version']
       else
         ENV['STACK_VERSION'] || read_version_from_github
@@ -47,38 +46,44 @@ module Elastic
     # download from the GitHub Actions yaml file which specifies STACK_VERSION.
     #
     def read_version_from_github
-      yml = File.read(File.expand_path('../.github/workflows/report.yml', __dir__))
-      regexp = /[0-9.]+(-SNAPSHOT)?/
-      yml.split("\n").select { |l| l.match?('STACK_VERSION') }.first.strip.match(regexp)[0]
+      YAML.safe_load(
+        File.read(
+          File.expand_path('../.github/workflows/report.yml', __dir__)
+        )
+      )['jobs']['generate_report']['env']['BRANCH']
     end
 
     #
     # Downloads the JSON spec from Elasticsearch.
     #
     def download_json_spec
+      require 'net/http'
+
       json_filename = CURRENT_PATH.join('tmp/artifacts.json')
 
       # Create ./tmp if it doesn't exist
       Dir.mkdir(CURRENT_PATH.join('tmp'), 0700) unless File.directory?(CURRENT_PATH.join('tmp'))
 
       # Download json file with package information for version:
-      json_url = "https://artifacts-api.elastic.co/v1/versions/#{version}"
-      download_file!(json_url, json_filename)
-      # Parse the downloaded JSON
+      major_minor = if version == 'main'
+                      'master'
+                    else
+                      version.split('.')[0..1].join('.')
+                    end
+      url = URI("https://artifacts-snapshot.elastic.co/elasticsearch/latest/#{major_minor}.json")
+      manifest_url = JSON.parse(Net::HTTP.get(url))['manifest_url']
+      download_file!(manifest_url, json_filename)
       begin
         artifacts = JSON.parse(File.read(json_filename))
       rescue StandardError => e
-        STDERR.puts "[!] Couldn't read JSON file #{json_filename}"
+        warn "[!] Couldn't read JSON file #{json_filename}\n#{e.message}"
         exit 1
       end
 
-      # Either find the artifacts for the exact same build hash from the current running cluster or
-      # use the first one from the list of builds:
-      build_hash_artifact = artifacts['version']['builds'].first
-      zip_url = build_hash_artifact.dig('projects', 'elasticsearch', 'packages').select { |k, _| k =~ /rest-resources-zip/ }.map { |_, v| v['url'] }.first
-
-      # Dig into the elasticsearch packages, search for the rest-resources-zip package and return the URL:
-      build_hash_artifact.dig('projects', 'elasticsearch', 'packages').select { |k, _| k =~ /rest-resources-zip/ }.map { |_, v| v['url'] }.first
+      # Search the JSON for the rest-resources-zip file and get the URL
+      packages = artifacts.dig('projects', 'elasticsearch', 'packages')
+      rest_resources = packages.select { |k, v| k =~ /rest-resources/ }
+      zip_url = rest_resources.map { |_, v| v['url'] }.first
 
       # Download the zip file
       filename = CURRENT_PATH.join("tmp/#{zip_url.split('/').last}")
