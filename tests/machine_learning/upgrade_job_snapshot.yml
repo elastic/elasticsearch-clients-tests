@@ -60,7 +60,7 @@ teardown:
 ---
 "ml.upgrade_job_snapshot":
   - do:
-      catch: missing
+      catch: /resource_not_found_exception/
       ml.upgrade_job_snapshot:
         job_id: "non-existent-job"
         snapshot_id: "san"
