@@ -2,8 +2,8 @@
 
 Endpoints that are currently being tested are marked as done and link to the test where they're being used.
 
-* **STACK** - **Total**: 545 | **Tested**: 465 | **Untested**: 80 ![](https://geps.dev/progress/85)
-* **SERVERLESS** - **Total**: 278 | **Tested**: 243 | **Untested**: 35 ![](https://geps.dev/progress/87)
+* **STACK** - **Total**: 545 | **Tested**: 466 | **Untested**: 79 ![](https://geps.dev/progress/85)
+* **SERVERLESS** - **Total**: 279 | **Tested**: 243 | **Untested**: 36 ![](https://geps.dev/progress/87)
 
 * [Internal APIs](#internal-apis-not-tracked)
 * [API information from the Elasticsearch JSON specification](#elasticsearch-json-specification)
@@ -19,7 +19,7 @@ Endpoints that are currently being tested are marked as done and link to the tes
 | bulk | 🟢 | [✅](./tests/bulk/10_basic.yml#L13)</li></ul> | 👍| 🟢 | [✅](./tests/bulk/10_basic.yml#L13)</li></ul>
 | cat.aliases | 🟢 | [✅](./tests/cat/aliases.yml#L20)</li></ul> | 👍| 🟢 | [✅](./tests/cat/aliases.yml#L20)</li></ul>
 | cat.allocation | 🟢 | [✅](./tests/cat/allocation.yml#L6)</li></ul> | 👍| 🔴 | Not Applicable
-| cat.circuit_breaker | 🟢 | ❌ | 👍| 🔴 | Not Applicable
+| cat.circuit_breaker | 🟢 | [✅](./tests/cat/circuit_breaker.yml#L8)</li></ul> | 👍| 🔴 | Not Applicable
 | cat.component_templates | 🟢 | [✅](./tests/cat/component_templates.yml#L6)</li></ul> | 👍| 🟢 | [✅](./tests/cat/component_templates.yml#L6)</li></ul>
 | cat.count | 🟢 | [✅](./tests/cat/count.yml#L17)</li></ul> | 👍| 🟢 | [✅](./tests/cat/count.yml#L17)</li></ul>
 | cat.fielddata | 🟢 | [✅](./tests/cat/fielddata.yml#L6)</li></ul> | 👍| 🔴 | Not Applicable
@@ -527,7 +527,7 @@ Endpoints that are currently being tested are marked as done and link to the tes
 | text_structure.find_structure | 🟢 | [✅](./tests/text_structure/10_basic.yml#L60)</li></ul> | 👍| 🔴 | Not Applicable
 | text_structure.test_grok_pattern | 🟢 | [✅](./tests/text_structure/10_basic.yml#L82)</li></ul> | 👍| 🔴 | Not Applicable
 | transform.delete_transform | 🟢 | [✅](./tests/cat/transform.yml#L28)</li></ul> | 👍| 🟢 | [✅](./tests/cat/transform.yml#L28)</li></ul>
-| transform.get_node_stats | 🟢 | [✅](./tests/transform/30_node_stats.yml#L8)</li></ul> | 🙌| 🔴 | Not Applicable
+| transform.get_node_stats | 🟢 | [✅](./tests/transform/30_node_stats.yml#L8)</li></ul> | 🙌| 🟢 | ❌
 | transform.get_transform | 🟢 | [✅](./tests/transform/10_basic.yml#L40)</li></ul> | 👍| 🟢 | [✅](./tests/transform/10_basic.yml#L40)</li></ul>
 | transform.get_transform_stats | 🟢 | [✅](./tests/transform/10_basic.yml#L43)</li></ul> | 👍| 🟢 | [✅](./tests/transform/10_basic.yml#L43)</li></ul>
 | transform.preview_transform | 🟢 | [✅](./tests/transform/10_basic.yml#L46)</li></ul> | 👍| 🟢 | [✅](./tests/transform/10_basic.yml#L46)</li></ul>
