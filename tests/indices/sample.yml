@@ -13,7 +13,7 @@ teardown:
   - do:
       indices.get_sample:
         index: non_existent
-      catch: missing
+      catch: /resource_not_found_exception/
 
   - do:
       indices.create:
