@@ -43,4 +43,4 @@ teardown:
   - do:
       indices.get_sample_stats:
         index: no_config
-      catch: missing
+      catch: /resource_not_found_exception/
