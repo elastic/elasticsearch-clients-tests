@@ -5,5 +5,6 @@ requires:
 ---
 'cat.circuit_breaker':
   - do:
-      cat.circuit_breaker: {}
+      cat.circuit_breaker:
+        format: 'json'
   - is_true: 0.node_id
