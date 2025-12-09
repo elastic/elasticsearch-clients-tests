@@ -20,16 +20,15 @@
 
 Endpoints that are currently being tested are marked as done and link to the test where they're being used.
 
-* **STACK** - **Total**: <%= @reporter.endpoints.count(&:available_stack?) %> | **Tested**: <%= @reporter.endpoints.count(&:tested_stack?) %> | **Untested**: <%= @reporter.untested_stack_count %> ![](https://geps.dev/progress/<%= @reporter.coverage_stack %>)
-* **SERVERLESS** - **Total**: <%= @reporter.endpoints.count(&:available_serverless?) %> | **Tested**: <%= @reporter.endpoints.count(&:tested_serverless?) %> | **Untested**: <%= @reporter.untested_serverless_count %> ![](https://geps.dev/progress/<%= @reporter.coverage_serverless %>)
+* **Total**: <%= @reporter.endpoints.count(&:available_stack?) %> | **Tested**: <%= @reporter.endpoints.count(&:tested_stack?) %> | **Untested**: <%= @reporter.untested_stack_count %> ![](https://geps.dev/progress/<%= @reporter.coverage_stack %>)
 
 * [Internal APIs](#internal-apis-not-tracked)
 * [API information from the Elasticsearch JSON specification](#elasticsearch-json-specification)
 
 ## Endpoints in elasticsearch-specification
 
-| Endpoint name | Available in Stack | Tested in Stack | Available in Serverless | Tested in Serverless | Tested in ES |
-| :------------ | :----------------: | :-------------: | :---------------------: | :------------------: | :----------: |
+| Endpoint name | Available | Tested | Tested in ES |
+| :------------ | :-------: | :----: | :----------: |
 <%= @reporter.display_table -%>
 
 ## Internal APIs (Not tracked)

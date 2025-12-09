@@ -98,12 +98,6 @@ module Elastic
 
     # Calculates what percentage of serverless endpoints are being tested
     #
-    def coverage_serverless
-      @endpoints.count(&:tested_serverless?) * 100 / @endpoints.count(&:available_serverless?)
-    end
-
-    # Calculates what percentage of serverless endpoints are being tested
-    #
     def coverage_stack
       @endpoints.count(&:tested_stack?) * 100 / @endpoints.count(&:available_stack?)
     end
@@ -114,31 +108,18 @@ module Elastic
       @endpoints.count { |api| api.available_stack? && !api.tested_stack? }
     end
 
-    # Calculates how many serverless endpoints are not being tested
-    #
-    def untested_serverless_count
-      @endpoints.count do |api|
-        api.available_serverless? && !api.tested_serverless?
-      end
-    end
-
     # Helper for the template
     # It displays a Markdown table with the information for each endpoint
     #
     def display_table
       @endpoints.map do |endpoint|
         "| #{endpoint.name} | #{endpoint.available_stack? ? '🟢' : '🔴'} " \
-        "| #{endpoint.display_tested_stack} | #{endpoint.available_serverless? ? '🟢' : '🔴'} " \
-        "| #{endpoint.display_tested_serverless} | #{endpoint.display_tested_elasticsearch}"
+        "| #{endpoint.display_tested_stack} | #{endpoint.display_tested_elasticsearch}"
       end.join("\n")
     end
 
     def namespaces_stack
       @namespaces_stack ||= namespaces(:stack)
-    end
-
-    def namespaces_serverless
-      @namespaces_serverless ||= namespaces(:serverless)
     end
 
     def namespaces(flavour = nil)
