@@ -2,8 +2,8 @@
 
 Endpoints that are currently being tested are marked as done and link to the test where they're being used.
 
-* **STACK** - **Total**: 545 | **Tested**: 466 | **Untested**: 79 ![](https://geps.dev/progress/85)
-* **SERVERLESS** - **Total**: 279 | **Tested**: 243 | **Untested**: 36 ![](https://geps.dev/progress/87)
+* **STACK** - **Total**: 555 | **Tested**: 466 | **Untested**: 89 ![](https://geps.dev/progress/83)
+* **SERVERLESS** - **Total**: 286 | **Tested**: 243 | **Untested**: 43 ![](https://geps.dev/progress/84)
 
 * [Internal APIs](#internal-apis-not-tracked)
 * [API information from the Elasticsearch JSON specification](#elasticsearch-json-specification)
@@ -126,8 +126,11 @@ Endpoints that are currently being tested are marked as done and link to the tes
 | esql.async_query_delete | 🟢 | [✅](./tests/esql/20_async.yml#L74)</li></ul> | 🙌| 🔴 | Not Applicable
 | esql.async_query_get | 🟢 | [✅](./tests/esql/20_async.yml#L56)</li></ul> | 🙌| 🔴 | Not Applicable
 | esql.async_query_stop | 🟢 | [✅](./tests/esql/20_async.yml#L70)</li></ul> | 🙌| 🔴 | Not Applicable
+| esql.delete_view | 🟢 | ❌ | 👍| 🔴 | Not Applicable
 | esql.get_query | 🟢 | [✅](./tests/esql/30_queries.yml#L12)</li></ul> | 👍| 🟢 | [✅](./tests/esql/30_queries.yml#L12)</li></ul>
+| esql.get_view | 🟢 | ❌ | 👍| 🔴 | Not Applicable
 | esql.list_queries | 🟢 | [✅](./tests/esql/30_queries.yml#L7)</li></ul> | 👍| 🟢 | [✅](./tests/esql/30_queries.yml#L7)</li></ul>
+| esql.put_view | 🟢 | ❌ | 👍| 🔴 | Not Applicable
 | esql.query | 🟢 | [✅](./tests/esql/10_query.yml#L40)</li></ul> | 👍| 🔴 | Not Applicable
 | exists | 🟢 | [✅](./tests/exists/10_basic.yml#L19)</li></ul> | 👍| 🟢 | [✅](./tests/exists/10_basic.yml#L19)</li></ul>
 | exists_source | 🟢 | [✅](./tests/exists_source/10_basic.yml#L19)</li></ul> | 🙌| 🟢 | [✅](./tests/exists_source/10_basic.yml#L19)</li></ul>
@@ -255,10 +258,12 @@ Endpoints that are currently being tested are marked as done and link to the tes
 | inference.put_elser | 🟢 | ❌ | 👎| 🟢 | ❌
 | inference.put_googleaistudio | 🟢 | ❌ | 👎| 🟢 | ❌
 | inference.put_googlevertexai | 🟢 | ❌ | 👎| 🟢 | ❌
+| inference.put_groq | 🟢 | ❌ | 👎| 🟢 | ❌
 | inference.put_hugging_face | 🟢 | ❌ | 👎| 🟢 | ❌
 | inference.put_jinaai | 🟢 | ❌ | 👎| 🟢 | ❌
 | inference.put_llama | 🟢 | ❌ | 👎| 🟢 | ❌
 | inference.put_mistral | 🟢 | ❌ | 👎| 🟢 | ❌
+| inference.put_nvidia | 🟢 | ❌ | 👎| 🟢 | ❌
 | inference.put_openai | 🟢 | ❌ | 👎| 🟢 | ❌
 | inference.put_openshift_ai | 🟢 | ❌ | 👎| 🟢 | ❌
 | inference.put_voyageai | 🟢 | ❌ | 👎| 🟢 | ❌
@@ -379,6 +384,11 @@ Endpoints that are currently being tested are marked as done and link to the tes
 | open_point_in_time | 🟢 | [✅](./tests/point_in_time/10_basic.yml#L16)</li></ul> | 👍| 🟢 | [✅](./tests/point_in_time/10_basic.yml#L16)</li></ul>
 | ping | 🟢 | [✅](./tests/ping/ping.yml#L8)</li></ul> | 👍| 🟢 | [✅](./tests/ping/ping.yml#L8)</li></ul>
 | project.tags | 🟢 | ❌ | 👎| 🟢 | ❌
+| project_routing.create | 🟢 | ❌ | 👎| 🟢 | ❌
+| project_routing.create_many | 🟢 | ❌ | 👎| 🟢 | ❌
+| project_routing.delete | 🟢 | ❌ | 👎| 🟢 | ❌
+| project_routing.get | 🟢 | ❌ | 👎| 🟢 | ❌
+| project_routing.get_many | 🟢 | ❌ | 👎| 🟢 | ❌
 | put_script | 🟢 | [✅](./tests/msearch_template.yml#L10)</li></ul> | 👍| 🟢 | [✅](./tests/msearch_template.yml#L10)</li></ul>
 | query_rules.delete_rule | 🟢 | [✅](./tests/query_rules/10_query_rules.yml#L46)</li></ul> | 👍| 🟢 | [✅](./tests/query_rules/10_query_rules.yml#L46)</li></ul>
 | query_rules.delete_ruleset | 🟢 | [✅](./tests/query_rules/10_query_rules.yml#L22)</li></ul> | 👍| 🟢 | [✅](./tests/query_rules/10_query_rules.yml#L22)</li></ul>
@@ -390,7 +400,7 @@ Endpoints that are currently being tested are marked as done and link to the tes
 | query_rules.test | 🟢 | [✅](./tests/query_rules/30_test.yml#L69)</li></ul> | 👍| 🟢 | [✅](./tests/query_rules/30_test.yml#L69)</li></ul>
 | rank_eval | 🟢 | [✅](./tests/rank_eval.yml#L20)</li></ul> | 👍| 🟢 | [✅](./tests/rank_eval.yml#L20)</li></ul>
 | reindex | 🟢 | [✅](./tests/reindex/stack.yml#L23)</li></ul> | 👍| 🟢 | [✅](./tests/reindex/serverless.yml#L23)</li></ul>
-| reindex_rethrottle | 🟢 | [✅](./tests/reindex/stack.yml#L33)</li></ul> | 🙌| 🔴 | Not Applicable
+| reindex_rethrottle | 🟢 | [✅](./tests/reindex/stack.yml#L33)</li></ul> | 👍| 🔴 | Not Applicable
 | render_search_template | 🟢 | [✅](./tests/search_template/10_basic.yml#L29)</li></ul> | 🙌| 🟢 | [✅](./tests/search_template/10_basic.yml#L29)</li></ul>
 | scripts_painless_execute | 🟢 | [✅](./tests/script/10_basic.yml#L36)</li></ul> | 👍| 🟢 | [✅](./tests/script/10_basic.yml#L36)</li></ul>
 | scroll | 🟢 | [✅](./tests/reindex/stack.yml#L25)</li></ul> | 👍| 🟢 | [✅](./tests/scroll/10_basic.yml#L20)</li></ul>
@@ -602,7 +612,7 @@ Endpoints that are currently being tested are marked as done and link to the tes
 
 ## Elasticsearch JSON specification
 
-**Total** 545 | **Tested** 428 | **Untested** 117 ![](https://geps.dev/progress/78)
+**Total** 555 | **Tested** 432 | **Untested** 123 ![](https://geps.dev/progress/77)
 
 <details>
   <summary id="apis-in-json-spec-and-not-elasticsearch-specification">APIs in JSON spec and not elasticsearch-specification (excluding internal APIs)</summary>
