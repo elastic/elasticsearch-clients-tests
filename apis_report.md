@@ -2,7 +2,7 @@
 
 Endpoints that are currently being tested are marked as done and link to the test where they're being used.
 
-* **STACK** - **Total**: 555 | **Tested**: 469 | **Untested**: 86 ![](https://geps.dev/progress/84)
+* **STACK** - **Total**: 549 | **Tested**: 469 | **Untested**: 80 ![](https://geps.dev/progress/85)
 * **SERVERLESS** - **Total**: 286 | **Tested**: 243 | **Untested**: 43 ![](https://geps.dev/progress/84)
 
 * [Internal APIs](#internal-apis-not-tracked)
@@ -383,12 +383,12 @@ Endpoints that are currently being tested are marked as done and link to the tes
 | nodes.usage | 🟢 | [✅](./tests/nodes/10_basic.yml#L18)</li></ul> | 🙌| 🔴 | Not Applicable
 | open_point_in_time | 🟢 | [✅](./tests/point_in_time/10_basic.yml#L16)</li></ul> | 👍| 🟢 | [✅](./tests/point_in_time/10_basic.yml#L16)</li></ul>
 | ping | 🟢 | [✅](./tests/ping/ping.yml#L8)</li></ul> | 👍| 🟢 | [✅](./tests/ping/ping.yml#L8)</li></ul>
-| project.tags | 🟢 | ❌ | 👎| 🟢 | ❌
-| project_routing.create | 🟢 | ❌ | 👎| 🟢 | ❌
-| project_routing.create_many | 🟢 | ❌ | 👎| 🟢 | ❌
-| project_routing.delete | 🟢 | ❌ | 👎| 🟢 | ❌
-| project_routing.get | 🟢 | ❌ | 👎| 🟢 | ❌
-| project_routing.get_many | 🟢 | ❌ | 👎| 🟢 | ❌
+| project.tags | 🔴 | Not Applicable | 👎| 🟢 | ❌
+| project_routing.create | 🔴 | Not Applicable | 👎| 🟢 | ❌
+| project_routing.create_many | 🔴 | Not Applicable | 👎| 🟢 | ❌
+| project_routing.delete | 🔴 | Not Applicable | 👎| 🟢 | ❌
+| project_routing.get | 🔴 | Not Applicable | 👎| 🟢 | ❌
+| project_routing.get_many | 🔴 | Not Applicable | 👎| 🟢 | ❌
 | put_script | 🟢 | [✅](./tests/msearch_template.yml#L10)</li></ul> | 👍| 🟢 | [✅](./tests/msearch_template.yml#L10)</li></ul>
 | query_rules.delete_rule | 🟢 | [✅](./tests/query_rules/10_query_rules.yml#L46)</li></ul> | 👍| 🟢 | [✅](./tests/query_rules/10_query_rules.yml#L46)</li></ul>
 | query_rules.delete_ruleset | 🟢 | [✅](./tests/query_rules/10_query_rules.yml#L22)</li></ul> | 👍| 🟢 | [✅](./tests/query_rules/10_query_rules.yml#L22)</li></ul>
