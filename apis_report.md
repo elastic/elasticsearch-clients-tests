@@ -2,7 +2,7 @@
 
 Endpoints that are currently being tested are marked as done and link to the test where they're being used.
 
-* **STACK** - **Total**: 555 | **Tested**: 466 | **Untested**: 89 ![](https://geps.dev/progress/83)
+* **STACK** - **Total**: 555 | **Tested**: 469 | **Untested**: 86 ![](https://geps.dev/progress/84)
 * **SERVERLESS** - **Total**: 286 | **Tested**: 243 | **Untested**: 43 ![](https://geps.dev/progress/84)
 
 * [Internal APIs](#internal-apis-not-tracked)
@@ -126,11 +126,11 @@ Endpoints that are currently being tested are marked as done and link to the tes
 | esql.async_query_delete | 🟢 | [✅](./tests/esql/20_async.yml#L74)</li></ul> | 🙌| 🔴 | Not Applicable
 | esql.async_query_get | 🟢 | [✅](./tests/esql/20_async.yml#L56)</li></ul> | 🙌| 🔴 | Not Applicable
 | esql.async_query_stop | 🟢 | [✅](./tests/esql/20_async.yml#L70)</li></ul> | 🙌| 🔴 | Not Applicable
-| esql.delete_view | 🟢 | ❌ | 👍| 🔴 | Not Applicable
+| esql.delete_view | 🟢 | [✅](./tests/esql/40_view.yml#L81)</li></ul> | 👍| 🔴 | Not Applicable
 | esql.get_query | 🟢 | [✅](./tests/esql/30_queries.yml#L12)</li></ul> | 👍| 🟢 | [✅](./tests/esql/30_queries.yml#L12)</li></ul>
-| esql.get_view | 🟢 | ❌ | 👍| 🔴 | Not Applicable
+| esql.get_view | 🟢 | [✅](./tests/esql/40_view.yml#L53)</li></ul> | 👍| 🔴 | Not Applicable
 | esql.list_queries | 🟢 | [✅](./tests/esql/30_queries.yml#L7)</li></ul> | 👍| 🟢 | [✅](./tests/esql/30_queries.yml#L7)</li></ul>
-| esql.put_view | 🟢 | ❌ | 👍| 🔴 | Not Applicable
+| esql.put_view | 🟢 | [✅](./tests/esql/40_view.yml#L47)</li></ul> | 👍| 🔴 | Not Applicable
 | esql.query | 🟢 | [✅](./tests/esql/10_query.yml#L40)</li></ul> | 👍| 🔴 | Not Applicable
 | exists | 🟢 | [✅](./tests/exists/10_basic.yml#L19)</li></ul> | 👍| 🟢 | [✅](./tests/exists/10_basic.yml#L19)</li></ul>
 | exists_source | 🟢 | [✅](./tests/exists_source/10_basic.yml#L19)</li></ul> | 🙌| 🟢 | [✅](./tests/exists_source/10_basic.yml#L19)</li></ul>
