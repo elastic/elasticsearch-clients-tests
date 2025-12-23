@@ -35,8 +35,16 @@ module Elastic
     # The absence of an 'availability' field on a property implies that the property is
     # available in all flavors.
     def available_stack?
-      @available_stack ||= @availability.nil? || @availability.dig('stack', 'visibility') != 'private'
+      return false if serverless_only?
+
+      @available_stack ||=
+        @availability.nil? ||
+        @availability.dig('stack', 'visibility') != 'private'
     end
+
+  def serverless_only?
+    @availability.dig('serverless', 'visibility') == 'public' && @availability['stack'].nil?
+  end
 
     def available_serverless?
       return true if serverless_only?
