@@ -3,7 +3,7 @@
 Endpoints that are currently being tested are marked as done and link to the test where they're being used.
 
 * **STACK** - **Total**: 530 | **Tested**: 453 | **Untested**: 77 ![](https://geps.dev/progress/85)
-* **SERVERLESS** - **Total**: 269 | **Tested**: 241 | **Untested**: 28 ![](https://geps.dev/progress/89)
+* **SERVERLESS** - **Total**: 270 | **Tested**: 241 | **Untested**: 29 ![](https://geps.dev/progress/89)
 
 * [Internal APIs](#internal-apis-not-tracked)
 * [API information from the Elasticsearch JSON specification](#elasticsearch-json-specification)
@@ -376,7 +376,7 @@ Endpoints that are currently being tested are marked as done and link to the tes
 | query_rules.test | 🟢 | [✅](./tests/query_rules/30_test.yml#L69)</li></ul> | 👍| 🟢 | [✅](./tests/query_rules/30_test.yml#L69)</li></ul>
 | rank_eval | 🟢 | [✅](./tests/rank_eval.yml#L20)</li></ul> | 👍| 🟢 | [✅](./tests/rank_eval.yml#L20)</li></ul>
 | reindex | 🟢 | [✅](./tests/reindex/stack.yml#L23)</li></ul> | 👍| 🟢 | [✅](./tests/reindex/serverless.yml#L23)</li></ul>
-| reindex_rethrottle | 🟢 | [✅](./tests/reindex/stack.yml#L33)</li></ul> | 🙌| 🔴 | Not Applicable
+| reindex_rethrottle | 🟢 | [✅](./tests/reindex/stack.yml#L33)</li></ul> | 👍| 🔴 | Not Applicable
 | render_search_template | 🟢 | [✅](./tests/search_template/10_basic.yml#L29)</li></ul> | 🙌| 🟢 | [✅](./tests/search_template/10_basic.yml#L29)</li></ul>
 | scripts_painless_execute | 🟢 | [✅](./tests/script/10_basic.yml#L36)</li></ul> | 👍| 🟢 | [✅](./tests/script/10_basic.yml#L36)</li></ul>
 | scroll | 🟢 | [✅](./tests/reindex/stack.yml#L25)</li></ul> | 👍| 🟢 | [✅](./tests/scroll/10_basic.yml#L20)</li></ul>
@@ -512,7 +512,7 @@ Endpoints that are currently being tested are marked as done and link to the tes
 | text_structure.find_structure | 🟢 | [✅](./tests/text_structure/10_basic.yml#L60)</li></ul> | 👍| 🔴 | Not Applicable
 | text_structure.test_grok_pattern | 🟢 | [✅](./tests/text_structure/10_basic.yml#L82)</li></ul> | 👍| 🔴 | Not Applicable
 | transform.delete_transform | 🟢 | [✅](./tests/cat/transform.yml#L28)</li></ul> | 👍| 🟢 | [✅](./tests/cat/transform.yml#L28)</li></ul>
-| transform.get_node_stats | 🟢 | [✅](./tests/transform/30_node_stats.yml#L8)</li></ul> | 🙌| 🔴 | Not Applicable
+| transform.get_node_stats | 🟢 | [✅](./tests/transform/30_node_stats.yml#L8)</li></ul> | 🙌| 🟢 | ❌
 | transform.get_transform | 🟢 | [✅](./tests/transform/10_basic.yml#L40)</li></ul> | 👍| 🟢 | [✅](./tests/transform/10_basic.yml#L40)</li></ul>
 | transform.get_transform_stats | 🟢 | [✅](./tests/transform/10_basic.yml#L43)</li></ul> | 👍| 🟢 | [✅](./tests/transform/10_basic.yml#L43)</li></ul>
 | transform.preview_transform | 🟢 | [✅](./tests/transform/10_basic.yml#L46)</li></ul> | 👍| 🟢 | [✅](./tests/transform/10_basic.yml#L46)</li></ul>
@@ -587,7 +587,7 @@ Endpoints that are currently being tested are marked as done and link to the tes
 
 ## Elasticsearch JSON specification
 
-**Total** 530 | **Tested** 418 | **Untested** 112 ![](https://geps.dev/progress/78)
+**Total** 530 | **Tested** 419 | **Untested** 111 ![](https://geps.dev/progress/79)
 
 <details>
   <summary id="apis-in-json-spec-and-not-elasticsearch-specification">APIs in JSON spec and not elasticsearch-specification (excluding internal APIs)</summary>
