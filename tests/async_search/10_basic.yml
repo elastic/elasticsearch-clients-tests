@@ -28,7 +28,6 @@ teardown:
   - do:
       indices.delete:
         index: async_search_test_10
-
 ---
 "Async Search basic operations":
   - do:
