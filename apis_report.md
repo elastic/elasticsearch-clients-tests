@@ -1,21 +1,23 @@
-# Elasticsearch Tests report
+# Elasticsearch Tests report main
 
 Endpoints that are currently being tested are marked as done and link to the test where they're being used.
 
 * **STACK** - **Total**: 549 | **Tested**: 469 | **Untested**: 80 ![](https://geps.dev/progress/85)
+
 * **SERVERLESS** - **Total**: 286 | **Tested**: 243 | **Untested**: 43 ![](https://geps.dev/progress/84)
+
 
 * [Internal APIs](#internal-apis-not-tracked)
 * [API information from the Elasticsearch JSON specification](#elasticsearch-json-specification)
 
 ## Endpoints in elasticsearch-specification
 
-| Endpoint name | Available in Stack | Tested in Stack | Tested in ES | Available in Serverless | Tested in Serverless |
-| :------------ | :----------------: | :-------------: | :----------: | :---------------------: | :------------------: |
-| async_search.delete | 🟢 | [✅](./tests/async_search/10_basic.yml#L53)</li></ul> | 👍| 🟢 | [✅](./tests/async_search/10_basic.yml#L53)</li></ul>
-| async_search.get | 🟢 | [✅](./tests/async_search/10_basic.yml#L43)</li></ul> | 👍| 🟢 | [✅](./tests/async_search/10_basic.yml#L43)</li></ul>
-| async_search.status | 🟢 | [✅](./tests/async_search/10_basic.yml#L48)</li></ul> | 👍| 🟢 | [✅](./tests/async_search/10_basic.yml#L48)</li></ul>
-| async_search.submit | 🟢 | [✅](./tests/async_search/10_basic.yml#L35)</li></ul> | 👍| 🟢 | [✅](./tests/async_search/10_basic.yml#L35)</li></ul>
+| Endpoint name | Available in Stack | Tested in Stack | Tested in ES |Available in Serverless | Tested in Serverless |
+| :------------ | :----------------: |:----------------: |:----------------: |:----------------: |:----------------: |
+| async_search.delete | 🟢 | [✅](./tests/async_search/10_basic.yml#L52)</li></ul> | 👍| 🟢 | [✅](./tests/async_search/10_basic.yml#L52)</li></ul>
+| async_search.get | 🟢 | [✅](./tests/async_search/10_basic.yml#L42)</li></ul> | 👍| 🟢 | [✅](./tests/async_search/10_basic.yml#L42)</li></ul>
+| async_search.status | 🟢 | [✅](./tests/async_search/10_basic.yml#L47)</li></ul> | 👍| 🟢 | [✅](./tests/async_search/10_basic.yml#L47)</li></ul>
+| async_search.submit | 🟢 | [✅](./tests/async_search/10_basic.yml#L34)</li></ul> | 👍| 🟢 | [✅](./tests/async_search/10_basic.yml#L34)</li></ul>
 | bulk | 🟢 | [✅](./tests/bulk/10_basic.yml#L13)</li></ul> | 👍| 🟢 | [✅](./tests/bulk/10_basic.yml#L13)</li></ul>
 | cat.aliases | 🟢 | [✅](./tests/cat/aliases.yml#L20)</li></ul> | 👍| 🟢 | [✅](./tests/cat/aliases.yml#L20)</li></ul>
 | cat.allocation | 🟢 | [✅](./tests/cat/allocation.yml#L6)</li></ul> | 👍| 🔴 | Not Applicable
