@@ -16,20 +16,20 @@
 # specific language governing permissions and limitations
 # under the License.
 -%>
-# Elasticsearch Tests report
+# Elasticsearch Tests report <%= ENV['BRANCH'] %>
 
 Endpoints that are currently being tested are marked as done and link to the test where they're being used.
 
 * **STACK** - **Total**: <%= @reporter.endpoints.count(&:available_stack?) %> | **Tested**: <%= @reporter.endpoints.count(&:tested_stack?) %> | **Untested**: <%= @reporter.untested_stack_count %> ![](https://geps.dev/progress/<%= @reporter.coverage_stack %>)
+<% if @reporter.report_serverless? %>
 * **SERVERLESS** - **Total**: <%= @reporter.endpoints.count(&:available_serverless?) %> | **Tested**: <%= @reporter.endpoints.count(&:tested_serverless?) %> | **Untested**: <%= @reporter.untested_serverless_count %> ![](https://geps.dev/progress/<%= @reporter.coverage_serverless %>)
+<% end %>
 
 * [Internal APIs](#internal-apis-not-tracked)
 * [API information from the Elasticsearch JSON specification](#elasticsearch-json-specification)
 
 ## Endpoints in elasticsearch-specification
 
-| Endpoint name | Available in Stack | Tested in Stack | Tested in ES | Available in Serverless | Tested in Serverless |
-| :------------ | :----------------: | :-------------: | :----------: | :---------------------: | :------------------: |
 <%= @reporter.display_table -%>
 
 ## Internal APIs (Not tracked)

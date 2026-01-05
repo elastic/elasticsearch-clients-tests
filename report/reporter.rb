@@ -128,12 +128,22 @@ module Elastic
     # It displays a Markdown table with the information for each endpoint
     #
     def display_table
+      headers = '| Endpoint name | Available in Stack | Tested in Stack | Tested in ES |'
+      headers << 'Available in Serverless | Tested in Serverless |' if report_serverless?
+      table = [
+        headers,
+        "| :------------ | #{':----------------: |' * (headers.count('|') - 2)}"
+      ]
       @endpoints.map do |endpoint|
-        "| #{endpoint.name} | #{endpoint.available_stack? ? '🟢' : '🔴'} " \
-        "| #{endpoint.display_tested_stack} | #{endpoint.display_tested_elasticsearch}" \
-        "| #{endpoint.available_serverless? ? '🟢' : '🔴'} " \
-        "| #{endpoint.display_tested_serverless}"
-      end.join("\n")
+        next if endpoint.serverless_only? && !report_serverless?
+
+        row = "| #{endpoint.name} | #{endpoint.available_stack? ? '🟢' : '🔴'} " \
+        "| #{endpoint.display_tested_stack} | #{endpoint.display_tested_elasticsearch}"
+        row << "| #{endpoint.available_serverless? ? '🟢' : '🔴'} " \
+               "| #{endpoint.display_tested_serverless}" if report_serverless?
+        table << row
+      end
+      table.join("\n")
     end
 
     def namespaces_stack
@@ -154,6 +164,10 @@ module Elastic
           a.name.split('.').first if a.name.include?('.')
         end.compact.uniq
       end
+    end
+
+    def report_serverless?
+      ENV['BRANCH'] == 'main'
     end
   end
 end
