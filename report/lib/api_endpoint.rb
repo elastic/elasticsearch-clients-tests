@@ -39,6 +39,8 @@ module Elastic
     end
 
     def available_serverless?
+      return true if serverless_only?
+
       @available_serverless ||= @availability.nil? || (
         @availability['serverless'] &&
         @availability.dig('serverless', 'visibility') == 'public'
