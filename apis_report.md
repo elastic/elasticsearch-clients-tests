@@ -385,12 +385,12 @@ Endpoints that are currently being tested are marked as done and link to the tes
 | nodes.usage | 🟢 | [✅](./tests/nodes/10_basic.yml#L18)</li></ul> | 🙌| 🔴 | Not Applicable
 | open_point_in_time | 🟢 | [✅](./tests/point_in_time/10_basic.yml#L16)</li></ul> | 👍| 🟢 | [✅](./tests/point_in_time/10_basic.yml#L16)</li></ul>
 | ping | 🟢 | [✅](./tests/ping/ping.yml#L8)</li></ul> | 👍| 🟢 | [✅](./tests/ping/ping.yml#L8)</li></ul>
+| project.create_many_routing | 🔴 | Not Applicable | 👎| 🟢 | ❌
+| project.create_routing | 🔴 | Not Applicable | 👎| 🟢 | ❌
+| project.delete_routing | 🔴 | Not Applicable | 👎| 🟢 | ❌
+| project.get_many_routing | 🔴 | Not Applicable | 👎| 🟢 | ❌
+| project.get_routing | 🔴 | Not Applicable | 👎| 🟢 | ❌
 | project.tags | 🔴 | Not Applicable | 👎| 🟢 | ❌
-| project_routing.create | 🔴 | Not Applicable | 👎| 🟢 | ❌
-| project_routing.create_many | 🔴 | Not Applicable | 👎| 🟢 | ❌
-| project_routing.delete | 🔴 | Not Applicable | 👎| 🟢 | ❌
-| project_routing.get | 🔴 | Not Applicable | 👎| 🟢 | ❌
-| project_routing.get_many | 🔴 | Not Applicable | 👎| 🟢 | ❌
 | put_script | 🟢 | [✅](./tests/msearch_template.yml#L10)</li></ul> | 👍| 🟢 | [✅](./tests/msearch_template.yml#L10)</li></ul>
 | query_rules.delete_rule | 🟢 | [✅](./tests/query_rules/10_query_rules.yml#L46)</li></ul> | 👍| 🟢 | [✅](./tests/query_rules/10_query_rules.yml#L46)</li></ul>
 | query_rules.delete_ruleset | 🟢 | [✅](./tests/query_rules/10_query_rules.yml#L22)</li></ul> | 👍| 🟢 | [✅](./tests/query_rules/10_query_rules.yml#L22)</li></ul>
@@ -614,7 +614,7 @@ Endpoints that are currently being tested are marked as done and link to the tes
 
 ## Elasticsearch JSON specification
 
-**Total** 555 | **Tested** 432 | **Untested** 123 ![](https://geps.dev/progress/77)
+**Total** 550 | **Tested** 432 | **Untested** 118 ![](https://geps.dev/progress/78)
 
 <details>
   <summary id="apis-in-json-spec-and-not-elasticsearch-specification">APIs in JSON spec and not elasticsearch-specification (excluding internal APIs)</summary>
