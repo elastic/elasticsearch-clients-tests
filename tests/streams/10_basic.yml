@@ -6,13 +6,15 @@ requires:
 ---
 "Basic toggle of logs state enable to disable and back":
   - do:
-      streams.logs_enable: { }
+      streams.logs_enable:
+        name: logs.otel
   - is_true: acknowledged
 
   - do:
       streams.status: { }
-  - is_true: logs.enabled
+  - is_true: logs\.otel.enabled
 
   - do:
-      streams.logs_disable: { }
+      streams.logs_disable:
+        name: logs.otel
   - is_true: acknowledged
