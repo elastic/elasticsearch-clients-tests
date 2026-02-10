@@ -77,7 +77,7 @@ module Elastic
       elsif available_stack?
         '❌'
       else
-        'Not Applicable'
+        '<span title="Not Applicable">N/A</span>'
       end
     end
 
@@ -87,7 +87,7 @@ module Elastic
       elsif available_serverless?
         '❌'
       else
-        'Not Applicable'
+        '<span title="Not Applicable">N/A</span>'
       end
     end
 
