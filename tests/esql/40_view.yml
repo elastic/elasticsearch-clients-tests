@@ -1,5 +1,6 @@
 ---
 requires:
+  feature_flag: esql_views
   serverless: false
   stack: true
 ---

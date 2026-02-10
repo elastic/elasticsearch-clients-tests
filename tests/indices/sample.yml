@@ -1,5 +1,6 @@
 ---
 requires:
+  feature_flag: random_sampling
   serverless: false
   stack: true
 ---
