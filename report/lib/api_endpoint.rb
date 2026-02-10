@@ -42,9 +42,13 @@ module Elastic
         @availability.dig('stack', 'visibility') != 'private'
     end
 
-  def serverless_only?
-    @availability.dig('serverless', 'visibility') == 'public' && @availability['stack'].nil?
-  end
+    def serverless_only?
+      @availability.dig('serverless', 'visibility') == 'public' && @availability['stack'].nil?
+    end
+
+    def feature_flag?
+      @availability.dig('stack', 'visibility') == 'feature_flag'
+    end
 
     def available_serverless?
       return true if serverless_only?
@@ -96,6 +100,10 @@ module Elastic
       else
         '👎'
       end
+    end
+
+    def display_feature_flag
+      "<span title='Feature flag: #{@availability.dig('stack', 'featureFlag')}'>🚩</span>" if feature_flag?
     end
 
     def namespace

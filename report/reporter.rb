@@ -128,7 +128,7 @@ module Elastic
     # It displays a Markdown table with the information for each endpoint
     #
     def display_table
-      headers = '| Endpoint name | Available in Stack | Tested in Stack | Tested in ES |'
+      headers = '| Endpoint name | Available in Stack | Tested in Stack | Tested in ES | <span title="Feature flag">🚩</span> |'
       headers << 'Available in Serverless | Tested in Serverless |' if report_serverless?
       table = [
         headers,
@@ -138,7 +138,8 @@ module Elastic
         next if endpoint.serverless_only? && !report_serverless?
 
         row = "| #{endpoint.name} | #{endpoint.available_stack? ? '🟢' : '🔴'} " \
-        "| #{endpoint.display_tested_stack} | #{endpoint.display_tested_elasticsearch}"
+        "| #{endpoint.display_tested_stack} | #{endpoint.display_tested_elasticsearch}" \
+        "| #{endpoint.display_feature_flag}"
         row << "| #{endpoint.available_serverless? ? '🟢' : '🔴'} " \
                "| #{endpoint.display_tested_serverless}" if report_serverless?
         table << row
