@@ -20,6 +20,16 @@ requires:
 
 This helps us differentiate tests for a particular client and define tests in common for both.
 
+It may also have the `feature_flag` key for cases where an endpoint is behind a feature flag. Clients are not required to test these APIs, so the tests can be skipped. E.g.:
+
+```yaml
+---
+requires:
+  feature_flag: esql_views
+  serverless: true
+  stack: true
+```
+
 ### `setup` and `teardown`
 
 Pre-requisites to run a test (e.g. creating an index, populating an index with data) are declared in a `setup` section. The list of commands in the `setup` section has to run before the test section.
