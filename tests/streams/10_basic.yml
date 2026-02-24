@@ -1,6 +1,5 @@
 ---
 requires:
-  feature_flag: logs_stream
   stack: true
   serverless: false
 ---
