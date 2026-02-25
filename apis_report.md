@@ -520,9 +520,9 @@ Endpoints that are currently being tested are marked as done and link to the tes
 | sql.query | 🟢 | [✅](./tests/sql/10_basic.yml#L26)</li></ul> | 👍| | 🟢 | [✅](./tests/sql/10_basic.yml#L26)</li></ul>
 | sql.translate | 🟢 | [✅](./tests/sql/10_basic.yml#L33)</li></ul> | 👍| | 🟢 | [✅](./tests/sql/10_basic.yml#L33)</li></ul>
 | ssl.certificates | 🟢 | [✅](./tests/ssl.yml#L8)</li></ul> | 👍| | 🔴 | <span title="Not Applicable">N/A</span>
-| streams.logs_disable | 🟢 | [✅](./tests/streams/10_basic.yml#L18)</li></ul> | 👍| | 🔴 | <span title="Not Applicable">N/A</span>
-| streams.logs_enable | 🟢 | [✅](./tests/streams/10_basic.yml#L9)</li></ul> | 👍| | 🔴 | <span title="Not Applicable">N/A</span>
-| streams.status | 🟢 | [✅](./tests/streams/10_basic.yml#L14)</li></ul> | 👍| | 🔴 | <span title="Not Applicable">N/A</span>
+| streams.logs_disable | 🟢 | [✅](./tests/streams/10_basic.yml#L17)</li></ul> | 👍| | 🔴 | <span title="Not Applicable">N/A</span>
+| streams.logs_enable | 🟢 | [✅](./tests/streams/10_basic.yml#L8)</li></ul> | 👍| | 🔴 | <span title="Not Applicable">N/A</span>
+| streams.status | 🟢 | [✅](./tests/streams/10_basic.yml#L13)</li></ul> | 👍| | 🔴 | <span title="Not Applicable">N/A</span>
 | synonyms.delete_synonym | 🟢 | [✅](./tests/synonyms/10_basic.yml#L44)</li></ul> | 👍| | 🟢 | [✅](./tests/synonyms/10_basic.yml#L44)</li></ul>
 | synonyms.delete_synonym_rule | 🟢 | [✅](./tests/synonyms/10_basic.yml#L39)</li></ul> | 👍| | 🟢 | [✅](./tests/synonyms/10_basic.yml#L39)</li></ul>
 | synonyms.get_synonym | 🟢 | [✅](./tests/synonyms/10_basic.yml#L21)</li></ul> | 👍| | 🟢 | [✅](./tests/synonyms/10_basic.yml#L21)</li></ul>
