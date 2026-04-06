@@ -17,7 +17,7 @@ jobs:
       STACK_VERSION: 9.4.0-SNAPSHOT
       BRANCH: 'main' # Branch for downloading the specs
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6.0.2
         with:
           persist-credentials: false
           ref: ${{ env.BRANCH }}
