@@ -4,7 +4,7 @@ Endpoints that are currently being tested are marked as done and link to the tes
 
 * **STACK** - **Total**: 545 | **Tested**: 463 | **Untested**: 82 ![](https://geps.dev/progress/84)
 
-* **SERVERLESS** - **Total**: 288 | **Tested**: 243 | **Untested**: 45 ![](https://geps.dev/progress/84)
+* **SERVERLESS** - **Total**: 293 | **Tested**: 243 | **Untested**: 50 ![](https://geps.dev/progress/82)
 
 
 * [Internal APIs](#internal-apis-not-tracked)
@@ -128,11 +128,11 @@ Endpoints that are currently being tested are marked as done and link to the tes
 | esql.async_query_delete | 🟢 | [✅](./tests/esql/20_async.yml#L74)</li></ul> | 🙌| | 🔴 | <span title="Not Applicable">N/A</span>
 | esql.async_query_get | 🟢 | [✅](./tests/esql/20_async.yml#L56)</li></ul> | 🙌| | 🔴 | <span title="Not Applicable">N/A</span>
 | esql.async_query_stop | 🟢 | [✅](./tests/esql/20_async.yml#L70)</li></ul> | 🙌| | 🔴 | <span title="Not Applicable">N/A</span>
-| esql.delete_view | 🟢 | [✅](./tests/esql/40_view.yml#L82)</li></ul> | 👍| <span title='Feature flag: esql_views'>🚩</span>| 🔴 | <span title="Not Applicable">N/A</span>
+| esql.delete_view | 🟢 | [✅](./tests/esql/40_view.yml#L82)</li></ul> | 👍| | 🟢 | ❌
 | esql.get_query | 🟢 | [✅](./tests/esql/30_queries.yml#L12)</li></ul> | 👍| | 🟢 | [✅](./tests/esql/30_queries.yml#L12)</li></ul>
-| esql.get_view | 🟢 | [✅](./tests/esql/40_view.yml#L54)</li></ul> | 👍| <span title='Feature flag: esql_views'>🚩</span>| 🔴 | <span title="Not Applicable">N/A</span>
+| esql.get_view | 🟢 | [✅](./tests/esql/40_view.yml#L54)</li></ul> | 👍| | 🟢 | ❌
 | esql.list_queries | 🟢 | [✅](./tests/esql/30_queries.yml#L7)</li></ul> | 👍| | 🟢 | [✅](./tests/esql/30_queries.yml#L7)</li></ul>
-| esql.put_view | 🟢 | [✅](./tests/esql/40_view.yml#L48)</li></ul> | 👍| <span title='Feature flag: esql_views'>🚩</span>| 🔴 | <span title="Not Applicable">N/A</span>
+| esql.put_view | 🟢 | [✅](./tests/esql/40_view.yml#L48)</li></ul> | 👍| | 🟢 | ❌
 | esql.query | 🟢 | [✅](./tests/esql/10_query.yml#L40)</li></ul> | 👍| | 🔴 | <span title="Not Applicable">N/A</span>
 | exists | 🟢 | [✅](./tests/exists/10_basic.yml#L19)</li></ul> | 👍| | 🟢 | [✅](./tests/exists/10_basic.yml#L19)</li></ul>
 | exists_source | 🟢 | [✅](./tests/exists_source/10_basic.yml#L19)</li></ul> | 🙌| | 🟢 | [✅](./tests/exists_source/10_basic.yml#L19)</li></ul>
@@ -268,9 +268,9 @@ Endpoints that are currently being tested are marked as done and link to the tes
 | inference.put_watsonx | 🟢 | ❌ | 👎| | 🟢 | ❌
 | inference.rerank | 🟢 | ❌ | 👎| | 🟢 | ❌
 | inference.sparse_embedding | 🟢 | ❌ | 👎| | 🟢 | ❌
-| inference.stream_completion | 🟢 | ❌ | 👎| | 🔴 | <span title="Not Applicable">N/A</span>
+| inference.stream_completion | 🟢 | ❌ | 👎| | 🟢 | ❌
 | inference.text_embedding | 🟢 | ❌ | 👎| | 🟢 | ❌
-| inference.update | 🟢 | ❌ | 👎| | 🔴 | <span title="Not Applicable">N/A</span>
+| inference.update | 🟢 | ❌ | 👎| | 🟢 | ❌
 | info | 🟢 | [✅](./tests/info_stack.yml#L8)</li></ul> | 👍| | 🟢 | [✅](./tests/info_serverless.yml#L8)</li></ul>
 | ingest.delete_geoip_database | 🟢 | [✅](./tests/ingest/20_geoip.yml#L70)</li></ul> | 👍| | 🔴 | <span title="Not Applicable">N/A</span>
 | ingest.delete_ip_location_database | 🟢 | [✅](./tests/ingest/30_ip_location_database.yml#L69)</li></ul> | 👍| | 🔴 | <span title="Not Applicable">N/A</span>
