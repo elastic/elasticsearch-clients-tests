@@ -2,7 +2,7 @@
 
 Endpoints that are currently being tested are marked as done and link to the test where they're being used.
 
-* **STACK** - **Total**: 545 | **Tested**: 463 | **Untested**: 82 ![](https://geps.dev/progress/84)
+* **STACK** - **Total**: 549 | **Tested**: 463 | **Untested**: 86 ![](https://geps.dev/progress/84)
 
 * **SERVERLESS** - **Total**: 293 | **Tested**: 243 | **Untested**: 50 ![](https://geps.dev/progress/82)
 
@@ -19,6 +19,7 @@ Endpoints that are currently being tested are marked as done and link to the tes
 | async_search.status | 🟢 | [✅](./tests/async_search/10_basic.yml#L47)</li></ul> | 👍| | 🟢 | [✅](./tests/async_search/10_basic.yml#L47)</li></ul>
 | async_search.submit | 🟢 | [✅](./tests/async_search/10_basic.yml#L34)</li></ul> | 👍| | 🟢 | [✅](./tests/async_search/10_basic.yml#L34)</li></ul>
 | bulk | 🟢 | [✅](./tests/bulk/10_basic.yml#L13)</li></ul> | 👍| | 🟢 | [✅](./tests/bulk/10_basic.yml#L13)</li></ul>
+| cancel_reindex | 🟢 | ❌ | 👎| <span title='Feature flag: reindex_management_api'>🚩</span>| 🔴 | <span title="Not Applicable">N/A</span>
 | cat.aliases | 🟢 | [✅](./tests/cat/aliases.yml#L20)</li></ul> | 👍| | 🟢 | [✅](./tests/cat/aliases.yml#L20)</li></ul>
 | cat.allocation | 🟢 | [✅](./tests/cat/allocation.yml#L6)</li></ul> | 👍| | 🔴 | <span title="Not Applicable">N/A</span>
 | cat.circuit_breaker | 🟢 | [✅](./tests/cat/circuit_breaker.yml#L8)</li></ul> | 👍| | 🔴 | <span title="Not Applicable">N/A</span>
@@ -144,6 +145,7 @@ Endpoints that are currently being tested are marked as done and link to the tes
 | fleet.msearch | 🟢 | ❌ | 👎| | 🔴 | <span title="Not Applicable">N/A</span>
 | fleet.search | 🟢 | ❌ | 👎| | 🔴 | <span title="Not Applicable">N/A</span>
 | get | 🟢 | [✅](./tests/get/10_basic.yml#L15)</li></ul> | 👍| | 🟢 | [✅](./tests/get/10_basic.yml#L15)</li></ul>
+| get_reindex | 🟢 | ❌ | 👎| <span title='Feature flag: reindex_management_api'>🚩</span>| 🔴 | <span title="Not Applicable">N/A</span>
 | get_script | 🟢 | [✅](./tests/script/10_basic.yml#L29)</li></ul> | 🙌| | 🟢 | [✅](./tests/script/10_basic.yml#L29)</li></ul>
 | get_script_context | 🟢 | [✅](./tests/script/20_script_context_languages.yml#L8)</li></ul> | 👍| | 🔴 | <span title="Not Applicable">N/A</span>
 | get_script_languages | 🟢 | [✅](./tests/script/20_script_context_languages.yml#L14)</li></ul> | 👍| | 🔴 | <span title="Not Applicable">N/A</span>
@@ -291,6 +293,7 @@ Endpoints that are currently being tested are marked as done and link to the tes
 | license.post | 🟢 | [✅](./tests/license/10_stack.yml#L8)</li></ul> | 👍| | 🔴 | <span title="Not Applicable">N/A</span>
 | license.post_start_basic | 🟢 | [✅](./tests/license/10_stack.yml#L47)</li></ul> | 👍| | 🔴 | <span title="Not Applicable">N/A</span>
 | license.post_start_trial | 🟢 | [✅](./tests/license/10_stack.yml#L57)</li></ul> | 👍| | 🔴 | <span title="Not Applicable">N/A</span>
+| list_reindex | 🟢 | ❌ | 👎| <span title='Feature flag: reindex_management_api'>🚩</span>| 🔴 | <span title="Not Applicable">N/A</span>
 | logstash.delete_pipeline | 🟢 | [✅](./tests/logstash/10_basic.yml#L30)</li></ul> | 🙌| | 🟢 | [✅](./tests/logstash/10_basic.yml#L30)</li></ul>
 | logstash.get_pipeline | 🟢 | [✅](./tests/logstash/10_basic.yml#L26)</li></ul> | 🙌| | 🟢 | [✅](./tests/logstash/10_basic.yml#L26)</li></ul>
 | logstash.put_pipeline | 🟢 | [✅](./tests/logstash/10_basic.yml#L8)</li></ul> | 🙌| | 🟢 | [✅](./tests/logstash/10_basic.yml#L8)</li></ul>
@@ -431,6 +434,7 @@ Endpoints that are currently being tested are marked as done and link to the tes
 | security.clear_cached_realms | 🟢 | ❌ | 👎| | 🔴 | <span title="Not Applicable">N/A</span>
 | security.clear_cached_roles | 🟢 | [✅](./tests/security/40_roles.yml#L97)</li></ul> | 👍| | 🔴 | <span title="Not Applicable">N/A</span>
 | security.clear_cached_service_tokens | 🟢 | [✅](./tests/security/90_service_accounts.yml#L39)</li></ul> | 👍| | 🔴 | <span title="Not Applicable">N/A</span>
+| security.clone_api_key | 🟢 | ❌ | 👎| | 🔴 | <span title="Not Applicable">N/A</span>
 | security.create_api_key | 🟢 | [✅](./tests/security/10_api_key_basic.yml#L8)</li></ul> | 👍| | 🟢 | [✅](./tests/security/10_api_key_basic.yml#L8)</li></ul>
 | security.create_cross_cluster_api_key | 🟢 | [✅](./tests/security/80_api_key_cross_cluster.yml#L40)</li></ul> | 👍| | 🔴 | <span title="Not Applicable">N/A</span>
 | security.create_service_token | 🟢 | [✅](./tests/security/90_service_accounts.yml#L24)</li></ul> | 👍| | 🔴 | <span title="Not Applicable">N/A</span>
@@ -610,7 +614,7 @@ Endpoints that are currently being tested are marked as done and link to the tes
 
 ## Elasticsearch JSON specification
 
-**Total** 551 | **Tested** 426 | **Untested** 125 ![](https://geps.dev/progress/77)
+**Total** 552 | **Tested** 426 | **Untested** 126 ![](https://geps.dev/progress/77)
 
 <details>
   <summary id="apis-in-json-spec-and-not-elasticsearch-specification">APIs in JSON spec and not elasticsearch-specification (excluding internal APIs)</summary>
