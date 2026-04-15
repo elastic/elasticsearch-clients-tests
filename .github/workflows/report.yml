@@ -7,15 +7,14 @@ on:
     branches:
       - main
       - 8.19
-      - 9.1
-      - 9.2
       - 9.3
+      - 9.4
 jobs:
   generate_report:
     runs-on: ubuntu-latest
     env:
       STACK_VERSION: 9.4.0-SNAPSHOT
-      BRANCH: 'main' # Branch for downloading the specs
+      BRANCH: '9.4' # Branch for downloading the specs
     steps:
       - uses: actions/checkout@v6.0.2
         with:
