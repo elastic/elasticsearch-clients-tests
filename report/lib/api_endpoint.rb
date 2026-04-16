@@ -73,9 +73,11 @@ module Elastic
 
     def display_tested_stack
       if @test_stack && @test_stack[:file]
-        "[✅](#{@test_stack[:file]}\#L#{@test_stack[:line]})</li></ul>"
+        "<span title='Tested for Stack in #{@test_stack[:file]}'>" \
+        "[✅](#{@test_stack[:file]}\#L#{@test_stack[:line]})" \
+        '</span>'
       elsif available_stack?
-        '❌'
+        '<span title="Not tested for Stack">❌</span>'
       else
         '<span title="Not Applicable">N/A</span>'
       end
@@ -83,9 +85,11 @@ module Elastic
 
     def display_tested_serverless
       if @test_serverless && @test_serverless[:file]
-        "[✅](#{@test_serverless[:file]}\#L#{@test_serverless[:line]})</li></ul>"
+        "<span title='Tested for Serverless in #{@test_stack[:file]}'>" \
+        "[✅](#{@test_serverless[:file]}\#L#{@test_serverless[:line]})" \
+        '</span>'
       elsif available_serverless?
-        '❌'
+        '<span title="Not tested for Serverless">❌</span>'
       else
         '<span title="Not Applicable">N/A</span>'
       end
@@ -93,12 +97,12 @@ module Elastic
 
     def display_tested_elasticsearch
       if tested_elasticsearch?
-        '👍'
+        '<span title="Tested in Elasticsearch REST tests">👍</span>'
       elsif tested_stack? || tested_serverless?
         # If it's not tested on the Elasticsearch Suite, but it is in ours:
-        '🙌'
+        '<span title="Not Tested in Elasticsearch REST tests, but we added a test here">🙌</span>'
       else
-        '👎'
+        '<span title="Not Tested in Elasticsearch REST tests">👎</span>'
       end
     end
 
