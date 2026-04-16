@@ -1,6 +1,6 @@
 # Elasticsearch Clients Tests
 
-📊 [Test coverage **main**](https://github.com/elastic/elasticsearch-clients-tests/blob/main/apis_report.md#elasticsearch-tests-report) | 📊 [Test coverage **9.x**](https://github.com/elastic/elasticsearch-clients-tests/blob/9.x/apis_report.md#elasticsearch-tests-report) | 📊 [Test coverage **8.x**](https://github.com/elastic/elasticsearch-clients-tests/blob/8.x/apis_report.md#elasticsearch-tests-report)
+📊 [API report **main**](https://github.com/elastic/elasticsearch-clients-tests/blob/main/apis_report.md#elasticsearch-tests-report) | 📊 [API report **9.4**](https://github.com/elastic/elasticsearch-clients-tests/blob/9.4/apis_report.md#elasticsearch-tests-report) | 📊 [API report **8.19**](https://github.com/elastic/elasticsearch-clients-tests/blob/8.19/apis_report.md)
 
 This repository holds common tests for Elasticsearch Clients. The tests are specified using the Elasticsearch YAML format reported [here](https://github.com/elastic/elasticsearch/blob/main/rest-api-spec/src/yamlRestTest/resources/rest-api-spec/test/README.asciidoc).
 
