@@ -137,14 +137,22 @@ module Elastic
       @endpoints.map do |endpoint|
         next if endpoint.serverless_only? && !report_serverless?
 
-        row = "| #{endpoint.name} | #{endpoint.available_stack? ? '🟢' : '🔴'} " \
+        row = "| #{endpoint.name} | #{availability_icon(available: endpoint.available_stack?)} " \
         "| #{endpoint.display_tested_stack} | #{endpoint.display_tested_elasticsearch}" \
         "| #{endpoint.display_feature_flag}"
-        row << "| #{endpoint.available_serverless? ? '🟢' : '🔴'} " \
+        row << "| #{availability_icon(available: endpoint.available_serverless?, stack: 'Serverless')} " \
                "| #{endpoint.display_tested_serverless}" if report_serverless?
         table << row
       end
       table.join("\n")
+    end
+
+    def availability_icon(stack: 'Stack', available: true)
+      if available
+        "<span title='Available in #{stack}'>🟢</span>"
+      else
+        "<span title='Not available in #{stack}'>🔴</span>"
+      end
     end
 
     def namespaces_stack
