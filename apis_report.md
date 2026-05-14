@@ -61,10 +61,10 @@ Endpoints that are currently being tested are marked as done and link to the tes
 | clear_scroll | 🟢 | [✅](./tests/scroll/10_basic.yml#L29)</li></ul> | 👍| 
 | close_point_in_time | 🟢 | [✅](./tests/point_in_time/10_basic.yml#L30)</li></ul> | 👍| 
 | cluster.allocation_explain | 🟢 | [✅](./tests/cluster/allocation_explain.yml#L18)</li></ul> | 👍| 
-| cluster.delete_component_template | 🟢 | [✅](./tests/cluster/component_templates.yml#L29)</li></ul> | 👍| 
+| cluster.delete_component_template | 🟢 | [✅](./tests/cluster/component_templates.yml#L28)</li></ul> | 👍| 
 | cluster.delete_voting_config_exclusions | 🟢 | [✅](./tests/cluster/delete_voting_config_exclusions.yml#L8)</li></ul> | 👍| 
 | cluster.exists_component_template | 🟢 | [✅](./tests/cluster/component_templates.yml#L19)</li></ul> | 🙌| 
-| cluster.get_component_template | 🟢 | [✅](./tests/cluster/component_templates.yml#L24)</li></ul> | 👍| 
+| cluster.get_component_template | 🟢 | [✅](./tests/cluster/component_templates.yml#L23)</li></ul> | 👍| 
 | cluster.get_settings | 🟢 | [✅](./tests/cluster/get_settings.yml#L8)</li></ul> | 👍| 
 | cluster.health | 🟢 | [✅](./tests/cluster/health.yml#L8)</li></ul> | 👍| 
 | cluster.info | 🟢 | [✅](./tests/cluster/cluster_info.yml#L8)</li></ul> | 👍| 
@@ -292,8 +292,8 @@ Endpoints that are currently being tested are marked as done and link to the tes
 | license.post_start_basic | 🟢 | [✅](./tests/license/10_stack.yml#L47)</li></ul> | 👍| 
 | license.post_start_trial | 🟢 | [✅](./tests/license/10_stack.yml#L57)</li></ul> | 👍| 
 | list_reindex | 🟢 | ❌ | 👎| <span title='Feature flag: reindex_management_api'>🚩</span>
-| logstash.delete_pipeline | 🟢 | [✅](./tests/logstash/10_basic.yml#L30)</li></ul> | 🙌| 
-| logstash.get_pipeline | 🟢 | [✅](./tests/logstash/10_basic.yml#L26)</li></ul> | 🙌| 
+| logstash.delete_pipeline | 🟢 | [✅](./tests/logstash/10_basic.yml#L29)</li></ul> | 🙌| 
+| logstash.get_pipeline | 🟢 | [✅](./tests/logstash/10_basic.yml#L25)</li></ul> | 🙌| 
 | logstash.put_pipeline | 🟢 | [✅](./tests/logstash/10_basic.yml#L8)</li></ul> | 🙌| 
 | mget | 🟢 | [✅](./tests/mget.yml#L24)</li></ul> | 👍| 
 | migration.deprecations | 🟢 | [✅](./tests/migration/10_basic.yml#L13)</li></ul> | 👍| 
