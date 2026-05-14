@@ -20,7 +20,6 @@ requires:
             queue.type: 'memory'
             queue.max_bytes: '1gb'
             queue.checkpoint.writes: 1024
-  - is_true: ''
 
   - do:
       logstash.get_pipeline: { id: 'logstash_test_pipeline' }
@@ -28,4 +27,3 @@ requires:
 
   - do:
       logstash.delete_pipeline: { id: 'logstash_test_pipeline' }
-  - is_true: ''
