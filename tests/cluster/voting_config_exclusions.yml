@@ -3,8 +3,16 @@ requires:
   serverless: false
   stack: true
 ---
-'cluster.post_voting_config_exclusions':
+teardown:
+  - do:
+      cluster.delete_voting_config_exclusions: {}
+---
+'cluster voting_config_exclusions':
   - do:
       cluster.post_voting_config_exclusions:
-        node_ids: "*"
-  - is_true: $body
+        node_ids: nodeId1,nodeId2
+  - do:
+      cluster.state: {}
+  - length: { metadata.cluster_coordination.voting_config_exclusions: 2 }
+  - contains : { metadata.cluster_coordination.voting_config_exclusions: {node_id: "nodeId1", node_name: "_absent_"} }
+  - contains : { metadata.cluster_coordination.voting_config_exclusions: {node_id: "nodeId2", node_name: "_absent_"} }
