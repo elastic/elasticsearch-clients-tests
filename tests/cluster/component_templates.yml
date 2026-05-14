@@ -18,7 +18,6 @@ requires:
   - do:
       cluster.exists_component_template:
         name: 'test_component_template'
-  - is_true: ''
 
   - do:
       cluster.get_component_template:

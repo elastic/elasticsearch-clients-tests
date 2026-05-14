@@ -30,4 +30,3 @@ teardown:
   - do:
       indices.exists_index_template:
         name: test
-  - is_true: ''

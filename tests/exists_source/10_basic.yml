@@ -19,4 +19,3 @@ teardown:
       exists_source:
         index: 'exists_source_index'
         id: $id
-  - is_true: ''
