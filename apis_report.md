@@ -62,14 +62,14 @@ Endpoints that are currently being tested are marked as done and link to the tes
 | close_point_in_time | 🟢 | [✅](./tests/point_in_time/10_basic.yml#L30)</li></ul> | 👍| 
 | cluster.allocation_explain | 🟢 | [✅](./tests/cluster/allocation_explain.yml#L18)</li></ul> | 👍| 
 | cluster.delete_component_template | 🟢 | [✅](./tests/cluster/component_templates.yml#L28)</li></ul> | 👍| 
-| cluster.delete_voting_config_exclusions | 🟢 | [✅](./tests/cluster/delete_voting_config_exclusions.yml#L8)</li></ul> | 👍| 
+| cluster.delete_voting_config_exclusions | 🟢 | [✅](./tests/cluster/voting_config_exclusions.yml#L8)</li></ul> | 👍| 
 | cluster.exists_component_template | 🟢 | [✅](./tests/cluster/component_templates.yml#L19)</li></ul> | 🙌| 
 | cluster.get_component_template | 🟢 | [✅](./tests/cluster/component_templates.yml#L23)</li></ul> | 👍| 
 | cluster.get_settings | 🟢 | [✅](./tests/cluster/get_settings.yml#L8)</li></ul> | 👍| 
 | cluster.health | 🟢 | [✅](./tests/cluster/health.yml#L8)</li></ul> | 👍| 
 | cluster.info | 🟢 | [✅](./tests/cluster/cluster_info.yml#L8)</li></ul> | 👍| 
 | cluster.pending_tasks | 🟢 | [✅](./tests/cluster/pending_tasks.yml#L8)</li></ul> | 👍| 
-| cluster.post_voting_config_exclusions | 🟢 | [✅](./tests/cluster/voting_config_exclusions.yml#L8)</li></ul> | 👍| 
+| cluster.post_voting_config_exclusions | 🟢 | [✅](./tests/cluster/voting_config_exclusions.yml#L12)</li></ul> | 👍| 
 | cluster.put_component_template | 🟢 | [✅](./tests/cluster/component_templates.yml#L8)</li></ul> | 👍| 
 | cluster.put_settings | 🟢 | [✅](./tests/cluster/put_settings.yml#L8)</li></ul> | 👍| 
 | cluster.remote_info | 🟢 | [✅](./tests/cluster/remote_info.yml#L8)</li></ul> | 👍| 
