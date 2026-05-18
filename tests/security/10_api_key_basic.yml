@@ -31,4 +31,4 @@ requires:
 
   - do:
       security.invalidate_api_key: { body: { ids: [$id] } }
-  - match: { invalidated_api_keys: $id }
+  - match: { invalidated_api_keys: [$id] }
