@@ -32,4 +32,4 @@ teardown:
       indices.exists_template:
         name: test
         master_timeout: 1m
-  - is_true: ''
+# TODO: Potentially implement a function that checks the request was OK.

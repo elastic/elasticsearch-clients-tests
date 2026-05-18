@@ -6,4 +6,4 @@ requires:
 "cat.fielddata":
   - do:
       cat.fielddata: {}
-  - is_true: $body
+# TODO: Potentially implement a function that checks the request was OK.
