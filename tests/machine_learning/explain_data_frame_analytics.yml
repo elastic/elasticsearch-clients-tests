@@ -34,9 +34,9 @@ teardown:
           source: { index: "index-source" }
           analysis: { outlier_detection: {} }
   - match:
-      memory_estimation.expected_memory_without_disk: / \d[km]b /
+      memory_estimation.expected_memory_without_disk: /\d[km]b/
   - match:
-      memory_estimation.expected_memory_with_disk: / \d[km]b /
+      memory_estimation.expected_memory_with_disk: /\d[km]b/
   - length: { field_selection: 2 }
   - match: { field_selection.0.name: "x" }
   - match: { field_selection.0.mapping_types: ["float"] }
@@ -64,9 +64,9 @@ teardown:
           source: { index: "index-source" }
           analysis: { outlier_detection: {} }
   - match:
-      memory_estimation.expected_memory_without_disk: / \d[km]b /
+      memory_estimation.expected_memory_without_disk: /\d[km]b/
   - match:
-      memory_estimation.expected_memory_with_disk: / \d[km]b /
+      memory_estimation.expected_memory_with_disk: /\d[km]b/
 
   - do:
       index:
@@ -81,6 +81,6 @@ teardown:
           source: { index: "index-source" }
           analysis: { outlier_detection: {} }
   - match:
-      memory_estimation.expected_memory_without_disk: / \d[km]b /
+      memory_estimation.expected_memory_without_disk: /\d[km]b/
   - match:
-      memory_estimation.expected_memory_with_disk: / \d[km]b /
+      memory_estimation.expected_memory_with_disk: /\d[km]b/
