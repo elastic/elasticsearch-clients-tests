@@ -37,4 +37,4 @@ teardown:
         y: 0
         zoom: 0
         body:
-  - is_true: ''
+  - is_true: $body
