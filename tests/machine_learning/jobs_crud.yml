@@ -72,6 +72,10 @@ teardown:
   - is_true: closed
 
   - do:
+      cluster.health:
+        wait_for_status: yellow
+
+  - do:
       ml.update_job:
         job_id: "job-crud-test-apis"
         body:  >
