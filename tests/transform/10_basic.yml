@@ -8,13 +8,21 @@ setup:
       indices.create: { index: 'transforms_test' }
   - do:
       bulk:
+        refresh: true
+        index: 'transforms_test'
         body:
-          - { index: { _index: 'transforms_test', _id: '1', data: { name: 'Africa', pop: 17.6} } }
-          - { index: { _index: 'transforms_test', _id: '2', data: { name: 'America', pop: 13 } } }
-          - { index: { _index: 'transforms_test', _id: '3', data: { name: 'Antarctica', pop: 0} } }
-          - { index: { _index: 'transforms_test', _id: '4', data: { name: 'Asia', pop: 59.4} } }
-          - { index: { _index: 'transforms_test', _id: '5', data: { name: 'Oceania', pop: 0.6} } }
-          - { index: { _index: 'transforms_test', _id: '6', data: { name: 'Europe', pop: 9.4} } }
+          - { index: { _index: 'transforms_test', _id: '1' } }
+          - { name: 'Africa', pop: 17.6 }
+          - { index: { _index: 'transforms_test', _id: '2' } }
+          - { name: 'America', pop: 13 }
+          - { index: { _index: 'transforms_test', _id: '3' } }
+          - { name: 'Antarctica', pop: 0 }
+          - { index: { _index: 'transforms_test', _id: '4' } }
+          - { name: 'Asia', pop: 59.4 }
+          - { index: { _index: 'transforms_test', _id: '5' } }
+          - { name: 'Oceania', pop: 0.6 }
+          - { index: { _index: 'transforms_test', _id: '6' } }
+          - { name: 'Europe', pop: 9.4 }
 ---
 teardown:
   - do:
