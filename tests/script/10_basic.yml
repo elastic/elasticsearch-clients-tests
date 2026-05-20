@@ -36,8 +36,8 @@ teardown:
       scripts_painless_execute:
         body:
           script:
-            source: "params.count / params.total"
+            source: "(double)params.count / params.total"
             params:
-              count: 100.0
-              total: 1000.0
+              count: 100
+              total: 1000
   - match: { result: '0.1' }
