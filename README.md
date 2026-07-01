@@ -10,7 +10,7 @@ All the tests are located in the [tests](tests) folder. Each API endpoint has a 
 
 ### `requires`
 
-This section should define if a test is available for the stack client, serverless client or both with the following format:
+This section should define if a test is available for Stack, Serverless or both with the following format:
 ```yaml
 ---
 requires:
@@ -18,9 +18,9 @@ requires:
   stack: true
 ```
 
-This helps us differentiate tests for a particular client and define tests in common for both.
+This helps us differentiate tests for a particular client or testing suite, and define tests in common for both.
 
-It may also have the `feature_flag` key for cases where an endpoint is behind a feature flag. Clients are not required to test these APIs, so the tests can be skipped. E.g.:
+A test may also have the `feature_flag` key for cases where an endpoint is behind a feature flag. Clients are not required to test these APIs, so the tests can be skipped. E.g.:
 
 ```yaml
 ---
@@ -38,17 +38,22 @@ Cleanup is declared in a `teardown` section. This list of commands will run afte
 
 ## APIs Report
 
-[This report](https://github.com/elastic/elasticsearch-clients-tests/blob/main/apis_report.md) contains information from each specification:
+[This report](https://github.com/elastic/elasticsearch-clients-tests/blob/main/apis_report.md) sources information from our API specifications. It shows information on every API and makes it easier to follow API changes and our test coverage in this project for Serverless and Stack APIs. The report is automatically generated when code is pushed in a [GitHub Action](https://github.com/elastic/elasticsearch-clients-tests/blob/main/.github/workflows/report.yml). It also runs on a schedule, every Monday morning and can be triggered manually. The source code for the report is in the [./report/](./report) directory.
+
+Sources:
 - [Elasticsearch REST API JSON specification](https://github.com/elastic/elasticsearch/tree/main/rest-api-spec)
 - [Elasticsearch API Specification](https://github.com/elastic/elasticsearch-specification/)
 
-It also contains information on test coverage in this project for Serverless and Stack APIs. The report is automatically generated when code is pushed in a [GitHub Action](https://github.com/elastic/elasticsearch-clients-tests/blob/main/.github/workflows/report.yml). It can also be triggered manually. The source code for the report is in the [./report/](./report) directory.
+Check out [the README](./report/README.md) for more information.
+
+## Interactive API console
 
 You can examine the data with an interactive Ruby console by checking out the code and running:
 
 ```bash
 $ cd report
-$ rake console
+$ bundle install
+$ bundle exec rake console
 irb -r rubygems -I lib -r ./console.rb
 ⏳ Reading and parsing specifications...
 📜 Data loaded successfully. You can use the data via the `@reporter` object.
