@@ -3,8 +3,8 @@
 Endpoints that are currently being tested are marked as done and link to the test where they're being used.
 
 > [!IMPORTANT]
-> * **STACK**: 549 **👍 Tested**: 463  **👎 Untested**: 86 ![](https://geps.dev/progress/84)
-> * **SERVERLESS**: 299 **👍 Tested**: 246 **👎 Untested**: 53 ![](https://geps.dev/progress/82)
+> * **STACK**: 549 **👍 Tested**: 464  **👎 Untested**: 85 ![](https://geps.dev/progress/84)
+> * **SERVERLESS**: 299 **👍 Tested**: 247 **👎 Untested**: 52 ![](https://geps.dev/progress/82)
 > * [Internal APIs](#internal-apis-not-tracked)
 > * [API information from the Elasticsearch JSON specification](#elasticsearch-json-specification)
 
@@ -235,10 +235,10 @@ Endpoints that are currently being tested are marked as done and link to the tes
 | indices.validate_query | <span title='Available in Stack'>🟢</span> | <span title='Tested for Stack in ./tests/validate_query/10_basic.yml'>[✅](./tests/validate_query/10_basic.yml#L16)</span> | <span title="Tested in Elasticsearch REST tests">👍</span>| | <span title='Available in Serverless'>🟢</span> | <span title='Tested for Serverless in ./tests/validate_query/10_basic.yml'>[✅](./tests/validate_query/10_basic.yml#L16)</span>
 | inference.chat_completion_unified | <span title='Available in Stack'>🟢</span> | <span title="Not tested for Stack">❌</span> | <span title="Not Tested in Elasticsearch REST tests">👎</span>| | <span title='Available in Serverless'>🟢</span> | <span title="Not tested for Serverless">❌</span>
 | inference.completion | <span title='Available in Stack'>🟢</span> | <span title="Not tested for Stack">❌</span> | <span title="Not Tested in Elasticsearch REST tests">👎</span>| | <span title='Available in Serverless'>🟢</span> | <span title="Not tested for Serverless">❌</span>
-| inference.delete | <span title='Available in Stack'>🟢</span> | <span title='Tested for Stack in ./tests/inference/10_basic.yml'>[✅](./tests/inference/10_basic.yml#L31)</span> | <span title="Tested in Elasticsearch REST tests">👍</span>| | <span title='Available in Serverless'>🟢</span> | <span title='Tested for Serverless in ./tests/inference/10_basic.yml'>[✅](./tests/inference/10_basic.yml#L31)</span>
+| inference.delete | <span title='Available in Stack'>🟢</span> | <span title='Tested for Stack in ./tests/inference/10_basic.yml'>[✅](./tests/inference/10_basic.yml#L38)</span> | <span title="Tested in Elasticsearch REST tests">👍</span>| | <span title='Available in Serverless'>🟢</span> | <span title='Tested for Serverless in ./tests/inference/10_basic.yml'>[✅](./tests/inference/10_basic.yml#L38)</span>
 | inference.embedding | <span title='Available in Stack'>🟢</span> | <span title="Not tested for Stack">❌</span> | <span title="Not Tested in Elasticsearch REST tests">👎</span>| | <span title='Available in Serverless'>🟢</span> | <span title="Not tested for Serverless">❌</span>
 | inference.get | <span title='Available in Stack'>🟢</span> | <span title='Tested for Stack in ./tests/inference/10_basic.yml'>[✅](./tests/inference/10_basic.yml#L25)</span> | <span title="Tested in Elasticsearch REST tests">👍</span>| | <span title='Available in Serverless'>🟢</span> | <span title='Tested for Serverless in ./tests/inference/10_basic.yml'>[✅](./tests/inference/10_basic.yml#L25)</span>
-| inference.inference | <span title='Available in Stack'>🟢</span> | <span title="Not tested for Stack">❌</span> | <span title="Tested in Elasticsearch REST tests">👍</span>| | <span title='Available in Serverless'>🟢</span> | <span title="Not tested for Serverless">❌</span>
+| inference.inference | <span title='Available in Stack'>🟢</span> | <span title='Tested for Stack in ./tests/inference/10_basic.yml'>[✅](./tests/inference/10_basic.yml#L31)</span> | <span title="Not Tested in Elasticsearch REST tests, but we added a test here">🙌</span>| | <span title='Available in Serverless'>🟢</span> | <span title='Tested for Serverless in ./tests/inference/10_basic.yml'>[✅](./tests/inference/10_basic.yml#L31)</span>
 | inference.put | <span title='Available in Stack'>🟢</span> | <span title='Tested for Stack in ./tests/inference/10_basic.yml'>[✅](./tests/inference/10_basic.yml#L8)</span> | <span title="Tested in Elasticsearch REST tests">👍</span>| | <span title='Available in Serverless'>🟢</span> | <span title='Tested for Serverless in ./tests/inference/10_basic.yml'>[✅](./tests/inference/10_basic.yml#L8)</span>
 | inference.put_ai21 | <span title='Available in Stack'>🟢</span> | <span title="Not tested for Stack">❌</span> | <span title="Not Tested in Elasticsearch REST tests">👎</span>| | <span title='Available in Serverless'>🟢</span> | <span title="Not tested for Serverless">❌</span>
 | inference.put_alibabacloud | <span title='Available in Stack'>🟢</span> | <span title="Not tested for Stack">❌</span> | <span title="Not Tested in Elasticsearch REST tests">👎</span>| | <span title='Available in Serverless'>🟢</span> | <span title="Not tested for Serverless">❌</span>
@@ -612,7 +612,7 @@ Endpoints that are currently being tested are marked as done and link to the tes
 
 ## Elasticsearch JSON specification
 
-**Total** 552 | **Tested** 427 | **Untested** 125 ![](https://geps.dev/progress/77)
+**Total** 552 | **Tested** 426 | **Untested** 126 ![](https://geps.dev/progress/77)
 
 <details>
   <summary id="apis-in-json-spec-and-not-elasticsearch-specification">APIs in JSON spec and not elasticsearch-specification (excluding internal APIs)</summary>
