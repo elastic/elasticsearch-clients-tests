@@ -44,6 +44,7 @@ teardown:
         format: 'json'
         body:
           keep_alive: '1d'
+          keep_on_completion: true
           wait_for_completion_timeout: '0s'
           query: 'SELECT * FROM sql_test ORDER BY name'
           fetch_size: 1
